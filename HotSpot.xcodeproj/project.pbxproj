@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		2E20AF0B041166B2C6B8CCA9 /* Pods_HotSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */; };
 		612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8D522DE6A0B00112AF2 /* AppDelegate.m */; };
 		612FE8D922DE6A0B00112AF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8D822DE6A0B00112AF2 /* ViewController.m */; };
-		612FE8DC22DE6A0B00112AF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE8DA22DE6A0B00112AF2 /* Main.storyboard */; };
 		612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */; };
 		612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */; };
 		612FE8E422DE6A0D00112AF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8E322DE6A0D00112AF2 /* main.m */; };
@@ -47,7 +46,6 @@
 		612FE8D522DE6A0B00112AF2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		612FE8D722DE6A0B00112AF2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		612FE8D822DE6A0B00112AF2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		612FE8DB22DE6A0B00112AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		612FE8E022DE6A0D00112AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		612FE8E222DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				32CFB9A7930248B3AAE2E9D2 /* Pods-HotSpotUITests.debug.xcconfig */,
 				043F1AB701521A52163B3E93 /* Pods-HotSpotUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,7 +133,6 @@
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				612FE8D722DE6A0B00112AF2 /* ViewController.h */,
 				612FE8D822DE6A0B00112AF2 /* ViewController.m */,
-				612FE8DA22DE6A0B00112AF2 /* Main.storyboard */,
 				612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */,
 				612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */,
 				612FE8E222DE6A0D00112AF2 /* Info.plist */,
@@ -282,7 +278,6 @@
 			files = (
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
-				612FE8DC22DE6A0B00112AF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,14 +426,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		612FE8DA22DE6A0B00112AF2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				612FE8DB22DE6A0B00112AF2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
