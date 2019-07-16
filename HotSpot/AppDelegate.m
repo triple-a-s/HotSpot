@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Parse/Parse.h"
+#import "DataManager.h"
 
 @interface AppDelegate ()
 
@@ -18,13 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
-    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-        
-        configuration.applicationId = @"myAppId";
-        configuration.server = @"http://hotspot2017.herokuapp.com/parse";
-    }];
-    
-    [Parse initializeWithConfiguration:config];
+    [DataManager configureParse];
     
     return YES;
 }
