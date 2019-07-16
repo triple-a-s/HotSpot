@@ -11,6 +11,8 @@
 
 @implementation DataManager
 
+# pragma mark - Class Methods
+
 + (void)configureParse {
     
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
