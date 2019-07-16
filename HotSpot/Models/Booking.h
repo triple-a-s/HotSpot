@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Booking : PFObject
+@property (nonatomic, strong) PFUser *driver;
+@property (nonatomic, strong) PFUser *homeowner;
+
++ (void)bookDriveway:(PFUser * _Nullable)homeowner
+      withCompletion:(PFBooleanResultBlock  _Nullable)completion;
 
 @end
 
