@@ -16,7 +16,10 @@
 		612FE8E422DE6A0D00112AF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8E322DE6A0D00112AF2 /* main.m */; };
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
-		612FE90722DE7B8900112AF2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE90622DE7B8900112AF2 /* Search.storyboard */; };
+		612FE90922DE801A00112AF2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE90822DE801A00112AF2 /* Search.storyboard */; };
+		612FE90C22DE8E0700112AF2 /* TableSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */; };
+		612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90E22DE8E6E00112AF2 /* SearchCell.m */; };
+		612FE91222DE95FE00112AF2 /* MapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* MapSearchViewController.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +60,13 @@
 		612FE8F422DE6A0D00112AF2 /* HotSpotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotSpotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotSpotUITests.m; sourceTree = "<group>"; };
 		612FE8FA22DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		612FE90622DE7B8900112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		612FE90822DE801A00112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		612FE90A22DE8E0700112AF2 /* TableSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableSearchViewController.h; sourceTree = "<group>"; };
+		612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableSearchViewController.m; sourceTree = "<group>"; };
+		612FE90D22DE8E6E00112AF2 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		612FE90E22DE8E6E00112AF2 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		612FE91022DE95FE00112AF2 /* MapSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
+		612FE91122DE95FE00112AF2 /* MapSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSearchViewController.m; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
 		AE0E2DC664BBC0080BDDB3AD /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +141,13 @@
 			isa = PBXGroup;
 			children = (
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
-				612FE90622DE7B8900112AF2 /* Search.storyboard */,
+				612FE90822DE801A00112AF2 /* Search.storyboard */,
+				612FE91022DE95FE00112AF2 /* MapSearchViewController.h */,
+				612FE91122DE95FE00112AF2 /* MapSearchViewController.m */,
+				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
+				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
+				612FE90A22DE8E0700112AF2 /* TableSearchViewController.h */,
+				612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				612FE8D722DE6A0B00112AF2 /* ViewController.h */,
 				612FE8D822DE6A0B00112AF2 /* ViewController.m */,
@@ -280,8 +295,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
-				612FE90722DE7B8900112AF2 /* Search.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
+				612FE90922DE801A00112AF2 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,8 +408,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				612FE8D922DE6A0B00112AF2 /* ViewController.m in Sources */,
+				612FE91222DE95FE00112AF2 /* MapSearchViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
+				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				612FE90C22DE8E0700112AF2 /* TableSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
