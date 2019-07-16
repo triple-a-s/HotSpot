@@ -6,11 +6,12 @@ target 'HotSpot' do
   use_frameworks!
 
   # Pods for HotSpot
+    pod 'Parse'
 
   target 'HotSpotTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Parse'
+
   end
 
   target 'HotSpotUITests' do
