@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Parse/Parse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataManager : NSObject
 + (void)configureParse;
++ (void)getHomeownersWithCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END
