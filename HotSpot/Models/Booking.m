@@ -25,11 +25,34 @@
 
 + (void)bookDriveway:(PFUser * _Nullable)homeowner
       withCompletion:(PFBooleanResultBlock  _Nullable)completion {
+    PFUser *user = [PFUser currentUser];
     
     Booking *newBooking = [Booking new];
-    newBooking.driver = [PFUser currentUser];
+    newBooking.driver = user;
     newBooking.homeowner = homeowner;
     
-    [newBooking saveInBackgroundWithBlock: completion];
+    // Add a relation between the Post and Comment
+    PFRelation *relation = [user relationForKey:@"bookings"];
+    
+    [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            [relation addObject:newBooking];
+            [user saveInBackgroundWithBlock:nil];
+        }
+        else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
+
++ (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
+    
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"createdAt"];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:block];
+}
+
 @end

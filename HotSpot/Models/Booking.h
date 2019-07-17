@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)bookDriveway:(PFUser * _Nullable)homeowner
       withCompletion:(PFBooleanResultBlock  _Nullable)completion;
 
++ (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

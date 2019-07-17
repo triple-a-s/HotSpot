@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DataManager.h"
+#import "Booking.h"
 
 @interface AppDelegate ()
 
@@ -15,6 +16,7 @@
 
 @implementation AppDelegate
 
+PFUser *homeowner;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
@@ -22,7 +24,28 @@
     
     [DataManager getHomeownersWithCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
         NSLog(@"%@", homeowners);
+        homeowner = homeowners[0];
     }];
+    
+    // Fake a login
+    
+    NSString *username = @"user1";
+    NSString *password = @"password";
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            // success
+        }
+    }];
+    
+    [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        NSLog(@"%@", bookings);
+    }];
+    
+//    [Booking bookDriveway:homeowner
+//           withCompletion:nil];
     
     
     // Fake some data for the homeowners
