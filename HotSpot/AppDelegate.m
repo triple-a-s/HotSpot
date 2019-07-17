@@ -24,6 +24,44 @@
         NSLog(@"%@", homeowners);
     }];
     
+    
+    // Fake some data for the homeowners
+    
+//    // initialize a user object
+//    PFUser *newHomeowner = [PFUser user];
+//
+//    // set user properties
+//    newHomeowner.username = @"homeowner1";
+//    newHomeowner.password = @"password";
+//    newHomeowner[@"address"] = @"1 hacker way";
+//
+//    // call sign up function on the object
+//    [newHomeowner signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+//        if (error != nil) {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//        } else {
+//            // all good
+//        }
+//    }];
+    
+    // Fake some data for the users
+    
+//    // initialize a user object
+//    PFUser *newUser = [PFUser user];
+//
+//    // set user properties
+//    newUser.username = @"user1";
+//    newUser.password = @"password";
+//
+//    // call sign up function on the object
+//    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+//        if (error != nil) {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//        } else {
+//            // all good
+//        }
+//    }];
+    
     return YES;
 }
 

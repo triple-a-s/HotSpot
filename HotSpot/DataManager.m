@@ -28,10 +28,9 @@
 + (void)getHomeownersWithCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion {
     
     PFQuery *query = [PFUser query];
-    [query whereKeyExists:@"homeowner"];
+    [query whereKeyExists:@"address"]; // only homeowners have addresses
     
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
 }
-
 @end
