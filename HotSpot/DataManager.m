@@ -31,7 +31,6 @@
                    withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
     
     PFQuery *query = [Listing query];
-    [query whereKey:@"homeowner" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"address" nearGeoPoint:point withinKilometers:2]; // number of kilometers empirically set, for now
     
     // fetch data for home timeline posts asynchronously
