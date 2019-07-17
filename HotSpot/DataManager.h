@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
+#import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataManager : NSObject
 + (void)configureParse;
-+ (void)getHomeownersNearLocation:(PFGeoPoint *)point
-                   withCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion;
++ (void)getListingsNearLocation:(PFGeoPoint *)point
+                 withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
 @end
 
 NS_ASSUME_NONNULL_END

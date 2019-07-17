@@ -9,6 +9,7 @@
 #import "DataManager.h"
 
 #import "Parse/Parse.h"
+#import "Listing.h"
 
 @implementation DataManager
 
@@ -26,10 +27,10 @@
     
 }
 
-+ (void)getHomeownersNearLocation:(PFGeoPoint *)point
-                   withCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion{
++ (void)getListingsNearLocation:(PFGeoPoint *)point
+                   withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
     
-    PFQuery *query = [PFUser query];
+    PFQuery *query = [Listing query];
     [query whereKey:@"homeowner" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"address" nearGeoPoint:point withinKilometers:2]; // number of kilometers empirically set, for now
     
