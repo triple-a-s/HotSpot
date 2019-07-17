@@ -17,28 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-#pragma mark - Helper Methods
-
+//registers a user, throws up an alert with an "empty" error message if one of the fields is empty.
+//if there's a different error, it throws up an alert with the specific error description
 - (void)registerUser {
     PFUser *newUser = [PFUser user];
     
     newUser.username = self.username.text;
     newUser.password = self.password.text;
+    
+    //will be initialized once changes in app delegate are pulled
     //newUser.fullName = self.fullName.text;
     //newUser.licensePlate = self.licensePlate.text;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle cancel response here. Doing nothing will dismiss the view.
-                                                         }];
-    // add the cancel action to the alertController
-    [alert addAction:cancelAction];
-    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
+                                                                   message:@"" preferredStyle:UIAlertControllerStyleAlert];
+
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
@@ -49,29 +44,32 @@
     [alert addAction:okAction];
     
     if ([self.username.text isEqual:(@"")] || [self.password.text isEqual:(@"")]) {
-        alert.message = @"Your username or password is empty";
+        alert.message = @"One or more of your fields is empty";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
             } else {
-                NSLog(@"User registered successfully");
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
         }];
     }
 }
 
+//when the user taps the view, to dismiss the keyboard
 - (IBAction)onViewTap:(UITapGestureRecognizer *)sender {
     [self.view endEditing:(YES)];
 }
 
+//dismisses the sign in view controller if the user already has an account
 - (IBAction)didTapSignIn:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (IBAction)didTapCreateAccount:(UIButton *)sender {
     [self registerUser];

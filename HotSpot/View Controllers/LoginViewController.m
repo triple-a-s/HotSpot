@@ -18,26 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-#pragma mark - Helper Methods
-
-//logs in the user, throws up errors if one of the fields is empty,
-//or if there's an error during login
+//logs in a user, throws up an alert with an "empty" error message if one of the fields is empty.
+//if there's a different error, it throws up an alert with the specific error description
 - (void)loginUser {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Login Error" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle cancel response here. Doing nothing will dismiss the view.
-                                                         }];
-    // add the cancel action to the alertController
-    [alert addAction:cancelAction];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Login Error"
+                                                                   message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
@@ -50,15 +40,17 @@
     
     if ([self.username.text isEqual:@""] || [self.password.text isEqual:@""]) {
         alert.message = @"Your username or password is empty";
+        
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
             if (error != nil) {
-                NSLog(@"User log in failed: %@", error.localizedDescription);
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
             } else {
-                NSLog(@"User logged in successfully");
+                //when the appdelegate is pulled from github...
                 //[self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
