@@ -31,7 +31,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-1o-A3J">
-                                <rect key="frame" x="100.5" y="390" width="213" height="41"/>
+                                <rect key="frame" x="100.5" y="380" width="213" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Create Your Account"/>
                                 <connections>
@@ -75,7 +75,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Bbx-lk-gN1" firstAttribute="leading" secondItem="c0o-eY-b95" secondAttribute="leading" id="0yg-Ts-Jej"/>
-                            <constraint firstItem="fgl-1o-A3J" firstAttribute="top" secondItem="c0o-eY-b95" secondAttribute="bottom" constant="30" id="25L-Lu-Ihz"/>
+                            <constraint firstItem="fgl-1o-A3J" firstAttribute="top" secondItem="c0o-eY-b95" secondAttribute="bottom" constant="20" id="25L-Lu-Ihz"/>
                             <constraint firstItem="c0o-eY-b95" firstAttribute="trailing" secondItem="0r5-RF-RvZ" secondAttribute="trailing" id="7As-gO-0pQ"/>
                             <constraint firstItem="sVU-tU-HeI" firstAttribute="top" secondItem="LsN-t3-uJK" secondAttribute="bottom" constant="10" id="96J-cn-Gnf"/>
                             <constraint firstItem="LsN-t3-uJK" firstAttribute="top" secondItem="O2L-sw-t7A" secondAttribute="bottom" constant="30" id="Av4-7R-uQM"/>
