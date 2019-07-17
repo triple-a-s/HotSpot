@@ -17,9 +17,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.searchTableAddress sizeToFit];
-    [self.searchTableMilesAway sizeToFit];
-    [self.searchTablePrice sizeToFit]; 
+
     
     
 }
