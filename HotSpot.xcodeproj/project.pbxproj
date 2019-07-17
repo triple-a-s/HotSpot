@@ -18,7 +18,7 @@
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
 		612FE90922DE801A00112AF2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE90822DE801A00112AF2 /* Search.storyboard */; };
 		612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90E22DE8E6E00112AF2 /* SearchCell.m */; };
-		612FE91222DE95FE00112AF2 /* MapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* MapSearchViewController.m */; };
+		612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */; };
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
@@ -67,8 +67,8 @@
 		612FE90822DE801A00112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		612FE90D22DE8E6E00112AF2 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		612FE90E22DE8E6E00112AF2 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
-		612FE91022DE95FE00112AF2 /* MapSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
-		612FE91122DE95FE00112AF2 /* MapSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapSearchViewController.m; sourceTree = "<group>"; };
+		612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkingSearchViewController.h; sourceTree = "<group>"; };
+		612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingSearchViewController.m; sourceTree = "<group>"; };
 		612FE91322DE9A9500112AF2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
-				612FE91022DE95FE00112AF2 /* MapSearchViewController.h */,
-				612FE91122DE95FE00112AF2 /* MapSearchViewController.m */,
+				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
+				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
 				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
@@ -285,6 +285,11 @@
 				TargetAttributes = {
 					612FE8D022DE6A0B00112AF2 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					612FE8E822DE6A0D00112AF2 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -440,6 +445,7 @@
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				612FE91222DE95FE00112AF2 /* MapSearchViewController.m in Sources */,
+				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
