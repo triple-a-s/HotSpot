@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getCurrentBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
 
 + (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,7 @@
 @interface Listing()<PFSubclassing>
 @end
 @implementation Listing
+
 # pragma mark - Class Methods
 
 + (nonnull NSString *)parseClassName {
