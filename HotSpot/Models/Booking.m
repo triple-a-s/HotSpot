@@ -16,6 +16,7 @@
 
 @dynamic driver;
 @dynamic homeowner;
+@dynamic startTime;
 
 # pragma mark - Class Methods
 
@@ -30,6 +31,7 @@
     Booking *newBooking = [Booking new];
     newBooking.driver = user;
     newBooking.homeowner = homeowner;
+    newBooking.startTime = [[NSDate alloc] init]; // by default the booking time slot starts now
     
     // Add a relation between the Post and Comment
     PFRelation *relation = [user relationForKey:@"bookings"];
@@ -50,6 +52,26 @@
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"createdAt"];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:block];
+}
+
++ (void)getCurrentBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
+    PFQuery *query = relation.query;
+    [query orderByAscending:@"startTime"];
+    [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:block];
+}
+
++ (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"startTime"]; // most recent is listed first
+    [query whereKey:@"startTime" lessThanOrEqualTo:[[NSDate alloc] init]];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];

@@ -23,7 +23,7 @@ PFUser *homeowner;
     [DataManager configureParse];
     
     [DataManager getHomeownersWithCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
-        NSLog(@"%@", homeowners);
+        NSLog(@"%@ homeowners", homeowners);
         homeowner = homeowners[0];
     }];
     
@@ -41,7 +41,16 @@ PFUser *homeowner;
     }];
     
     [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-        NSLog(@"%@", bookings);
+        NSLog(@"%@ getBookingsWithBlock", bookings);
+    }];
+    
+    
+    [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        NSLog(@"%@ getPastBookingsWithBlock", bookings);
+    }];
+    
+    [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        NSLog(@"%@ getCurrentBookingsWithBlock", bookings);
     }];
     
 //    [Booking bookDriveway:homeowner
