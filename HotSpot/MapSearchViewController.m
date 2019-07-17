@@ -7,12 +7,15 @@
 //
 
 #import "MapSearchViewController.h"
-#import "MapKit.h"
+#import "MapKit/MapKit.h"
 
 @interface MapSearchViewController ()
 
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mapModeButton;
+
+- (IBAction)mapModePressed:(id)sender;
 
 
 @end
@@ -28,10 +31,16 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
 }
+
+#pragma mark - Action Items
+
+/*- (IBAction)mapModePressed:(id)sender{
+    [self performSegueWithIdentifier:<#(nonnull NSString *)#> sender:<#(nullable id)#>]
+}
+*/ 
 
 /*
 #pragma mark - Navigation
@@ -95,4 +104,6 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+- (IBAction)mapModePressed:(id)sender {
+}
 @end

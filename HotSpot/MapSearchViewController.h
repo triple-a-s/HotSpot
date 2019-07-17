@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapSearchViewController : UICollectionViewController
+@interface MapSearchViewController : UIViewController
 
 @end
 
