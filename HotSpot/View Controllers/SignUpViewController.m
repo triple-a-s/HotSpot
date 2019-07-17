@@ -54,7 +54,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self performSegueWithIdentifier:(@"signupSegue") sender:nil];
             }
         }];
     }
