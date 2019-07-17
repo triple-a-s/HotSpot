@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *tableSearchBar;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tableModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *toMapButton;
-- (IBAction)modeButtonPressed:(id)sender;
+
 - (IBAction)toMapPressed:(id)sender;
 
 @end
@@ -29,42 +29,41 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     self.searchTableView.dataSource= self;
     self.searchTableView.delegate=self;
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    
-    // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+# pragma mark - TableViewController methods
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    /*
+     This is where we are passing information into the cells.
+     For now, I have placeholder information so that when we merge
+     I can have data to load actual information into the tables.
+     */
+    
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(cell == nil){
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
+    
+    //placehodlder information
     cell.searchTableAddress.text= @"100 West Lake Jones";
     cell.searchTableMilesAway.text = @"50 miles away";
     cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+    
     return cell;
 }
 
--(NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // I return 10 for now just to see if this method is working
     return 10;
 }
+
+# pragma mark - Action Methods
 
 - (IBAction)toMapPressed:(id)sender {
     [self performSegueWithIdentifier:@"toMapMode" sender:nil];
 }
+
 @end
