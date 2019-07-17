@@ -10,6 +10,7 @@
 
 #import "Parse/Parse.h"
 #import "Listing.h"
+#import "Booking.h"
 
 @implementation DataManager
 
@@ -35,6 +36,25 @@
     
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
+}
+
++ (void)test {
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
+    
+    [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+        if(error) {
+            NSLog(@"%@ oops", error);
+        }
+    }];
+    
+    [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+    }];
+    
+    [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+    }];
+    
+    [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+    }];
 }
 
 @end

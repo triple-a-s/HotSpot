@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 
 #import "DataManager.h"
-#import "Booking.h"
-#import "Listing.h"
 
 @interface AppDelegate ()
 
@@ -36,22 +34,7 @@ PFUser *homeowner;
             // success
             
             // DataManager tests
-            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
-            
-            [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-                if(error) {
-                    NSLog(@"%@ oops", error);
-                }
-            }];
-            
-            [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-            }];
-            
-            [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-            }];
-            
-            [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-            }];
+            [DataManager test];
         }
     }];
     
