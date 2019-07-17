@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+
 #import "DataManager.h"
 #import "Booking.h"
 
@@ -23,7 +24,6 @@ PFUser *homeowner;
     [DataManager configureParse];
     
     [DataManager getHomeownersWithCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
-        NSLog(@"%@ homeowners", homeowners);
         homeowner = homeowners[0];
     }];
     
@@ -41,7 +41,6 @@ PFUser *homeowner;
     }];
     
     [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-        NSLog(@"%@ getBookingsWithBlock", bookings);
     }];
     
     
