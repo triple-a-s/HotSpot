@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *searchTableImage;
+@property (weak, nonatomic) IBOutlet UILabel *searchTableAddress;
+@property (weak, nonatomic) IBOutlet UILabel *searchTableMilesAway;
+
+@property (weak, nonatomic) IBOutlet UILabel *searchTablePrice;
+
 @end
 
 NS_ASSUME_NONNULL_END
