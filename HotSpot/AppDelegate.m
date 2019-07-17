@@ -41,7 +41,6 @@ PFUser *homeowner;
     }];
     
     [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
-        NSLog(@"%@", bookings);
     }];
     
 //    [Booking bookDriveway:homeowner
