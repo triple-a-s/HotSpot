@@ -53,6 +53,11 @@
     cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
+    //trying to resize text to work with Autolayout 
+    cell.searchTableAddress.adjustsFontSizeToFitWidth = YES;
+    cell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
+    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES; 
+    
     return cell;
 }
 
