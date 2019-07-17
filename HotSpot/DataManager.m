@@ -26,12 +26,15 @@
     
 }
 
-+ (void)getHomeownersWithCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion {
++ (void)getHomeownersNearLocation:(PFGeoPoint *)point
+                   withCompletion:(void(^)(NSArray<PFUser *> *homeowners, NSError *error))completion{
     
     PFQuery *query = [PFUser query];
     [query whereKey:@"homeowner" equalTo:[NSNumber numberWithBool:YES]];
+    [query whereKey:@"address" nearGeoPoint:point withinKilometers:2]; // number of kilometers empirically set, for now
     
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
 }
+
 @end

@@ -23,8 +23,12 @@ PFUser *homeowner;
     
     [DataManager configureParse];
     
-    [DataManager getHomeownersWithCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
-        homeowner = homeowners[0];
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
+    
+    [DataManager getHomeownersNearLocation:geoPoint withCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
+        if(error) {
+            NSLog(@"%@ oops", error);
+        }
     }];
     
     // Fake a login
