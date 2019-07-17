@@ -10,10 +10,6 @@
 
 @interface SearchCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *searchTableImage;
-@property (weak, nonatomic) IBOutlet UILabel *searchTableAddress;
-@property (weak, nonatomic) IBOutlet UILabel *searchTableMilesAway;
-@property (weak, nonatomic) IBOutlet UILabel *searchTablePrice;
 
 @end
 
