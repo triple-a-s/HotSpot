@@ -7,15 +7,16 @@
 //
 
 #import <Parse/Parse.h>
+#import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Booking : PFObject
 @property (nonatomic, strong) PFUser *driver;
-@property (nonatomic, strong) PFUser *homeowner;
+@property (nonatomic, strong) Listing *listing;
 @property (nonatomic, strong) NSDate *startTime;
 
-+ (void)bookDriveway:(PFUser * _Nullable)homeowner
++ (void)bookDriveway:(Listing * _Nullable)listing
       withCompletion:(PFBooleanResultBlock  _Nullable)completion;
 
 + (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;

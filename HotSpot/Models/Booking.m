@@ -9,6 +9,7 @@
 #import "Booking.h"
 
 #import "Parse.h"
+#import "Listing.h"
 
 @interface Booking()<PFSubclassing>
 @end
@@ -16,7 +17,7 @@
 @implementation Booking
 
 @dynamic driver;
-@dynamic homeowner;
+@dynamic listing;
 @dynamic startTime;
 
 # pragma mark - Class Methods
@@ -25,27 +26,30 @@
     return @"Booking";
 }
 
-+ (void)bookDriveway:(PFUser * _Nullable)homeowner
++ (void)bookDriveway:(Listing * _Nullable)listing
       withCompletion:(PFBooleanResultBlock  _Nullable)completion {
     PFUser *user = [PFUser currentUser];
     
     Booking *newBooking = [Booking new];
     newBooking.driver = user;
-    newBooking.homeowner = homeowner;
+    newBooking.listing = listing;
     newBooking.startTime = [[NSDate alloc] init]; // by default the booking time slot starts now
     
-    // Add a relation between the Post and Comment
     PFRelation *relation = [user relationForKey:@"bookings"];
-    
+    PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
+
     [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             [relation addObject:newBooking];
             [user saveInBackgroundWithBlock:nil];
+            [listingBookingsRelation addObject:newBooking];
+            [listing saveInBackgroundWithBlock:nil];
         }
         else {
             NSLog(@"%@", error);
         }
     }];
+    
 }
 
 + (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
