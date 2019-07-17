@@ -24,7 +24,6 @@ PFUser *homeowner;
     [DataManager configureParse];
     
     [DataManager getHomeownersWithCompletion:^(NSArray<PFUser *> * _Nonnull homeowners, NSError * _Nonnull error) {
-        NSLog(@"%@", homeowners);
         homeowner = homeowners[0];
     }];
     
