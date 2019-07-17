@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapSearchViewController : UIViewController
+@interface ParkingSearchViewController : UIViewController
 
 @end
 

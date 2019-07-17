@@ -6,11 +6,12 @@
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
-#import "MapSearchViewController.h"
+#import "ParkingSearchViewController.h"
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
+#define METERS_PER_MILE 1609.344
 
-@interface MapSearchViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
 /*
@@ -19,18 +20,25 @@
  */
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
-@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableSearchTableView;
+
 
 @end
 
-@implementation MapSearchViewController
+@implementation ParkingSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchTableView.dataSource = self;
-    self.searchTableView.delegate = self;
-    self.searchTableView.rowHeight = 134 ;
-    self.searchTableView.hidden = TRUE;
+    self.tableSearchTableView.dataSource = self;
+    self.tableSearchTableView.delegate = self;
+    self.tableSearchTableView.rowHeight = 134 ;
+    self.tableSearchTableView.hidden = YES;
+    // we will initialize the map to show the user's current location
+    // self.searchMap.showsUserLocation = YES;
+    
+    // testing using a specific latitude
+    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.484928, -122.148201), MKCoordinateSpanMake(0.1, 0.1));
+    [self.searchMap setRegion:initialRegion animated:YES];
 }
 
 # pragma mark - TableViewController methods
@@ -53,10 +61,10 @@
     cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
-    //trying to resize text to work with Autolayout 
-    cell.searchTableAddress.adjustsFontSizeToFitWidth = YES;
-    cell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
-    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES; 
+    // trying to resize text to work with Autolayout
+
+    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
+     
     
     return cell;
 }
@@ -69,16 +77,22 @@
 #pragma mark - Action Items
 
 - (IBAction)modeButtonPressed:(id)sender {
-    if(!self.searchTableView.hidden){
-        self.searchTableView.hidden = TRUE;
-        self. searchMap.hidden = FALSE;
+    if(!self.tableSearchTableView.hidden){
+        self.tableSearchTableView.hidden = YES;
+        self. searchMap.hidden = NO;
     }
     else{
-    self.searchTableView.hidden = FALSE;
-    self.searchMap.hidden = TRUE;
+    self.tableSearchTableView.hidden = NO;
+    self.searchMap.hidden = YES;
     }
     
 }
 
+#pragma mark - Helper methods
 
+- (void)searchInMap{
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    
+    
+}
 @end
