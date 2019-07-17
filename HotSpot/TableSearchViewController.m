@@ -16,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tableModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *toMapButton;
 
-- (IBAction)toMapPressed:(id)sender;
-
 @end
 
 @implementation TableSearchViewController
@@ -29,6 +27,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     self.searchTableView.dataSource= self;
     self.searchTableView.delegate=self;
+    self.searchTableView.rowHeight=300;
 }
 
 
@@ -47,7 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     //placehodlder information
-    cell.searchTableAddress.text= @"100 West Lake Jones";
+    cell.searchTableAddress.text= @"100 West Lake";
     cell.searchTableMilesAway.text = @"50 miles away";
     cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];

@@ -17,7 +17,6 @@
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
 		612FE90922DE801A00112AF2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE90822DE801A00112AF2 /* Search.storyboard */; };
-		612FE90C22DE8E0700112AF2 /* TableSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */; };
 		612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90E22DE8E6E00112AF2 /* SearchCell.m */; };
 		612FE91222DE95FE00112AF2 /* MapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* MapSearchViewController.m */; };
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
@@ -62,8 +61,6 @@
 		612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotSpotUITests.m; sourceTree = "<group>"; };
 		612FE8FA22DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		612FE90822DE801A00112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		612FE90A22DE8E0700112AF2 /* TableSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableSearchViewController.h; sourceTree = "<group>"; };
-		612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableSearchViewController.m; sourceTree = "<group>"; };
 		612FE90D22DE8E6E00112AF2 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		612FE90E22DE8E6E00112AF2 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		612FE91022DE95FE00112AF2 /* MapSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
@@ -149,8 +146,6 @@
 				612FE91122DE95FE00112AF2 /* MapSearchViewController.m */,
 				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
 				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
-				612FE90A22DE8E0700112AF2 /* TableSearchViewController.h */,
-				612FE90B22DE8E0700112AF2 /* TableSearchViewController.m */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				612FE8D722DE6A0B00112AF2 /* ViewController.h */,
 				612FE8D822DE6A0B00112AF2 /* ViewController.m */,
@@ -416,7 +411,6 @@
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
-				612FE90C22DE8E0700112AF2 /* TableSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

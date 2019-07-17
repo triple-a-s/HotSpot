@@ -17,13 +17,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self.searchTableAddress sizeToFit];
+    [self.searchTableMilesAway sizeToFit];
+    [self.searchTablePrice sizeToFit]; 
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
