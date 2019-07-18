@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
 
+- (void)cancel;
+
 @end
 
 NS_ASSUME_NONNULL_END

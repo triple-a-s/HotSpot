@@ -98,4 +98,19 @@
     [query findObjectsInBackgroundWithBlock:block];
 }
 
+# pragma mark - Public Methods
+- (void)cancel {
+    PFUser *user = self.driver;
+    [[user relationForKey:@"bookings"] removeObject:self];
+    
+    Listing *listing = self.listing;
+    [[listing relationForKey:@"bookings"] removeObject:self];
+    
+    [self deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"%@ error deleting booking", error);
+        }
+    }];
+}
+
 @end

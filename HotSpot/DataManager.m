@@ -54,6 +54,13 @@
     }];
     
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else {
+            Booking *booking = bookings[0];
+            [booking cancel];
+        }
     }];
     
     
