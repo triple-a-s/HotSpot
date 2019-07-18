@@ -27,6 +27,9 @@
 		D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772722DFBD9D00EBC4EC /* Listing.m */; };
 		D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */; };
 		D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BD364C22E111200001BD61 /* Booking.storyboard */; };
+		D2BD365022E11F020001BD61 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD364F22E11F020001BD61 /* DetailsViewController.m */; };
+		D2BD365422E11F1D0001BD61 /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD365322E11F1D0001BD61 /* BookingViewController.m */; };
+		D2BD365722E11F2A0001BD61 /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,12 @@
 		D2B2772922DFBEF900EBC4EC /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		D2BD364C22E111200001BD61 /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
+		D2BD364E22E11F020001BD61 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		D2BD364F22E11F020001BD61 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		D2BD365222E11F1D0001BD61 /* BookingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
+		D2BD365322E11F1D0001BD61 /* BookingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
+		D2BD365522E11F2A0001BD61 /* ConfirmationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
+		D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +166,7 @@
 		612FE8D322DE6A0B00112AF2 /* HotSpot */ = {
 			isa = PBXGroup;
 			children = (
+				D2BD365122E11F0C0001BD61 /* View Controllers */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
@@ -220,6 +230,19 @@
 				D2B2772722DFBD9D00EBC4EC /* Listing.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D2BD365122E11F0C0001BD61 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD364E22E11F020001BD61 /* DetailsViewController.h */,
+				D2BD364F22E11F020001BD61 /* DetailsViewController.m */,
+				D2BD365222E11F1D0001BD61 /* BookingViewController.h */,
+				D2BD365322E11F1D0001BD61 /* BookingViewController.m */,
+				D2BD365522E11F2A0001BD61 /* ConfirmationViewController.h */,
+				D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,7 +474,9 @@
 				D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */,
 				612FE8D922DE6A0B00112AF2 /* ViewController.m in Sources */,
 				D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */,
+				D2BD365022E11F020001BD61 /* DetailsViewController.m in Sources */,
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,
+				D2BD365722E11F2A0001BD61 /* ConfirmationViewController.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
@@ -459,6 +484,7 @@
 				61AB0BB622DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				D2BD365422E11F1D0001BD61 /* BookingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
