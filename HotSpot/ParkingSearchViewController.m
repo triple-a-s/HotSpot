@@ -1,5 +1,5 @@
 //
-//  MapSearchViewController.m
+//  ParkingSearchViewController.m
 //  HotSpot
 //
 //  Created by aodemuyi on 7/16/19.
@@ -20,7 +20,7 @@
  */
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
-@property (weak, nonatomic) IBOutlet UITableView *tableSearchTableView;
+@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 
 
 @end
@@ -29,10 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableSearchTableView.dataSource = self;
-    self.tableSearchTableView.delegate = self;
-    self.tableSearchTableView.rowHeight = 134 ;
-    self.tableSearchTableView.hidden = YES;
+    self.searchTableView.dataSource = self;
+    self.searchTableView.delegate = self;
+    self.searchTableView.rowHeight = 134 ;
+    self.searchTableView.hidden = YES;
     // we will initialize the map to show the user's current location
     // self.searchMap.showsUserLocation = YES;
     
@@ -77,12 +77,12 @@
 #pragma mark - Action Items
 
 - (IBAction)modeButtonPressed:(id)sender {
-    if(!self.tableSearchTableView.hidden){
-        self.tableSearchTableView.hidden = YES;
+    if(!self.searchTableView.hidden){
+        self.searchTableView.hidden = YES;
         self. searchMap.hidden = NO;
     }
     else{
-    self.tableSearchTableView.hidden = NO;
+    self.searchTableView.hidden = NO;
     self.searchMap.hidden = YES;
     }
     
@@ -90,9 +90,5 @@
 
 #pragma mark - Helper methods
 
-- (void)searchInMap{
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    
-    
-}
+
 @end
