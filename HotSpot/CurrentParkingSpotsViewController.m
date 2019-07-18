@@ -36,21 +36,21 @@
      I can have data to load actual information into the tables.
      */
     
-    SpotCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
-    if(cell == nil){
-        cell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
+    SpotCell *currentCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    if(currentCell == nil){
+        currentCell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     //placehodlder information
-    cell.spotTableAddress.text= @"100 West Lake";
-    cell.spotTableMilesAway.text = @"Time till park: 2hrs";
-    cell.spotTablePrice.text= @"$5/hr";
-    cell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
-    
+    currentCell.spotTableAddress.text= @"100 West Lake";
+    currentCell.spotTableDetails.text = @"Time till park: 2hrs";
+    currentCell.spotTablePrice.text= @"$5/hr";
+    currentCell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     // trying to resize text to work with Autolayout
-    cell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
+    currentCell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
+    currentCell.spotTableDetails.adjustsFontSizeToFitWidth = YES;
     
-    return cell;
+    return currentCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

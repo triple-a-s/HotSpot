@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *spotTableImage;
 @property (weak, nonatomic) IBOutlet UILabel *spotTableAddress;
 @property (weak, nonatomic) IBOutlet UILabel *spotTablePrice;
-@property (weak, nonatomic) IBOutlet UILabel *spotTableMilesAway;
+@property (weak, nonatomic) IBOutlet UILabel *spotTableDetails;
+
 
 
 

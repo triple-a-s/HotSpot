@@ -57,7 +57,7 @@
     
     //placehodlder information
     cell.spotTableAddress.text= @"100 West Lake";
-    cell.spotTableMilesAway.text = @"50 miles away";
+    cell.spotTableDetails.text = @"50 miles away";
     cell.spotTablePrice.text= @"$5/hr";
     cell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
