@@ -21,6 +21,8 @@
 		612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */; };
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
 		61AB0BB622DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */; };
+		61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */; };
+		61AB0BBB22DFF23D002B7EB6 /* CurrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BBA22DFF23D002B7EB6 /* CurrentCell.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		612FE91322DE9A9500112AF2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentParkingSpotsViewController.h; sourceTree = "<group>"; };
 		61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentParkingSpotsViewController.m; sourceTree = "<group>"; };
+		61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
+		61AB0BB922DFF23D002B7EB6 /* CurrentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentCell.h; sourceTree = "<group>"; };
+		61AB0BBA22DFF23D002B7EB6 /* CurrentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentCell.m; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
 		AE0E2DC664BBC0080BDDB3AD /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +150,9 @@
 			children = (
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
+				61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */,
+				61AB0BB922DFF23D002B7EB6 /* CurrentCell.h */,
+				61AB0BBA22DFF23D002B7EB6 /* CurrentCell.m */,
 				61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */,
 				61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */,
 				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
@@ -304,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
+				61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
 				612FE90922DE801A00112AF2 /* Search.storyboard in Resources */,
 			);
@@ -416,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AB0BBB22DFF23D002B7EB6 /* CurrentCell.m in Sources */,
 				612FE8D922DE6A0B00112AF2 /* ViewController.m in Sources */,
 				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
