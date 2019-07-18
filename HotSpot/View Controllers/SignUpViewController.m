@@ -43,19 +43,10 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                         // handle response here.
+                                                         nil;
                                                      }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
-    
-    /*once phone number functionality is working on login, will check
-    if there are letters present in the phone number and throw up an alert
-    
-    NSRange range = {1, self.phoneNumber.text.length};
-    if (![self textField:self.phoneNumber shouldChangeCharactersInRange:range replacementString:self.phoneNumber.text]) {
-        alert.title = @"Invalid input";
-        alert.message = @"The phone number must only contain numbers";
-    }*/
     
     if (self.username.text.length == 0 || self.password.text.length == 0) {
         alert.message = @"One or more of your fields is empty";
@@ -68,7 +59,8 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                [self performSegueWithIdentifier:(@"signupSegue") sender:nil];
+                //perform own segue
+                //[self performSegueWithIdentifier:(@"signupSegue") sender:nil];
             }
         }];
     }
@@ -78,24 +70,6 @@
 - (IBAction)onViewTap:(UITapGestureRecognizer *)sender {
     [self.view endEditing:(YES)];
 }
-
-//a method that checks if the current text field has only numbers in it
-//returns yes if it does, not if it does not
-/*- (BOOL)textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    if (string.length == 0) {
-        return YES;
-    }
-    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-    for (int i = 0; i < [string length]; i++) {
-        unichar c = [string characterAtIndex:i];
-        if ([myCharSet characterIsMember:c]) {
-            return YES;
-        }
-    }
-    
-    return NO;
-}*/
 
 //dismisses the sign in view controller if the user already has an account
 - (IBAction)didTapSignIn:(UIButton *)sender {

@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3R-L5-cp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="169"/>
+            <point key="canvasLocation" x="884" y="-96"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vCh-yV-Kb1">
@@ -154,7 +154,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-323" y="951"/>
+            <point key="canvasLocation" x="1138" y="611"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ssa-0f-5Dl">
