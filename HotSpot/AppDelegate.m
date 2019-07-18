@@ -20,8 +20,8 @@
     
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
-        configuration.applicationId = @"myAppId";
-        configuration.server = @"http://hotspot2017.herokuapp.com/parse";
+        configuration.applicationId = @"AaronInstagram17";
+        configuration.server = @"https://aaroninstagram1724.herokuapp.com/parse";
     }];
     
     [Parse initializeWithConfiguration:config];

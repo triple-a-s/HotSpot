@@ -12,6 +12,9 @@
 
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+
 @end
 
 @implementation LoginViewController
@@ -38,7 +41,7 @@
     // add the OK action to the alert controller
     [alert addAction:okAction];
     
-    if ([self.username.text isEqual:@""] || [self.password.text isEqual:@""]) {
+    if (self.username.text.length == 0 || self.password.text.length == 0) {
         alert.message = @"Your username or password is empty";
         
         [self presentViewController:alert animated:YES completion:^{
