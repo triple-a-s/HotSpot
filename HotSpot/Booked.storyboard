@@ -96,7 +96,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPh-Dj-7pd">
                                 <rect key="frame" x="0.0" y="37" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Booked Spots " id="zf4-kC-Lhc"/>
+                                    <navigationItem title="Past Spots " id="zf4-kC-Lhc"/>
                                 </items>
                             </navigationBar>
                         </subviews>

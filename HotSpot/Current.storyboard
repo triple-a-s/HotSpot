@@ -80,7 +80,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ma2-Tn-Qpk">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Current Spots " id="GkU-Sd-Z0w"/>
+                                    <navigationItem title="Booked Spots " id="GkU-Sd-Z0w"/>
                                 </items>
                             </navigationBar>
                         </subviews>

@@ -42,7 +42,7 @@
     
     //placehodlder information
     bookedCell.spotTableAddress.text= @"100 West Lake";
-    bookedCell.spotTableDetails.text = @"Booked 4/5/18";
+    bookedCell.spotTableDetails.text = @"Parked 4/5/18";
     bookedCell.spotTablePrice.text= @"$31.47";
     bookedCell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     // trying to resize text to work with Autolayout
