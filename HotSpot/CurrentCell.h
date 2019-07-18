@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CurrentCell : UITableViewCell
+@interface CurrentCell: UITableViewCell
+
 
 @end
 

@@ -7,10 +7,12 @@
 //
 
 #import "CurrentParkingSpotsViewController.h"
+#import "SpotCell.h"
 
-@interface CurrentParkingSpotsViewController ()
+@interface CurrentParkingSpotsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *currentTableView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *savedTitleBar;
 
 
 @end
@@ -19,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.currentTableView.dataSource = self;
+    self.currentTableView.delegate = self;
+    self.currentTableView.rowHeight = 134 ;
     // Do any additional setup after loading the view.
 }
 
@@ -31,21 +36,19 @@
      I can have data to load actual information into the tables.
      */
     
-    SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+    SpotCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
     if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+        cell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     //placehodlder information
-    cell.searchTableAddress.text= @"100 West Lake";
-    cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTablePrice.text= @"$5/hr";
-    cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+    cell.spotTableAddress.text= @"100 West Lake";
+    cell.spotTableMilesAway.text = @"Time till park: 2hrs";
+    cell.spotTablePrice.text= @"$5/hr";
+    cell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
     // trying to resize text to work with Autolayout
-    
-    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
-    
+    cell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
     
     return cell;
 }

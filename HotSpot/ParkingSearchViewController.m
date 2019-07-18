@@ -8,7 +8,7 @@
 
 #import "ParkingSearchViewController.h"
 #import "MapKit/MapKit.h"
-#import "SearchCell.h"
+#import "SpotCell.h"
 #define METERS_PER_MILE 1609.344
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -50,20 +50,20 @@
      I can have data to load actual information into the tables.
      */
     
-    SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+    SpotCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
     if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+        cell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     //placehodlder information
-    cell.searchTableAddress.text= @"100 West Lake";
-    cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTablePrice.text= @"$5/hr";
-    cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+    cell.spotTableAddress.text= @"100 West Lake";
+    cell.spotTableMilesAway.text = @"50 miles away";
+    cell.spotTablePrice.text= @"$5/hr";
+    cell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
     // trying to resize text to work with Autolayout
 
-    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
+    cell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
      
     
     return cell;
