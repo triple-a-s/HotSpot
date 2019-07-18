@@ -23,8 +23,7 @@
     [super viewDidLoad];
     self.currentTableView.dataSource = self;
     self.currentTableView.delegate = self;
-    self.currentTableView.rowHeight = 134 ;
-    // Do any additional setup after loading the view.
+    self.currentTableView.rowHeight = 134;
 }
 
 # pragma mark - TableViewController methods
