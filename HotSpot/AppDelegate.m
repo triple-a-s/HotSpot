@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "Parse/Parse.h"
+
+#import "DataManager.h"
 
 @interface AppDelegate ()
 
@@ -15,17 +16,30 @@
 
 @implementation AppDelegate
 
+PFUser *homeowner;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
-    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-        
-        configuration.applicationId = @"myAppId";
-        configuration.server = @"http://hotspot2017.herokuapp.com/parse";
+    [DataManager configureParse];
+    
+    // Fake a login
+    
+    NSString *username = @"user1";
+    NSString *password = @"password";
+    
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            // success
+            
+            // DataManager tests
+            [DataManager test];
+        }
     }];
     
-    [Parse initializeWithConfiguration:config];
     
+
     return YES;
 }
 
