@@ -17,7 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="fzW-ub-55k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-UD-Ud6">
+                                <rect key="frame" x="182.5" y="837" width="49" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Book"/>
+                                <connections>
+                                    <segue destination="2U1-8V-W3M" kind="presentation" identifier="bookingSegue" id="P9f-6C-zAt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C9n-UD-Ud6" firstAttribute="centerX" secondItem="Lwu-zp-pNN" secondAttribute="centerX" id="egA-sX-gN8"/>
+                            <constraint firstAttribute="bottom" secondItem="C9n-UD-Ud6" secondAttribute="bottom" constant="20" symbolic="YES" id="m7S-4d-1A4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lwu-zp-pNN"/>
                     </view>
                     <navigationItem key="navigationItem" id="NUv-Co-sD2"/>
@@ -33,13 +47,34 @@
                     <view key="view" contentMode="scaleToFill" id="gio-3n-Vrf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1E-lv-paK">
+                                <rect key="frame" x="168.5" y="837" width="77" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="XwK-l0-D1X"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="m1E-lv-paK" secondAttribute="bottom" constant="20" symbolic="YES" id="l19-Pb-6A6"/>
+                            <constraint firstItem="m1E-lv-paK" firstAttribute="centerX" secondItem="k0o-OM-vs8" secondAttribute="centerX" id="sb7-3F-e43"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k0o-OM-vs8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="T3B-ww-crv">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="1n3-eT-syl">
+                            <connections>
+                                <action selector="closeClicked:" destination="ogF-Ac-Squ" id="KTc-ZN-pTK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="318"/>
+            <point key="canvasLocation" x="-830" y="328"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
@@ -48,9 +83,21 @@
                     <view key="view" contentMode="scaleToFill" id="0z5-xA-fyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0s-Ni3">
+                                <rect key="frame" x="124" y="652" width="146" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Back to Results"/>
+                                <connections>
+                                    <segue destination="fUd-o2-Juq" kind="show" id="9Lj-fg-6Dt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R9h-Nz-hRg"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jyd-yA-fod"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,5 +121,26 @@
             </objects>
             <point key="canvasLocation" x="-1568" y="-343"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wts-Co-ETW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2U1-8V-W3M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GSf-O9-S8P">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ogF-Ac-Squ" kind="relationship" relationship="rootViewController" id="NEb-Kc-wqX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O93-wl-hra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1568" y="328"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="close-icon" width="26" height="24"/>
+    </resources>
 </document>
