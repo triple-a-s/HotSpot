@@ -10,6 +10,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="uyN-6I-Xzj">
+            <objects>
+                <viewController id="6MB-mP-Kq7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wa2-3C-Z69">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-JU-nxu">
+                                <rect key="frame" x="177" y="430" width="60" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <segue destination="y6S-TY-UUC" kind="show" id="GHc-pH-MOV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Created Successfully!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-tC-tJ5">
+                                <rect key="frame" x="61" y="388.5" width="292" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S3B-tC-tJ5" firstAttribute="centerX" secondItem="wa2-3C-Z69" secondAttribute="centerX" id="6gz-9O-2y1"/>
+                            <constraint firstItem="XsQ-JU-nxu" firstAttribute="centerX" secondItem="wa2-3C-Z69" secondAttribute="centerX" id="a30-DD-tv0"/>
+                            <constraint firstItem="XsQ-JU-nxu" firstAttribute="centerY" secondItem="wa2-3C-Z69" secondAttribute="centerY" id="dou-vX-0Mw"/>
+                            <constraint firstItem="XsQ-JU-nxu" firstAttribute="top" secondItem="S3B-tC-tJ5" secondAttribute="bottom" constant="15" id="tAz-v7-1jJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hop-jr-RMq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3R-L5-cp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="-96"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vCh-yV-Kb1">
             <objects>
@@ -28,7 +65,7 @@
                                 <rect key="frame" x="60" y="210" width="294" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-1o-A3J">
                                 <rect key="frame" x="100.5" y="380" width="213" height="41"/>
@@ -48,19 +85,19 @@
                                 <rect key="frame" x="60" y="250" width="294" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0r5-RF-RvZ">
                                 <rect key="frame" x="60" y="290" width="294" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License Plate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-eY-b95">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-eY-b95">
                                 <rect key="frame" x="60" y="330" width="294" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmU-P1-r2E">
                                 <rect key="frame" x="307" y="439" width="47" height="33"/>
@@ -103,10 +140,10 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="fullName" destination="0r5-RF-RvZ" id="zou-tO-ebD"/>
-                        <outlet property="licensePlate" destination="c0o-eY-b95" id="UfR-7u-4Ad"/>
-                        <outlet property="password" destination="sVU-tU-HeI" id="hQI-yj-0Mr"/>
-                        <outlet property="username" destination="LsN-t3-uJK" id="p8Q-5d-M3b"/>
+                        <outlet property="fullName" destination="0r5-RF-RvZ" id="dJw-kg-hgA"/>
+                        <outlet property="password" destination="sVU-tU-HeI" id="ZhA-Ps-UvD"/>
+                        <outlet property="phoneNumber" destination="c0o-eY-b95" id="qlS-l3-dM4"/>
+                        <outlet property="username" destination="LsN-t3-uJK" id="5df-yb-Hhn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bG-ot-uRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +153,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="915.94202898550736" y="168.75"/>
+            <point key="canvasLocation" x="1138" y="611"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ssa-0f-5Dl">
@@ -130,7 +167,7 @@
                                 <rect key="frame" x="64" y="348" width="286" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGz-Ct-RSp">
                                 <rect key="frame" x="167.5" y="426" width="79" height="48"/>
@@ -150,7 +187,7 @@
                                 <rect key="frame" x="64" y="386" width="286" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Logo" translatesAutoresizingMaskIntoConstraints="NO" id="CT6-KW-f14">
                                 <rect key="frame" x="75" y="108" width="264" height="224"/>
@@ -190,8 +227,8 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="password" destination="FVu-3J-6ym" id="DHS-i6-qXa"/>
-                        <outlet property="username" destination="CaS-ye-oAk" id="iK6-Rq-FLf"/>
+                        <outlet property="password" destination="FVu-3J-6ym" id="DgV-h9-Zno"/>
+                        <outlet property="username" destination="CaS-ye-oAk" id="x3b-di-UVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oER-XR-OHM" userLabel="First Responder" sceneMemberID="firstResponder"/>

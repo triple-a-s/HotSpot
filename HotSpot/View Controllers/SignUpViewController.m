@@ -11,6 +11,11 @@
 
 @interface SignUpViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextField *fullName;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+
 @end
 
 @implementation SignUpViewController
@@ -29,7 +34,7 @@
     
     //will be initialized once changes in app delegate are pulled
     //newUser.fullName = self.fullName.text;
-    //newUser.licensePlate = self.licensePlate.text;
+    //newUser.phoneNumber = self.phoneNumber.text;
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];
@@ -38,12 +43,12 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                         // handle response here.
+                                                         nil;
                                                      }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
     
-    if ([self.username.text isEqual:(@"")] || [self.password.text isEqual:(@"")]) {
+    if (self.username.text.length == 0 || self.password.text.length == 0) {
         alert.message = @"One or more of your fields is empty";
         [self presentViewController:alert animated:YES completion:^{
         }];
