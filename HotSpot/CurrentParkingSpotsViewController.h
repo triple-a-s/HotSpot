@@ -1,8 +1,8 @@
 //
-//  ParkingMapSearchViewController.h
+//  SavedParkingSpotsViewController.h
 //  HotSpot
 //
-//  Created by aodemuyi on 7/16/19.
+//  Created by aodemuyi on 7/17/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ParkingSearchViewController : UIViewController
+@interface CurrentParkingSpotsViewController : UIViewController
 
 @end
 
