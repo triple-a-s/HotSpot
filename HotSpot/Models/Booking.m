@@ -19,6 +19,7 @@
 @dynamic driver;
 @dynamic listing;
 @dynamic startTime;
+@dynamic duration;
 
 # pragma mark - Class Methods
 
@@ -27,13 +28,28 @@
 }
 
 + (void)bookDriveway:(Listing * _Nullable)listing
+       withStartTime:(NSDate * _Nullable)startTime
+   withDurationInSec:(NSNumber * _Nullable)duration
       withCompletion:(PFBooleanResultBlock  _Nullable)completion {
     PFUser *user = [PFUser currentUser];
     
     Booking *newBooking = [Booking new];
     newBooking.driver = user;
     newBooking.listing = listing;
-    newBooking.startTime = [[NSDate alloc] init]; // by default the booking time slot starts now
+    
+    if (startTime) {
+        newBooking.startTime = startTime;
+    }
+    else {
+        newBooking.startTime = [[NSDate alloc] init]; // by default the booking time slot starts now
+    }
+    
+    if (duration) {
+        newBooking.duration = duration;
+    }
+    else {
+        newBooking.duration = @3600; // by default the booking lasts for an hour
+    }
     
     PFRelation *relation = [user relationForKey:@"bookings"];
     PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];

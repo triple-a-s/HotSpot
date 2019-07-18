@@ -55,6 +55,8 @@
     
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
     }];
+    
+    
 }
 
 @end
