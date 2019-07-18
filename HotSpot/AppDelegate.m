@@ -21,9 +21,7 @@ PFUser *homeowner;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
     [DataManager configureParse];
-    
-    
-    
+
 
     return YES;
 }
