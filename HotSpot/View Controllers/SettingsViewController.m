@@ -21,10 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //once database information is pulled from app delegate,
-    //these lines will set the current user's text to the current user's full name
-    //PFUser *currentUser = [PFUSer currentUser];
-    //self.fullName.text = currentUser.fullName;
+    PFUser *currentUser = [PFUser currentUser];
+    self.fullName.text = currentUser[@"name"];
 }
 
 //logs out the user and takes them to login page
