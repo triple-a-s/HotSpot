@@ -8,6 +8,7 @@
 
 #import "BookingViewController.h"
 #import "Booking.h"
+#import "DataManager.h"
 
 @interface BookingViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -25,6 +26,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [DataManager sampleListingForTestingWithCompletion:^(Listing * _Nonnull listing, NSError * _Nonnull error) {
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else {
+            self.listing = listing;
+            
+            // image
+            [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+                if(error) {
+                    NSLog(@"%@", error);
+                }
+                else {
+                    self.listingAddressLabel.text = name;
+                }
+            }];
+            
+            
+            self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
+            PFUser *homeowner = self.listing.homeowner;
+            [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                self.listingOwnerLabel.text = object[@"name"];
+            }];
+            
+        }
+    }];
 }
 
 /*
