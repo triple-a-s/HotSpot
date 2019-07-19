@@ -169,7 +169,7 @@
         <!--Login View Controller-->
         <scene sceneID="ssa-0f-5Dl">
             <objects>
-                <viewController id="y6S-TY-UUC" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="y6S-TY-UUC" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NId-lR-MtM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="168.75"/>
+            <point key="canvasLocation" x="-322" y="169"/>
         </scene>
     </scenes>
     <resources>
