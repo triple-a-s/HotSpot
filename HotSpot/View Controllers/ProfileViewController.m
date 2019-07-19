@@ -10,10 +10,14 @@
 #import "Parse/Parse.h"
 #import "CarCell.h"
 
-@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) PFUser *currentUser;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+@property (weak, nonatomic) IBOutlet UILabel *email;
+@property (weak, nonatomic) IBOutlet UILabel *username;
 
 @end
 
@@ -22,11 +26,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.rowHeight = 200;
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
+    
+    self.currentUser = [PFUser currentUser];
+    //self.profileImage = self.currentUser.profileImage;
+    self.name.text = self.currentUser[@"name"];
+    self.phone.text = self.currentUser[@"phone"];
+    self.email.text = self.currentUser[@"email"];
+    self.username.text = self.currentUser.username;
 }
 
 /*
@@ -38,13 +46,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return nil;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-}
 
 @end
