@@ -53,8 +53,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                //when the appdelegate is pulled from github...
-                //[self performSegueWithIdentifier:@"LoginSegue" sender:nil];
+                [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
     }

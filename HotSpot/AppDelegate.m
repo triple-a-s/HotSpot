@@ -26,6 +26,11 @@
     
     [Parse initializeWithConfiguration:config];
     
+    if (PFUser.currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
+        
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    }
     return YES;
 }
 

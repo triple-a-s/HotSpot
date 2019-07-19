@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-JU-nxu">
-                                <rect key="frame" x="177" y="430" width="60" height="36"/>
+                                <rect key="frame" x="119" y="430" width="176" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Head to Profile Page"/>
                                 <connections>
-                                    <segue destination="y6S-TY-UUC" kind="show" id="GHc-pH-MOV"/>
+                                    <segue destination="AwN-FO-jNc" kind="show" id="bTI-lN-ShG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Created Successfully!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-tC-tJ5">
@@ -166,6 +166,14 @@
             </objects>
             <point key="canvasLocation" x="883" y="693"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="1o7-bu-GJB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="AwN-FO-jNc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOC-Ry-xMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="425"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="ssa-0f-5Dl">
             <objects>
@@ -186,6 +194,7 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="didTapLogin:" destination="y6S-TY-UUC" eventType="touchUpInside" id="seQ-qe-NLp"/>
+                                    <segue destination="AwN-FO-jNc" kind="show" identifier="LoginSegue" id="lfA-qq-L0N"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTB-cm-s1a">
@@ -255,4 +264,7 @@
     <resources>
         <image name="App Logo" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lfA-qq-L0N"/>
+    </inferredMetricsTieBreakers>
 </document>

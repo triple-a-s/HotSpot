@@ -12,7 +12,6 @@
 @interface EditInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *fullName;
 @property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) PFUser *currentUser;
@@ -26,6 +25,11 @@
     [super viewDidLoad];
     
     self.currentUser = [PFUser currentUser];
+    [self.currentUser saveInBackground];
+    self.fullName.text = self.currentUser[@"name"];
+    self.phoneNumber.text = self.currentUser[@"phone"];
+    self.email.text = self.currentUser[@"email"];
+    self.username.text = self.currentUser.username;
     
     self.alert = [UIAlertController alertControllerWithTitle:@""
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];
@@ -41,7 +45,20 @@
 }
 
 - (IBAction)didTapSaveChanges:(UIButton *)sender {
-    //need to add an alert controller and check for empty strings, then save the user in the background
+    if (![self.currentUser[@"name"] isEqualToString:(self.fullName.text)]) {
+        self.currentUser[@"name"] = self.fullName.text;
+    }
+    if (![self.currentUser.username isEqualToString:(self.username.text)]) {
+        self.currentUser.username = self.username.text;
+    }
+    if (![self.currentUser[@"phone"] isEqualToString:(self.phoneNumber.text)]) {
+        self.currentUser[@"phone"] = self.phoneNumber.text;
+    }
+    if (![self.currentUser[@"email"] isEqualToString:(self.email.text)]) {
+        self.currentUser[@"email"] = self.email.text;
+    }
+    [self.currentUser saveInBackground];
+    [self performSegueWithIdentifier:@"saveChangesSegue" sender:nil];
 }
 
 - (IBAction)didEditFullName:(UITextField *)sender {
@@ -50,8 +67,6 @@
         self.alert.message = @"Your full name cannot be empty";
         [self presentViewController:self.alert animated:YES completion:^{
         }];
-    } else {
-        self.currentUser[@"name"] = self.fullName.text;
     }
 }
 
@@ -61,19 +76,6 @@
         self.alert.message = @"Your username cannot be empty";
         [self presentViewController:self.alert animated:YES completion:^{
         }];
-    } else {
-        self.currentUser.username = self.username.text;
-    }
-}
-
-- (IBAction)didEditPassword:(UITextField *)sender {
-    if (self.password.text.length == 0) {
-        self.alert.title = @"Password Change Error";
-        self.alert.message = @"Your password cannot be empty";
-        [self presentViewController:self.alert animated:YES completion:^{
-        }];
-    } else {
-        self.currentUser.password = self.password.text;
     }
 }
 
@@ -83,8 +85,6 @@
         self.alert.message = @"Your email cannot be empty";
         [self presentViewController:self.alert animated:YES completion:^{
         }];
-    } else {
-        self.currentUser[@"email"] = self.email.text;
     }
 }
 
@@ -94,11 +94,12 @@
         self.alert.message = @"Your phone number is invalid";
         [self presentViewController:self.alert animated:YES completion:^{
         }];
-    } else {
-        self.currentUser[@"phone"] = self.phoneNumber.text;
     }
 }
 
+- (IBAction)onViewTap:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:(YES)];
+}
 
 
 

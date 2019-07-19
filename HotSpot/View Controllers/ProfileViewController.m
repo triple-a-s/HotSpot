@@ -13,7 +13,6 @@
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UILabel *email;
@@ -29,12 +28,12 @@
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
     
-    self.currentUser = [PFUser currentUser];
-    //self.profileImage = self.currentUser.profileImage;
-    self.name.text = self.currentUser[@"name"];
-    self.phone.text = self.currentUser[@"phone"];
-    self.email.text = self.currentUser[@"email"];
-    self.username.text = self.currentUser.username;
+    PFUser *currentUser = [PFUser currentUser];
+    self.profileImage.image = currentUser[@"profilePicture"];
+    self.name.text = currentUser[@"name"];
+    self.phone.text = currentUser[@"phone"];
+    self.email.text = currentUser[@"email"];
+    self.username.text = currentUser.username;
 }
 
 /*

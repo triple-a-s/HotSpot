@@ -62,6 +62,13 @@
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
                 [self presentViewController:alert animated:YES completion:^{
                 }];
+            }
+        }];
+        [PFUser logInWithUsernameInBackground:self.username.text password:self.password.text block:^(PFUser *user, NSError *error) {
+            if (error != nil) {
+                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
             } else {
                 [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
