@@ -20,6 +20,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Parking area (ex: &quot;Rosebowl Stadium&quot;) " translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-qC-GZZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" red="0.89406615499999997" green="0.32073216069999999" blue="0.2954703722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CtN-Xq-57M">
@@ -35,6 +36,7 @@
                                     <segment title="Map "/>
                                     <segment title="Table "/>
                                 </segments>
+                                <color key="tintColor" red="0.89406615499999997" green="0.32073216069999999" blue="0.2954703722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="modeButtonPressed:" destination="zwS-nb-mdG" eventType="valueChanged" id="2fo-hy-yjY"/>
                                 </connections>
@@ -128,7 +130,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtF-NB-qZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282.60869565217394" y="-91.071428571428569"/>
+            <point key="canvasLocation" x="-1878.2608695652175" y="-131.25"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hsp-Gh-Bgq">
+            <objects>
+                <viewController id="qxM-z7-UGe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eBP-uX-pdE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXq-9k-C4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1213.0434782608697" y="-272.20982142857139"/>
         </scene>
     </scenes>
     <resources>
