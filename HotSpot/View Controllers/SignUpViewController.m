@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *fullName;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *email;
 
 @end
 
@@ -31,11 +32,11 @@
     
     newUser.username = self.username.text;
     newUser.password = self.password.text;
+    newUser[@"name"] = self.fullName.text;
+    newUser[@"phone"] = self.phoneNumber.text;
+    newUser[@"email"] = self.email.text;
     
-    //will be initialized once changes in app delegate are pulled
-    //newUser.fullName = self.fullName.text;
-    //newUser.phoneNumber = self.phoneNumber.text;
-    
+    //creates UIAlertController
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];
 
@@ -48,18 +49,21 @@
     // add the OK action to the alert controller
     [alert addAction:okAction];
     
-    if (self.username.text.length == 0 || self.password.text.length == 0) {
+    //checks if any of the fields are empty and throws up an alert
+    //if they are
+    if (self.username.text.length == 0 || self.password.text.length == 0 || self.fullName.text.length == 0 || self.phoneNumber.text.length == 0 || self.email.text.length == 0) {
         alert.message = @"One or more of your fields is empty";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
+                //if there's an error, throw up an alert with the specific error as the message
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                [self performSegueWithIdentifier:(@"signupSegue") sender:nil];
+                [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
     }
