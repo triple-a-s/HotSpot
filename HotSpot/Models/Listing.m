@@ -12,6 +12,10 @@
 @end
 @implementation Listing
 
+@dynamic address;
+@dynamic price;
+@dynamic homeowner;
+
 # pragma mark - Class Methods
 
 + (nonnull NSString *)parseClassName {

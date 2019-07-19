@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Listing.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookingViewController : UIViewController
+@property (nonatomic, strong) Listing *listing;
 
 @end
 

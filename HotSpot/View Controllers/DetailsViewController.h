@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
-
+@property (nonatomic, strong) Listing *listing;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -102,6 +102,13 @@
                         <viewLayoutGuide key="safeArea" id="Lwu-zp-pNN"/>
                     </view>
                     <navigationItem key="navigationItem" id="NUv-Co-sD2"/>
+                    <connections>
+                        <outlet property="listingAddressLabel" destination="5Vp-89-8W9" id="UA6-2M-uFg"/>
+                        <outlet property="listingImageView" destination="a9Y-Ph-bDz" id="50c-Ze-rQ3"/>
+                        <outlet property="listingNotesLabel" destination="WB4-D2-akE" id="CjH-4U-bBi"/>
+                        <outlet property="listingOwnerLabel" destination="vbr-aN-eec" id="Xd0-sh-rzn"/>
+                        <outlet property="listingPriceLabel" destination="UPB-cK-8Dx" id="rhT-Te-3I4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,6 +238,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>
+                        <outlet property="listingImageView" destination="jsM-A7-T6H" id="a0k-To-Zvl"/>
+                        <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
+                        <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

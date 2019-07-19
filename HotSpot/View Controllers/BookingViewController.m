@@ -9,14 +9,17 @@
 #import "BookingViewController.h"
 
 @interface BookingViewController ()
-
+@property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
+@property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @end
 
 @implementation BookingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 /*

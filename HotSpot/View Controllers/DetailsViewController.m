@@ -8,7 +8,16 @@
 
 #import "DetailsViewController.h"
 
+#import "Listing.h"
+#import "BookingViewController.h"
+#import "DataManager.h"
+
 @interface DetailsViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
+@property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
 
 @end
 
@@ -16,7 +25,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [DataManager sampleListingForTestingWithCompletion:^(Listing * _Nonnull listing, NSError * _Nonnull error) {
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else {
+            self.listing = listing;
+            
+            // image
+            [DataManager gejcrkuuicgfdetrkciftucledgttfgubbukdkfvulednifrnnlkldgvtjhruntd{
+                self.listingAddressLabel.text = name;
+            }];
+            
+            
+            self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
+            PFUser *homeowner = self.listing.homeowner;
+            [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                self.listingOwnerLabel.text = object[@"name"];
+            }];
+            
+        }
+    }];
+    
+    
 }
 
 /*
@@ -28,5 +60,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([@"bookingSegue" isEqualToString:segue.identifier]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        BookingViewController *bookingViewController = navigationController.topViewController;
+        bookingViewController.listing = self.listing;
+    }
+}
 
 @end
