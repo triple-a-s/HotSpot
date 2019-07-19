@@ -68,15 +68,14 @@
     return listing;
 }
 
-CLGeocoder *coder = [[CLGeocoder alloc] init];
-CLLocation *location = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
-[coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    else {
++ (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion{
+    CLGeocoder *coder = [[CLGeocoder alloc] init];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:address.latitude longitude:address.longitude];
+    [coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         CLPlacemark *placemark = placemarks[0];
-        self.listingAddressLabel.text = placemark.name;
-    }
-}];
+        completion(placemark.name, error);
+    }];
+}
+
+
 @end

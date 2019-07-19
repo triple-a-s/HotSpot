@@ -34,8 +34,13 @@
             self.listing = listing;
             
             // image
-            [DataManager gejcrkuuicgfdetrkciftucledgttfgubbukdkfvulednifrnnlkldgvtjhruntd{
-                self.listingAddressLabel.text = name;
+            [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+                if(error) {
+                    NSLog(@"%@", error);
+                }
+                else {
+                    self.listingAddressLabel.text = name;
+                }
             }];
             
             
