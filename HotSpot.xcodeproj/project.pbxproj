@@ -20,20 +20,17 @@
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
 		61547D5822EB849400E57E34 /* MainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61547D5722EB849400E57E34 /* MainContainerViewController.m */; };
 		61547D5B22EB84E600E57E34 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61547D5A22EB84E600E57E34 /* MapViewController.m */; };
+		6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186183F22EA19F9007A2BD9 /* AnnotationPin.m */; };
 		61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */; };
 		61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */; };
-		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
-		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
-		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
-		ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D422DE7FE70035274F /* SignUpViewController.m */; };
-		ADEC07D822DE80310035274F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D722DE80310035274F /* LoginViewController.m */; };
-		6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186183F22EA19F9007A2BD9 /* AnnotationPin.m */; };
 		61AB0BC522E1308B002B7EB6 /* MainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */; };
 		61AB0BC722E13893002B7EB6 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */; };
 		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
 		61AB0BD022E22CB1002B7EB6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
+		ADEC07D522DE7FE70035274F /* (null) in Sources */ = {isa = PBXBuildFile; };
+		ADEC07D822DE80310035274F /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 		D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C7D6022E26817000BF3B1 /* TimeInterval.m */; };
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
@@ -89,19 +86,19 @@
 		612FE90822DE801A00112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		612FE90D22DE8E6E00112AF2 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		612FE90E22DE8E6E00112AF2 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
-		612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkingSearchViewController.h; sourceTree = "<group>"; };
-		612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingSearchViewController.m; sourceTree = "<group>"; };
+		612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ParkingSearchViewController.h; path = ../ParkingSearchViewController.h; sourceTree = "<group>"; };
+		612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ParkingSearchViewController.m; path = ../ParkingSearchViewController.m; sourceTree = "<group>"; };
 		612FE91322DE9A9500112AF2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61547D5622EB848600E57E34 /* MainContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainContainerViewController.h; sourceTree = "<group>"; };
 		61547D5722EB849400E57E34 /* MainContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainContainerViewController.m; sourceTree = "<group>"; };
 		61547D5922EB84D900E57E34 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		61547D5A22EB84E600E57E34 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		6186183E22EA19F9007A2BD9 /* AnnotationPin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationPin.h; sourceTree = "<group>"; };
+		6186183F22EA19F9007A2BD9 /* AnnotationPin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationPin.m; sourceTree = "<group>"; };
 		61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentParkingSpotsViewController.h; sourceTree = "<group>"; };
 		61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentParkingSpotsViewController.m; sourceTree = "<group>"; };
 		61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
 		61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booked.storyboard; sourceTree = "<group>"; };
-		6186183E22EA19F9007A2BD9 /* AnnotationPin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationPin.h; sourceTree = "<group>"; };
-		6186183F22EA19F9007A2BD9 /* AnnotationPin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationPin.m; sourceTree = "<group>"; };
 		61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainContainerViewController.h; sourceTree = "<group>"; };
 		61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainContainerViewController.m; sourceTree = "<group>"; };
 		61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ContainerViewSearch.storyboard; path = ../../../.Trash/ContainerViewSearch.storyboard; sourceTree = "<group>"; };
@@ -207,33 +204,18 @@
 		612FE8D322DE6A0B00112AF2 /* HotSpot */ = {
 			isa = PBXGroup;
 			children = (
-				D2B2772922DFBEF900EBC4EC /* UserDataManager.h */,
 				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
-				D2BD364C22E111200001BD61 /* Booking.storyboard */,
-				612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */,
-				612FE8E222DE6A0D00112AF2 /* Info.plist */,
-				ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */,
-				D2B2771D22DE868600EBC4EC /* DataManager.h */,
-				612FE8E322DE6A0D00112AF2 /* main.m */,
-				D2B2771E22DE868600EBC4EC /* DataManager.m */,
-				D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */,
 				D2BD365122E11F0C0001BD61 /* View Controllers  */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
-				612FE90822DE801A00112AF2 /* Search.storyboard */,
 				61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */,
 				61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */,
-				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				ADEC07DC22DE80BA0035274F /* View Controllers */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				61AB0BC822E13E50002B7EB6 /* SearchResult.h */,
-				61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */,
-				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
 				61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */,
 				6186183E22EA19F9007A2BD9 /* AnnotationPin.h */,
 				6186183F22EA19F9007A2BD9 /* AnnotationPin.m */,
 				61AB0BCE22E22CB1002B7EB6 /* MapViewController.h */,
-				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
-				61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */,
 				61AB0BC922E13E50002B7EB6 /* SearchResult.m */,
 				61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */,
 				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
@@ -314,22 +296,18 @@
 				D2BD365322E11F1D0001BD61 /* BookingViewController.m */,
 				D2BD365522E11F2A0001BD61 /* ConfirmationViewController.h */,
 				D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */,
-				ADEC07D622DE80310035274F /* LoginViewController.h */,
 				D272E82622EA6ED200B8D904 /* BookedParkingSpotsViewController.h */,
 				D272E82522EA6ED200B8D904 /* BookedParkingSpotsViewController.m */,
-				ADEC07D722DE80310035274F /* LoginViewController.m */,
 				61547D5622EB848600E57E34 /* MainContainerViewController.h */,
+				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
+				61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */,
 				61547D5722EB849400E57E34 /* MainContainerViewController.m */,
-				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
-				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
-				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
-				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
+				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */,
 				61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */,
-				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
-				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				61547D5922EB84D900E57E34 /* MapViewController.h */,
 				61547D5A22EB84E600E57E34 /* MapViewController.m */,
+				61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -575,16 +553,13 @@
 				61547D5822EB849400E57E34 /* MainContainerViewController.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				ADEC07D822DE80310035274F /* (null) in Sources */,
 				D27E755022EA6D7D003FCB7D /* CurrentParkingSpotsViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				D27E754F22EA6D7D003FCB7D /* ParkingSearchViewController.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
-				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
-				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
-				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
@@ -595,7 +570,7 @@
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				D272E82722EA6ED200B8D904 /* BookedParkingSpotsViewController.m in Sources */,
 				D2BD365422E11F1D0001BD61 /* BookingViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
+				ADEC07D522DE7FE70035274F /* (null) in Sources */,
 				61547D5B22EB84E600E57E34 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
