@@ -32,7 +32,7 @@
     newUser.username = self.username.text;
     newUser.password = self.password.text;
     newUser[@"name"] = self.fullName.text;
-    newUser[@"phoneNumber"] = self.phoneNumber.text;
+    newUser[@"phone"] = self.phoneNumber.text;
     
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
