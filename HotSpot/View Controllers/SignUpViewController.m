@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *fullName;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *email;
 
 @end
 
@@ -33,6 +34,7 @@
     newUser.password = self.password.text;
     newUser[@"name"] = self.fullName.text;
     newUser[@"phone"] = self.phoneNumber.text;
+    newUser[@"email"] = self.email.text;
     
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
@@ -47,7 +49,7 @@
     // add the OK action to the alert controller
     [alert addAction:okAction];
     
-    if (self.username.text.length == 0 || self.password.text.length == 0) {
+    if (self.username.text.length == 0 || self.password.text.length == 0 || self.fullName.text.length == 0 || self.phoneNumber.text.length == 0 || self.email.text.length == 0) {
         alert.message = @"One or more of your fields is empty";
         [self presentViewController:alert animated:YES completion:^{
         }];
@@ -58,7 +60,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
     }
