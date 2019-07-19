@@ -279,7 +279,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Back to Results"/>
                                         <connections>
-                                            <segue destination="fUd-o2-Juq" kind="show" id="9Lj-fg-6Dt"/>
+                                            <segue destination="Vdl-GD-ViC" kind="show" id="cHv-Sq-2er"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -301,7 +301,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EKD-Ls-InL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fUd-o2-Juq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="detailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fUd-o2-Juq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4nN-sz-cEK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -315,6 +315,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfW-eW-sw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1568" y="-343"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="SyB-c6-EA4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="Vdl-GD-ViC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tw-Td-VFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2343" y="919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wts-Co-ETW">

@@ -7,8 +7,12 @@
 //
 
 #import "ParkingSearchViewController.h"
+
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
+#import "Listing.h"
+#import "DataManager.h"
+#import "DetailsViewController.h"
 #define METERS_PER_MILE 1609.344
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -21,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
-
+@property (strong, nonatomic) NSArray<Listing *> *listings;
 
 @end
 
@@ -37,8 +41,16 @@
     // self.searchMap.showsUserLocation = YES;
     
     // testing using a specific latitude
-    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.484928, -122.148201), MKCoordinateSpanMake(0.1, 0.1));
+    CLLocation *initialLocation = [[CLLocation alloc] initWithLatitude:37.484928 longitude:-122.148201];
+    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(initialLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
     [self.searchMap setRegion:initialRegion animated:YES];
+    
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:initialLocation];
+    
+    [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+        self.listings = listings;
+        [self.searchTableView reloadData];
+    }];
 }
 
 # pragma mark - TableViewController methods
@@ -55,10 +67,22 @@
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     
+    Listing *listing = self.listings[indexPath.row];
+    
+    [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else {
+            cell.searchTableAddress.text = name;
+        }
+    }];
+    
+    
+    cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
+    
     //placehodlder information
-    cell.searchTableAddress.text= @"100 West Lake";
     cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     
     // trying to resize text to work with Autolayout
@@ -70,8 +94,21 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // I return 10 for now just to see if this method is working
-    return 10;
+    return self.listings.count;
+    
+//    // I return 10 for now just to see if this method is working
+//    return 10;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // perform segue
+    UIStoryboard *bookingStoryboard = [UIStoryboard storyboardWithName:@"Booking"
+                                                                bundle:nil];
+    UINavigationController *navigationController = [bookingStoryboard instantiateViewControllerWithIdentifier:@"detailsNavigationController"];
+    DetailsViewController *detailsViewController = navigationController.topViewController;
+    detailsViewController.listing = self.listings[indexPath.row];
+    [self presentViewController:navigationController animated:true completion:nil];
+    
 }
 
 #pragma mark - Action Items

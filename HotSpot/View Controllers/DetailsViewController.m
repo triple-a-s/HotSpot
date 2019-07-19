@@ -26,31 +26,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [DataManager sampleListingForTestingWithCompletion:^(Listing * _Nonnull listing, NSError * _Nonnull error) {
+    
+   
+    // image
+    [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
         }
         else {
-            self.listing = listing;
-            
-            // image
-            [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
-                if(error) {
-                    NSLog(@"%@", error);
-                }
-                else {
-                    self.listingAddressLabel.text = name;
-                }
-            }];
-            
-            
-            self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
-            PFUser *homeowner = self.listing.homeowner;
-            [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-                self.listingOwnerLabel.text = object[@"name"];
-            }];
-            
+            self.listingAddressLabel.text = name;
         }
+    }];
+    
+    
+    self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
+    PFUser *homeowner = self.listing.homeowner;
+    [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        self.listingOwnerLabel.text = object[@"name"];
     }];
     
     
