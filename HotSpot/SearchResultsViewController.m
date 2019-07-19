@@ -9,7 +9,10 @@
 #import "SearchResultsViewController.h"
 #import "searchResult.h"
 
-@interface SearchResultsViewController ()
+@interface SearchResultsViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
+
 
 @end
 
@@ -17,12 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.searchResultTableView.delegate =self;
+    self.searchResultTableView.dataSource =self;
+    self.searchResultTableView.rowHeight = 100; 
 }
 
 #pragma mark - Table view data source
@@ -32,7 +32,6 @@
         if(cell == nil){
             cell = [[searchResult alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchResult"];
         }
-        
         //placehodlder information
     cell.searchResultTitle.text = @"Wendys";
         

@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainContainerViewController : UIViewController 
+@interface MainContainerViewController : UIViewController <UISearchBarDelegate>
+
 
 @end
 

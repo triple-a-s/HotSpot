@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchResultsViewController : UITableViewController
+@interface SearchResultsViewController : UIViewController 
 
 @end
 

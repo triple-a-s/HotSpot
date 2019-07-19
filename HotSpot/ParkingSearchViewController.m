@@ -10,6 +10,7 @@
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
 #import "searchResult.h"
+#import "MainContainerViewController.h"
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 /*
@@ -27,10 +28,10 @@
     self.searchTableView.dataSource = self;
     self.searchTableView.delegate = self;
     self.searchTableView.rowHeight = 134;
+    [self.searchTableView reloadData];
 }
 
 # pragma mark - TableViewController methods
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     /*
      This is where we are passing information into the cells.
@@ -55,5 +56,5 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
         return 10;
 }
-
+ 
 @end

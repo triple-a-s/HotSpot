@@ -22,17 +22,21 @@
     [super viewDidLoad];
     MKCoordinateRegion initialRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.484928, -122.148201), MKCoordinateSpanMake(0.1, 0.1));
     [self.searchMap setRegion:initialRegion animated:YES];
+    
+    //setting the pin
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    CLLocationCoordinate2D coordforpin = {.latitude = 37.484928,.longitude = -122.148201};
+    [annotation setCoordinate: coordforpin];
+    [annotation setTitle:@"Spot at Menlo Park!"];
+    [self.searchMap addAnnotation:annotation];
+    
+    MKPointAnnotation *annotation2 = [[MKPointAnnotation alloc]init];
+    CLLocationCoordinate2D coordforpin2 = {.latitude = 37.234928,.longitude = -122.148201};
+    [annotation2 setCoordinate: coordforpin2];
+    [annotation2 setTitle:@"Spot!"];
+    [self.searchMap addAnnotation:annotation2];
+    
 }
-    // Do any additional setup after loading the view.
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
