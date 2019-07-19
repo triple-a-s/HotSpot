@@ -7,8 +7,13 @@
 //
 
 #import "CarsViewController.h"
+#import "Parse/Parse.h"
+#import "CarCell.h"
 
-@interface CarsViewController ()
+@interface CarsViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *numCars;
 
 @end
 
@@ -16,7 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = 150;
+    
 }
 
 /*
@@ -28,5 +37,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)fetchCars {
+    PFQuery *query = [PFQuery queryWithClassName:@"Car"];
+    [query orderByDescending:@"createdAt"];
+    
+    
+}
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
 @end
