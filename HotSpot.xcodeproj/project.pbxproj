@@ -16,16 +16,11 @@
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
-		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
-		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
 		ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9622E119B000ED3F4D /* ProfileViewController.m */; };
 		ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9922E12F7D00ED3F4D /* CarCell.m */; };
 		ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */; };
 		ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */; };
-		ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D422DE7FE70035274F /* SignUpViewController.m */; };
-		ADEC07D822DE80310035274F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D722DE80310035274F /* LoginViewController.m */; };
-		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +60,6 @@
 		612FE8FA22DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
-		ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		ADC06E9322E1195B00ED3F4D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		ADC06E9522E119B000ED3F4D /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		ADC06E9622E119B000ED3F4D /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -77,11 +69,6 @@
 		ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarsViewController.m; sourceTree = "<group>"; };
 		ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditInformationViewController.h; sourceTree = "<group>"; };
 		ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditInformationViewController.m; sourceTree = "<group>"; };
-		ADEC07D322DE7FE70035274F /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		ADEC07D422DE7FE70035274F /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		ADEC07D622DE80310035274F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		ADEC07D722DE80310035274F /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSignUp.storyboard; sourceTree = "<group>"; };
 		AE0E2DC664BBC0080BDDB3AD /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,10 +143,8 @@
 				ADEC07DC22DE80BA0035274F /* View Controllers */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
-				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */,
 				612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */,
-				ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */,
 				ADC06E9322E1195B00ED3F4D /* Profile.storyboard */,
 				ADC06E9822E12F7D00ED3F4D /* CarCell.h */,
 				ADC06E9922E12F7D00ED3F4D /* CarCell.m */,
@@ -190,12 +175,6 @@
 		ADEC07DC22DE80BA0035274F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ADEC07D622DE80310035274F /* LoginViewController.h */,
-				ADEC07D722DE80310035274F /* LoginViewController.m */,
-				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
-				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
-				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
-				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
 				ADC06E9522E119B000ED3F4D /* ProfileViewController.h */,
 				ADC06E9622E119B000ED3F4D /* ProfileViewController.m */,
 				ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */,
@@ -325,8 +304,6 @@
 			files = (
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
-				ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */,
-				ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */,
 				ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,14 +415,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
-				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
