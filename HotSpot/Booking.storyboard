@@ -133,7 +133,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU2-vK-DAD">
                                 <rect key="frame" x="8" y="276" width="398" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-ir-ai5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-ir-ai5">
                                         <rect key="frame" x="8" y="8" width="57" height="54"/>
                                         <color key="backgroundColor" red="0.77462225470000001" green="0.61420567940000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -337,6 +337,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="car" width="2973" height="2434"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="houseimageexample" width="550" height="413"/>
     </resources>
