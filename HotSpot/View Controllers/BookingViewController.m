@@ -22,13 +22,9 @@
 
 @implementation BookingViewController
 
-# pragma mark - Private Methods
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   
-            
+
     // image
     [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
@@ -45,14 +41,14 @@
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         self.listingOwnerLabel.text = object[@"name"];
     }];
-            
-    
 }
 
 - (IBAction)closeClicked:(id)sender {
     [self dismissViewControllerAnimated:true
                              completion:nil];
 }
+
+# pragma mark - Private Methods
 
 - (IBAction)confirmClicked:(id)sender {
     Listing *listing = self.listing;

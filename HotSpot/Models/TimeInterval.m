@@ -24,7 +24,7 @@
     return @"TimeInterval";
 }
 
-# pragma mark - Instance Methods
+# pragma mark - Public Methods
 - (NSDateInterval * _Nullable)intersectionWithTimeInterval:(TimeInterval *)timeInterval {
     if(!dateInterval) {
         dateInterval = [[NSDateInterval alloc] initWithStartDate:self.startTime endDate:self.endTime];
