@@ -24,6 +24,7 @@
 @implementation ParkingSearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.searchTableView.dataSource = self;
     self.searchTableView.delegate = self;

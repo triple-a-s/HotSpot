@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface searchResult : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *searchResultTitle;
+@property (weak, nonatomic) IBOutlet UILabel *searchResultSubtitle;
 
 @end
 

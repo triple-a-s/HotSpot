@@ -9,21 +9,20 @@
 #import "MainContainerViewController.h"
 #import "ParkingSearchViewController.h"
 #import "searchResult.h"
-#import "SearchResultsViewController.h"
 
 
 @interface MainContainerViewController ()<UITableViewDataSource, UITableViewDelegate, MKLocalSearchCompleterDelegate>
 
-
+// IB Outlets - Including the searchbar and searchresultTableView
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
-
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
-
 @property (weak, nonatomic) IBOutlet UIButton *mainSearchButton;
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
-//@property (strong,nonatomic) MKLocalSearchRequest *request;
+// Properties associated with search (autocomplete and actual search)
+@property (strong,nonatomic) MKLocalSearchRequest *request;
+@property (strong, nonatomic) MKLocalSearch *search;
 @property (strong, nonatomic) MKLocalSearchCompleter *completer;
 @property (nonatomic, strong) NSArray <MKLocalSearchCompletion*> *spotsArray;
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
@@ -35,18 +34,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
-    self.searchResultTableView.delegate =self;
-    self.searchResultTableView.dataSource =self;
-    self.searchResultTableView.rowHeight = 100;
-    self.completer = [[MKLocalSearchCompleter alloc] init];
+    //setting delegates and dataSources for tableView and searchbar
+    self.searchResultTableView.delegate = self;
+    self.searchResultTableView.dataSource = self;
     self.mainSearchBar.delegate = self;
+    
+    //I will put this into helper methods and such by my next push
+    self.completer = [[MKLocalSearchCompleter alloc] init];
+    self.searchResultTableView.rowHeight = 100;
     self.completer.delegate = self;
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
+    self.request = [[MKLocalSearchRequest alloc] initWithCompletion:self.completion];
+    self.search = [[MKLocalSearch alloc] initWithRequest:self.request];
+    
 }
 
+# pragma mark - Action Items
+
 - (IBAction)switchMode:(id)sender {
+    // sets the views to hidden or not hidden depending on what is tapped
     if(self.spotListView.hidden){
         self.mapView.hidden = YES;
         self.spotListView.hidden = NO;
@@ -58,44 +67,60 @@
     }
 }
 
+# pragma mark - Search Related
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
+    // setting the views to hidden or not
     self.searchResultTableView.hidden = NO;
     self.mapView.hidden = NO;
     self.spotListView.hidden = YES;
+    
+    // the search bar will go away once you delete text
     
     if(searchText.length ==0){
         [self.mainSearchBar endEditing:YES];
         self.searchResultTableView.hidden = YES;
     }
     
-  //  MKLocalSearch *localSearch = [[MKLocalSearch alloc] initWithRequest:self.request];
+    // the actual implementation of the autocompleter!
     self.completion = [[MKLocalSearchCompletion alloc] init];
     self.completer.queryFragment = searchText;
-    NSLog(@"Error unfavoriting tweet: %@", self.completer.results);
+    self.spotsArray = self.completer.results;
     [self.searchResultTableView reloadData];
     
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    // I think I willl delete this method because it is redundant
     self.searchResultTableView.hidden = YES;
     self.mapView.hidden = NO;
     self.spotListView.hidden = YES;
 }
 
+# pragma mark - TableView Methods
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MKLocalSearchCompletion *completion = self.completer.results[indexPath.row];
-    NSLog(@"Error unfavoriting tweet: %@", self.completer.results[indexPath.row]);
+    
+    // setting up the cell for when I start typing
+    MKLocalSearchCompletion *completion = self.spotsArray[indexPath.row];
     searchResult *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult"];
     if(cell == nil){
         cell = [[searchResult alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchResult"];
     }
     cell.searchResultTitle.text = completion.title;
-    // trying to resize text to work with Autolayout
+    cell.searchResultSubtitle.text = completion.subtitle;
+    
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.completer.results.count;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MKLocalSearchCompletion *selectedItem = self.completer.results[indexPath.row];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.spotsArray.count;
+}
+
 @end
