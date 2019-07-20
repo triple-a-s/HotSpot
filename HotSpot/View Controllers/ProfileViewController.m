@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UILabel *email;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UIImageView *carImage;
+@property (weak, nonatomic) IBOutlet UILabel *carColor;
+@property (weak, nonatomic) IBOutlet UILabel *licensePlate;
 
 @end
 
@@ -34,6 +37,32 @@
     self.phone.text = currentUser[@"phone"];
     self.email.text = currentUser[@"email"];
     self.username.text = currentUser.username;
+    
+    if (currentUser[@"defaultCar"] != nil) {
+        //self.carImage.image = currentUser[@"cars"][0].image;
+        //self.carColor.text = currentUser[@"cars"][0][@"color"];
+        //self.licensePlate.text = currentUser[@"cars"][0][@"license"];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
+                                                                       message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];
+        
+        // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             nil;
+                                                         }];
+        // add the OK action to the alert controller
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+        //self.licensePlate.text = @"TBD";
+        //self.carColor.text = @"TBD";
+    }
+}
+
+- (IBAction)didTapCarCell:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
 
 /*
