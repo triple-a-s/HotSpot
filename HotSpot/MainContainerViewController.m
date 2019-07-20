@@ -26,6 +26,8 @@
 @property (strong, nonatomic) MKLocalSearchCompleter *completer;
 @property (nonatomic, strong) NSArray <MKLocalSearchCompletion*> *spotsArray;
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
+@property (strong,nonatomic) CLGeocoder *coder;
+@property (strong,nonatomic) CLPlacemark *placemark;
 
 @end
 
@@ -114,9 +116,32 @@
     return cell;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MKLocalSearchCompletion *selectedItem = self.completer.results[indexPath.row];
+    MKLocalSearchCompletion *selectedItem = self.spotsArray[indexPath.row];
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder geocodeAddressString:selectedItem.subtitle completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if(!error)
+         {
+             CLPlacemark *placemark = placemarks [0];
+             NSLog(@"%f",placemark.location.coordinate.latitude);
+             NSLog(@"%f",placemark.location.coordinate.longitude);
+             NSLog(@"%@",[NSString stringWithFormat:@"%@",[placemark description]]);
+         }
+         else
+         {
+             NSLog(@"There was a forward geocoding error\n%@",[error localizedDescription]);
+         }
+     }
+     ];
+    
+
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
