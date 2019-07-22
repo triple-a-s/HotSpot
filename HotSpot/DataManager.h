@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getListingsNearLocation:(PFGeoPoint *)point
                  withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
 + (void)test;
-+ (Listing *)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion;
++ (void)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion;
 + (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion;
 
 @end

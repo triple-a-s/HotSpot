@@ -59,13 +59,11 @@
     
 }
 
-+ (Listing *)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion{
++ (void)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion{
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
-    __block Listing *listing = nil;
     [DataManager getListingsNearLocation:point withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         completion(listings[0], error);
     }];
-    return listing;
 }
 
 + (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion{
