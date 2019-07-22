@@ -7,6 +7,7 @@
 //
 
 #import "TimeInterval.h"
+#import <UIKit/UIKit.h>
 
 @interface TimeInterval()<PFSubclassing>
 @end
@@ -31,8 +32,8 @@
     }
     NSDateInterval *theirDateInterval = [[NSDateInterval alloc] initWithStartDate:timeInterval.startTime endDate:timeInterval.endTime];
     if (self.repeatsWeekly) {
-        double secondsPerDay = 60 * 60 * 24;
-        int differenceInDays = [dateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay - [theirDateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay;
+        CGFloat secondsPerDay = 60 * 60 * 24;
+        NSInteger differenceInDays = [dateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay - [theirDateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay;
         if( differenceInDays % 7 == 0) {
             NSDateInterval *adjustedDAteInterval = [[NSDateInterval alloc] initWithStartDate:[dateInterval.startDate dateByAddingTimeInterval:differenceInDays] endDate:[dateInterval.endDate dateByAddingTimeInterval:differenceInDays]];
             return [adjustedDAteInterval intersectionWithDateInterval:theirDateInterval];

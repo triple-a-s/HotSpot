@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TimeInterval : PFObject
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSDate *endTime;
-@property (nonatomic, strong) NSNumber *repeatsWeekly;
+@property (nonatomic, assign, readwrite) BOOL repeatsWeekly;
 - (NSDateInterval * _Nullable)intersectionWithTimeInterval:(TimeInterval *)timeInterval;
 @end
 
