@@ -99,13 +99,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
-    UIStoryboard *bookingStoryboard = [UIStoryboard storyboardWithName:@"Booking"
-                                                                bundle:nil];
-    UINavigationController *navigationController = [bookingStoryboard instantiateViewControllerWithIdentifier:@"detailsNavigationController"];
-    DetailsViewController *detailsViewController = navigationController.topViewController;
-    detailsViewController.listing = self.listings[indexPath.row];
-    [self presentViewController:navigationController animated:true completion:nil];
+    [self performSegueWithIdentifier:@"detailsSegue"
+                              sender:self.listings[indexPath.row]];
     
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.listing = sender;
+    }
 }
 
 #pragma mark - Action Items
