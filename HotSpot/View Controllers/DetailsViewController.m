@@ -45,7 +45,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([@"bookingSegue" isEqualToString:segue.identifier]) {
+    if([segue.identifier isEqualToString:@"bookingSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];
         BookingViewController *bookingViewController = navigationController.topViewController;
         bookingViewController.listing = self.listing;
