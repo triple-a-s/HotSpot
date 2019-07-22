@@ -7,6 +7,7 @@
 //
 
 #import "CarCell.h"
+#import "Car.h"
 
 @implementation CarCell
 
@@ -19,6 +20,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setCell: (Car *)car {
+    self.car = car;
+ //self.carImage.image = car.carImage;
+    self.licensePlate.text = car[@"license"];
+    self.carColor.text = car[@"Color"];
+
 }
 
 @end

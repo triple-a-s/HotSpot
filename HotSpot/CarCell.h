@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Car.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CarCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *carImage;
+@property (weak, nonatomic) IBOutlet UILabel *licensePlate;
+@property (weak, nonatomic) IBOutlet UILabel *carColor;
+@property (strong, nonatomic) Car *car;
+
+- (void)setCell: (Car *)car;
 
 @end
 

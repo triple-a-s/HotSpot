@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "Parse/Parse.h"
 #import "CarCell.h"
+#import "Car.h"
 
 @interface ProfileViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
 @property (weak, nonatomic) IBOutlet UILabel *carColor;
 @property (weak, nonatomic) IBOutlet UILabel *licensePlate;
+@property (strong, nonatomic) NSArray *cars;
 
 @end
 
@@ -38,11 +40,8 @@
     self.email.text = currentUser[@"email"];
     self.username.text = currentUser.username;
     
-    if (currentUser[@"defaultCar"] != nil) {
-        //self.carImage.image = currentUser[@"cars"][0].image;
-        //self.carColor.text = currentUser[@"cars"][0][@"color"];
-        //self.licensePlate.text = currentUser[@"cars"][0][@"license"];
-    } else {
+    [self fetchCars];
+    if (currentUser[@"cars"] == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
                                                                        message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -55,15 +54,37 @@
         // add the OK action to the alert controller
         [alert addAction:okAction];
         [self presentViewController:alert animated:YES completion:^{
+            [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
         }];
-        //self.licensePlate.text = @"TBD";
-        //self.carColor.text = @"TBD";
+        self.licensePlate.text = @"TBD";
+        self.carColor.text = @"TBD";
+    } else {
+        for (Car *car in self.cars) {
+            if (car[@"isDefault"]) {
+                currentUser[@"defaultCar"] = car;
+                self.licensePlate.text = car[@"license"];
+                self.carColor.text = car[@"Color"];
+            }
+        }
     }
 }
 
 - (IBAction)didTapCarCell:(UITapGestureRecognizer *)sender {
     [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
+
+- (void)fetchCars {
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
+        if (cars != nil) {
+            self.cars = [[NSMutableArray alloc] initWithArray:cars];
+        }
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

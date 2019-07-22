@@ -25,7 +25,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 150;
-    
+    [self fetchCars];
 }
 
 /*
@@ -39,17 +39,34 @@
 */
 
 - (void)fetchCars {
-    PFQuery *query = [PFQuery queryWithClassName:@"Car"];
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
+    PFQuery *query = relation.query;
     [query orderByDescending:@"createdAt"];
     
-    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
+        if (cars != nil) {
+            self.numCars = [[NSMutableArray alloc] initWithArray:cars];
+            [self.tableView reloadData];
+        }
+    }];
 }
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return nil;
+    CarCell *carCell = [self.tableView dequeueReusableCellWithIdentifier:@"CarCell"];
+    Car *currentCar = self.numCars[indexPath.row];
+    carCell.car = currentCar;
+    [carCell setCell:currentCar];
+    
+    UIButton *scanQRCodeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    scanQRCodeButton.frame = CGRectMake(0.0f, 5.0f, 320.0f, 44.0f);
+    scanQRCodeButton.backgroundColor = [UIColor redColor];
+    [scanQRCodeButton setTitle:@"Hello" forState:UIControlStateNormal];
+    [carCell addSubview:scanQRCodeButton];
+    return carCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.numCars.count;
 }
 
 @end
