@@ -35,11 +35,9 @@
     newUser[@"name"] = self.fullName.text;
     newUser[@"phone"] = self.phoneNumber.text;
     newUser.email = self.email.text;
-    
-    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sign Up Error"
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];
-
+    
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
@@ -59,9 +57,16 @@
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
                 [self presentViewController:alert animated:YES completion:^{
                 }];
+            }
+        }];
+        [PFUser logInWithUsernameInBackground:self.username.text password:self.password.text block:^(PFUser *user, NSError *error) {
+            if (error != nil) {
+                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
             } else {
                 //perform own segue
-                //[self performSegueWithIdentifier:(@"signupSegue") sender:nil];
+                //[self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
     }
