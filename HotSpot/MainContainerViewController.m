@@ -8,6 +8,7 @@
 
 #import "MainContainerViewController.h"
 #import "ParkingSearchViewController.h"
+#import "MapViewController.h"
 #import "searchResult.h"
 
 
@@ -27,7 +28,8 @@
 @property (nonatomic, strong) NSArray <MKLocalSearchCompletion*> *spotsArray;
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
-@property (strong,nonatomic) CLPlacemark *placemark;
+@property (strong,nonatomic) CLLocation *location;
+@property (strong,nonatomic) MapViewController *mapVC;
 
 @end
 
@@ -75,11 +77,8 @@
     
     // setting the views to hidden or not
     self.searchResultTableView.hidden = NO;
-    self.mapView.hidden = NO;
-    self.spotListView.hidden = YES;
     
     // the search bar will go away once you delete text
-    
     if(searchText.length ==0){
         [self.mainSearchBar endEditing:YES];
         self.searchResultTableView.hidden = YES;
@@ -90,14 +89,8 @@
     self.completer.queryFragment = searchText;
     self.spotsArray = self.completer.results;
     [self.searchResultTableView reloadData];
-    
-}
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    // I think I willl delete this method because it is redundant
-    self.searchResultTableView.hidden = YES;
-    self.mapView.hidden = NO;
-    self.spotListView.hidden = YES;
+    
 }
 
 # pragma mark - TableView Methods
@@ -116,36 +109,62 @@
     return cell;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
 
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    MKLocalSearchCompletion *selectedItem = self.spotsArray[indexPath.row];
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
+    NSString *mapAddressForConversion = completionForMap.subtitle;
+    [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else{
+            self.mapVC.searchMap.centerCoordinate = location.coordinate;
+           // MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+          //  [self.mapVC.searchMap setRegion: initialRegion animated: YES];
+        }
+    }];
     
-    [geocoder geocodeAddressString:selectedItem.subtitle completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if(!error)
-         {
-             CLPlacemark *placemark = placemarks [0];
-             NSLog(@"%f",placemark.location.coordinate.latitude);
-             NSLog(@"%f",placemark.location.coordinate.longitude);
-             NSLog(@"%@",[NSString stringWithFormat:@"%@",[placemark description]]);
-         }
-         else
-         {
-             NSLog(@"There was a forward geocoding error\n%@",[error localizedDescription]);
-         }
-     }
-     ];
-    
-
-    
-    
+    self.searchResultTableView.hidden =YES;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.spotsArray.count;
+}
+
+
+# pragma mark - PrepareforSegue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.searchResultTableView indexPathForCell:tappedCell];
+    MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
+    NSString *mapAddressForConversion = completionForMap.subtitle;
+    [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else{
+            MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+            [self.mapVC.searchMap setRegion: initialRegion animated: YES];
+        }
+    }];
+    
+    self.searchResultTableView.hidden =YES;
+}
+
+# pragma mark - Helper Methods
+
++ (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError * error))completion{
+    CLGeocoder *coder = [[CLGeocoder alloc] init];
+    [coder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = placemarks[0];
+        completion(placemark.location, error);
+    }];
 }
 
 @end

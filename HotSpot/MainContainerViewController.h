@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "MapKit/MapKit.h"
 NS_ASSUME_NONNULL_BEGIN
+@protocol MapViewControllerDelegate
+@end
 
 @interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>
 
++(void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
+@property (nonatomic, weak) id<MapViewControllerDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END
