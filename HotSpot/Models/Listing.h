@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Listing : PFObject
-
+@property (nonatomic, strong) PFGeoPoint *address;
+@property (nonatomic, strong) NSNumber *price;
+@property (nonatomic, strong) PFUser *homeowner;
 @end
 
 NS_ASSUME_NONNULL_END

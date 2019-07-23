@@ -7,10 +7,14 @@
 //
 
 #import "ParkingSearchViewController.h"
+
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
 #import "searchResult.h"
 #import "MainContainerViewController.h"
+#import "Listing.h"
+#import "DataManager.h"
+#import "DetailsViewController.h"
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 /*
@@ -18,6 +22,7 @@
  this as soon as I merge with the datamanager.
  */
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (strong, nonatomic) NSArray<Listing *> *listings;
 
 @end
 
@@ -30,6 +35,22 @@
     self.searchTableView.delegate = self;
     self.searchTableView.rowHeight = 134;
     [self.searchTableView reloadData];
+    self.searchTableView.rowHeight = 134 ;
+    self.searchTableView.hidden = YES;
+    // we will initialize the map to show the user's current location
+    // self.searchMap.showsUserLocation = YES;
+    
+    // testing using a specific latitude
+    CLLocation *initialLocation = [[CLLocation alloc] initWithLatitude:37.484928 longitude:-122.148201];
+    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(initialLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    [self.searchMap setRegion:initialRegion animated:YES];
+    
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:initialLocation];
+    
+    [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+        self.listings = listings;
+        [self.searchTableView reloadData];
+    }];
 }
 
 # pragma mark - TableViewController methods
@@ -43,10 +64,23 @@
     if(cell == nil){
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
+    
+    Listing *listing = self.listings[indexPath.row];
+    
+    [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+        if(error) {
+            NSLog(@"%@", error);
+        }
+        else {
+            cell.searchTableAddress.text = name;
+        }
+    }];
+    
+    
+    cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
+    
     //placehodlder information
-    cell.searchTableAddress.text= @"100 West Lake";
     cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTablePrice.text= @"$5/hr";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     // trying to resize text to work with Autolayout
     cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
@@ -54,8 +88,34 @@
      
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        return 10;
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.listings.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // perform segue
+    [self performSegueWithIdentifier:@"detailsSegue"
+                              sender:self.listings[indexPath.row]];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.listing = sender;
+    }
+}
+
+#pragma mark - Action Items
+
+- (IBAction)modeButtonPressed:(id)sender {
+    if(!self.searchTableView.hidden){
+        self.searchTableView.hidden = YES;
+        self. searchMap.hidden = NO;
+    }
+    else{
+    self.searchTableView.hidden = NO;
+    self.searchMap.hidden = YES;
+    }
 }
  
 @end

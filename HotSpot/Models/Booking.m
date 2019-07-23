@@ -57,9 +57,12 @@
     [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             [relation addObject:newBooking];
-            [user saveInBackgroundWithBlock:nil];
+            [user saveInBackground];
             [listingBookingsRelation addObject:newBooking];
-            [listing saveInBackgroundWithBlock:nil];
+            [listing saveInBackground];
+            if(completion) {
+                completion(succeeded, error);
+            }
         }
         else {
             NSLog(@"%@", error);
