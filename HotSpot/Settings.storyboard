@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW">
-                                <rect key="frame" x="158.5" y="317" width="97" height="46"/>
+                                <rect key="frame" x="158.5" y="327" width="97" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
@@ -39,7 +39,7 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Meheret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFk-C3-Oi2">
-                                <rect key="frame" x="127.5" y="272" width="159" height="30"/>
+                                <rect key="frame" x="127.5" y="289" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,9 +47,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="5rd-Ux-1iW" secondAttribute="bottom" constant="10" id="GRt-RP-tik"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="5rd-Ux-1iW" secondAttribute="bottom" id="GRt-RP-tik"/>
                             <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerY" secondItem="6YN-pE-PAa" secondAttribute="centerY" id="LAN-0V-hRx"/>
-                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="15" id="Ta1-nU-07c"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="8" id="Ta1-nU-07c"/>
                             <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="UYJ-qX-mtF"/>
                             <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="dQw-py-ATH"/>
                             <constraint firstItem="vj0-Ho-Kt7" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="oc5-ga-med"/>
