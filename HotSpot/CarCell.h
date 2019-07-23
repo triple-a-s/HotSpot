@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *licensePlate;
 @property (weak, nonatomic) IBOutlet UILabel *carColor;
 @property (strong, nonatomic) Car *car;
+@property (weak, nonatomic) IBOutlet UIImageView *isDefault;
 
 - (void)setCell: (Car *)car;
 

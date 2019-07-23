@@ -294,25 +294,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ckh-VS-Ihz">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ckh-VS-Ihz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarCell" rowHeight="129" id="gzH-AM-46v" customClass="CarCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="129"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarCell" rowHeight="150" id="gzH-AM-46v" customClass="CarCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gzH-AM-46v" id="AXc-Af-oeZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHa-Px-POg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SHa-Px-POg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="149.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plate #:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSl-hI-o41">
-                                                    <rect key="frame" x="147" y="11" width="58" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plate #:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSl-hI-o41">
+                                                    <rect key="frame" x="148" y="0.0" width="58" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -324,11 +321,30 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lF3-fN-QYj">
+                                                    <rect key="frame" x="364" y="109" width="30" height="30"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmR-UZ-CHv">
+                                                    <rect key="frame" x="344" y="0.0" width="55" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Edit Car"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lF3-fN-QYj" firstAttribute="trailing" secondItem="AXc-Af-oeZ" secondAttribute="trailingMargin" id="A1V-RJ-q3J"/>
+                                                <constraint firstItem="SHa-Px-POg" firstAttribute="height" secondItem="AXc-Af-oeZ" secondAttribute="height" id="NJe-cC-R6L"/>
+                                                <constraint firstItem="lSl-hI-o41" firstAttribute="top" secondItem="AXc-Af-oeZ" secondAttribute="top" id="Pgy-X9-56D"/>
+                                                <constraint firstItem="SHa-Px-POg" firstAttribute="leading" secondItem="AXc-Af-oeZ" secondAttribute="leading" id="QuS-nE-8Y9"/>
+                                                <constraint firstItem="lSl-hI-o41" firstAttribute="leading" secondItem="SHa-Px-POg" secondAttribute="trailing" constant="10" id="XGp-dA-5VL"/>
+                                                <constraint firstItem="lF3-fN-QYj" firstAttribute="bottom" secondItem="AXc-Af-oeZ" secondAttribute="bottomMargin" id="Xu2-Dp-xsU"/>
+                                                <constraint firstItem="SHa-Px-POg" firstAttribute="top" secondItem="AXc-Af-oeZ" secondAttribute="top" id="gIc-cD-SX2"/>
+                                                <constraint firstItem="SHa-Px-POg" firstAttribute="width" secondItem="AXc-Af-oeZ" secondAttribute="width" multiplier="1:3" id="wJ3-Qf-98S"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="carColor" destination="a6i-qR-GTZ" id="qS4-Nf-bRW"/>
                                             <outlet property="carImage" destination="SHa-Px-POg" id="hS7-Xa-HyX"/>
+                                            <outlet property="isDefault" destination="lF3-fN-QYj" id="IAG-gt-7WG"/>
                                             <outlet property="licensePlate" destination="lSl-hI-o41" id="RjB-b8-sZy"/>
                                         </connections>
                                     </tableViewCell>
@@ -336,6 +352,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ckh-VS-Ihz" firstAttribute="top" secondItem="OW3-7d-pzz" secondAttribute="top" id="3il-zc-82Q"/>
+                            <constraint firstItem="ckh-VS-Ihz" firstAttribute="trailing" secondItem="OW3-7d-pzz" secondAttribute="trailing" id="DGd-nG-Lig"/>
+                            <constraint firstAttribute="bottom" secondItem="ckh-VS-Ihz" secondAttribute="bottom" id="dO1-dh-muQ"/>
+                            <constraint firstItem="ckh-VS-Ihz" firstAttribute="leading" secondItem="OW3-7d-pzz" secondAttribute="leading" id="kx1-N4-aNf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OW3-7d-pzz"/>
                     </view>
                     <navigationItem key="navigationItem" id="q8N-CP-VfQ"/>
@@ -386,5 +408,6 @@
     </scenes>
     <resources>
         <image name="carImage" width="173" height="130"/>
+        <image name="twitter-icon" width="30" height="30"/>
     </resources>
 </document>

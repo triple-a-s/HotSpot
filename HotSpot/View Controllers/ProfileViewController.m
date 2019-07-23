@@ -29,7 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    self.licensePlate.text = @"";
+    self.carColor.text = @"";
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
     
@@ -37,10 +39,9 @@
     self.profileImage.image = currentUser[@"profilePicture"];
     self.name.text = currentUser[@"name"];
     self.phone.text = currentUser[@"phone"];
-    self.email.text = currentUser[@"email"];
+    self.email.text = currentUser.email;
     self.username.text = currentUser.username;
     
-    [self fetchCars];
     if (currentUser[@"cars"] == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
                                                                        message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];
@@ -59,13 +60,11 @@
         self.licensePlate.text = @"TBD";
         self.carColor.text = @"TBD";
     } else {
-        for (Car *car in self.cars) {
-            if (car[@"isDefault"]) {
-                currentUser[@"defaultCar"] = car;
-                self.licensePlate.text = car[@"license"];
-                self.carColor.text = car[@"Color"];
-            }
-        }
+        PFObject *defaultCar = currentUser[@"defaultCar"];
+        [defaultCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            self.licensePlate.text = defaultCar[@"license"];
+            self.carColor.text = defaultCar[@"Color"];
+        }];
     }
 }
 
@@ -73,17 +72,6 @@
     [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
 
-- (void)fetchCars {
-    PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
-    PFQuery *query = relation.query;
-    [query orderByDescending:@"createdAt"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
-        if (cars != nil) {
-            self.cars = [[NSMutableArray alloc] initWithArray:cars];
-        }
-    }];
-}
 
 
 /*

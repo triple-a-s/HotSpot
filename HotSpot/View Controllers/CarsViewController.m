@@ -57,11 +57,6 @@
     carCell.car = currentCar;
     [carCell setCell:currentCar];
     
-    UIButton *scanQRCodeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    scanQRCodeButton.frame = CGRectMake(0.0f, 5.0f, 320.0f, 44.0f);
-    scanQRCodeButton.backgroundColor = [UIColor redColor];
-    [scanQRCodeButton setTitle:@"Hello" forState:UIControlStateNormal];
-    [carCell addSubview:scanQRCodeButton];
     return carCell;
 }
 

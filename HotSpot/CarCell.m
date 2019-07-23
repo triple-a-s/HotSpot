@@ -25,9 +25,16 @@
 - (void)setCell: (Car *)car {
     self.car = car;
  //self.carImage.image = car.carImage;
+    //self.licensePlate.text = car[@"license"];
+    //self.carColor.text = car[@"Color"];
+    BOOL isDefault = [car[@"isDefault"] boolValue];
+    if (isDefault) {
+        self.isDefault.hidden = NO;
+    } else {
+        self.isDefault.hidden = YES;
+    }
     self.licensePlate.text = car[@"license"];
     self.carColor.text = car[@"Color"];
-
 }
 
 @end
