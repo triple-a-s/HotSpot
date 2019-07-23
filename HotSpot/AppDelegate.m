@@ -28,8 +28,8 @@
     
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
-        
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+        UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"Profile"];
+        self.window.rootViewController = navigationController;
     }
     return YES;
 }

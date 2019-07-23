@@ -58,7 +58,7 @@
         self.currentUser[@"email"] = self.email.text;
     }
     [self.currentUser saveInBackground];
-    [self performSegueWithIdentifier:@"saveChangesSegue" sender:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didEditFullName:(UITextField *)sender {

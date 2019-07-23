@@ -32,9 +32,10 @@
     Car *newCar = [Car new];
     PFUser *user = [PFUser currentUser];
     newCar.driver = user;
-    newCar.carImage = [self getPFFileFromImage:image];
+    //newCar.carImage = [self getPFFileFromImage:image];
     newCar.licensePlate = licensePlate;
     newCar.carColor = color;
+    newCar.isDefault = isDefault;
     
     PFRelation *relation = [user relationForKey:@"cars"];
     

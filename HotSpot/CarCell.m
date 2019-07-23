@@ -33,8 +33,8 @@
     } else {
         self.isDefault.hidden = YES;
     }
-    self.licensePlate.text = car[@"license"];
-    self.carColor.text = car[@"Color"];
+    self.licensePlate.text = car[@"licensePlate"];
+    self.carColor.text = car[@"carColor"];
 }
 
 @end

@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
 @property (weak, nonatomic) IBOutlet UILabel *carColor;
 @property (weak, nonatomic) IBOutlet UILabel *licensePlate;
-@property (strong, nonatomic) NSArray *cars;
 
 @end
 
@@ -29,9 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.licensePlate.text = @"";
-    self.carColor.text = @"";
+    [[PFUser currentUser] fetchIfNeededInBackground];
+    
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
     
@@ -62,8 +60,8 @@
     } else {
         PFObject *defaultCar = currentUser[@"defaultCar"];
         [defaultCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            self.licensePlate.text = defaultCar[@"license"];
-            self.carColor.text = defaultCar[@"Color"];
+            self.licensePlate.text = defaultCar[@"licensePlate"];
+            self.carColor.text = defaultCar[@"carColor"];
         }];
     }
 }

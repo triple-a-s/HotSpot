@@ -169,7 +169,7 @@
         <!--Profile-->
         <scene sceneID="1o7-bu-GJB">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="AwN-FO-jNc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" id="AwN-FO-jNc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AOC-Ry-xMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1854" y="425"/>
@@ -194,7 +194,6 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="didTapLogin:" destination="y6S-TY-UUC" eventType="touchUpInside" id="seQ-qe-NLp"/>
-                                    <segue destination="AwN-FO-jNc" kind="show" identifier="LoginSegue" id="lfA-qq-L0N"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTB-cm-s1a">
@@ -249,6 +248,7 @@
                     <connections>
                         <outlet property="password" destination="FVu-3J-6ym" id="DgV-h9-Zno"/>
                         <outlet property="username" destination="CaS-ye-oAk" id="x3b-di-UVp"/>
+                        <segue destination="AwN-FO-jNc" kind="show" identifier="LoginSegue" id="DYW-mC-QuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oER-XR-OHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,6 +265,6 @@
         <image name="App Logo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bTI-lN-ShG"/>
+        <segue reference="DYW-mC-QuO"/>
     </inferredMetricsTieBreakers>
 </document>

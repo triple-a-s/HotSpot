@@ -9,11 +9,12 @@
 #import "CarsViewController.h"
 #import "Parse/Parse.h"
 #import "CarCell.h"
+#import "AddCarViewController.h"
 
-@interface CarsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface CarsViewController () <UITableViewDelegate, UITableViewDataSource, AddCarViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *numCars;
+@property (strong, nonatomic) NSMutableArray *numCars;
 
 @end
 
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[PFUser currentUser] fetchIfNeededInBackground];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 150;
@@ -39,6 +41,7 @@
 */
 
 - (void)fetchCars {
+    
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"createdAt"];
@@ -62,6 +65,11 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.numCars.count;
+}
+
+- (void)didAddCar:(nonnull Car *)car {
+    [self.numCars insertObject:car atIndex:(self.numCars.count-1)];
+    [self.tableView reloadData];
 }
 
 @end
