@@ -13,6 +13,7 @@
 @interface MapViewController ()
 
 @property (strong, nonatomic) MainContainerViewController *ntViewController;
+@property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 
 @end
 
@@ -34,22 +35,14 @@
     
     [self.searchMap addAnnotation:annotation];
     
-    MKPointAnnotation *annotation2 = [[MKPointAnnotation alloc]init];
-    CLLocationCoordinate2D coordforpin2 = {.latitude = 37.234928,.longitude = -122.148201};
-    [annotation2 setCoordinate: coordforpin2];
-    [annotation2 setTitle:@"Spot!"];
-    [self.searchMap addAnnotation:annotation2];
     
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSString * segueName = segue.identifier;
-    if ([segueName isEqualToString: @"mapViewController"]) {
-        self.ntViewController = [segue destinationViewController];
-    }
+/*+ (void)updateLocation :(CLLocation*) clickedLocation, (MKMapView*) map{
+    CLLocationCoordinate2D coordforpin = clickedLocation.coordinate;
+    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(coordforpin, MKCoordinateSpanMake(0.1, 0.1));
+    [map setRegion:initialRegion animated:YES];
 }
-
-
+*/ 
 
 @end

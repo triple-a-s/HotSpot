@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate;
+@property (strong, nonatomic) CLLocation *storedlocation;
+
 @end
 
 NS_ASSUME_NONNULL_END

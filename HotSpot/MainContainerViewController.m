@@ -29,7 +29,8 @@
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
 @property (strong,nonatomic) CLLocation *location;
-@property (strong,nonatomic) MapViewController *mapVC;
+
+
 
 @end
 
@@ -53,6 +54,7 @@
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     self.request = [[MKLocalSearchRequest alloc] initWithCompletion:self.completion];
     self.search = [[MKLocalSearch alloc] initWithRequest:self.request];
+    self.storedlocation = [[CLLocation alloc] init];
     
 }
 
@@ -121,9 +123,7 @@
             NSLog(@"%@", error);
         }
         else{
-            self.mapVC.searchMap.centerCoordinate = location.coordinate;
-           // MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-          //  [self.mapVC.searchMap setRegion: initialRegion animated: YES];
+            self.storedlocation = location;
         }
     }];
     
@@ -135,10 +135,9 @@
     return self.spotsArray.count;
 }
 
-
 # pragma mark - PrepareforSegue
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.searchResultTableView indexPathForCell:tappedCell];
@@ -149,13 +148,12 @@
             NSLog(@"%@", error);
         }
         else{
-            MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-            [self.mapVC.searchMap setRegion: initialRegion animated: YES];
+            self.storedlocation = location;
         }
     }];
-    
     self.searchResultTableView.hidden =YES;
 }
+
 
 # pragma mark - Helper Methods
 
