@@ -17,56 +17,33 @@
 #import "DetailsViewController.h"
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
-/*
- the map isn't currently set to a specific location, but I will update
- this as soon as I merge with the datamanager.
- */
-@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
-@property (strong, nonatomic) NSArray<Listing *> *listings;
 
 @end
 
 @implementation ParkingSearchViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    self.searchTableView.dataSource = self;
-    self.searchTableView.delegate = self;
     self.searchTableView.rowHeight = 134;
-    [self.searchTableView reloadData];
     self.searchTableView.rowHeight = 134 ;
-    self.searchTableView.hidden = YES;
-    // we will initialize the map to show the user's current location
-    // self.searchMap.showsUserLocation = YES;
-    
-    // testing using a specific latitude
-    CLLocation *initialLocation = [[CLLocation alloc] initWithLatitude:37.484928 longitude:-122.148201];
-    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(initialLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-    [self.searchMap setRegion:initialRegion animated:YES];
-    
-    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:initialLocation];
-    
+    self.searchTableView.delegate = self;
+    self.searchTableView.dataSource = self; 
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-        self.listings = listings;
-        [self.searchTableView reloadData];
+    self.listings = listings;
+    [self.searchTableView reloadData];
     }];
-}
-
+     }
 # pragma mark - TableViewController methods
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*
-     This is where we are passing information into the cells.
-     For now, I have placeholder information so that when we merge
-     I can have data to load actual information into the tables.
-     */
+    
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+    cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
-    
     Listing *listing = self.listings[indexPath.row];
-    
     [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
@@ -75,8 +52,6 @@
             cell.searchTableAddress.text = name;
         }
     }];
-    
-    
     cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
     
     //placehodlder information
@@ -96,8 +71,8 @@
     // perform segue
     [self performSegueWithIdentifier:@"detailsSegue"
                               sender:self.listings[indexPath.row]];
-    
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"detailsSegue"]) {
         DetailsViewController *detailsViewController = [segue destinationViewController];
@@ -106,16 +81,5 @@
 }
 
 #pragma mark - Action Items
-
-- (IBAction)modeButtonPressed:(id)sender {
-    if(!self.searchTableView.hidden){
-        self.searchTableView.hidden = YES;
-        self. searchMap.hidden = NO;
-    }
-    else{
-    self.searchTableView.hidden = NO;
-    self.searchMap.hidden = YES;
-    }
-}
  
 @end

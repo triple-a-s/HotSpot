@@ -10,6 +10,10 @@
 #import "ParkingSearchViewController.h"
 #import "MapViewController.h"
 #import "searchResult.h"
+#import "SearchCell.h"
+#import "Listing.h"
+#import "DataManager.h"
+
 
 
 @interface MainContainerViewController ()<UITableViewDataSource, UITableViewDelegate, MKLocalSearchCompleterDelegate>
@@ -32,6 +36,7 @@
 //dealing with child view controllers
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
+@property (strong, nonatomic) CLLocation *storedLocation;
 
 
 
@@ -57,9 +62,7 @@
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     self.request = [[MKLocalSearchRequest alloc] initWithCompletion:self.completion];
     self.search = [[MKLocalSearch alloc] initWithRequest:self.request];
-    self.storedlocation = [[CLLocation alloc] init];
-
-    
+    self.storedLocation = [[CLLocation alloc] init];
 }
 
 # pragma mark - Action Items
@@ -102,7 +105,6 @@
 # pragma mark - TableView Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     // setting up the cell for when I start typing
     MKLocalSearchCompletion *completion = self.spotsArray[indexPath.row];
     searchResult *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult"];
@@ -111,11 +113,12 @@
     }
     cell.searchResultTitle.text = completion.title;
     cell.searchResultSubtitle.text = completion.subtitle;
+        return cell;
     
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   // map redirection
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
@@ -125,7 +128,12 @@
         else{
             
             MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-             [self.mapVC.searchMap setRegion:initialRegion animated:YES];
+            [self.mapVC.searchMap setRegion:initialRegion animated:YES];
+            self.tableVC.initialLocation = location;
+            [self.tableVC.searchTableView reloadData];
+            NSLog(@"%@", self.tableVC.initialLocation);
+            NSLog(@"%@",self.tableVC.listings); 
+
         }
     }];
     
@@ -140,29 +148,14 @@
 # pragma mark - PrepareforSegue
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-   /* UITableViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.searchResultTableView indexPathForCell:tappedCell];
-    MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
-    NSString *mapAddressForConversion = completionForMap.subtitle;
-    [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
-        if(error) {
-            NSLog(@"%@", error);
-        }
-        else{
-            self.storedlocation = location;
-        }
-    }];
-    self.searchResultTableView.hidden =YES;
-    */
       if ([segue.identifier isEqualToString:@"mapViewController"]) {
             self.mapVC = segue.destinationViewController;
         }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
             self.tableVC = segue.destinationViewController;
+            [self.tableVC.searchTableView reloadData];
+            [self.tableVC viewWillAppear:YES];
         }
-    }
-
-
+}
 
 # pragma mark - Helper Methods
 

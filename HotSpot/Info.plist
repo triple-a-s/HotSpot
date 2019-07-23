@@ -40,11 +40,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-<<<<<<< HEAD
 	<string>ContainerViewSearch</string>
-=======
-	<string>LoginSignUp</string>
->>>>>>> 4ff216f9eedf341999fb055f4fcd7fcc8797a187
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
