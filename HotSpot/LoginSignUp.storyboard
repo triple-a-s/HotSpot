@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-JU-nxu">
-                                <rect key="frame" x="119" y="430" width="176" height="36"/>
+                                <rect key="frame" x="155.5" y="430" width="103" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Head to Profile Page"/>
+                                <state key="normal" title="Profile Page"/>
                                 <connections>
                                     <segue destination="AwN-FO-jNc" kind="show" id="bTI-lN-ShG"/>
                                 </connections>
@@ -265,6 +265,6 @@
         <image name="App Logo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lfA-qq-L0N"/>
+        <segue reference="bTI-lN-ShG"/>
     </inferredMetricsTieBreakers>
 </document>
