@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MapViewControllerDelegate
 @end
 
-@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>
+@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, CLLocationManagerDelegate>
 
 +(void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate;

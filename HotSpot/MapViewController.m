@@ -13,7 +13,6 @@
 @interface MapViewController ()
 
 @property (strong, nonatomic) MainContainerViewController *ntViewController;
-@property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 
 @end
 
@@ -23,9 +22,9 @@
     [super viewDidLoad];
     // this is more of me testing out what the map does
     
-    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.484928, -122.148201), MKCoordinateSpanMake(0.1, 0.1));
+  /*  MKCoordinateRegion initialRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.484928, -122.148201), MKCoordinateSpanMake(0.1, 0.1));
     [self.searchMap setRegion:initialRegion animated:YES];
-    
+    */
     //setting the pin
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     CLLocationCoordinate2D coordforpin = {.latitude = 37.484928,.longitude = -122.148201};
@@ -34,15 +33,6 @@
     [annotation setSubtitle:@"$10/hr"];
     
     [self.searchMap addAnnotation:annotation];
-    
-    
 }
-
-/*+ (void)updateLocation :(CLLocation*) clickedLocation, (MKMapView*) map{
-    CLLocationCoordinate2D coordforpin = clickedLocation.coordinate;
-    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(coordforpin, MKCoordinateSpanMake(0.1, 0.1));
-    [map setRegion:initialRegion animated:YES];
-}
-*/ 
 
 @end

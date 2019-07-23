@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
+@property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @end
 
 NS_ASSUME_NONNULL_END

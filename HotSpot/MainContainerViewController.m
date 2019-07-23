@@ -29,6 +29,9 @@
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
 @property (strong,nonatomic) CLLocation *location;
+//dealing with child view controllers
+@property (strong, nonatomic) MapViewController *mapVC;
+@property (strong, nonatomic) ParkingSearchViewController *tableVC;
 
 
 
@@ -38,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     //setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
@@ -55,6 +58,7 @@
     self.request = [[MKLocalSearchRequest alloc] initWithCompletion:self.completion];
     self.search = [[MKLocalSearch alloc] initWithRequest:self.request];
     self.storedlocation = [[CLLocation alloc] init];
+
     
 }
 
@@ -111,10 +115,6 @@
     return cell;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
@@ -123,7 +123,9 @@
             NSLog(@"%@", error);
         }
         else{
-            self.storedlocation = location;
+            
+            MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+             [self.mapVC.searchMap setRegion:initialRegion animated:YES];
         }
     }];
     
@@ -139,7 +141,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    UITableViewCell *tappedCell = sender;
+   /* UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.searchResultTableView indexPathForCell:tappedCell];
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
@@ -152,7 +154,14 @@
         }
     }];
     self.searchResultTableView.hidden =YES;
-}
+    */
+      if ([segue.identifier isEqualToString:@"mapViewController"]) {
+            self.mapVC = segue.destinationViewController;
+        }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
+            self.tableVC = segue.destinationViewController;
+        }
+    }
+
 
 
 # pragma mark - Helper Methods
