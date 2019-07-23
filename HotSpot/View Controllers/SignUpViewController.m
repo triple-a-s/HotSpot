@@ -65,7 +65,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                //perform own segue
+                //perform your own segue here
                 //[self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
