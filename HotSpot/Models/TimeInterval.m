@@ -33,10 +33,10 @@
     NSDateInterval *theirDateInterval = [[NSDateInterval alloc] initWithStartDate:timeInterval.startTime endDate:timeInterval.endTime];
     if (self.repeatsWeekly) {
         CGFloat secondsPerDay = 60 * 60 * 24;
-        NSInteger differenceInDays = [dateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay - [theirDateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay;
+        NSInteger differenceInDays = [theirDateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay - [dateInterval.startDate timeIntervalSinceReferenceDate] / secondsPerDay;
         if( differenceInDays % 7 == 0) {
-            NSDateInterval *adjustedDAteInterval = [[NSDateInterval alloc] initWithStartDate:[dateInterval.startDate dateByAddingTimeInterval:differenceInDays] endDate:[dateInterval.endDate dateByAddingTimeInterval:differenceInDays]];
-            return [adjustedDAteInterval intersectionWithDateInterval:theirDateInterval];
+            NSDateInterval *adjustedDateInterval = [[NSDateInterval alloc] initWithStartDate:[dateInterval.startDate dateByAddingTimeInterval:differenceInDays * secondsPerDay] endDate:[dateInterval.endDate dateByAddingTimeInterval:differenceInDays * secondsPerDay]];
+            return [adjustedDateInterval intersectionWithDateInterval:theirDateInterval];
         }
         else {
             return nil;
