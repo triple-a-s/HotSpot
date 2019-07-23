@@ -28,20 +28,25 @@
 
 # pragma mark - Public Methods
 
-- (BOOL)canBook:(Booking *)booking {
+- (void)canBook:(Booking *)booking withCompletion:(void(^)(BOOL can, NSError * _Nullable error))completion {
     PFRelation *relation = [self relationForKey:@"unavailable"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"repeatsWeekly"];
     
-    NSArray<TimeInterval *> *timeIntervals = [query findObjects];
-    
-    for (TimeInterval *timeInterval in timeIntervals) {
-        if ([timeInterval intersectionWithTimeInterval:booking.timeInterval]) {
-            return NO;
+    [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
+        if (timeIntervals) {
+            BOOL conflictFree = YES;
+            for (TimeInterval *timeInterval in timeIntervals) {
+                if ([timeInterval intersectionWithTimeInterval:booking.timeInterval]) {
+                    conflictFree = NO;
+                }
+            }
+            completion(conflictFree, error);
         }
-    }
-    return YES;
-    
+        else {
+            completion(NO, error);
+        }
+    }];
 }
 
 @end
