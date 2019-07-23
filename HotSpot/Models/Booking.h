@@ -7,15 +7,17 @@
 //
 
 #import <Parse/Parse.h>
+#import "TimeInterval.h"
 #import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class Listing;
 @interface Booking : PFObject
 @property (nonatomic, strong) PFUser *driver;
 @property (nonatomic, strong) Listing *listing;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSNumber *duration;
+@property (nonatomic, strong) TimeInterval *timeInterval;
 
 + (void)bookDriveway:(Listing * _Nullable)listing
        withStartTime:(NSDate * _Nullable)startTime

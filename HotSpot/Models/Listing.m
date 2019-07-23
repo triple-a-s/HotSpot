@@ -8,6 +8,10 @@
 
 #import "Listing.h"
 
+#import "Booking.h"
+#import "Parse/Parse.h"
+#import "TimeInterval.h"
+
 @interface Listing()<PFSubclassing>
 @end
 @implementation Listing
@@ -21,4 +25,23 @@
 + (nonnull NSString *)parseClassName {
     return @"Listing";
 }
+
+# pragma mark - Public Methods
+
+- (BOOL)canBook:(Booking *)booking {
+    PFRelation *relation = [self relationForKey:@"unavailable"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"repeatsWeekly"];
+    
+    NSArray<TimeInterval *> *timeIntervals = [query findObjects];
+    
+    for (TimeInterval *timeInterval in timeIntervals) {
+        if ([timeInterval intersectionWithTimeInterval:booking.timeInterval]) {
+            return NO;
+        }
+    }
+    return YES;
+    
+}
+
 @end

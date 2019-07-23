@@ -10,6 +10,7 @@
 
 #import "Parse.h"
 #import "Listing.h"
+#import "TimeInterval.h"
 
 @interface Booking()<PFSubclassing>
 @end
@@ -20,6 +21,7 @@
 @dynamic listing;
 @dynamic startTime;
 @dynamic duration;
+@dynamic timeInterval;
 
 # pragma mark - Class Methods
 
@@ -51,23 +53,37 @@
         newBooking.duration = @3600; // by default the booking lasts for an hour
     }
     
-    PFRelation *relation = [user relationForKey:@"bookings"];
-    PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
-
-    [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [relation addObject:newBooking];
-            [user saveInBackground];
-            [listingBookingsRelation addObject:newBooking];
-            [listing saveInBackground];
-            if(completion) {
-                completion(succeeded, error);
+    TimeInterval *requestedTime = [TimeInterval new];
+    
+    requestedTime.startTime = startTime;
+    requestedTime.endTime = [startTime initWithTimeInterval:[duration doubleValue] sinceDate:startTime];
+    
+    newBooking.timeInterval = requestedTime;
+    
+    if ([listing canBook:newBooking]) {
+        PFRelation *relation = [user relationForKey:@"bookings"];
+        PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
+        
+        [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                [relation addObject:newBooking];
+                [user saveInBackground];
+                [listingBookingsRelation addObject:newBooking];
+                [listing saveInBackground];
+                if(completion) {
+                    completion(succeeded, error);
+                }
             }
-        }
-        else {
-            NSLog(@"%@", error);
-        }
-    }];
+            else {
+                NSLog(@"%@", error);
+            }
+        }];
+    }
+    else {
+        NSLog(@"Time requested is not available");
+    }
+    
+    
     
 }
 
