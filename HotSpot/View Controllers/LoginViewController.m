@@ -54,7 +54,7 @@
                 }];
             } else {
                 //perform own segue here
-//                [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
+                [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
     }

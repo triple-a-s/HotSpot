@@ -237,6 +237,7 @@
                     <connections>
                         <outlet property="password" destination="FVu-3J-6ym" id="DgV-h9-Zno"/>
                         <outlet property="username" destination="CaS-ye-oAk" id="x3b-di-UVp"/>
+                        <segue destination="uGr-xf-tee" kind="show" identifier="LoginSegue" id="jm7-RX-coN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oER-XR-OHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,6 +248,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-322" y="169"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Olf-t7-9en">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="uGr-xf-tee" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-XJ-WOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="379" y="23"/>
         </scene>
     </scenes>
     <resources>
