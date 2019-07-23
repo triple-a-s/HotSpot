@@ -70,6 +70,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
+                //perform your own segue here
                 //[self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
