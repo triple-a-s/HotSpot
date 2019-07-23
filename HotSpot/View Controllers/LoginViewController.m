@@ -53,7 +53,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                //when the appdelegate is pulled from github...
+                //perform own segue here
                 //[self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
@@ -81,3 +81,4 @@
  */
 
 @end
+
