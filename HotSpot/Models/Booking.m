@@ -63,12 +63,14 @@
     if ([listing canBook:newBooking]) {
         PFRelation *relation = [user relationForKey:@"bookings"];
         PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
+        PFRelation *listingUnavailableRelation = [listing relationForKey:@"unavailable"];
         
         [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 [relation addObject:newBooking];
                 [user saveInBackground];
                 [listingBookingsRelation addObject:newBooking];
+                [listingUnavailableRelation addObject:requestedTime];
                 [listing saveInBackground];
                 if(completion) {
                     completion(succeeded, error);
