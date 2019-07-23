@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HAw-Qw-2OJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jad-sf-6nm">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="NS9-li-J1p">
             <objects>
                 <viewController id="HAw-Qw-2OJ" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -18,59 +18,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gne-4i-795">
-                                <rect key="frame" x="141" y="86" width="151" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW">
-                                <rect key="frame" x="164" y="239" width="97" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW">
+                                <rect key="frame" x="158.5" y="322" width="97" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="didTapLogout:" destination="HAw-Qw-2OJ" eventType="touchUpInside" id="WI0-al-Qjh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj0-Ho-Kt7">
-                                <rect key="frame" x="101" y="293" width="214" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Customer Service"/>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ua4-EU-SLX">
-                                <rect key="frame" x="101" y="373" width="214" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ua4-EU-SLX">
+                                <rect key="frame" x="119.5" y="434" width="175" height="29"/>
                                 <segments>
                                     <segment title="Driver"/>
                                     <segment title="Homeowner"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current User:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-vi-zOE">
-                                <rect key="frame" x="51" y="173" width="145" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aaron Meheret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFk-C3-Oi2">
-                                <rect key="frame" x="204" y="173" width="159" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj0-Ho-Kt7">
+                                <rect key="frame" x="100" y="373" width="214" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Customer Service"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Meheret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MFk-C3-Oi2">
+                                <rect key="frame" x="127.5" y="284" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="1TH-Qj-vYk"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="8" id="6B3-fg-iHn"/>
+                            <constraint firstItem="MFk-C3-Oi2" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="9y8-4d-ych"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="CYO-6o-XT5"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerY" secondItem="6YN-pE-PAa" secondAttribute="centerY" id="UsG-Gi-dhr"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="jNn-NW-2GJ"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="5rd-Ux-1iW" secondAttribute="bottom" constant="5" id="ono-kH-ULS"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="top" secondItem="vj0-Ho-Kt7" secondAttribute="bottom" constant="15" id="yzq-LP-ErB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XEw-Rg-QV6"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="kPw-2E-o9O"/>
                     <connections>
                         <outlet property="fullName" destination="MFk-C3-Oi2" id="3Nu-MJ-IyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96c-ng-8Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="110.49107142857143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vG2-2V-gbr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jad-sf-6nm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zQJ-AP-gI9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HAw-Qw-2OJ" kind="relationship" relationship="rootViewController" id="hf4-ej-PsG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bjo-n3-TWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.739130434782609" y="110.49107142857143"/>
         </scene>
