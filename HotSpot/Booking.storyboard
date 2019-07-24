@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ogF-Ac-Squ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -166,13 +166,19 @@
                                 </constraints>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-i8-fe1">
-                                <rect key="frame" x="0.0" y="315" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="315" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="BkO-fD-4S5"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="585183402.07731497">
                                     <!--2019-07-18 22:56:42 +0000-->
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FO-7Wr">
-                                <rect key="frame" x="0.0" y="539" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="413" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="qQq-bC-e4K"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="585183563.79798496">
                                     <!--2019-07-18 22:59:23 +0000-->
                                 </date>
@@ -206,6 +212,42 @@
                                     <constraint firstAttribute="width" constant="219" id="nuZ-iL-ZGU"/>
                                 </constraints>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
+                                <rect key="frame" x="0.0" y="511" width="414" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VxM-GD-Vbr">
+                                    <size key="itemSize" width="80" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCell" id="gEJ-5M-eif" customClass="TimeCell">
+                                        <rect key="frame" x="0.0" y="25" width="80" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9x-nh-pbQ">
+                                                    <rect key="frame" x="14.5" y="15" width="51" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="x9x-nh-pbQ" firstAttribute="centerX" secondItem="gEJ-5M-eif" secondAttribute="centerX" id="hHO-c0-iRG"/>
+                                            <constraint firstItem="x9x-nh-pbQ" firstAttribute="centerY" secondItem="gEJ-5M-eif" secondAttribute="centerY" id="y1j-94-9RB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="timeLabel" destination="x9x-nh-pbQ" id="YwT-b5-JGO"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -232,6 +274,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="T3B-ww-crv"/>
                     <connections>
+                        <outlet property="collectionView" destination="YrE-Cb-wov" id="pWa-Ru-jUC"/>
                         <outlet property="endDatePicker" destination="Obk-FO-7Wr" id="T82-hV-WIL"/>
                         <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>
                         <outlet property="listingImageView" destination="jsM-A7-T6H" id="a0k-To-Zvl"/>

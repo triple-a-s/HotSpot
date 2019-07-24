@@ -10,20 +10,25 @@
 
 #import "Booking.h"
 #import "DataManager.h"
+#import "TimeCell.h"
 
-@interface BookingViewController ()
+@interface BookingViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
 
 @implementation BookingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
 
     // image
     [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -62,6 +67,17 @@
                 NSLog(@"%@", error);
             }
         }];
+}
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath { 
+    TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
+                                                               forIndexPath:indexPath];
+    [cell setTime:indexPath.item];
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { 
+    return 24 * 4;
 }
 
 @end
