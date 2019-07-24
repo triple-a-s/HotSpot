@@ -147,7 +147,7 @@
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else {
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.8 blue:.2 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:.8 blue:.2 alpha:.6];
     }
     return cell;
 }
