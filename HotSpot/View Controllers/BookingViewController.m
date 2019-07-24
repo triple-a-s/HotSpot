@@ -8,6 +8,7 @@
 
 #import "BookingViewController.h"
 
+#import <UIKit/UIKit.h>
 #import "Booking.h"
 #import "DataManager.h"
 #import "TimeCell.h"
@@ -17,8 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
-@property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
-@property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray<NSNumber *> *timeIsUnavailable;
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *chosenIndexPaths;
@@ -61,7 +61,7 @@
     PFQuery *query = relation.query;
     [query orderByDescending:@"repeatsWeekly"];
     
-    NSDate *startDate = self.startDatePicker.date;
+    NSDate *startDate = self.datePicker.date;
     NSInteger secondsPerDay = 60 * 60 * 24;
     NSInteger timeSinceBeginningOfDay = (int)[startDate timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
     NSDate *beginningOfStartDay = [startDate dateByAddingTimeInterval: -timeSinceBeginningOfDay];
@@ -135,19 +135,19 @@
     TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
                                                                forIndexPath:indexPath];
     if (pickingStartTime) {
-        [cell setTime:indexPath.item withDate:self.startDatePicker.date];
+        [cell setTime:indexPath.item withDate:self.datePicker.date];
     }
     else {
-        [cell setTime:indexPath.item withDate:self.endDatePicker.date];
+        [cell setTime:indexPath.item withDate:self.datePicker.date];
     }
     if ([self.timeIsUnavailable[indexPath.item] boolValue]) {
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
     }
     else if ([self.chosenIndexPaths containsObject:indexPath]) {
-        cell.backgroundColor = [UIColor blueColor];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else {
-        cell.backgroundColor = [UIColor greenColor];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:.8 blue:.2 alpha:1.0];
     }
     return cell;
 }
@@ -165,7 +165,7 @@
         pickingStartTime = NO;
         pickingEndTime = YES;
         [self.chosenIndexPaths addObject: indexPath];
-        cell.backgroundColor = [UIColor blueColor];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else if (pickingEndTime){
         pickingEndTime = NO;
@@ -174,7 +174,7 @@
             NSIndexPath *inBetweenIndexPath = [NSIndexPath indexPathForItem:i inSection:startIndexPath.section];
             TimeCell *inBetweenCell = [collectionView cellForItemAtIndexPath:inBetweenIndexPath];
             [self.chosenIndexPaths addObject:[collectionView indexPathForCell:inBetweenCell]];
-            inBetweenCell.backgroundColor = [UIColor blueColor];
+            inBetweenCell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
         }
     }
 }

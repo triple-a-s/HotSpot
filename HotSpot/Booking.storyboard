@@ -165,19 +165,11 @@
                                     <constraint firstAttribute="trailing" secondItem="1HS-WW-IYK" secondAttribute="trailing" constant="8" id="wEZ-g9-qCD"/>
                                 </constraints>
                             </view>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-i8-fe1">
-                                <rect key="frame" x="0.0" y="315" width="414" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="BkO-fD-4S5"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="585183402.07731497">
-                                    <!--2019-07-18 22:56:42 +0000-->
-                                </date>
-                            </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FO-7Wr">
-                                <rect key="frame" x="0.0" y="413" width="414" height="90"/>
+                                <rect key="frame" x="166" y="320.5" width="240" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="qQq-bC-e4K"/>
+                                    <constraint firstAttribute="width" constant="240" id="0bH-tq-9by"/>
+                                    <constraint firstAttribute="height" constant="60" id="qQq-bC-e4K"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="585183563.79798496">
                                     <!--2019-07-18 22:59:23 +0000-->
@@ -212,11 +204,19 @@
                                     <constraint firstAttribute="width" constant="219" id="nuZ-iL-ZGU"/>
                                 </constraints>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
-                                <rect key="frame" x="0.0" y="511" width="414" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQA-xp-pce">
+                                <rect key="frame" x="8" y="342" width="46" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
+                                <rect key="frame" x="0.0" y="376.5" width="414" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VxM-GD-Vbr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="kbS-Wh-G6u"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="VxM-GD-Vbr">
                                     <size key="itemSize" width="80" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -224,16 +224,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCell" id="gEJ-5M-eif" customClass="TimeCell">
-                                        <rect key="frame" x="0.0" y="25" width="80" height="60"/>
+                                        <rect key="frame" x="0.0" y="8" width="80" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9x-nh-pbQ">
-                                                    <rect key="frame" x="14.5" y="15" width="51" height="30.5"/>
-                                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="16.5" y="17" width="47" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -252,35 +252,35 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Kt-Gu-WGE" firstAttribute="leading" secondItem="jsM-A7-T6H" secondAttribute="trailing" constant="8" id="0Gv-JH-tgb"/>
-                            <constraint firstItem="Obk-FO-7Wr" firstAttribute="trailing" secondItem="A4R-i8-fe1" secondAttribute="trailing" id="6aE-p6-8fw"/>
+                            <constraint firstItem="YrE-Cb-wov" firstAttribute="leading" secondItem="gio-3n-Vrf" secondAttribute="leading" id="4mc-AQ-oRt"/>
+                            <constraint firstItem="Obk-FO-7Wr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GQA-xp-pce" secondAttribute="trailing" constant="8" id="5Uu-VV-xd1"/>
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="top" secondItem="jsM-A7-T6H" secondAttribute="bottom" constant="8" id="Ab3-kv-Yz2"/>
+                            <constraint firstItem="GQA-xp-pce" firstAttribute="top" secondItem="XX7-ir-ai5" secondAttribute="bottom" constant="48" id="C5Z-qi-e87"/>
                             <constraint firstItem="jsM-A7-T6H" firstAttribute="top" secondItem="k0o-OM-vs8" secondAttribute="top" id="CS6-qg-Wf0"/>
-                            <constraint firstItem="m1E-lv-paK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Obk-FO-7Wr" secondAttribute="bottom" constant="8" id="IfP-0M-gNr"/>
+                            <constraint firstItem="YrE-Cb-wov" firstAttribute="top" secondItem="GQA-xp-pce" secondAttribute="bottom" constant="8" id="CtC-Ve-TfE"/>
+                            <constraint firstItem="GQA-xp-pce" firstAttribute="leading" secondItem="k0o-OM-vs8" secondAttribute="leading" constant="8" id="DUv-Wh-naL"/>
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4Kt-Gu-WGE" secondAttribute="bottom" constant="8" id="J3d-dF-fvF"/>
-                            <constraint firstItem="Obk-FO-7Wr" firstAttribute="top" secondItem="A4R-i8-fe1" secondAttribute="bottom" constant="8" id="NIe-mc-aZX"/>
                             <constraint firstItem="jsM-A7-T6H" firstAttribute="leading" secondItem="k0o-OM-vs8" secondAttribute="leading" id="Oll-Il-369"/>
-                            <constraint firstAttribute="trailing" secondItem="A4R-i8-fe1" secondAttribute="trailing" id="V8H-Dv-nef"/>
                             <constraint firstItem="4Kt-Gu-WGE" firstAttribute="top" secondItem="gio-3n-Vrf" secondAttribute="topMargin" constant="8" id="WjP-5v-9ep"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="UU2-vK-DAD" secondAttribute="trailing" constant="8" id="YtM-WC-8Jf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Kt-Gu-WGE" secondAttribute="trailing" constant="8" id="bHh-gr-RRi"/>
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="leading" secondItem="k0o-OM-vs8" secondAttribute="leading" constant="8" id="cRu-MW-e9q"/>
-                            <constraint firstItem="A4R-i8-fe1" firstAttribute="leading" secondItem="gio-3n-Vrf" secondAttribute="leading" id="ktx-JP-kJQ"/>
+                            <constraint firstAttribute="trailing" secondItem="YrE-Cb-wov" secondAttribute="trailing" id="dW6-OP-nRL"/>
                             <constraint firstAttribute="bottom" secondItem="m1E-lv-paK" secondAttribute="bottom" constant="20" symbolic="YES" id="l19-Pb-6A6"/>
-                            <constraint firstItem="A4R-i8-fe1" firstAttribute="top" secondItem="UU2-vK-DAD" secondAttribute="bottom" constant="13" id="pJg-xK-Kn6"/>
+                            <constraint firstItem="Obk-FO-7Wr" firstAttribute="centerY" secondItem="GQA-xp-pce" secondAttribute="centerY" constant="-5" id="ryj-Mj-aQQ"/>
                             <constraint firstItem="m1E-lv-paK" firstAttribute="centerX" secondItem="k0o-OM-vs8" secondAttribute="centerX" id="sb7-3F-e43"/>
-                            <constraint firstItem="Obk-FO-7Wr" firstAttribute="leading" secondItem="A4R-i8-fe1" secondAttribute="leading" id="so0-P8-rVr"/>
+                            <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="Obk-FO-7Wr" secondAttribute="trailing" constant="8" id="wEQ-dL-B9l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k0o-OM-vs8"/>
                     </view>
                     <navigationItem key="navigationItem" id="T3B-ww-crv"/>
                     <connections>
                         <outlet property="collectionView" destination="YrE-Cb-wov" id="pWa-Ru-jUC"/>
-                        <outlet property="endDatePicker" destination="Obk-FO-7Wr" id="T82-hV-WIL"/>
+                        <outlet property="datePicker" destination="Obk-FO-7Wr" id="72D-01-h7D"/>
                         <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>
                         <outlet property="listingImageView" destination="jsM-A7-T6H" id="a0k-To-Zvl"/>
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
-                        <outlet property="startDatePicker" destination="A4R-i8-fe1" id="8Ge-th-KvX"/>
                         <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="eVy-mN-B6A"/>
                     </connections>
                 </viewController>
