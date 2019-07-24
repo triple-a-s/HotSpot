@@ -139,12 +139,14 @@
                 [spotPins setCoordinate: spotLocation];
                 [spotPins setTitle: @"bluefacebabyaightt"];
                 [spotList addObject:spotPins];
+                [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
             }
         }
     }];
     self.searchResultTableView.hidden =YES;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.spotsArray.count;

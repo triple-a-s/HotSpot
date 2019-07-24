@@ -18,6 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchMap.delegate =self;
+    for (int i =0; i<=self.searchMap.annotations.count; i++){
+        if (self.searchMap.annotations.count>0){
+        [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
+        }
+    }
 }
 
 # pragma mark - Helper Methods
@@ -31,5 +37,17 @@
     [ourAnnotation setCoordinate: ourLocation];
     [ourAnnotation setTitle: title];
 }
+
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
+    UIImage *flagImage = [UIImage imageNamed:@"ourlogo"];
+    annotationView.image = flagImage;
+    return annotationView;
+}
+
+-(void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    [self performSegueWithIdentifier:@"detailsSegue2" sender:self]; 
+}
+
 
 @end
