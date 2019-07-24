@@ -174,6 +174,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="585183563.79798496">
                                     <!--2019-07-18 22:59:23 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="ogF-Ac-Squ" eventType="valueChanged" id="dhE-BM-8RU"/>
+                                </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-Gu-WGE">
                                 <rect key="frame" x="227" y="52" width="159" height="122"/>

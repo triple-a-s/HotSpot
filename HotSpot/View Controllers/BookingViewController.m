@@ -57,60 +57,8 @@
         self.listingOwnerLabel.text = object[@"name"];
     }];
     
-    PFRelation *relation = [self.listing relationForKey:@"unavailable"];
-    PFQuery *query = relation.query;
-    [query orderByDescending:@"repeatsWeekly"];
     
-    NSDate *startDate = self.datePicker.date;
-    NSInteger secondsPerDay = 60 * 60 * 24;
-    NSInteger timeSinceBeginningOfDay = (int)[startDate timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
-    NSDate *beginningOfStartDay = [startDate dateByAddingTimeInterval: -timeSinceBeginningOfDay];
-    NSDate *endOfStartDay = [startDate dateByAddingTimeInterval: secondsPerDay];
-    
-    [query whereKey:@"endTime" greaterThan:beginningOfStartDay];
-    [query whereKey:@"startTime" lessThan:endOfStartDay];
-    
-    self.timeIsUnavailable = [NSMutableArray new];
-    for (NSInteger i = 0; i < 24 * 4; i ++) {
-        [self.timeIsUnavailable addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
-        if (timeIntervals) {
-            for (TimeInterval *timeInterval in timeIntervals) {
-                // map to 0 through 95
-                
-                NSDate *startTime = timeInterval.startTime;
-                NSDate *endTime = timeInterval.endTime;
-                
-                CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfStartDay];
-                NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
-                NSInteger start = startMinute / 15;
-                
-                CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfStartDay];
-                NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
-                NSInteger end = endMinute / 15;
-
-                NSInteger i = 0;
-                for (i =start; i <= end; i++) {
-                    self.timeIsUnavailable[i] = [NSNumber numberWithBool:YES];
-                }
-//                 for now it is set to today.
-                
-                [self.collectionView reloadData];
-            }
-        }
-        else {
-            NSLog(@"%@", error);
-        }
-    }];
-    
-    PFQuery *repeatingQuery = [relation query];
-    
-    pickingStartTime = YES;
-    pickingEndTime = NO;
-    self.chosenIndexPaths = [NSMutableArray new];
-    
+    [self updateCells];
 }
 
 - (IBAction)closeClicked:(id)sender {
@@ -181,6 +129,72 @@
         }
     }
 }
+
+- (void)updateCells {
+    NSLog(@"updatecells called");
+    PFRelation *relation = [self.listing relationForKey:@"unavailable"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"repeatsWeekly"];
+    
+    NSDate *date = self.datePicker.date;
+    NSInteger secondsPerDay = 60 * 60 * 24;
+    NSInteger timeSinceBeginningOfDay = (int)[date timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
+    NSDate *beginningOfDay = [date dateByAddingTimeInterval: -timeSinceBeginningOfDay];
+    NSDate *endOfDay = [date dateByAddingTimeInterval: secondsPerDay];
+    
+    [query whereKey:@"endTime" greaterThan:beginningOfDay];
+    [query whereKey:@"startTime" lessThan:endOfDay];
+    
+    self.timeIsUnavailable = [NSMutableArray new];
+    for (NSInteger i = 0; i < 24 * 4; i ++) {
+        [self.timeIsUnavailable addObject:[NSNumber numberWithBool:NO]];
+    }
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
+        if (timeIntervals) {
+            for (TimeInterval *timeInterval in timeIntervals) {
+                // map to 0 through 95
+                
+                NSDate *startTime = timeInterval.startTime;
+                NSDate *endTime = timeInterval.endTime;
+                
+                CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfDay];
+                NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
+                NSInteger start = startMinute / 15;
+                if ( start < 0 ) {
+                    start = 0;
+                }
+                
+                
+                CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfDay];
+                NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
+                NSInteger end = endMinute / 15;
+                if (end > 4 * 24 - 1 ) {
+                    end = 4 * 24 - 1;
+                }
+                
+                NSInteger i = 0;
+                for (i = start; i <= end; i++) {
+                    self.timeIsUnavailable[i] = [NSNumber numberWithBool:YES];
+                }
+                //                 for now it is set to today.
+            }
+            [self.collectionView reloadData];
+        }
+        else {
+            NSLog(@"%@", error);
+        }
+    }];
+    
+    pickingStartTime = YES;
+    pickingEndTime = NO;
+    self.chosenIndexPaths = [NSMutableArray new];
+}
+- (IBAction)dateChanged:(id)sender {
+    [self updateCells];
+}
+
+
 - (IBAction)resetClicked:(id)sender {
     pickingStartTime = YES;
     [self.chosenIndexPaths removeAllObjects];
