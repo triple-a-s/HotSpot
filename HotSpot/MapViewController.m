@@ -12,8 +12,6 @@
 
 @interface MapViewController ()
 
-@property (strong, nonatomic) MainContainerViewController *ntViewController;
-
 @end
 
 @implementation MapViewController
@@ -23,4 +21,15 @@
     self.searchMap.showsUserLocation = YES;
 }
 
+# pragma mark - Helper Methods
+
++ (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map{
+    MKCoordinateRegion initialRegion = MKCoordinateRegionMake(ourLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    [map setRegion:initialRegion animated:YES];
+}
+
++ (void)makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title{
+    [ourAnnotation setCoordinate: ourLocation];
+    [ourAnnotation setTitle: title];
+}
 @end

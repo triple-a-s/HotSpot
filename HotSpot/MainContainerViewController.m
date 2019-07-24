@@ -122,18 +122,24 @@
             NSLog(@"%@", error);
         }
         else{
-            
-            MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
-            [self.mapVC.searchMap setRegion:initialRegion animated:YES];
-            MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-            CLLocationCoordinate2D coordforpin = location.coordinate;
-            [annotation setCoordinate: coordforpin];
-            [annotation setTitle: completionForMap.title];
-            //[annotation setSubtitle:@"$10/hr"];
-            [self.mapVC.searchMap addAnnotation:annotation];
+            [MapViewController setLocation:location onMap:self.mapVC.searchMap];
             self.tableVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
-
+            MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
+            [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
+            [self.mapVC.searchMap addAnnotation:searchedLocation];
+            // setting other location pins
+            NSMutableArray<MKPointAnnotation*>*listingPins = [[NSMutableArray alloc] init];
+            for ( int i=0; i<=self.tableVC.listings.count-1; i++)
+            {
+                MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
+                CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.tableVC.listings[i].address.latitude, self.tableVC.listings[i].address.longitude);
+                    [spotPins setCoordinate: spotLocation];
+                    [spotPins setTitle: @"bluefacebabyaightt"];
+                    [listingPins addObject:spotPins];
+                    [self.mapVC.searchMap addAnnotation:listingPins[i]];
+        }
+           // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
         }
     }];
     self.searchResultTableView.hidden =YES;

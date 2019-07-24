@@ -191,7 +191,6 @@
 				612FE8E322DE6A0D00112AF2 /* main.m */,
 				D2B2771E22DE868600EBC4EC /* DataManager.m */,
 				D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */,
-				6186183D22E7C6FB007A2BD9 /* View Controllers - Ayooluwa  */,
 				D2BD365122E11F0C0001BD61 /* View Controllers  */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				ADEC07DC22DE80BA0035274F /* View Controllers */,
@@ -230,13 +229,6 @@
 				612FE8FA22DE6A0D00112AF2 /* Info.plist */,
 			);
 			path = HotSpotUITests;
-			sourceTree = "<group>";
-		};
-		6186183D22E7C6FB007A2BD9 /* View Controllers - Ayooluwa  */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Controllers - Ayooluwa ";
 			sourceTree = "<group>";
 		};
 		ADEC07DC22DE80BA0035274F /* View Controllers */ = {
