@@ -104,6 +104,9 @@
             NSLog(@"%@", error);
         }
     }];
+    
+    PFQuery *repeatingQuery = [relation query];
+    
     pickingStartTime = YES;
     pickingEndTime = NO;
     self.chosenIndexPaths = [NSMutableArray new];
@@ -170,13 +173,18 @@
     else if (pickingEndTime){
         pickingEndTime = NO;
         endTime = cell.date;
-        for( int i = startIndexPath.item + 1; i <= indexPath.item; i++ ) {
+        for (int i = startIndexPath.item + 1; i <= indexPath.item; i++) {
             NSIndexPath *inBetweenIndexPath = [NSIndexPath indexPathForItem:i inSection:startIndexPath.section];
             TimeCell *inBetweenCell = [collectionView cellForItemAtIndexPath:inBetweenIndexPath];
             [self.chosenIndexPaths addObject:[collectionView indexPathForCell:inBetweenCell]];
             inBetweenCell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
         }
     }
+}
+- (IBAction)resetClicked:(id)sender {
+    pickingStartTime = YES;
+    [self.chosenIndexPaths removeAllObjects];
+    [self.collectionView reloadData];
 }
 
 @end

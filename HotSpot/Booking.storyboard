@@ -248,12 +248,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccr-ss-TgP">
+                                <rect key="frame" x="367" y="460.5" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetClicked:" destination="ogF-Ac-Squ" eventType="touchUpInside" id="Ubk-d8-VWz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Kt-Gu-WGE" firstAttribute="leading" secondItem="jsM-A7-T6H" secondAttribute="trailing" constant="8" id="0Gv-JH-tgb"/>
                             <constraint firstItem="YrE-Cb-wov" firstAttribute="leading" secondItem="gio-3n-Vrf" secondAttribute="leading" id="4mc-AQ-oRt"/>
                             <constraint firstItem="Obk-FO-7Wr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GQA-xp-pce" secondAttribute="trailing" constant="8" id="5Uu-VV-xd1"/>
+                            <constraint firstItem="Ccr-ss-TgP" firstAttribute="trailing" secondItem="Obk-FO-7Wr" secondAttribute="trailing" id="5yg-qQ-AiL"/>
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="top" secondItem="jsM-A7-T6H" secondAttribute="bottom" constant="8" id="Ab3-kv-Yz2"/>
                             <constraint firstItem="GQA-xp-pce" firstAttribute="top" secondItem="XX7-ir-ai5" secondAttribute="bottom" constant="48" id="C5Z-qi-e87"/>
                             <constraint firstItem="jsM-A7-T6H" firstAttribute="top" secondItem="k0o-OM-vs8" secondAttribute="top" id="CS6-qg-Wf0"/>
@@ -267,6 +275,7 @@
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="leading" secondItem="k0o-OM-vs8" secondAttribute="leading" constant="8" id="cRu-MW-e9q"/>
                             <constraint firstAttribute="trailing" secondItem="YrE-Cb-wov" secondAttribute="trailing" id="dW6-OP-nRL"/>
                             <constraint firstAttribute="bottom" secondItem="m1E-lv-paK" secondAttribute="bottom" constant="20" symbolic="YES" id="l19-Pb-6A6"/>
+                            <constraint firstItem="Ccr-ss-TgP" firstAttribute="top" secondItem="YrE-Cb-wov" secondAttribute="bottom" constant="8" id="nQq-tH-sCH"/>
                             <constraint firstItem="Obk-FO-7Wr" firstAttribute="centerY" secondItem="GQA-xp-pce" secondAttribute="centerY" constant="-5" id="ryj-Mj-aQQ"/>
                             <constraint firstItem="m1E-lv-paK" firstAttribute="centerX" secondItem="k0o-OM-vs8" secondAttribute="centerX" id="sb7-3F-e43"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="Obk-FO-7Wr" secondAttribute="trailing" constant="8" id="wEQ-dL-B9l"/>
