@@ -10,7 +10,7 @@
 
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
-#import "searchResult.h"
+#import "SearchResult.h"
 #import "MainContainerViewController.h"
 #import "Listing.h"
 #import "DataManager.h"
@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchTableView.rowHeight = 134;
-    self.searchTableView.rowHeight = 134 ;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self; 
     self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];

@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchMap.showsUserLocation = YES;
 }
 
 # pragma mark - Helper Methods
@@ -32,4 +31,5 @@
     [ourAnnotation setCoordinate: ourLocation];
     [ourAnnotation setTitle: title];
 }
+
 @end

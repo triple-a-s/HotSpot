@@ -21,7 +21,7 @@
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
 		61AB0BC522E1308B002B7EB6 /* MainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */; };
 		61AB0BC722E13893002B7EB6 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */; };
-		61AB0BCA22E13E50002B7EB6 /* searchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* searchResult.m */; };
+		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
 		61AB0BD022E22CB1002B7EB6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
@@ -82,8 +82,8 @@
 		61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainContainerViewController.h; sourceTree = "<group>"; };
 		61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainContainerViewController.m; sourceTree = "<group>"; };
 		61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ContainerViewSearch.storyboard; path = ../../../.Trash/ContainerViewSearch.storyboard; sourceTree = "<group>"; };
-		61AB0BC822E13E50002B7EB6 /* searchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = searchResult.h; sourceTree = "<group>"; };
-		61AB0BC922E13E50002B7EB6 /* searchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = searchResult.m; sourceTree = "<group>"; };
+		61AB0BC822E13E50002B7EB6 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		61AB0BC922E13E50002B7EB6 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 		61AB0BCE22E22CB1002B7EB6 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,14 +195,14 @@
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				ADEC07DC22DE80BA0035274F /* View Controllers */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
-				61AB0BC822E13E50002B7EB6 /* searchResult.h */,
+				61AB0BC822E13E50002B7EB6 /* SearchResult.h */,
 				61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */,
 				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
 				61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */,
 				61AB0BCE22E22CB1002B7EB6 /* MapViewController.h */,
 				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */,
-				61AB0BC922E13E50002B7EB6 /* searchResult.m */,
+				61AB0BC922E13E50002B7EB6 /* SearchResult.m */,
 				61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */,
 				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
 				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
@@ -506,7 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */,
-				61AB0BCA22E13E50002B7EB6 /* searchResult.m in Sources */,
+				61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */,
 				D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */,
 				D2BD365022E11F020001BD61 /* DetailsViewController.m in Sources */,
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,

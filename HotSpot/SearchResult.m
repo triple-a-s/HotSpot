@@ -6,12 +6,13 @@
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
-#import "searchResult.h"
+#import "SearchResult.h"
 
-@implementation searchResult
+@implementation SearchResult
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     // Initialization code
 }
 

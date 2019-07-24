@@ -9,7 +9,7 @@
 #import "MainContainerViewController.h"
 #import "ParkingSearchViewController.h"
 #import "MapViewController.h"
-#import "searchResult.h"
+#import "SearchResult.h"
 #import "SearchCell.h"
 #import "Listing.h"
 #import "DataManager.h"
@@ -37,6 +37,7 @@
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
 @property (strong, nonatomic) CLLocation *storedLocation;
+@property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
 
 
@@ -104,13 +105,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // setting up the cell for when I start typing
     MKLocalSearchCompletion *completion = self.spotsArray[indexPath.row];
-    searchResult *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult"];
+    SearchResult *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult"];
     if(cell == nil){
-        cell = [[searchResult alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchResult"];
+        cell = [[SearchResult alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchResult"];
     }
     cell.searchResultTitle.text = completion.title;
     cell.searchResultSubtitle.text = completion.subtitle;
-        return cell;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -129,17 +130,17 @@
             [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
             [self.mapVC.searchMap addAnnotation:searchedLocation];
             // setting other location pins
-            NSMutableArray<MKPointAnnotation*>*listingPins = [[NSMutableArray alloc] init];
+            //self.searchMap.showsUserLocation = YES;
+            NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
             for ( int i=0; i<=self.tableVC.listings.count-1; i++)
             {
                 MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
                 CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.tableVC.listings[i].address.latitude, self.tableVC.listings[i].address.longitude);
-                    [spotPins setCoordinate: spotLocation];
-                    [spotPins setTitle: @"bluefacebabyaightt"];
-                    [listingPins addObject:spotPins];
-                    [self.mapVC.searchMap addAnnotation:listingPins[i]];
-        }
-           // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
+                [spotPins setCoordinate: spotLocation];
+                [spotPins setTitle: @"bluefacebabyaightt"];
+                [spotList addObject:spotPins];
+                [self.mapVC.searchMap addAnnotation:spotList[i]];
+            }
         }
     }];
     self.searchResultTableView.hidden =YES;
@@ -154,6 +155,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
       if ([segue.identifier isEqualToString:@"mapViewController"]) {
             self.mapVC = segue.destinationViewController;
+         // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
         }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
             self.tableVC = segue.destinationViewController;
             [self.tableVC.searchTableView reloadData];

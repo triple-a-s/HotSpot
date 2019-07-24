@@ -1,5 +1,5 @@
 //
-//  searchResult.h
+//  SearchResult.h
 //  HotSpot
 //
 //  Created by aodemuyi on 7/18/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface searchResult : UITableViewCell
+@interface SearchResult : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *searchResultTitle;
 @property (weak, nonatomic) IBOutlet UILabel *searchResultSubtitle;
