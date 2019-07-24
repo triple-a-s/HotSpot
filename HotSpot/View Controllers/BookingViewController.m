@@ -12,6 +12,7 @@
 #import "Booking.h"
 #import "DataManager.h"
 #import "TimeCell.h"
+#import "TimeSlot.h"
 
 @interface BookingViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -20,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray<NSNumber *> *timeIsUnavailable;
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *chosenIndexPaths;
+@property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
 
 @implementation BookingViewController
@@ -91,7 +92,7 @@
     else {
         [cell setTime:indexPath.item withDate:self.datePicker.date];
     }
-    if ([self.timeIsUnavailable[indexPath.item] boolValue]) {
+    if (!self.timeSlots[indexPath.item].available) {
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
     }
     else if ([self.chosenIndexPaths containsObject:indexPath]) {
@@ -131,7 +132,6 @@
 }
 
 - (void)updateCells {
-    NSLog(@"updatecells called");
     PFRelation *relation = [self.listing relationForKey:@"unavailable"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"repeatsWeekly"];
@@ -145,9 +145,9 @@
     [query whereKey:@"endTime" greaterThan:beginningOfDay];
     [query whereKey:@"startTime" lessThan:endOfDay];
     
-    self.timeIsUnavailable = [NSMutableArray new];
+    self.timeSlots = [NSMutableArray new];
     for (NSInteger i = 0; i < 24 * 4; i ++) {
-        [self.timeIsUnavailable addObject:[NSNumber numberWithBool:NO]];
+        [self.timeSlots addObject:[TimeSlot new]];
     }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
@@ -175,9 +175,8 @@
                 
                 NSInteger i = 0;
                 for (i = start; i <= end; i++) {
-                    self.timeIsUnavailable[i] = [NSNumber numberWithBool:YES];
+                    self.timeSlots[i].available = NO;
                 }
-                //                 for now it is set to today.
             }
             [self.collectionView reloadData];
         }

@@ -28,6 +28,7 @@
 		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 		D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C7D6022E26817000BF3B1 /* TimeInterval.m */; };
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
+		D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501322E920A7004BE9BF /* TimeSlot.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
 		D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772222DE8A7300EBC4EC /* Booking.m */; };
@@ -97,6 +98,8 @@
 		D21C7D6022E26817000BF3B1 /* TimeInterval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeInterval.m; sourceTree = "<group>"; };
 		D22F500F22E7D974004BE9BF /* TimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeCell.h; sourceTree = "<group>"; };
 		D22F501022E7D974004BE9BF /* TimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeCell.m; sourceTree = "<group>"; };
+		D22F501222E920A7004BE9BF /* TimeSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
+		D22F501322E920A7004BE9BF /* TimeSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D2B2771D22DE868600EBC4EC /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D2B2771E22DE868600EBC4EC /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				D2B2772722DFBD9D00EBC4EC /* Listing.m */,
 				D21C7D5F22E26817000BF3B1 /* TimeInterval.h */,
 				D21C7D6022E26817000BF3B1 /* TimeInterval.m */,
+				D22F501222E920A7004BE9BF /* TimeSlot.h */,
+				D22F501322E920A7004BE9BF /* TimeSlot.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
+				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
