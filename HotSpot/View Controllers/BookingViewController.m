@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray<NSNumber *> *timeItemAvailability;
+@property (strong, nonatomic) NSMutableArray<NSNumber *> *timeIsUnavailable;
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *chosenIndexPaths;
 @end
 
@@ -61,18 +61,41 @@
     PFQuery *query = relation.query;
     [query orderByDescending:@"repeatsWeekly"];
     
+    NSDate *startDate = self.startDatePicker.date;
+    NSInteger secondsPerDay = 60 * 60 * 24;
+    NSInteger timeSinceBeginningOfDay = (int)[startDate timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
+    NSDate *beginningOfStartDay = [startDate dateByAddingTimeInterval: -timeSinceBeginningOfDay];
+    NSDate *endOfStartDay = [startDate dateByAddingTimeInterval: secondsPerDay];
+    
+    [query whereKey:@"endTime" greaterThan:beginningOfStartDay];
+    [query whereKey:@"startTime" lessThan:endOfStartDay];
+    
+    self.timeIsUnavailable = [NSMutableArray new];
+    for (NSInteger i = 0; i < 24 * 4; i ++) {
+        [self.timeIsUnavailable addObject:[NSNumber numberWithBool:NO]];
+    }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
         if (timeIntervals) {
             for (TimeInterval *timeInterval in timeIntervals) {
-//                // map to 0 through 95
-//                NSInteger start = [timeInterval getStartItem];
-//                NSInteger end = [timeInterval getEndItem];
-//
-//                NSInteger i = 0;
-//                for (i =start; i <= end; i++) {
-//                    self.timeItemAvailability[i] = NO;
-//                }
-                // for now it is set to today.
+                // map to 0 through 95
+                
+                NSDate *startTime = timeInterval.startTime;
+                NSDate *endTime = timeInterval.endTime;
+                
+                CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfStartDay];
+                NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
+                NSInteger start = startMinute / 15;
+                
+                CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfStartDay];
+                NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
+                NSInteger end = endMinute / 15;
+
+                NSInteger i = 0;
+                for (i =start; i <= end; i++) {
+                    self.timeIsUnavailable[i] = [NSNumber numberWithBool:YES];
+                }
+//                 for now it is set to today.
             }
         }
         else {
@@ -82,6 +105,8 @@
     pickingStartTime = YES;
     pickingEndTime = NO;
     self.chosenIndexPaths = [NSMutableArray new];
+    
+    [self.collectionView reloadData];
 }
 
 - (IBAction)closeClicked:(id)sender {
@@ -114,7 +139,7 @@
     else {
         [cell setTime:indexPath.item withDate:self.endDatePicker.date];
     }
-    if ([self.timeItemAvailability[indexPath.item] boolValue]) {
+    if ([self.timeIsUnavailable[indexPath.item] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
     }
     else if ([self.chosenIndexPaths containsObject:indexPath]) {
