@@ -56,7 +56,11 @@
     
     //placehodlder information
     cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+    PFFileObject *img = listing.picture;
+    [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+        UIImage *imageToLoad = [UIImage imageWithData:imageData];
+        cell.searchTableImage.image = imageToLoad;
+    }];
     // trying to resize text to work with Autolayout
     cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     return cell;

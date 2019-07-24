@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFGeoPoint *address;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) PFUser *homeowner;
+@property (nonatomic,strong) PFFileObject *picture;
+
 @end
 
 NS_ASSUME_NONNULL_END
