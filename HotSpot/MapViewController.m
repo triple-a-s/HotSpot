@@ -21,13 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchMap.showsUserLocation = YES;
- /*   MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-    CLLocationCoordinate2D coordforpin = {.latitude = 37.484928,.longitude = -122.148201};
-    [annotation setCoordinate: coordforpin];
-    [annotation setTitle:@"1 Hacker Way"];
-    [annotation setSubtitle:@"$10/hr"];
-    [self.searchMap addAnnotation:annotation];
-  */ 
 }
 
 @end

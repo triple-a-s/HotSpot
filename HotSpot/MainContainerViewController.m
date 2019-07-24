@@ -125,6 +125,12 @@
             
             MKCoordinateRegion initialRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
             [self.mapVC.searchMap setRegion:initialRegion animated:YES];
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+            CLLocationCoordinate2D coordforpin = location.coordinate;
+            [annotation setCoordinate: coordforpin];
+            [annotation setTitle: completionForMap.title];
+            //[annotation setSubtitle:@"$10/hr"];
+            [self.mapVC.searchMap addAnnotation:annotation];
             self.tableVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
 
