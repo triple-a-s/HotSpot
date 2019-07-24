@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray<NSNumber *> *timeItemAvailability;
+
 @end
 
 @implementation BookingViewController
@@ -45,6 +47,29 @@
     PFUser *homeowner = self.listing.homeowner;
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         self.listingOwnerLabel.text = object[@"name"];
+    }];
+    
+    PFRelation *relation = [self.listing relationForKey:@"unavailable"];
+    PFQuery *query = relation.query;
+    [query orderByDescending:@"repeatsWeekly"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
+        if (timeIntervals) {
+            for (TimeInterval *timeInterval in timeIntervals) {
+                // map to 0 through 95
+                NSInteger start = [timeInterval getStartItem];
+                NSInteger end = [timeInterval getEndItem];
+                
+                NSInteger i = 0;
+                for (i =start; i <= end; i++) {
+                    self.timeItemAvailability[i] = NO;
+                }
+                // for now it is set to today.
+            }
+        }
+        else {
+            NSLog(@"%@", error);
+        }
     }];
 }
 
@@ -73,6 +98,12 @@
     TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
                                                                forIndexPath:indexPath];
     [cell setTime:indexPath.item];
+    if ([self.timeItemAvailability[indexPath.item] boolValue]) {
+        cell.backgroundColor = [UIColor redColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor blueColor];
+    }
     return cell;
 }
 
