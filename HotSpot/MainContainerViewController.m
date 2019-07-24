@@ -33,7 +33,7 @@
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
 @property (strong,nonatomic) CLLocation *location;
-//dealing with child view controllers
+//dealing with child view controllers -- to pass information to them
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
 @property (strong, nonatomic) CLLocation *storedLocation;
@@ -54,7 +54,6 @@
     self.searchResultTableView.delegate = self;
     self.searchResultTableView.dataSource = self;
     self.mainSearchBar.delegate = self;
-    
     //I will put this into helper methods and such by my next push
     self.completer = [[MKLocalSearchCompleter alloc] init];
     self.searchResultTableView.rowHeight = 100;
@@ -98,8 +97,6 @@
     self.completer.queryFragment = searchText;
     self.spotsArray = self.completer.results;
     [self.searchResultTableView reloadData];
-
-    
 }
 
 # pragma mark - TableView Methods
@@ -114,11 +111,10 @@
     cell.searchResultTitle.text = completion.title;
     cell.searchResultSubtitle.text = completion.subtitle;
         return cell;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   // map redirection
+   // map and table updates
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
@@ -131,15 +127,11 @@
             [self.mapVC.searchMap setRegion:initialRegion animated:YES];
             self.tableVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
-            NSLog(@"%@", self.tableVC.initialLocation);
-            NSLog(@"%@",self.tableVC.listings); 
 
         }
     }];
-    
     self.searchResultTableView.hidden =YES;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.spotsArray.count;

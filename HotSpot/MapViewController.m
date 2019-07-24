@@ -26,7 +26,6 @@
     [annotation setCoordinate: coordforpin];
     [annotation setTitle:@"1 Hacker Way"];
     [annotation setSubtitle:@"$10/hr"];
-    
     [self.searchMap addAnnotation:annotation];
   */ 
 }
