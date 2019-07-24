@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TimeCell : UICollectionViewCell
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, assign, readwrite) BOOL chosen;
 - (void)setTime:(NSInteger)item withDate:(NSDate *)date;
 @end
 

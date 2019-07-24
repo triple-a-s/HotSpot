@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray<NSNumber *> *timeItemAvailability;
-
+@property (strong, nonatomic) NSMutableArray<NSIndexPath *> *chosenIndexPaths;
 @end
 
 @implementation BookingViewController
@@ -29,6 +29,8 @@
     NSDate *startTime;
     NSDate *endTime;
     BOOL pickingStartTime;
+    BOOL pickingEndTime;
+    NSIndexPath *startIndexPath;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +80,8 @@
         }
     }];
     pickingStartTime = YES;
+    pickingEndTime = NO;
+    self.chosenIndexPaths = [NSMutableArray new];
 }
 
 - (IBAction)closeClicked:(id)sender {
@@ -113,7 +117,7 @@
     if ([self.timeItemAvailability[indexPath.item] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
     }
-    else if (cell.selected) {
+    else if ([self.chosenIndexPaths containsObject:indexPath]) {
         cell.backgroundColor = [UIColor blueColor];
     }
     else {
@@ -130,15 +134,22 @@
     TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     NSDate *date = cell.date;
     if (pickingStartTime) {
+        startIndexPath = indexPath;
         startTime = cell.date;
         pickingStartTime = NO;
-        cell.selected = YES;
+        pickingEndTime = YES;
+        [self.chosenIndexPaths addObject: indexPath];
         cell.backgroundColor = [UIColor blueColor];
     }
-    else {
+    else if (pickingEndTime){
+        pickingEndTime = NO;
         endTime = cell.date;
-        cell.selected = YES;
-        cell.backgroundColor = [UIColor blueColor];
+        for( int i = startIndexPath.item + 1; i <= indexPath.item; i++ ) {
+            NSIndexPath *inBetweenIndexPath = [NSIndexPath indexPathForItem:i inSection:startIndexPath.section];
+            TimeCell *inBetweenCell = [collectionView cellForItemAtIndexPath:inBetweenIndexPath];
+            [self.chosenIndexPaths addObject:[collectionView indexPathForCell:inBetweenCell]];
+            inBetweenCell.backgroundColor = [UIColor blueColor];
+        }
     }
 }
 
