@@ -96,6 +96,8 @@
                     self.timeIsUnavailable[i] = [NSNumber numberWithBool:YES];
                 }
 //                 for now it is set to today.
+                
+                [self.collectionView reloadData];
             }
         }
         else {
@@ -106,7 +108,6 @@
     pickingEndTime = NO;
     self.chosenIndexPaths = [NSMutableArray new];
     
-    [self.collectionView reloadData];
 }
 
 - (IBAction)closeClicked:(id)sender {
