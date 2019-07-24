@@ -25,12 +25,18 @@
 @end
 
 @implementation BookingViewController
-
+{
+    NSDate *startTime;
+    NSDate *endTime;
+    BOOL pickingStartTime;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
+    self.collectionView.allowsMultipleSelection = YES;
 
     // image
     [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -56,14 +62,14 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
         if (timeIntervals) {
             for (TimeInterval *timeInterval in timeIntervals) {
-                // map to 0 through 95
-                NSInteger start = [timeInterval getStartItem];
-                NSInteger end = [timeInterval getEndItem];
-                
-                NSInteger i = 0;
-                for (i =start; i <= end; i++) {
-                    self.timeItemAvailability[i] = NO;
-                }
+//                // map to 0 through 95
+//                NSInteger start = [timeInterval getStartItem];
+//                NSInteger end = [timeInterval getEndItem];
+//
+//                NSInteger i = 0;
+//                for (i =start; i <= end; i++) {
+//                    self.timeItemAvailability[i] = NO;
+//                }
                 // for now it is set to today.
             }
         }
@@ -71,6 +77,7 @@
             NSLog(@"%@", error);
         }
     }];
+    pickingStartTime = YES;
 }
 
 - (IBAction)closeClicked:(id)sender {
@@ -83,8 +90,8 @@
 - (IBAction)confirmClicked:(id)sender {
     Listing *listing = self.listing;
     [Booking bookDriveway:listing
-            withStartTime:_startDatePicker.date
-        withDurationInSec:[[NSNumber alloc] initWithDouble:[self.endDatePicker.date timeIntervalSinceDate:self.startDatePicker.date]] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            withStartTime:startTime
+        withDurationInSec:[[NSNumber alloc] initWithDouble:[endTime timeIntervalSinceDate:startTime]] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded) {
                 [self performSegueWithIdentifier:@"confirmationSegue" sender:nil];
             }
@@ -97,18 +104,42 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath { 
     TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
                                                                forIndexPath:indexPath];
-    [cell setTime:indexPath.item];
+    if (pickingStartTime) {
+        [cell setTime:indexPath.item withDate:self.startDatePicker.date];
+    }
+    else {
+        [cell setTime:indexPath.item withDate:self.endDatePicker.date];
+    }
     if ([self.timeItemAvailability[indexPath.item] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
     }
-    else {
+    else if (cell.selected) {
         cell.backgroundColor = [UIColor blueColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor greenColor];
     }
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { 
     return 24 * 4;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    NSDate *date = cell.date;
+    if (pickingStartTime) {
+        startTime = cell.date;
+        pickingStartTime = NO;
+        cell.selected = YES;
+        cell.backgroundColor = [UIColor blueColor];
+    }
+    else {
+        endTime = cell.date;
+        cell.selected = YES;
+        cell.backgroundColor = [UIColor blueColor];
+    }
 }
 
 @end
