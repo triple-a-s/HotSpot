@@ -8,9 +8,7 @@
 
 #import "Booking.h"
 
-#import "Parse.h"
 #import "Listing.h"
-#import "TimeInterval.h"
 
 @interface Booking()<PFSubclassing>
 @end

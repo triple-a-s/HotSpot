@@ -7,7 +7,6 @@
 //
 
 #import <Parse/Parse.h>
-#import "Booking.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class Booking;
