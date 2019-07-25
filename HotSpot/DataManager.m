@@ -8,8 +8,6 @@
 
 #import "DataManager.h"
 
-#import "Parse/Parse.h"
-#import "Listing.h"
 #import "Booking.h"
 
 @implementation DataManager

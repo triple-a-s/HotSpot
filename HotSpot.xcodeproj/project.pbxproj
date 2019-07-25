@@ -191,13 +191,8 @@
 				D22F500B22E7D946004BE9BF /* Views */,
 				D2BD365122E11F0C0001BD61 /* View Controllers */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
-				ADEC07DC22DE80BA0035274F /* View Controllers */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
-				61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */,
-				61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */,
-				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
-				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
 				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
@@ -232,19 +227,6 @@
 				612FE8FA22DE6A0D00112AF2 /* Info.plist */,
 			);
 			path = HotSpotUITests;
-			sourceTree = "<group>";
-		};
-		ADEC07DC22DE80BA0035274F /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				ADEC07D622DE80310035274F /* LoginViewController.h */,
-				ADEC07D722DE80310035274F /* LoginViewController.m */,
-				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
-				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
-				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
-				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		BACE3C37E144EA6607DB5993 /* Frameworks */ = {
@@ -292,6 +274,16 @@
 				D2BD365322E11F1D0001BD61 /* BookingViewController.m */,
 				D2BD365522E11F2A0001BD61 /* ConfirmationViewController.h */,
 				D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */,
+				ADEC07D622DE80310035274F /* LoginViewController.h */,
+				ADEC07D722DE80310035274F /* LoginViewController.m */,
+				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
+				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
+				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
+				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
+				61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */,
+				61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */,
+				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
+				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

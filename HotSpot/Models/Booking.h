@@ -8,7 +8,6 @@
 
 #import <Parse/Parse.h>
 #import "TimeInterval.h"
-#import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class Listing;

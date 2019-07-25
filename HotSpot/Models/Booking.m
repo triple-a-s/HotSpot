@@ -8,9 +8,7 @@
 
 #import "Booking.h"
 
-#import "Parse.h"
 #import "Listing.h"
-#import "TimeInterval.h"
 
 @interface Booking()<PFSubclassing>
 @end
@@ -60,6 +58,7 @@
     requestedTime.repeatsWeekly = NO; // homeowners can book one continuguous time interval only
     
     newBooking.timeInterval = requestedTime;
+ 
     
     [listing canBook:newBooking
       withCompletion:^(BOOL can, NSError * _Nullable error) {
@@ -88,7 +87,7 @@
               }];
           }
           else {
-              NSLog(@"Time requested is not available");
+              completion(NO, error);
           }
       }];
 }
