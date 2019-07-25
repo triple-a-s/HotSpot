@@ -215,6 +215,55 @@
         }
     }];
     
+    PFQuery *repeatsWeeklyQuery = relation.query;
+    
+    [repeatsWeeklyQuery whereKey:@"repeatsWeekly" equalTo:@YES];
+    
+    [repeatsWeeklyQuery findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
+        if (timeIntervals) {
+            for (TimeInterval *timeInterval in timeIntervals) {
+                // map to 0 through 95
+                
+                TimeInterval *chosenDateInterval = [TimeInterval new];
+                chosenDateInterval.startTime = beginningOfDay;
+                chosenDateInterval.endTime = endOfDay;
+                
+                NSDateInterval *intersection = [timeInterval intersectionWithTimeInterval:chosenDateInterval];
+                
+                if(intersection) {
+                    NSDate *startTime = intersection.startDate;
+                    NSDate *endTime = intersection.endDate;
+                    
+                    CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfDay];
+                    NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
+                    NSInteger start = startMinute / 15;
+                    if ( start < 0 ) {
+                        start = 0;
+                    }
+                    
+                    
+                    CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfDay];
+                    NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
+                    NSInteger end = endMinute / 15;
+                    if (end > 4 * 24 - 1 ) {
+                        end = 4 * 24 - 1;
+                    }
+                    
+                    NSInteger i = 0;
+                    for (i = start; i <= end; i++) {
+                        self.timeSlots[i].available = NO;
+                    }
+                }
+                
+                
+            }
+            [self.collectionView reloadData];
+        }
+        else {
+            NSLog(@"%@", error);
+        }
+    }];
+    
     pickingStartTime = YES;
 }
 - (IBAction)dateChanged:(id)sender {
