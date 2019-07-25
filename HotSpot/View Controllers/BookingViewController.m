@@ -106,10 +106,9 @@
     if (self.timeSlots[indexPath.item].available) {
         TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         NSDate *date = self.timeSlots[indexPath.item].date;
-        if (!pickingStartTime && !endTime && [startIndexPath isEqual:indexPath]) {
+        if ([startIndexPath isEqual:indexPath]) {
             // repick start time
-            self.timeSlots[indexPath.item].chosen = NO;
-            pickingStartTime = YES;
+            [self reset];
         }
         else if (pickingStartTime) {
             startIndexPath = indexPath;
@@ -117,6 +116,7 @@
             pickingStartTime = NO;
             self.timeSlots[indexPath.item].chosen = YES;
             cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
+            [self.collectionView reloadData];
         }
         else {
             for (int i = startIndexPath.item; i < indexPath.item; i++) {
@@ -132,10 +132,9 @@
                 else {
                     self.timeSlots[i].chosen = NO;
                 }
-                
+                [self.collectionView reloadData];
             }
         }
-        [self.collectionView reloadData];
     }
     
 }
@@ -202,15 +201,20 @@
 - (IBAction)dateChanged:(id)sender {
     [self updateCells];
 }
-
-
-- (IBAction)resetClicked:(id)sender {
-    pickingStartTime = YES;
+- (void)reset {
+    startTime = nil;
+    startIndexPath = nil;
     endTime = nil;
+    pickingStartTime = YES;
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
     }
     [self.collectionView reloadData];
+}
+
+
+- (IBAction)resetClicked:(id)sender {
+    [self reset];
 }
 
 @end
