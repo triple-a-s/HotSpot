@@ -103,33 +103,41 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    NSDate *date = self.timeSlots[indexPath.item].date;
-    if (!pickingStartTime && !endTime && [startIndexPath isEqual:indexPath]) {
-        // repick start time
-        self.timeSlots[indexPath.item].chosen = NO;
-        pickingStartTime = YES;
-    }
-    else if (pickingStartTime) {
-        startIndexPath = indexPath;
-        startTime = date;
-        pickingStartTime = NO;
-        self.timeSlots[indexPath.item].chosen = YES;
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
-    }
-    else {
-        endTime = date;
-        for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
-            if (i<=indexPath.item) {
-                self.timeSlots[i].chosen = YES;
-            }
-            else {
-                self.timeSlots[i].chosen = NO;
-            }
-            
+    if (self.timeSlots[indexPath.item].available) {
+        TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        NSDate *date = self.timeSlots[indexPath.item].date;
+        if (!pickingStartTime && !endTime && [startIndexPath isEqual:indexPath]) {
+            // repick start time
+            self.timeSlots[indexPath.item].chosen = NO;
+            pickingStartTime = YES;
         }
+        else if (pickingStartTime) {
+            startIndexPath = indexPath;
+            startTime = date;
+            pickingStartTime = NO;
+            self.timeSlots[indexPath.item].chosen = YES;
+            cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
+        }
+        else {
+            for (int i = startIndexPath.item; i < indexPath.item; i++) {
+                if ( self.timeSlots[i].available == NO) {
+                    return;
+                }
+            }
+            endTime = date;
+            for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
+                if (i<=indexPath.item) {
+                    self.timeSlots[i].chosen = YES;
+                }
+                else {
+                    self.timeSlots[i].chosen = NO;
+                }
+                
+            }
+        }
+        [self.collectionView reloadData];
     }
-    [self.collectionView reloadData];
+    
 }
 
 - (void)updateCells {
