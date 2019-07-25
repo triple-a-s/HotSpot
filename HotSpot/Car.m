@@ -31,7 +31,7 @@
    withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion {
     Car *newCar = [Car new];
     PFUser *user = [PFUser currentUser];
-    //newCar.carImage = [self getPFFileFromImage:image];
+    newCar.carImage = [self getPFFileFromImage:image];
     newCar.licensePlate = licensePlate;
     newCar.carColor = color;
     newCar.isDefault = isDefault;
