@@ -11,7 +11,7 @@
 @implementation TimeSlot
 - (instancetype)init {
     self = [super init];
-    self.selected = NO;
+    self.chosen = NO;
     self.available = YES;
     return self;
 }

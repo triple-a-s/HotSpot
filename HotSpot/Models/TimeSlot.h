@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TimeSlot : NSObject
-@property (nonatomic, assign, readwrite) BOOL selected;
+@property (nonatomic, assign, readwrite) BOOL chosen;
 @property (nonatomic, assign, readwrite) BOOL available;
 @end
 

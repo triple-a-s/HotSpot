@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray<NSIndexPath *> *chosenIndexPaths;
 @property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
 
@@ -95,7 +94,7 @@
     if (!self.timeSlots[indexPath.item].available) {
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
     }
-    else if ([self.chosenIndexPaths containsObject:indexPath]) {
+    else if (self.timeSlots[indexPath.item].chosen) {
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else {
@@ -116,19 +115,17 @@
         startTime = cell.date;
         pickingStartTime = NO;
         pickingEndTime = YES;
-        [self.chosenIndexPaths addObject: indexPath];
+        self.timeSlots[indexPath.item].chosen = YES;
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else if (pickingEndTime){
         pickingEndTime = NO;
         endTime = cell.date;
         for (int i = startIndexPath.item + 1; i <= indexPath.item; i++) {
-            NSIndexPath *inBetweenIndexPath = [NSIndexPath indexPathForItem:i inSection:startIndexPath.section];
-            TimeCell *inBetweenCell = [collectionView cellForItemAtIndexPath:inBetweenIndexPath];
-            [self.chosenIndexPaths addObject:[collectionView indexPathForCell:inBetweenCell]];
-            inBetweenCell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
+            self.timeSlots[i].chosen = YES;
         }
     }
+    [self.collectionView reloadData];
 }
 
 - (void)updateCells {
@@ -187,7 +184,6 @@
     
     pickingStartTime = YES;
     pickingEndTime = NO;
-    self.chosenIndexPaths = [NSMutableArray new];
 }
 - (IBAction)dateChanged:(id)sender {
     [self updateCells];
@@ -196,7 +192,9 @@
 
 - (IBAction)resetClicked:(id)sender {
     pickingStartTime = YES;
-    [self.chosenIndexPaths removeAllObjects];
+    for (NSInteger i = 0; i < 24 * 4; i ++) {
+        self.timeSlots[i].chosen = NO;
+    }
     [self.collectionView reloadData];
 }
 
