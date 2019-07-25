@@ -193,8 +193,6 @@
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
-				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
-				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */,
@@ -246,6 +244,8 @@
 			children = (
 				D22F500F22E7D974004BE9BF /* TimeCell.h */,
 				D22F501022E7D974004BE9BF /* TimeCell.m */,
+				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
+				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
