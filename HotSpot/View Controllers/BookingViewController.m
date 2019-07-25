@@ -106,7 +106,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     NSDate *date = self.timeSlots[indexPath.item].date;
-    if (pickingStartTime) {
+    if (pickingEndTime && [startIndexPath isEqual:indexPath]) {
+        // repick start time
+        NSLog(@"repick");
+        self.timeSlots[indexPath.item].chosen = NO;
+        pickingStartTime = YES;
+        pickingEndTime = NO;
+    }
+    else if (pickingStartTime) {
         startIndexPath = indexPath;
         startTime = date;
         pickingStartTime = NO;
@@ -115,10 +122,15 @@
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else if (pickingEndTime){
-        pickingEndTime = NO;
         endTime = date;
-        for (int i = startIndexPath.item + 1; i <= indexPath.item; i++) {
-            self.timeSlots[i].chosen = YES;
+        for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
+            if (i<=indexPath.item) {
+                self.timeSlots[i].chosen = YES;
+            }
+            else {
+                self.timeSlots[i].chosen = NO;
+            }
+            
         }
     }
     [self.collectionView reloadData];
