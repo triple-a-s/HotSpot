@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Parking Search View Controller-->
+        <!--Search-->
         <scene sceneID="HxJ-DB-DJn">
             <objects>
                 <viewController id="zwS-nb-mdG" customClass="ParkingSearchViewController" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CtN-Xq-57M">
-                                <rect key="frame" x="0.0" y="132" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="624"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dgu-AX-5yF">
                                 <rect key="frame" x="147" y="823" width="121" height="29"/>
@@ -119,7 +119,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAE-fw-8A1"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3TM-FG-KYW"/>
+                    <navigationItem key="navigationItem" title="Search" id="3TM-FG-KYW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapSearchBar" destination="Qhk-qC-GZZ" id="oxa-vx-a5t"/>
                         <outlet property="modeSwitchButton" destination="dgu-AX-5yF" id="hLu-XO-oMa"/>
@@ -140,11 +141,13 @@
             </objects>
             <point key="canvasLocation" x="480" y="-163"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="8ul-fr-Oar">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s6C-cn-YXb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="673-5k-1RK"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uyk-iZ-l5Q">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
