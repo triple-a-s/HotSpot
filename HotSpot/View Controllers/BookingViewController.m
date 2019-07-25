@@ -51,6 +51,19 @@
 # pragma mark - Private Methods
 
 - (IBAction)confirmClicked:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Booking Error"
+                                                                   message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         // handle response here.
+                                                     }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    
     Listing *listing = self.listing;
     [Booking bookDriveway:listing
             withStartTime:_startDatePicker.date
@@ -58,8 +71,14 @@
             if(succeeded) {
                 [self performSegueWithIdentifier:@"confirmationSegue" sender:nil];
             }
-            else {
+            else if (error) {
                 NSLog(@"%@", error);
+            }
+            else {
+                alert.message = @"Time requested is not available";
+                
+                [self presentViewController:alert animated:YES completion:^{
+                }];
             }
         }];
 }
