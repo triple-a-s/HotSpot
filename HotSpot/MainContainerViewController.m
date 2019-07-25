@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
+
 // Properties associated with search (autocomplete and actual search)
 @property (strong,nonatomic) MKLocalSearchRequest *request;
 @property (strong, nonatomic) MKLocalSearch *search;
@@ -33,10 +34,12 @@
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
 @property (strong,nonatomic) CLLocation *location;
+
 //dealing with child view controllers -- to pass information to them
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
-@property (strong, nonatomic) CLLocation *storedLocation;
+
+// annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
 
@@ -47,21 +50,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //setting things up (views)
+    // setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
-    //setting delegates and dataSources for tableView and searchbar
+    
+    // setting delegates and dataSources for tableView and searchbar
     self.searchResultTableView.delegate = self;
     self.searchResultTableView.dataSource = self;
     self.mainSearchBar.delegate = self;
-    //I will put this into helper methods and such by my next push
+    
+    // things associated with searches and autocomplete
     self.completer = [[MKLocalSearchCompleter alloc] init];
     self.searchResultTableView.rowHeight = 100;
     self.completer.delegate = self;
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
-    self.request = [[MKLocalSearchRequest alloc] initWithCompletion:self.completion];
-    self.search = [[MKLocalSearch alloc] initWithRequest:self.request];
-    self.storedLocation = [[CLLocation alloc] init];
 }
 
 # pragma mark - Action Items
@@ -102,6 +104,7 @@
 # pragma mark - TableView Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     // setting up the cell for when I start typing
     MKLocalSearchCompletion *completion = self.spotsArray[indexPath.row];
     SearchResult *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult"];
@@ -114,7 +117,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   // map and table updates
+    // map and table updates
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
@@ -122,15 +125,18 @@
             NSLog(@"%@", error);
         }
         else{
+            // update the map and the table according to the requested location
             [MapViewController setLocation:location onMap:self.mapVC.searchMap];
             self.tableVC.initialLocation = location;
-            self.mapVC.initialLocation = location; 
+            self.mapVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
+            
+            // setting the searched location's annotation on the map
             MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
             [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
             [self.mapVC.searchMap addAnnotation:searchedLocation];
-            // setting other location pins
-            //self.searchMap.showsUserLocation = YES;
+            
+            // setting the annotation pins for the listings nearby
             NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
             for ( int i=0; i<=self.tableVC.listings.count-1; i++)
             {
@@ -141,6 +147,7 @@
                 [spotList addObject:spotPins];
                 [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
+                self.mapVC.listingAnnotationImage = self.tableVC.listings[i].picture;
             }
         }
     }];
@@ -155,14 +162,14 @@
 # pragma mark - PrepareforSegue
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-      if ([segue.identifier isEqualToString:@"mapViewController"]) {
-            self.mapVC = segue.destinationViewController;
-         // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
-        }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
-            self.tableVC = segue.destinationViewController;
-            [self.tableVC.searchTableView reloadData];
-            [self.tableVC viewWillAppear:YES];
-        }
+    if ([segue.identifier isEqualToString:@"mapViewController"]) {
+        self.mapVC = segue.destinationViewController;
+        // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
+    }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
+        self.tableVC = segue.destinationViewController;
+        [self.tableVC.searchTableView reloadData];
+        [self.tableVC viewWillAppear:YES];
+    }
 }
 
 # pragma mark - Helper Methods

@@ -19,6 +19,7 @@
 		612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90E22DE8E6E00112AF2 /* SearchCell.m */; };
 		612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */; };
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
+		6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6186183F22EA19F9007A2BD9 /* AnnotationPin.m */; };
 		61AB0BC522E1308B002B7EB6 /* MainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */; };
 		61AB0BC722E13893002B7EB6 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */; };
 		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
@@ -79,6 +80,8 @@
 		612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkingSearchViewController.h; sourceTree = "<group>"; };
 		612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingSearchViewController.m; sourceTree = "<group>"; };
 		612FE91322DE9A9500112AF2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6186183E22EA19F9007A2BD9 /* AnnotationPin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnotationPin.h; sourceTree = "<group>"; };
+		6186183F22EA19F9007A2BD9 /* AnnotationPin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnotationPin.m; sourceTree = "<group>"; };
 		61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainContainerViewController.h; sourceTree = "<group>"; };
 		61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainContainerViewController.m; sourceTree = "<group>"; };
 		61AB0BC622E13893002B7EB6 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ContainerViewSearch.storyboard; path = ../../../.Trash/ContainerViewSearch.storyboard; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				61AB0BC422E1308B002B7EB6 /* MainContainerViewController.m */,
 				612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */,
 				61AB0BCF22E22CB1002B7EB6 /* MapViewController.m */,
+				6186183E22EA19F9007A2BD9 /* AnnotationPin.h */,
+				6186183F22EA19F9007A2BD9 /* AnnotationPin.m */,
 				61AB0BCE22E22CB1002B7EB6 /* MapViewController.h */,
 				612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */,
 				61AB0BC322E1308B002B7EB6 /* MainContainerViewController.h */,
@@ -519,6 +524,7 @@
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
 				61AB0BD022E22CB1002B7EB6 /* MapViewController.m in Sources */,
+				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				61AB0BC522E1308B002B7EB6 /* MainContainerViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,

@@ -13,6 +13,7 @@
 
 @interface MapViewController ()
 
+@property (strong,nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation MapViewController
@@ -25,6 +26,59 @@
         [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
         }
     }
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+    self.searchMap.showsUserLocation = true;
+}
+
+# pragma mark - Map Delegate
+
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    if((float) annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
+        UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
+        UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
+        annotationView.image = pinImageResized;
+        annotationView.canShowCallout = YES;
+        return annotationView;
+    }
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
+   /* UIImage *houseImage = [UIImage imageNamed:@"ourlogo"];
+    UIImage *houseImageResized = [self imageWithImage:houseImage scaledToSize:(CGSizeMake(30, 30))];
+    annotationView.image = houseImageResized;
+    */
+    [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+        UIImage *houseImage = [UIImage imageWithData:imageData];
+        UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
+        annotationView.image = houseImageResized;
+    }];
+    annotationView.canShowCallout = YES;
+    return annotationView;
+}
+
+- (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    view.canShowCallout = YES;
+}
+
+- (void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
+    view.canShowCallout = NO;
+}
+
+- (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    if(view.annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) view.annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
+        view.canShowCallout = NO;
+    }
+    
+    [self performSegueWithIdentifier:@"detailsSegue2" sender:self];
+}
+
+# pragma mark - Segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //DetailsViewController *detailsViewController = [segue destinationViewController];
+    
 }
 
 # pragma mark - Helper Methods
@@ -39,39 +93,7 @@
     [ourAnnotation setTitle: title];
 }
 
-- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    if((float) annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
-        MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
-        UIImage *pinImage = [UIImage imageNamed:@"car"];
-        UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
-        annotationView.image = pinImageResized;
-        return annotationView;
-    }
-    MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
-    UIImage *pinImage = [UIImage imageNamed:@"ourlogo"];
-    UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
-    annotationView.image = pinImageResized;
-    return annotationView;
-}
-
-- (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-    view.canShowCallout = YES;
-    //[self performSegueWithIdentifier:@"detailsSegue2" sender:self];
-}
-
-- (void) customizeDetailView:(MKAnnotationView*) view {
-    UIView* snapshotView = [[UIView alloc] init];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    //DetailsViewController *detailsViewController = [segue destinationViewController];
-    
-}
-
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
