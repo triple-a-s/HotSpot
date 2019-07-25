@@ -9,10 +9,14 @@
 #import "ParkingSearchViewController.h"
 
 #import "MapKit/MapKit.h"
+<<<<<<< HEAD:HotSpot/ParkingSearchViewController.m
+#import "SpotCell.h"
+=======
 #import "SearchCell.h"
 #import "Listing.h"
 #import "DataManager.h"
 #import "DetailsViewController.h"
+>>>>>>> 21a65e1c7aae4143cc7069f1f42f2a5bf50da038:HotSpot/View Controllers/ParkingSearchViewController.m
 #define METERS_PER_MILE 1609.344
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -62,9 +66,9 @@
      I can have data to load actual information into the tables.
      */
     
-    SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
-    if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+    SpotCell *parkingCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    if(parkingCell == nil){
+        parkingCell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     Listing *listing = self.listings[indexPath.row];
@@ -82,15 +86,22 @@
     cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
     
     //placehodlder information
+<<<<<<< HEAD:HotSpot/ParkingSearchViewController.m
+    parkingCell.spotTableAddress.text= @"100 West Lake";
+    parkingCell.spotTableDetails.text = @"50 miles away";
+    parkingCell.spotTablePrice.text= @"$5/hr";
+    parkingCell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+=======
     cell.searchTableMilesAway.text = @"50 miles away";
     cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+>>>>>>> 21a65e1c7aae4143cc7069f1f42f2a5bf50da038:HotSpot/View Controllers/ParkingSearchViewController.m
     
     // trying to resize text to work with Autolayout
 
-    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
+    parkingCell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
      
     
-    return cell;
+    return parkingCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
