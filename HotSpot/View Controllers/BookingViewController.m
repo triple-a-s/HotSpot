@@ -143,6 +143,10 @@
                     return;
                 }
             }
+            if (startIndexPath.item > indexPath.item) {
+                // start date cannot be later than end date
+                return;
+            }
             endTime = date;
             for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
                 if (i<=indexPath.item) {

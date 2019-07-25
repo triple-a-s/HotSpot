@@ -179,7 +179,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-Gu-WGE">
                                 <rect key="frame" x="227" y="52" width="123.5" height="122"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-1n-pDX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-1n-pDX">
                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="19"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -255,6 +255,7 @@
                         <constraints>
                             <constraint firstItem="4Kt-Gu-WGE" firstAttribute="leading" secondItem="jsM-A7-T6H" secondAttribute="trailing" constant="8" id="0Gv-JH-tgb"/>
                             <constraint firstItem="3uC-xq-Wmp" firstAttribute="top" secondItem="k0o-OM-vs8" secondAttribute="top" constant="48" id="2I6-i0-nmv"/>
+                            <constraint firstItem="4Kt-Gu-WGE" firstAttribute="top" secondItem="k0o-OM-vs8" secondAttribute="top" constant="8" id="7CG-7h-VAO"/>
                             <constraint firstItem="YrE-Cb-wov" firstAttribute="leading" secondItem="k0o-OM-vs8" secondAttribute="leading" id="7Nc-e6-JJv"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="Ccr-ss-TgP" secondAttribute="trailing" constant="8" id="9Mz-yv-FLM"/>
                             <constraint firstItem="UU2-vK-DAD" firstAttribute="top" secondItem="jsM-A7-T6H" secondAttribute="bottom" constant="8" id="Ab3-kv-Yz2"/>
@@ -267,6 +268,7 @@
                             <constraint firstItem="YrE-Cb-wov" firstAttribute="top" secondItem="Obk-FO-7Wr" secondAttribute="bottom" constant="8" id="evH-YZ-XWN"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="YrE-Cb-wov" secondAttribute="trailing" id="eyV-IB-PA7"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="bottom" secondItem="m1E-lv-paK" secondAttribute="bottom" constant="8" id="l19-Pb-6A6"/>
+                            <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Kt-Gu-WGE" secondAttribute="trailing" constant="8" id="lQ2-q7-cbX"/>
                             <constraint firstItem="m1E-lv-paK" firstAttribute="centerX" secondItem="k0o-OM-vs8" secondAttribute="centerX" id="sb7-3F-e43"/>
                             <constraint firstItem="Ccr-ss-TgP" firstAttribute="top" secondItem="YrE-Cb-wov" secondAttribute="bottom" constant="8" id="tmx-eC-WAT"/>
                             <constraint firstItem="k0o-OM-vs8" firstAttribute="trailing" secondItem="Obk-FO-7Wr" secondAttribute="trailing" id="wEQ-dL-B9l"/>
