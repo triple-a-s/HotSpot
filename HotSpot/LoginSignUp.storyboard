@@ -249,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="-322" y="169"/>
         </scene>
-        <!--Search-->
+        <!--Tabs-->
         <scene sceneID="Olf-t7-9en">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="uGr-xf-tee" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Tabs" id="uGr-xf-tee" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-XJ-WOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="379" y="23"/>

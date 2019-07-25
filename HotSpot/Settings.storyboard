@@ -59,6 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="XEw-Rg-QV6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ENP-2H-mXb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="fullName" destination="MFk-C3-Oi2" id="3Nu-MJ-IyQ"/>
                     </connections>
@@ -67,11 +68,13 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="110.49107142857143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings-->
         <scene sceneID="Qf4-ZU-Tw5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="SNZ-wh-gyP"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PVw-Dt-ROa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -23,9 +23,9 @@ PFUser *homeowner;
     [DataManager configureParse];
     
     if (PFUser.currentUser) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Search" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
         
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"Search"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     }
 
     return YES;
