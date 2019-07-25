@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ql-8L-yFg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EOL-Ko-9FE">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="81" width="414" height="815"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="aVu-Qe-ayi" customClass="SpotCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="aVu-Qe-ayi" customClass="SearchCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="aVu-Qe-ayi" id="ey9-Ws-w8y">
@@ -85,10 +85,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="spotTableAddress" destination="2IE-tW-DZs" id="cYn-HP-VuB"/>
-                                            <outlet property="spotTableDetails" destination="QLn-wg-o8h" id="n20-LL-kJp"/>
-                                            <outlet property="spotTableImage" destination="TZd-1m-qZL" id="hHj-a5-NN0"/>
-                                            <outlet property="spotTablePrice" destination="qto-cC-vim" id="ett-Xb-Twl"/>
+                                            <outlet property="searchTableAddress" destination="2IE-tW-DZs" id="spw-td-qnM"/>
+                                            <outlet property="searchTableImage" destination="TZd-1m-qZL" id="qmX-x6-kB2"/>
+                                            <outlet property="searchTableMilesAway" destination="QLn-wg-o8h" id="P7x-P0-BaS"/>
+                                            <outlet property="searchTablePrice" destination="qto-cC-vim" id="jIa-Fg-9LU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -113,12 +113,33 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N20-sP-4UT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="v46-F3-Beb"/>
                     <connections>
                         <outlet property="bookedTableView" destination="8sh-5o-2vt" id="aUZ-XJ-OFf"/>
                         <outlet property="bookedTitleBar" destination="xPh-Dj-7pd" id="GYz-0F-Cwz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QN-g1-FLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="194.86607142857142"/>
+        </scene>
+        <!--Booked Spots -->
+        <scene sceneID="AhQ-y8-HAb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOL-Ko-9FE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Booked Spots " id="ZKd-D3-sJM"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IIs-Ae-Vak">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Ql-8L-yFg" kind="relationship" relationship="rootViewController" id="Tyw-Tx-hsb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1wa-b4-MWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="194.86607142857142"/>
         </scene>

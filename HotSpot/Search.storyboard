@@ -43,7 +43,7 @@
                                 <rect key="frame" x="-4" y="88" width="418" height="717"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="33h-Qg-kW8" customClass="SpotCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="33h-Qg-kW8" customClass="SearchCell">
                                         <rect key="frame" x="0.0" y="28" width="418" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="33h-Qg-kW8" id="kAS-Cy-HdK">
@@ -89,12 +89,6 @@
                                                 <constraint firstItem="OmO-9F-vkw" firstAttribute="leading" secondItem="pgX-HB-tjk" secondAttribute="trailing" constant="18" id="vjo-9a-CZV"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="spotTableAddress" destination="q7S-Jn-nCu" id="8Yy-0U-jNX"/>
-                                            <outlet property="spotTableImage" destination="pgX-HB-tjk" id="fEm-6T-NhJ"/>
-                                            <outlet property="spotTableMilesAway" destination="OmO-9F-vkw" id="ZLG-we-cNe"/>
-                                            <outlet property="spotTablePrice" destination="Hkp-ZV-eRt" id="Vuf-nm-wIq"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
