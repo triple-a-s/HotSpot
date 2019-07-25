@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q8c-iK-hB5">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="NS9-li-J1p">
+            <objects>
+                <viewController id="HAw-Qw-2OJ" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6YN-pE-PAa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW">
+                                <rect key="frame" x="158.5" y="327" width="97" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="HAw-Qw-2OJ" eventType="touchUpInside" id="WI0-al-Qjh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj0-Ho-Kt7">
+                                <rect key="frame" x="100" y="373" width="214" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Customer Service"/>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ua4-EU-SLX">
+                                <rect key="frame" x="119.5" y="434" width="175" height="29"/>
+                                <segments>
+                                    <segment title="Driver"/>
+                                    <segment title="Homeowner"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Meheret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFk-C3-Oi2">
+                                <rect key="frame" x="127.5" y="289" width="159" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="5rd-Ux-1iW" secondAttribute="bottom" id="GRt-RP-tik"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerY" secondItem="6YN-pE-PAa" secondAttribute="centerY" id="LAN-0V-hRx"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="8" id="Ta1-nU-07c"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="UYJ-qX-mtF"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="dQw-py-ATH"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="oc5-ga-med"/>
+                            <constraint firstItem="MFk-C3-Oi2" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="wgN-Wl-oRO"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="top" secondItem="vj0-Ho-Kt7" secondAttribute="bottom" constant="15" id="x6r-d1-irx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XEw-Rg-QV6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="ENP-2H-mXb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="fullName" destination="MFk-C3-Oi2" id="3Nu-MJ-IyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96c-ng-8Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931.88405797101461" y="110.49107142857143"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Qf4-ZU-Tw5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="SNZ-wh-gyP"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PVw-Dt-ROa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HAw-Qw-2OJ" kind="relationship" relationship="rootViewController" id="LY6-Mg-pIJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xg-gN-dlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="110.49107142857143"/>
+        </scene>
+    </scenes>
+</document>

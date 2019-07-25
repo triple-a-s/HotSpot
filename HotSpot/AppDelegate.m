@@ -21,24 +21,6 @@ PFUser *homeowner;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
     [DataManager configureParse];
-    
-    // Fake a login
-    
-    NSString *username = @"user1";
-    NSString *password = @"password";
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-        if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
-        } else {
-            // success
-            
-            // DataManager tests
-            [DataManager test];
-        }
-    }];
-    
-    
 
     return YES;
 }

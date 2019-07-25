@@ -8,7 +8,6 @@
 
 #import "Booking.h"
 
-#import "Parse.h"
 #import "Listing.h"
 
 @interface Booking()<PFSubclassing>
@@ -20,6 +19,7 @@
 @dynamic listing;
 @dynamic startTime;
 @dynamic duration;
+@dynamic timeInterval;
 
 # pragma mark - Class Methods
 
@@ -51,21 +51,45 @@
         newBooking.duration = @3600; // by default the booking lasts for an hour
     }
     
-    PFRelation *relation = [user relationForKey:@"bookings"];
-    PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
-
-    [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            [relation addObject:newBooking];
-            [user saveInBackgroundWithBlock:nil];
-            [listingBookingsRelation addObject:newBooking];
-            [listing saveInBackgroundWithBlock:nil];
-        }
-        else {
-            NSLog(@"%@", error);
-        }
-    }];
+    TimeInterval *requestedTime = [TimeInterval new];
     
+    requestedTime.startTime = startTime;
+    requestedTime.endTime = [startTime initWithTimeInterval:[duration doubleValue] sinceDate:startTime];
+    requestedTime.repeatsWeekly = NO; // homeowners can book one continuguous time interval only
+    
+    newBooking.timeInterval = requestedTime;
+ 
+    
+    [listing canBook:newBooking
+      withCompletion:^(BOOL can, NSError * _Nullable error) {
+          if(error) {
+              NSLog(@"%@", error);
+          }
+          else if(can) {
+              PFRelation *relation = [user relationForKey:@"bookings"];
+              PFRelation *listingBookingsRelation = [listing relationForKey:@"bookings"];
+              PFRelation *listingUnavailableRelation = [listing relationForKey:@"unavailable"];
+              
+              [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                  if (succeeded) {
+                      [relation addObject:newBooking];
+                      [user saveInBackground];
+                      [listingBookingsRelation addObject:newBooking];
+                      [listingUnavailableRelation addObject:requestedTime];
+                      [listing saveInBackground];
+                      if(completion) {
+                          completion(succeeded, error);
+                      }
+                  }
+                  else {
+                      NSLog(@"%@", error);
+                  }
+              }];
+          }
+          else {
+              completion(NO, error);
+          }
+      }];
 }
 
 + (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
