@@ -47,7 +47,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     //setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
@@ -125,6 +124,7 @@
         else{
             [MapViewController setLocation:location onMap:self.mapVC.searchMap];
             self.tableVC.initialLocation = location;
+            self.mapVC.initialLocation = location; 
             [self.tableVC.searchTableView reloadData];
             MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
             [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];

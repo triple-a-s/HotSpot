@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map;
 
 + (void)makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title;
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 @end
 
