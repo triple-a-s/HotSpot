@@ -19,8 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.initialLocation = self.searchMap.userLocation.location;
-    self.searchMap.delegate =self;
+    self.searchMap.delegate = self;
     for (int i =0; i<=self.searchMap.annotations.count; i++){
         if (self.searchMap.annotations.count>0){
         [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
@@ -55,8 +54,13 @@
     return annotationView;
 }
 
--(void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-    [self performSegueWithIdentifier:@"detailsSegue2" sender:self];
+- (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    view.canShowCallout = YES;
+    //[self performSegueWithIdentifier:@"detailsSegue2" sender:self];
+}
+
+- (void) customizeDetailView:(MKAnnotationView*) view {
+    UIView* snapshotView = [[UIView alloc] init];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
