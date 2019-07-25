@@ -10,11 +10,13 @@
 #import "Parse/Parse.h"
 #import "CarCell.h"
 #import "AddCarViewController.h"
+#import "EditCarViewController.h"
 
 @interface CarsViewController () <UITableViewDelegate, UITableViewDataSource, AddCarViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *numCars;
+@property (strong, nonatomic) NSMutableArray <Car *> *numCars;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -27,18 +29,31 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 150;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self fetchCars];
+
+    
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+        CarCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        tappedCell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        Car *currentCar = self.numCars[indexPath.row];
+        EditCarViewController *editCarViewController = [segue destinationViewController];
+        editCarViewController.car = currentCar;
+        tappedCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
 }
-*/
+
 
 - (void)fetchCars {
     
@@ -54,11 +69,15 @@
     }];
 }
 
+- (void)beginRefreshing {
+    [self fetchCars];
+    [self.refreshControl endRefreshing];
+}
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CarCell *carCell = [self.tableView dequeueReusableCellWithIdentifier:@"CarCell"];
     Car *currentCar = self.numCars[indexPath.row];
-    carCell.car = currentCar;
-    [carCell setCell:currentCar];
+    [carCell configureCell:currentCar];
     
     return carCell;
 }
@@ -69,7 +88,6 @@
 
 - (void)didAddCar:(nonnull Car *)car {
     [self.numCars insertObject:car atIndex:(self.numCars.count-1)];
-    [self.tableView reloadData];
 }
 
 @end

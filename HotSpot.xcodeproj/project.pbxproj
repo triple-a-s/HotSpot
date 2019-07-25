@@ -25,6 +25,7 @@
 		ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9922E12F7D00ED3F4D /* CarCell.m */; };
 		ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */; };
 		ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */; };
+		ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */; };
 		ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D422DE7FE70035274F /* SignUpViewController.m */; };
 		ADEC07D822DE80310035274F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D722DE80310035274F /* LoginViewController.m */; };
 		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
@@ -83,6 +84,8 @@
 		ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarsViewController.m; sourceTree = "<group>"; };
 		ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditInformationViewController.h; sourceTree = "<group>"; };
 		ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditInformationViewController.m; sourceTree = "<group>"; };
+		ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditCarViewController.h; sourceTree = "<group>"; };
+		ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditCarViewController.m; sourceTree = "<group>"; };
 		ADEC07D322DE7FE70035274F /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		ADEC07D422DE7FE70035274F /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		ADEC07D622DE80310035274F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */,
 				ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */,
 				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
+				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
+				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
 				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
+				ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */,
 				ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */,
 				ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */,
 			);

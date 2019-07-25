@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *licensePlate;
 @property (nonatomic, strong) NSString *carColor;
 @property (nonatomic, strong) PFFileObject *carImage;
-@property (nonatomic) BOOL *isDefault;
+@property (nonatomic) BOOL isDefault;
 @property (nonatomic, strong) PFUser *driver;
 
 + (void)addCar:(UIImageView * _Nullable)image
      withColor: ( NSString * _Nullable)color
    withLicense: (NSString * _Nullable)licensePlate
-   withDefault: (BOOL *)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion;
+   withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion;
 @end
 
 NS_ASSUME_NONNULL_END

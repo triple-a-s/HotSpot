@@ -29,7 +29,7 @@
 }
 
 - (void)addCar {
-    BOOL *selected = (BOOL *) [self.defaultButton isSelected];
+    BOOL selected = [self.defaultButton isSelected];
     Car *car = [Car new];
     car.licensePlate = self.licensePlate.text;
     car.carColor = self.carColor.text;
@@ -43,15 +43,11 @@
 
 - (IBAction)didTapConfirm:(UIBarButtonItem *)sender {
     [self addCar];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapDefault:(UIButton *)sender {
-    if ([self.defaultButton isSelected]) {
-        [self.defaultButton setSelected:NO];
-    } else {
-        [self.defaultButton setSelected:YES];
-    }
+    [self.defaultButton setSelected:(![self.defaultButton isSelected])];
 }
 
 /*

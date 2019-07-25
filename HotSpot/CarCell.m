@@ -9,6 +9,15 @@
 #import "CarCell.h"
 #import "Car.h"
 
+@interface CarCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *carImage;
+@property (weak, nonatomic) IBOutlet UILabel *licensePlate;
+@property (weak, nonatomic) IBOutlet UILabel *carColor;
+@property (weak, nonatomic) IBOutlet UIImageView *isDefault;
+
+@end
+
 @implementation CarCell
 
 - (void)awakeFromNib {
@@ -22,19 +31,16 @@
     // Configure the view for the selected state
 }
 
-- (void)setCell: (Car *)car {
-    self.car = car;
- //self.carImage.image = car.carImage;
-    //self.licensePlate.text = car[@"license"];
-    //self.carColor.text = car[@"Color"];
+- (void)configureCell: (Car *)car {
+    //self.carImage.image = car.carImage;
     BOOL isDefault = [car[@"isDefault"] boolValue];
     if (isDefault) {
         self.isDefault.hidden = NO;
     } else {
         self.isDefault.hidden = YES;
     }
-    self.licensePlate.text = car[@"licensePlate"];
-    self.carColor.text = car[@"carColor"];
+    self.licensePlate.text = car.licensePlate;
+    self.carColor.text = car.carColor;
 }
 
 @end

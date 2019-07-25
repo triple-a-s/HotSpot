@@ -32,7 +32,10 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
-    
+    [self configureProfilePage];
+}
+
+- (void)configureProfilePage {
     PFUser *currentUser = [PFUser currentUser];
     self.profileImage.image = currentUser[@"profilePicture"];
     self.name.text = currentUser[@"name"];
@@ -40,7 +43,7 @@
     self.email.text = currentUser.email;
     self.username.text = currentUser.username;
     
-    if (currentUser[@"cars"] == nil) {
+    if (currentUser[@"defaultCar"]  == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
                                                                        message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -60,8 +63,13 @@
     } else {
         PFObject *defaultCar = currentUser[@"defaultCar"];
         [defaultCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            self.licensePlate.text = defaultCar[@"licensePlate"];
-            self.carColor.text = defaultCar[@"carColor"];
+            if(object) {
+            self.licensePlate.text = object[@"licensePlate"];
+            self.carColor.text = object[@"carColor"];
+            }
+            else {
+                NSLog(@"%@", error);
+            }
         }];
     }
 }

@@ -1,8 +1,8 @@
 //
-//  CarCell.h
+//  EditCarViewController.h
 //  HotSpot
 //
-//  Created by aaronm17 on 7/18/19.
+//  Created by aaronm17 on 7/24/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
@@ -11,9 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CarCell : UITableViewCell
+@interface EditCarViewController : UIViewController
 
-- (void)configureCell: (Car *)car;
+@property (strong, nonatomic) Car *car;
 
 @end
 
