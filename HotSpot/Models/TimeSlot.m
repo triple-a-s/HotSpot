@@ -15,4 +15,10 @@
     self.available = YES;
     return self;
 }
+- (void)setTime:(NSInteger)item withDate:(NSDate *)date{
+    NSInteger buffer = 2; // buffer for calculations, in terms of seconds
+    self.hour = item / 4;
+    self.minute = item % 4 * 15;
+    self.date = [date dateByAddingTimeInterval:(self.hour * 60 + self.minute) * 60 + buffer];
+}
 @end

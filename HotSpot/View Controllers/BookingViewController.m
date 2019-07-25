@@ -85,16 +85,12 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath { 
     TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
                                                                forIndexPath:indexPath];
-    if (pickingStartTime) {
-        [cell setTime:indexPath.item withDate:self.datePicker.date];
-    }
-    else {
-        [cell setTime:indexPath.item withDate:self.datePicker.date];
-    }
-    if (!self.timeSlots[indexPath.item].available) {
+    TimeSlot *timeSlot = self.timeSlots[indexPath.item];
+    [cell setTime:timeSlot];
+    if (!timeSlot.available) {
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
     }
-    else if (self.timeSlots[indexPath.item].chosen) {
+    else if (timeSlot.chosen) {
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
     else {
@@ -109,10 +105,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    NSDate *date = cell.date;
+    NSDate *date = self.timeSlots[indexPath.item].date;
     if (pickingStartTime) {
         startIndexPath = indexPath;
-        startTime = cell.date;
+        startTime = date;
         pickingStartTime = NO;
         pickingEndTime = YES;
         self.timeSlots[indexPath.item].chosen = YES;
@@ -120,7 +116,7 @@
     }
     else if (pickingEndTime){
         pickingEndTime = NO;
-        endTime = cell.date;
+        endTime = date;
         for (int i = startIndexPath.item + 1; i <= indexPath.item; i++) {
             self.timeSlots[i].chosen = YES;
         }
@@ -144,7 +140,10 @@
     
     self.timeSlots = [NSMutableArray new];
     for (NSInteger i = 0; i < 24 * 4; i ++) {
-        [self.timeSlots addObject:[TimeSlot new]];
+        TimeSlot *newTimeSlot = [TimeSlot new];
+        [newTimeSlot setTime:i
+                    withDate:beginningOfDay];
+        [self.timeSlots addObject:newTimeSlot];
     }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {

@@ -7,19 +7,14 @@
 //
 
 #import "TimeCell.h"
+#import "TimeSlot.h"
 
 @interface TimeCell()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 @implementation TimeCell
-- (void)setTime:(NSInteger)item withDate:(NSDate *)date{
-    NSInteger buffer = 2; // buffer for calculations, in terms of seconds
-    NSInteger hour = item / 4;
-    NSInteger minute = item % 4 * 15;
-    self.timeLabel.text = [NSString stringWithFormat:@"%d:%d", hour, minute];
-    NSInteger secondsPerDay = 60 * 60 * 24;
-    NSInteger timeSinceBeginningOfDay = (int)[date timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
-    self.date = [date dateByAddingTimeInterval:(hour * 60 + minute) * 60 - timeSinceBeginningOfDay + buffer];
+- (void)setTime:(TimeSlot *)timeSlot{
+    self.timeLabel.text = [NSString stringWithFormat:@"%d:%d", timeSlot.hour, timeSlot.minute];
 }
 @end
