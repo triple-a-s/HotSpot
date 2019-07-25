@@ -9,7 +9,6 @@
 #import "ParkingSearchViewController.h"
 
 #import "MapKit/MapKit.h"
-#import "SpotCell.h"
 #import "SearchCell.h"
 #import "Listing.h"
 #import "DataManager.h"
@@ -62,9 +61,9 @@
      I can have data to load actual information into the tables.
      */
     
-    SpotCell *parkingCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    SearchCell *parkingCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
     if(parkingCell == nil){
-        parkingCell = [[SpotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
+        parkingCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     Listing *listing = self.listings[indexPath.row];
@@ -74,25 +73,21 @@
             NSLog(@"%@", error);
         }
         else {
-            cell.searchTableAddress.text = name;
+            parkingCell.searchTableAddress.text = name;
         }
     }];
     
     
-    cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
+    parkingCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
     
     //placehodlder information
-    parkingCell.spotTableAddress.text= @"100 West Lake";
-    parkingCell.spotTableDetails.text = @"50 miles away";
-    parkingCell.spotTablePrice.text= @"$5/hr";
-    parkingCell.spotTableImage.image = [UIImage imageNamed:@"houseimageexample"];
-    cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
+    parkingCell.searchTableAddress.text= @"100 West Lake";
+    parkingCell.searchTableMilesAway.text = @"50 miles away";
+    parkingCell.searchTablePrice.text= @"$5/hr";
+    parkingCell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     // trying to resize text to work with Autolayout
-
-    parkingCell.spotTablePrice.adjustsFontSizeToFitWidth = YES;
+    parkingCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
      
-    
     return parkingCell;
 }
 
