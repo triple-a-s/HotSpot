@@ -29,7 +29,6 @@
     NSDate *startTime;
     NSDate *endTime;
     BOOL pickingStartTime;
-    BOOL pickingEndTime;
     NSIndexPath *startIndexPath;
 }
 - (void)viewDidLoad {
@@ -106,22 +105,19 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TimeCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     NSDate *date = self.timeSlots[indexPath.item].date;
-    if (pickingEndTime && [startIndexPath isEqual:indexPath]) {
+    if (!pickingStartTime && !endTime && [startIndexPath isEqual:indexPath]) {
         // repick start time
-        NSLog(@"repick");
         self.timeSlots[indexPath.item].chosen = NO;
         pickingStartTime = YES;
-        pickingEndTime = NO;
     }
     else if (pickingStartTime) {
         startIndexPath = indexPath;
         startTime = date;
         pickingStartTime = NO;
-        pickingEndTime = YES;
         self.timeSlots[indexPath.item].chosen = YES;
         cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
     }
-    else if (pickingEndTime){
+    else {
         endTime = date;
         for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
             if (i<=indexPath.item) {
@@ -194,7 +190,6 @@
     }];
     
     pickingStartTime = YES;
-    pickingEndTime = NO;
 }
 - (IBAction)dateChanged:(id)sender {
     [self updateCells];
@@ -203,6 +198,7 @@
 
 - (IBAction)resetClicked:(id)sender {
     pickingStartTime = YES;
+    endTime = nil;
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
     }
