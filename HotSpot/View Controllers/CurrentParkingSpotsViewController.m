@@ -26,7 +26,7 @@
     self.currentTableView.rowHeight = 134;
 }
 
-<<<<<<< HEAD:HotSpot/CurrentParkingSpotsViewController.m
+
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,6 +59,4 @@
 }
 
 
-=======
->>>>>>> 21a65e1c7aae4143cc7069f1f42f2a5bf50da038:HotSpot/View Controllers/CurrentParkingSpotsViewController.m
 @end
