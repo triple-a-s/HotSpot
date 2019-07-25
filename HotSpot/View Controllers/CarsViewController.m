@@ -54,7 +54,9 @@
     }
 }
 
+#pragma mark - Helper Methods
 
+//this queries the user for the user's cars, and stores them in an array to be displayed later
 - (void)fetchCars {
     
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
@@ -69,11 +71,13 @@
     }];
 }
 
+//refreshes the cars when the refresh control is used
 - (void)beginRefreshing {
     [self fetchCars];
     [self.refreshControl endRefreshing];
 }
 
+//sets each cell to the corresponding car in the array of cars
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CarCell *carCell = [self.tableView dequeueReusableCellWithIdentifier:@"CarCell"];
     Car *currentCar = self.numCars[indexPath.row];

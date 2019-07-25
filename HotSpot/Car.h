@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL isDefault;
 @property (nonatomic, strong) PFUser *driver;
 
-+ (void)addCar:(UIImageView * _Nullable)image
++ (void)addCar:(UIImage * _Nullable)image
      withColor: ( NSString * _Nullable)color
    withLicense: (NSString * _Nullable)licensePlate
    withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion;
+
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

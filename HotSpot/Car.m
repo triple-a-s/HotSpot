@@ -25,6 +25,9 @@
     return @"Car";
 }
 
+//adds a car given an image, color, license, and default boolean,
+//properly updating the user's current cars to not be set to default
+//if the user has chosen to make their new car their default car
 + (void)addCar:(UIImage * _Nullable)image
      withColor: ( NSString * _Nullable)color
    withLicense: (NSString * _Nullable)licensePlate

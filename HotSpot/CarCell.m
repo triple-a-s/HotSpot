@@ -31,6 +31,8 @@
     // Configure the view for the selected state
 }
 
+//takes in a car and uses the information to configure the cell
+//if the car is the user's default car, it will display the checkmark
 - (void)configureCell: (Car *)car {
     //self.carImage.image = car.carImage;
     BOOL isDefault = [car[@"isDefault"] boolValue];
@@ -41,6 +43,13 @@
     }
     self.licensePlate.text = car.licensePlate;
     self.carColor.text = car.carColor;
+    PFFileObject *imageFile = car.carImage;
+    [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *carImage = [UIImage imageWithData:imageData];
+            self.carImage.image = carImage;
+        }
+    }];
 }
 
 @end

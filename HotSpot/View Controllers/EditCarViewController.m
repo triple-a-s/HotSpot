@@ -26,12 +26,31 @@
     [super viewDidLoad];
     self.licensePlate.text = self.car.licensePlate;
     self.carColor.text = self.car.carColor;
+    PFFileObject *imageFile = self.car.carImage;
+    [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            self.carImage.image = image;
+        }
+    }];
     [self.defaultButton setSelected:(self.car.isDefault)];
 }
 
 - (void)configureCar {
-    //PFQuery *query = [PFQuery queryWithClassName:@"cars"];
+    PFQuery *query = [Car query];
+    [query whereKey:@"licensePlate"equalTo:(self.car.licensePlate)];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (!error) {
+            Car *currentCar = objects[0];
+            currentCar[@"licensePlate"] = self.licensePlate.text;
+            currentCar[@"carColor"] = self.carColor.text;
+            currentCar[@"carImage"] = [Car getPFFileFromImage:(self.carImage.image)];
+        }
+    }];
+    [currentCar ]
+    
     //maybe just say self.car.carColor = self.carColor.text? try later, if not use query
+    
 }
 
 /*

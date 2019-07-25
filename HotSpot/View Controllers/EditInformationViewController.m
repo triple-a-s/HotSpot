@@ -44,6 +44,8 @@
     [self.alert addAction:okAction];
 }
 
+//checks if each field is equal to its corresponding field in the database
+//if not, sets the database field to the one inputted by the user
 - (IBAction)didTapSaveChanges:(UIButton *)sender {
     if (![self.currentUser[@"name"] isEqualToString:(self.fullName.text)]) {
         self.currentUser[@"name"] = self.fullName.text;

@@ -9,8 +9,9 @@
 #import "AddCarViewController.h"
 #import "Parse/Parse.h"
 #import "Car.h"
+#import "ImagePickerHelper.h"
 
-@interface AddCarViewController ()
+@interface AddCarViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *defaultButton;
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
@@ -28,15 +29,25 @@
 
 }
 
+#pragma mark - Public methods
+
+//the add car method that creates a new car with the inputted licensePlate,
+//carColor and whether or not it's the new default
 - (void)addCar {
     BOOL selected = [self.defaultButton isSelected];
     Car *car = [Car new];
     car.licensePlate = self.licensePlate.text;
     car.carColor = self.carColor.text;
-    [Car addCar:self.carImage withColor:self.carColor.text withLicense:self.licensePlate.text withDefault:selected withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    car.isDefault = selected;
+    car.carImage = [Car getPFFileFromImage:self.carImage.image];
+    [Car addCar:self.carImage.image withColor:self.carColor.text withLicense:self.licensePlate.text withDefault:selected withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self.delegate didAddCar:car];
     }];
 }
+
+
+#pragma mark - Private methods
+
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -48,6 +59,44 @@
 
 - (IBAction)didTapDefault:(UIButton *)sender {
     [self.defaultButton setSelected:(![self.defaultButton isSelected])];
+}
+
+- (IBAction)didTapCar:(UITapGestureRecognizer *)sender {
+    UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    
+    /*UIAlertController *imageAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [imageAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imageAlert addAction:[UIAlertAction actionWithTitle:(@"Camera") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:imagePickerVC animated:YES completion:nil];
+        }]];
+        
+        [imageAlert addAction:[UIAlertAction actionWithTitle:(@"Photo Library") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:imagePickerVC animated:YES completion:nil];
+        }]];
+        
+        [self presentViewController:imageAlert animated:YES completion:nil];
+    } else {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePickerVC animated:YES completion:nil];
+    }*/
+    
+    [ImagePickerHelper imageHelper:imagePickerVC withViewController:self];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
+    self.carImage.image = resizedImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
