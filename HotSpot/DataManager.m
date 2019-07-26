@@ -30,7 +30,7 @@
                    withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
     
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinKilometers:2]; // number of kilometers empirically set, for now
+    [query whereKey:@"address" nearGeoPoint:point withinKilometers:100000]; // number of kilometers empirically set, for now
     
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];

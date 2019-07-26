@@ -128,6 +128,7 @@
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="confirmClicked:" destination="ogF-Ac-Squ" eventType="touchUpInside" id="xlK-Xt-pmE"/>
+                                    <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="RwW-Zp-OQy"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU2-vK-DAD">
@@ -238,12 +239,11 @@
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
                         <outlet property="startDatePicker" destination="A4R-i8-fe1" id="8Ge-th-KvX"/>
-                        <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="eVy-mN-B6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.43478260869574" y="327.45535714285711"/>
+            <point key="canvasLocation" x="-830" y="333"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
@@ -290,8 +290,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="982"/>
+            <point key="canvasLocation" x="-830" y="1092"/>
         </scene>
+<<<<<<< HEAD
         <!--Tabs-->
         <scene sceneID="SyB-c6-EA4">
             <objects>

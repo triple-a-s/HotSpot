@@ -26,21 +26,29 @@
     [super viewDidLoad];
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
+<<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
     self.searchTableView.dataSource = self;
+=======
+    self.searchTableView.dataSource = self; 
+>>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
     self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-        self.listings = listings;
-        [self.searchTableView reloadData];
+    self.listings = listings;
+    [self.searchTableView reloadData];
     }];
+<<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
 }
+=======
+     }
+>>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+    cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     Listing *listing = self.listings[indexPath.row];
     [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -63,7 +71,11 @@
     // trying to resize text to work with Autolayout
     cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     return cell;
+<<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
     
+=======
+     
+>>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -84,5 +96,9 @@
 }
 
 #pragma mark - Action Items
+<<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
 
+=======
+ 
+>>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
 @end
