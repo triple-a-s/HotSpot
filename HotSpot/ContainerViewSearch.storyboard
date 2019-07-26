@@ -39,7 +39,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eML-tz-l8n">
-                                <rect key="frame" x="0.0" y="363" width="414" height="513"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="729"/>
                                 <connections>
                                     <segue destination="xQa-W4-cj7" kind="embed" identifier="toSpotTable" id="pqo-Jv-6hS"/>
                                 </connections>
@@ -170,11 +170,11 @@
             <objects>
                 <viewController id="xQa-W4-cj7" customClass="ParkingSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W7v-fn-aDH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-Se-zUW">
-                                <rect key="frame" x="0.0" y="-48" width="414" height="777"/>
+                                <rect key="frame" x="0.0" y="22" width="414" height="707"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -279,6 +279,6 @@
         <image name="ourlogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pgr-vC-sF8"/>
+        <segue reference="B5L-9V-gpc"/>
     </inferredMetricsTieBreakers>
 </document>
