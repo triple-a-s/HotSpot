@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QJR-uJ-gAA">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Current Parking Spots View Controller-->
+        <scene sceneID="lHf-pH-H3w">
+            <objects>
+                <viewController id="KRC-RB-WEY" customClass="CurrentParkingSpotsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oUE-gy-rP7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-rx-1iL">
+                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="yRs-Bh-6S5" customClass="SearchCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="134"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="yRs-Bh-6S5" id="nGu-JX-hiE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="133.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="bXd-gg-Ks9">
+                                                    <rect key="frame" x="-43" y="-23" width="219" height="180"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-bs-1Sj">
+                                                    <rect key="frame" x="184" y="6" width="204" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="756" misplaced="YES" text="$10/hr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gg-3Z-c5h">
+                                                    <rect key="frame" x="240" y="33" width="101.5" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" misplaced="YES" text="Miles away from location " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Q8-hJ-KWI">
+                                                    <rect key="frame" x="191" y="75" width="199" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="bXd-gg-Ks9" secondAttribute="bottom" constant="-15.5" id="3lZ-tc-atB"/>
+                                                <constraint firstItem="5Q8-hJ-KWI" firstAttribute="leading" secondItem="bXd-gg-Ks9" secondAttribute="trailing" constant="18" id="4fh-Re-a3T"/>
+                                                <constraint firstItem="uXK-bs-1Sj" firstAttribute="top" secondItem="nGu-JX-hiE" secondAttribute="top" id="82C-e4-53y"/>
+                                                <constraint firstItem="9gg-3Z-c5h" firstAttribute="top" secondItem="uXK-bs-1Sj" secondAttribute="bottom" constant="8" id="Gxt-ha-Vmf"/>
+                                                <constraint firstItem="9gg-3Z-c5h" firstAttribute="leading" secondItem="bXd-gg-Ks9" secondAttribute="trailing" constant="18" id="QnJ-1W-KPN"/>
+                                                <constraint firstItem="uXK-bs-1Sj" firstAttribute="leading" secondItem="bXd-gg-Ks9" secondAttribute="trailing" constant="17" id="UAA-M1-ZsY"/>
+                                                <constraint firstItem="5Q8-hJ-KWI" firstAttribute="top" secondItem="9gg-3Z-c5h" secondAttribute="bottom" constant="24" id="ZXx-bU-fti"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9gg-3Z-c5h" secondAttribute="trailing" constant="38.5" id="bKC-e4-vee"/>
+                                                <constraint firstItem="bXd-gg-Ks9" firstAttribute="top" secondItem="nGu-JX-hiE" secondAttribute="top" id="c9f-a0-keH"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Q8-hJ-KWI" secondAttribute="trailing" constant="10" id="hr8-Wm-hvj"/>
+                                                <constraint firstItem="uXK-bs-1Sj" firstAttribute="leading" secondItem="bXd-gg-Ks9" secondAttribute="trailing" constant="17" id="iu5-7U-UYf"/>
+                                                <constraint firstItem="bXd-gg-Ks9" firstAttribute="leading" secondItem="nGu-JX-hiE" secondAttribute="leading" constant="-20" id="oqV-ea-O4D"/>
+                                                <constraint firstItem="9gg-3Z-c5h" firstAttribute="top" secondItem="uXK-bs-1Sj" secondAttribute="bottom" constant="8" id="qRL-Ca-IhM"/>
+                                                <constraint firstAttribute="trailing" secondItem="uXK-bs-1Sj" secondAttribute="trailing" constant="37.5" id="vf4-U5-N2M"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Q8-hJ-KWI" secondAttribute="bottom" constant="20" id="waI-SE-D8I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ma2-Tn-Qpk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Booked Spots " id="GkU-Sd-Z0w"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MP9-rx-1iL" secondAttribute="bottom" id="4la-ye-t9T"/>
+                            <constraint firstItem="ma2-Tn-Qpk" firstAttribute="leading" secondItem="Ch1-vE-eqe" secondAttribute="leading" id="76e-fm-NbJ"/>
+                            <constraint firstItem="MP9-rx-1iL" firstAttribute="top" secondItem="ma2-Tn-Qpk" secondAttribute="bottom" id="YzE-GV-9Uv"/>
+                            <constraint firstItem="MP9-rx-1iL" firstAttribute="top" secondItem="ma2-Tn-Qpk" secondAttribute="bottom" id="c7D-FF-1Yr"/>
+                            <constraint firstItem="ma2-Tn-Qpk" firstAttribute="top" secondItem="Ch1-vE-eqe" secondAttribute="top" id="gmf-Ja-Ju1"/>
+                            <constraint firstItem="ma2-Tn-Qpk" firstAttribute="trailing" secondItem="Ch1-vE-eqe" secondAttribute="trailing" id="p7Y-mG-xhB"/>
+                            <constraint firstItem="MP9-rx-1iL" firstAttribute="trailing" secondItem="Ch1-vE-eqe" secondAttribute="trailing" id="vxj-oz-N2O"/>
+                            <constraint firstItem="MP9-rx-1iL" firstAttribute="leading" secondItem="Ch1-vE-eqe" secondAttribute="leading" id="zXM-w8-hLO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ch1-vE-eqe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rLd-6O-hL7"/>
+                    <connections>
+                        <outlet property="currentTableView" destination="MP9-rx-1iL" id="SHv-LO-k8m"/>
+                        <outlet property="savedTitleBar" destination="ma2-Tn-Qpk" id="yju-PT-xZf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9M-0t-0s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833.33333333333337" y="-20.758928571428569"/>
+        </scene>
+        <!--Current Spots -->
+        <scene sceneID="LjF-5h-LfK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QJR-uJ-gAA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Current Spots " id="C0c-Kw-iEk"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7hf-R8-eTK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KRC-RB-WEY" kind="relationship" relationship="rootViewController" id="tPm-Ru-PaX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmu-rg-t0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76.811594202898561" y="-20.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="houseimageexample" width="550" height="413"/>
+    </resources>
+</document>

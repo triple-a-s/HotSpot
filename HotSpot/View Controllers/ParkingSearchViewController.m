@@ -13,7 +13,6 @@
 #import "Listing.h"
 #import "DataManager.h"
 #import "DetailsViewController.h"
-#define METERS_PER_MILE 1609.344
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -62,9 +61,9 @@
      I can have data to load actual information into the tables.
      */
     
-    SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
-    if(cell == nil){
-        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+    SearchCell *parkingCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    if(parkingCell == nil){
+        parkingCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
     }
     
     Listing *listing = self.listings[indexPath.row];
@@ -74,23 +73,22 @@
             NSLog(@"%@", error);
         }
         else {
-            cell.searchTableAddress.text = name;
+            parkingCell.searchTableAddress.text = name;
         }
     }];
     
     
-    cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
+    parkingCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
     
     //placehodlder information
-    cell.searchTableMilesAway.text = @"50 miles away";
-    cell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
-    
+    parkingCell.searchTableAddress.text= @"100 West Lake";
+    parkingCell.searchTableMilesAway.text = @"50 miles away";
+    parkingCell.searchTablePrice.text= @"$5/hr";
+    parkingCell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
     // trying to resize text to work with Autolayout
-
-    cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
+    parkingCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
      
-    
-    return cell;
+    return parkingCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

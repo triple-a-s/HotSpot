@@ -16,10 +16,9 @@
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
 		612FE90922DE801A00112AF2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE90822DE801A00112AF2 /* Search.storyboard */; };
-		612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE90E22DE8E6E00112AF2 /* SearchCell.m */; };
-		612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */; };
 		612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612FE91322DE9A9500112AF2 /* MapKit.framework */; };
-		61AB0BB622DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */; };
+		61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */; };
+		61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
 		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
 		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
@@ -30,7 +29,11 @@
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
 		D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501322E920A7004BE9BF /* TimeSlot.m */; };
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
+		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
+		D272E82722EA6ED200B8D904 /* BookedParkingSpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D272E82522EA6ED200B8D904 /* BookedParkingSpotsViewController.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
+		D27E754F22EA6D7D003FCB7D /* ParkingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */; };
+		D27E755022EA6D7D003FCB7D /* CurrentParkingSpotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
 		D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772222DE8A7300EBC4EC /* Booking.m */; };
 		D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772722DFBD9D00EBC4EC /* Listing.m */; };
@@ -77,13 +80,13 @@
 		612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotSpotUITests.m; sourceTree = "<group>"; };
 		612FE8FA22DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		612FE90822DE801A00112AF2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		612FE90D22DE8E6E00112AF2 /* SearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
-		612FE90E22DE8E6E00112AF2 /* SearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		612FE91022DE95FE00112AF2 /* ParkingSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkingSearchViewController.h; sourceTree = "<group>"; };
 		612FE91122DE95FE00112AF2 /* ParkingSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingSearchViewController.m; sourceTree = "<group>"; };
 		612FE91322DE9A9500112AF2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61AB0BB422DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentParkingSpotsViewController.h; sourceTree = "<group>"; };
 		61AB0BB522DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentParkingSpotsViewController.m; sourceTree = "<group>"; };
+		61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Current.storyboard; sourceTree = "<group>"; };
+		61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booked.storyboard; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
 		ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -102,6 +105,10 @@
 		D22F501222E920A7004BE9BF /* TimeSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
 		D22F501322E920A7004BE9BF /* TimeSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
 		D22F501522EA2098004BE9BF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		D272E82522EA6ED200B8D904 /* BookedParkingSpotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookedParkingSpotsViewController.m; sourceTree = "<group>"; };
+		D272E82622EA6ED200B8D904 /* BookedParkingSpotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookedParkingSpotsViewController.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D2B2771D22DE868600EBC4EC /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D2B2771E22DE868600EBC4EC /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
@@ -193,8 +200,10 @@
 				D22F500B22E7D946004BE9BF /* Views */,
 				D2BD365122E11F0C0001BD61 /* View Controllers */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
-				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
+				61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */,
+				61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */,
+				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
 				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */,
@@ -247,8 +256,8 @@
 			children = (
 				D22F500F22E7D974004BE9BF /* TimeCell.h */,
 				D22F501022E7D974004BE9BF /* TimeCell.m */,
-				612FE90D22DE8E6E00112AF2 /* SearchCell.h */,
-				612FE90E22DE8E6E00112AF2 /* SearchCell.m */,
+				D26617C522EB689700255BC3 /* SearchCell.h */,
+				D26617C422EB689700255BC3 /* SearchCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +287,8 @@
 				D2BD365522E11F2A0001BD61 /* ConfirmationViewController.h */,
 				D2BD365622E11F2A0001BD61 /* ConfirmationViewController.m */,
 				ADEC07D622DE80310035274F /* LoginViewController.h */,
+				D272E82622EA6ED200B8D904 /* BookedParkingSpotsViewController.h */,
+				D272E82522EA6ED200B8D904 /* BookedParkingSpotsViewController.m */,
 				ADEC07D722DE80310035274F /* LoginViewController.m */,
 				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
 				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
@@ -404,6 +415,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
+				61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */,
+				61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
 				D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */,
 				D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */,
@@ -526,17 +539,17 @@
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,
 				D2BD365722E11F2A0001BD61 /* ConfirmationViewController.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
-				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
-				612FE91222DE95FE00112AF2 /* ParkingSearchViewController.m in Sources */,
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				D27E755022EA6D7D003FCB7D /* CurrentParkingSpotsViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
-				61AB0BB622DFEDAC002B7EB6 /* CurrentParkingSpotsViewController.m in Sources */,
-				612FE90F22DE8E6E00112AF2 /* SearchCell.m in Sources */,
+				D27E754F22EA6D7D003FCB7D /* ParkingSearchViewController.m in Sources */,
+				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				D272E82722EA6ED200B8D904 /* BookedParkingSpotsViewController.m in Sources */,
 				D2BD365422E11F1D0001BD61 /* BookingViewController.m in Sources */,
 				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 			);
