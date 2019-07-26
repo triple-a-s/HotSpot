@@ -33,13 +33,13 @@
                                 <state key="normal" image="ourlogo"/>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEi-fP-YzU">
-                                <rect key="frame" x="0.0" y="100" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="640"/>
                                 <connections>
                                     <segue destination="oGh-6t-rMf" kind="embed" identifier="mapViewController" id="1TX-UD-Ung"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eML-tz-l8n">
-                                <rect key="frame" x="0.0" y="147" width="414" height="729"/>
+                                <rect key="frame" x="0.0" y="363" width="414" height="513"/>
                                 <connections>
                                     <segue destination="xQa-W4-cj7" kind="embed" identifier="toSpotTable" id="pqo-Jv-6hS"/>
                                 </connections>
@@ -140,11 +140,11 @@
             <objects>
                 <viewController storyboardIdentifier="Map" id="oGh-6t-rMf" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GeV-oG-J9z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-Rf-FaU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,7 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="searchMap" destination="DBG-Rf-FaU" id="Dpj-cL-pXc"/>
-                        <segue destination="9K2-sz-qct" kind="presentation" identifier="detailsSegue" id="pgr-vC-sF8"/>
+                        <segue destination="9K2-sz-qct" kind="presentation" identifier="detailsSegue2" id="pgr-vC-sF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcy-HF-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,7 +170,7 @@
             <objects>
                 <viewController id="xQa-W4-cj7" customClass="ParkingSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W7v-fn-aDH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-Se-zUW">
@@ -238,7 +238,7 @@
                     </view>
                     <connections>
                         <outlet property="searchTableView" destination="eIW-Se-zUW" id="cQm-5Z-5Kf"/>
-                        <segue destination="9K2-sz-qct" kind="presentation" identifier="detailsSegue" id="k8o-qU-bDS"/>
+                        <segue destination="9K2-sz-qct" kind="show" identifier="detailsSegue" id="B5L-9V-gpc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioc-dp-ItF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +279,6 @@
         <image name="ourlogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k8o-qU-bDS"/>
+        <segue reference="pgr-vC-sF8"/>
     </inferredMetricsTieBreakers>
 </document>
