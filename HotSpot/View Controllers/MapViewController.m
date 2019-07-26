@@ -45,26 +45,37 @@
         return annotationView;
     }
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
+    UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
+    UILabel *textLabel = [[UILabel alloc] init];
+    textLabel.text = annotation.title;
     [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *houseImage = [UIImage imageWithData:imageData];
         UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
-        annotationView.image = houseImageResized;
+        UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
+        [leftCAV addSubview:houseImagefinal];
     }];
+    [leftCAV addSubview:textLabel];
+    annotationView.leftCalloutAccessoryView = leftCAV;
+    UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
+    UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
+    annotationView.image = pinImageResized;
     annotationView.canShowCallout = YES;
+    
     return annotationView;
 }
 
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     view.canShowCallout = YES;
+    
 }
-/*
- - (void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
+
+ -(void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
     view.canShowCallout = NO;
 }
- */
 
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     [self performSegueWithIdentifier:@"detailsSegue2" sender:self];
+    
 }
 
 # pragma mark - Segue
