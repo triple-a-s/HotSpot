@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MapKit/MapKit.h"
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>

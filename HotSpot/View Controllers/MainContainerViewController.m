@@ -149,15 +149,9 @@
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
                 self.mapVC.listingAnnotationImage = self.tableVC.listings[i].picture;
             }
-<<<<<<< Updated upstream
-        }
-    }];
-=======
             
         }
     }];
-    
->>>>>>> Stashed changes
     self.searchResultTableView.hidden =YES;
 }
 
@@ -171,11 +165,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"mapViewController"]) {
         self.mapVC = segue.destinationViewController;
-<<<<<<< Updated upstream
         // [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
-=======
         [self.mapVC.searchMap showAnnotations:self.mapVC.searchMap.annotations animated:YES];
->>>>>>> Stashed changes
     }else if ([segue.identifier isEqualToString:@"toSpotTable"]){
         self.tableVC = segue.destinationViewController;
         [self.tableVC.searchTableView reloadData];
