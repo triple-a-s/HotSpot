@@ -143,7 +143,14 @@
                 MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
                 CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.tableVC.listings[i].address.latitude, self.tableVC.listings[i].address.longitude);
                 [spotPins setCoordinate: spotLocation];
-                [spotPins setTitle: @"bluefacebabyaightt"];
+                [DataManager getAddressNameFromPoint:self.tableVC.listings[i].address withCompletion:^(NSString *name, NSError * _Nullable error){
+                    if(error) {
+                        NSLog(@"%@", error);
+                    }
+                    else {
+                        [spotPins setTitle: name];
+                    }
+                }];
                 [spotList addObject:spotPins];
                 [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
