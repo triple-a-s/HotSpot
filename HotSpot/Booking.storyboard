@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Details View Controller-->
+        <!--Booking-->
         <scene sceneID="gr7-Tr-38T">
             <objects>
                 <viewController storyboardIdentifier="DetailsViewController" id="dao-gK-gXZ" customClass="DetailsViewController" sceneMemberID="viewController">
@@ -28,14 +28,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="a9Y-Ph-bDz">
-                                <rect key="frame" x="0.0" y="44" width="219" height="180"/>
+                                <rect key="frame" x="0.0" y="88" width="219" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="Ufx-ge-GJ5"/>
                                     <constraint firstAttribute="height" constant="180" id="du3-0l-ROc"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-Al-bDx">
-                                <rect key="frame" x="8" y="232" width="398" height="136"/>
+                                <rect key="frame" x="8" y="276" width="398" height="136"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-bN-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
@@ -62,7 +62,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-Ol-FE5">
-                                <rect key="frame" x="227" y="52" width="159" height="122"/>
+                                <rect key="frame" x="227" y="96" width="159" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vp-89-8W9">
                                         <rect key="frame" x="18" y="0.0" width="123.5" height="19"/>
@@ -101,7 +101,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lwu-zp-pNN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NUv-Co-sD2"/>
+                    <navigationItem key="navigationItem" title="Booking" id="dVH-OH-FTN">
+                        <barButtonItem key="leftBarButtonItem" title="Back " style="plain" id="zw1-ev-G9T">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LVH-H6-Bi7">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="bookingBackPressed:" destination="dao-gK-gXZ" eventType="touchUpInside" id="xVi-zr-Rdd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="listingAddressLabel" destination="5Vp-89-8W9" id="UA6-2M-uFg"/>
                         <outlet property="listingImageView" destination="a9Y-Ph-bDz" id="50c-Ze-rQ3"/>
@@ -112,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.43478260869574" y="-343.52678571428572"/>
+            <point key="canvasLocation" x="79.710144927536234" y="-343.52678571428572"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
@@ -132,7 +143,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU2-vK-DAD">
-                                <rect key="frame" x="8" y="232" width="398" height="70"/>
+                                <rect key="frame" x="8" y="276" width="398" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-ir-ai5">
                                         <rect key="frame" x="8" y="8" width="57" height="54"/>
@@ -167,19 +178,19 @@
                                 </constraints>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-i8-fe1">
-                                <rect key="frame" x="0.0" y="315" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="359" width="414" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="585183402.07731497">
                                     <!--2019-07-18 22:56:42 +0000-->
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FO-7Wr">
-                                <rect key="frame" x="0.0" y="539" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="583" width="414" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="585183563.79798496">
                                     <!--2019-07-18 22:59:23 +0000-->
                                 </date>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-Gu-WGE">
-                                <rect key="frame" x="227" y="52" width="159" height="122"/>
+                                <rect key="frame" x="227" y="96" width="159" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-1n-pDX">
                                         <rect key="frame" x="18" y="0.0" width="123.5" height="19"/>
@@ -201,7 +212,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="jsM-A7-T6H">
-                                <rect key="frame" x="0.0" y="44" width="219" height="180"/>
+                                <rect key="frame" x="0.0" y="88" width="219" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Iya-EM-tB8"/>
                                     <constraint firstAttribute="width" constant="219" id="nuZ-iL-ZGU"/>
@@ -300,6 +311,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tw-Td-VFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2343" y="919"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="acT-Uv-cCq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQS-EK-0vr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRg-OE-BkT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mr1-SB-565">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dao-gK-gXZ" kind="relationship" relationship="rootViewController" id="Vrv-yQ-Quc"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-667" y="-344"/>
         </scene>
     </scenes>
     <resources>

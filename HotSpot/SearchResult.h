@@ -1,4 +1,3 @@
-//
 //  SearchResult.h
 //  HotSpot
 //

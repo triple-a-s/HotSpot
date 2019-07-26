@@ -1,3 +1,4 @@
+
 //
 //  ParkingSearchViewController.m
 //  HotSpot
@@ -7,7 +8,6 @@
 //
 
 #import "ParkingSearchViewController.h"
-
 #import "MapKit/MapKit.h"
 #import "SearchCell.h"
 #import "SearchResult.h"
@@ -26,11 +26,15 @@
     [super viewDidLoad];
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
+<<<<<<< Updated upstream
 <<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
     self.searchTableView.dataSource = self;
 =======
     self.searchTableView.dataSource = self; 
 >>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
+=======
+    self.searchTableView.dataSource = self;
+>>>>>>> Stashed changes
     self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
@@ -39,16 +43,23 @@
     }];
 <<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
 }
+<<<<<<< Updated upstream
 =======
      }
 >>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
+=======
+>>>>>>> Stashed changes
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SearchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(cell == nil){
+<<<<<<< Updated upstream
     cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+=======
+        cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+>>>>>>> Stashed changes
     }
     Listing *listing = self.listings[indexPath.row];
     [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -69,6 +80,7 @@
         cell.searchTableImage.image = imageToLoad;
     }];
     // trying to resize text to work with Autolayout
+<<<<<<< Updated upstream
     cell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     return cell;
 <<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
@@ -76,6 +88,10 @@
 =======
      
 >>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
+=======
+    return cell;
+    
+>>>>>>> Stashed changes
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -98,7 +114,10 @@
 #pragma mark - Action Items
 <<<<<<< HEAD:HotSpot/View Controllers/ParkingSearchViewController.m
 
+<<<<<<< Updated upstream
 =======
  
 >>>>>>> a48aac273aa4b1675d8b78c8496db89752d39c98:HotSpot/ParkingSearchViewController.m
+=======
+>>>>>>> Stashed changes
 @end
