@@ -9,8 +9,9 @@
 #import "EditCarViewController.h"
 #import "Car.h"
 #import "CarsViewController.h"
+#import "ImagePickerHelper.h"
 
-@interface EditCarViewController ()
+@interface EditCarViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
 @property (weak, nonatomic) IBOutlet UITextField *licensePlate;
@@ -26,6 +27,7 @@
     [super viewDidLoad];
     self.licensePlate.text = self.car.licensePlate;
     self.carColor.text = self.car.carColor;
+    [self.defaultButton setSelected:(self.car.isDefault)];
     PFFileObject *imageFile = self.car.carImage;
     [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
         if (!error) {
@@ -33,24 +35,43 @@
             self.carImage.image = image;
         }
     }];
-    [self.defaultButton setSelected:(self.car.isDefault)];
 }
 
 - (void)configureCar {
-    PFQuery *query = [Car query];
-    [query whereKey:@"licensePlate"equalTo:(self.car.licensePlate)];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (!error) {
-            Car *currentCar = objects[0];
-            currentCar[@"licensePlate"] = self.licensePlate.text;
-            currentCar[@"carColor"] = self.carColor.text;
-            currentCar[@"carImage"] = [Car getPFFileFromImage:(self.carImage.image)];
+    self.car[@"licensePlate"] = self.licensePlate.text;
+    self.car[@"carColor"] = self.carColor.text;
+    self.car[@"carImage"] = [Car getPFFileObjectFromImage:(self.carImage.image)];
+    PFUser *currentUser = [PFUser currentUser];
+    PFRelation *relation = [currentUser relationForKey:@"cars"];
+    if (self.defaultButton.selected) {
+        [Car changeDefaultCar:relation withCar:self.car withUser:currentUser];
+        [self.car setObject:[NSNumber numberWithBool:YES] forKey:@"isDefault"];
+    }
+    [self.car saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            [currentUser saveInBackgroundWithBlock:nil];
         }
     }];
-    [currentCar ]
     
-    //maybe just say self.car.carColor = self.carColor.text? try later, if not use query
+}
+
+- (IBAction)didTapImage:(UITapGestureRecognizer *)sender {
+    UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
     
+    [ImagePickerHelper imageHelper:imagePickerVC withViewController:self];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
+    self.carImage.image = resizedImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)didTapDefaultButton:(UIButton *)sender {
+    [self.defaultButton setSelected:(![self.defaultButton isSelected])];
 }
 
 /*

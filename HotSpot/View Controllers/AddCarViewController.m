@@ -39,7 +39,7 @@
     car.licensePlate = self.licensePlate.text;
     car.carColor = self.carColor.text;
     car.isDefault = selected;
-    car.carImage = [Car getPFFileFromImage:self.carImage.image];
+    car.carImage = [Car getPFFileObjectFromImage:self.carImage.image];
     [Car addCar:self.carImage.image withColor:self.carColor.text withLicense:self.licensePlate.text withDefault:selected withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self.delegate didAddCar:car];
     }];
@@ -94,7 +94,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:self.carImage.image.size];
     self.carImage.image = resizedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
 }

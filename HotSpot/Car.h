@@ -23,8 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
    withLicense: (NSString * _Nullable)licensePlate
    withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion;
 
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
++ (PFFileObject *)getPFFileObjectFromImage: (UIImage * _Nullable)image;
 
++ (void)changeDefaultCar: (PFRelation *)relation
+                 withCar: (Car *)car
+                withUser: (PFUser *)user;
 @end
 
 NS_ASSUME_NONNULL_END

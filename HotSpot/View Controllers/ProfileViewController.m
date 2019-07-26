@@ -122,13 +122,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:self.profileImage.image.size];
     self.profileImage.image = resizedImage;
     
-    NSData *imageData = UIImagePNGRepresentation(resizedImage);
-    PFFileObject *imageFile = [PFFileObject fileObjectWithData:imageData];
     self.currentUser[@"profilePicture"] =
-    imageFile;
+    [Car getPFFileObjectFromImage:resizedImage];
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -140,19 +138,6 @@
     [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
 
-/*- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
-    if (!image) {
-        return nil;
-    }
-    
-    NSData *imageData = UIImagePNGRepresentation(image);
-    
-    if (!imageData) {
-        return nil;
-    }
-    
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-}*/
 
 /*
 #pragma mark - Navigation

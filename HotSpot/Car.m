@@ -33,31 +33,15 @@
    withLicense: (NSString * _Nullable)licensePlate
    withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion {
     Car *newCar = [Car new];
-    PFUser *user = [PFUser currentUser];
-    newCar.carImage = [self getPFFileFromImage:image];
+    newCar.carImage = [self getPFFileObjectFromImage:image];
     newCar.licensePlate = licensePlate;
     newCar.carColor = color;
     newCar.isDefault = isDefault;
+    PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"cars"];
     if (isDefault) {
-        PFQuery *query = relation.query;
-        [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
-            if (cars != nil) {
-                for (Car *currentCar in cars) {
-                    [currentCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-                        BOOL currentCarDefault = [object[@"isDefault"] boolValue];
-                        if (currentCarDefault) {
-                            [object setObject:[NSNumber numberWithBool:NO] forKey:@"isDefault"];
-                            [currentCar saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                            }];
-                        }
-                    }];
-                }
-            }
-        }];
-        [user setObject:newCar forKey:@"defaultCar"];
+        [self changeDefaultCar:relation withCar:newCar withUser:user];
     }
-                    
     [newCar saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             [relation addObject:newCar];
@@ -65,8 +49,30 @@
         }
     }];
 }
+
++ (void)changeDefaultCar: (PFRelation *)relation
+                 withCar: (Car *)car
+                withUser: (PFUser *)user {
+    PFQuery *query = relation.query;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
+        if (cars != nil) {
+            for (Car *currentCar in cars) {
+                [currentCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                    BOOL currentCarDefault = [object[@"isDefault"] boolValue];
+                    if (currentCarDefault) {
+                        [object setObject:[NSNumber numberWithBool:NO] forKey:@"isDefault"];
+                        [currentCar saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                        }];
+                    }
+                }];
+            }
+        }
+    }];
+    [user setObject:car forKey:@"defaultCar"];
+}
+
                        
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
++ (PFFileObject *)getPFFileObjectFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
