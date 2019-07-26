@@ -45,10 +45,6 @@
         return annotationView;
     }
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
-   /* UIImage *houseImage = [UIImage imageNamed:@"ourlogo"];
-    UIImage *houseImageResized = [self imageWithImage:houseImage scaledToSize:(CGSizeMake(30, 30))];
-    annotationView.image = houseImageResized;
-    */
     [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *houseImage = [UIImage imageWithData:imageData];
         UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
@@ -61,24 +57,23 @@
 - (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     view.canShowCallout = YES;
 }
-
-- (void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
+/*
+ - (void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
     view.canShowCallout = NO;
 }
+ */
 
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    if(view.annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) view.annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
-        view.canShowCallout = NO;
-    }
-    
     [self performSegueWithIdentifier:@"detailsSegue2" sender:self];
 }
 
 # pragma mark - Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    //DetailsViewController *detailsViewController = [segue destinationViewController];
-    
+    if([segue.identifier isEqualToString:@"detailsSegue2"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.listing = sender;
+    }
 }
 
 # pragma mark - Helper Methods
