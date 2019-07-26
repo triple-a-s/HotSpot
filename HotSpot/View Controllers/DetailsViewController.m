@@ -43,7 +43,8 @@
     }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
     if([segue.identifier isEqualToString:@"bookingSegue"]) {
         BookingViewController *bookingViewController = [segue destinationViewController];
         bookingViewController.listing = self.listing;

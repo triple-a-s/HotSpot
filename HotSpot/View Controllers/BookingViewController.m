@@ -100,7 +100,8 @@
         }];
 }
 
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath { 
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
+                                   cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCell"
                                                                forIndexPath:indexPath];
     TimeSlot *timeSlot = self.timeSlots[indexPath.item];
@@ -270,9 +271,11 @@
     
     pickingStartTime = YES;
 }
+
 - (IBAction)dateChanged:(id)sender {
     [self updateCells];
 }
+
 - (void)reset {
     startTime = nil;
     startIndexPath = nil;
