@@ -10,6 +10,7 @@
 #import "Car.h"
 #import "CarsViewController.h"
 #import "ImagePickerHelper.h"
+#import "RegexHelper.h"
 
 @interface EditCarViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -38,6 +39,7 @@
 }
 
 - (void)configureCar {
+    
     self.car[@"licensePlate"] = self.licensePlate.text;
     self.car[@"carColor"] = self.carColor.text;
     self.car[@"carImage"] = [Car getPFFileObjectFromImage:(self.carImage.image)];
@@ -86,8 +88,15 @@
 
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
-    [self configureCar];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController *alert = [RegexHelper createAlertController];
+    
+    if (isValidCar(self.licensePlate.text, self.carColor.text, alert)) {
+        [self configureCar];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+    }
 }
 
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {

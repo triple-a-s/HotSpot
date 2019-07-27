@@ -19,27 +19,26 @@
 @dynamic licensePlate;
 @dynamic carColor;
 @dynamic isDefault;
-@dynamic driver;
 
 + (nonnull NSString *)parseClassName {
     return @"Car";
 }
 
-//adds a car given an image, color, license, and default boolean,
-//properly updating the user's current cars to not be set to default
-//if the user has chosen to make their new car their default car
-+ (void)addCar:(UIImage * _Nullable)image
-     withColor: ( NSString * _Nullable)color
-   withLicense: (NSString * _Nullable)licensePlate
-   withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion {
-    Car *newCar = [Car new];
-    newCar.carImage = [self getPFFileObjectFromImage:image];
-    newCar.licensePlate = licensePlate;
-    newCar.carColor = color;
-    newCar.isDefault = isDefault;
+- (instancetype)initWithInfo:(NSString *)carColor withLicense:(NSString *)licensePlate withImage:(UIImage *)carImage withDefault:(BOOL)isDefault {
+    if ((self = [super init])) {
+        self.carImage = [Car getPFFileObjectFromImage:carImage];
+        self.licensePlate = licensePlate;
+        self.carColor = carColor;
+        self.isDefault = isDefault;
+    }
+    return self;
+}
+
++ (void)addCar:(Car *)newCar
+withCompletion: (PFBooleanResultBlock _Nullable) completion {
     PFUser *user = [PFUser currentUser];
     PFRelation *relation = [user relationForKey:@"cars"];
-    if (isDefault) {
+    if (newCar.isDefault) {
         [self changeDefaultCar:relation withCar:newCar withUser:user];
     }
     [newCar saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -49,6 +48,7 @@
         }
     }];
 }
+
 
 + (void)changeDefaultCar: (PFRelation *)relation
                  withCar: (Car *)car

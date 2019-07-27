@@ -16,12 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *carColor;
 @property (nonatomic, strong) PFFileObject *carImage;
 @property (nonatomic) BOOL isDefault;
-@property (nonatomic, strong) PFUser *driver;
 
-+ (void)addCar:(UIImage * _Nullable)image
-     withColor: ( NSString * _Nullable)color
-   withLicense: (NSString * _Nullable)licensePlate
-   withDefault: (BOOL)isDefault withCompletion: (PFBooleanResultBlock _Nullable)completion;
+
+- (instancetype)initWithInfo:(NSString *)carColor
+                 withLicense:(NSString *)licensePlate
+                   withImage:(UIImage *)carImage
+                 withDefault:(BOOL)isDefault;
+
++ (void)addCar:(Car *)newCar
+withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
 + (PFFileObject *)getPFFileObjectFromImage: (UIImage * _Nullable)image;
 
