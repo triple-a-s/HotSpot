@@ -34,7 +34,7 @@
     //checks if any of the fields are empty
     //checks if the phone number is 7 or 10 digits
     //if anything is wrong it will throw up an appropriate error
-    if ([RegexHelper isValidProfile:self.username.text withPassword:self.password.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert]) {
+    if ([RegexHelper isValidProfile:self.username.text withPassword:self.password.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert withSameProfile:NO]) {
         PFUser *newUser = [PFUser user];
         
         newUser.username = self.username.text;

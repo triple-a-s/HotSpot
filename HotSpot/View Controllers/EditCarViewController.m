@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *licensePlate;
 @property (weak, nonatomic) IBOutlet UITextField *carColor;
 @property (weak, nonatomic) IBOutlet UIButton *defaultButton;
-
+@property (nonatomic) BOOL isSameCar;
 
 @end
 
@@ -39,7 +39,6 @@
 }
 
 - (void)configureCar {
-    
     self.car[@"licensePlate"] = self.licensePlate.text;
     self.car[@"carColor"] = self.carColor.text;
     self.car[@"carImage"] = [Car getPFFileObjectFromImage:(self.carImage.image)];
@@ -54,8 +53,8 @@
             [currentUser saveInBackgroundWithBlock:nil];
         }
     }];
-    
 }
+
 
 - (IBAction)didTapImage:(UITapGestureRecognizer *)sender {
     UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
@@ -89,8 +88,10 @@
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
     UIAlertController *alert = [RegexHelper createAlertController];
-    
-    if (isValidCar(self.licensePlate.text, self.carColor.text, alert)) {
+    if ([self.car[@"licensePlate"] isEqualToString:self.licensePlate.text]) {
+        self.isSameCar = YES;
+    }
+    if (isValidCar(self.licensePlate.text, self.carColor.text, alert, self.isSameCar)) {
         [self configureCar];
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
@@ -101,6 +102,10 @@
 
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)didTapView:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:(YES)];
 }
 
 @end

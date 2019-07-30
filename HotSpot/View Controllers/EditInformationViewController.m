@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) PFUser *currentUser;
+@property (nonatomic) BOOL isSameProfile;
 
 @end
 
@@ -23,14 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isSameProfile = NO;
     self.currentUser = [PFUser currentUser];
     [self.currentUser saveInBackground];
     self.fullName.text = self.currentUser[@"name"];
     self.phoneNumber.text = self.currentUser[@"phone"];
     self.email.text = self.currentUser[@"email"];
     self.username.text = self.currentUser.username;
-    
     
 }
 
@@ -43,7 +43,11 @@
     NSLog(@"%@", self.email.text);
     NSLog(@"%@", self.fullName.text);
     NSLog(@"%@", self.phoneNumber.text);
-    if ([RegexHelper isValidProfile:self.username.text withPassword:self.username.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert]) {
+    
+    if ([self.currentUser.username isEqualToString:self.username.text]) {
+        self.isSameProfile = YES;
+    }
+    if ([RegexHelper isValidProfile:self.username.text withPassword:self.username.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert withSameProfile:self.isSameProfile]) {
         self.currentUser[@"name"] = self.fullName.text;
         self.currentUser.username = self.username.text;
         self.currentUser[@"phone"] = self.phoneNumber.text;

@@ -47,6 +47,10 @@
 
 #pragma mark - Private methods
 
+- (IBAction)didTapView:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:(YES)];
+}
+
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -54,7 +58,7 @@
 - (IBAction)didTapConfirm:(UIBarButtonItem *)sender {
     UIAlertController *alert = [RegexHelper createAlertController];
     
-    if (isValidCar(self.licensePlate.text, self.carColor.text, alert)) {
+    if (isValidCar(self.licensePlate.text, self.carColor.text, alert, NO)) {
         [self addCar];
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {

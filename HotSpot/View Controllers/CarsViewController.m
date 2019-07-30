@@ -92,6 +92,7 @@
 
 - (void)didAddCar:(nonnull Car *)car {
     [self.numCars insertObject:car atIndex:(self.numCars.count-1)];
+    [self.tableView reloadData];
 }
 
 @end

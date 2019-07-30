@@ -386,6 +386,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="DjL-qh-yT7" firstAttribute="firstBaseline" secondItem="uKF-dx-Lg0" secondAttribute="firstBaseline" id="0Cw-ck-Pr1"/>
                             <constraint firstItem="bG9-oX-2B6" firstAttribute="top" secondItem="cqp-Xv-CCU" secondAttribute="bottom" constant="25" id="1xG-V9-E0w"/>
@@ -414,6 +415,9 @@
                             <constraint firstItem="z7b-Df-jmX" firstAttribute="trailing" secondItem="DjL-qh-yT7" secondAttribute="trailing" id="xv7-WY-8ve"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cbc-AU-fiV"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RZc-52-0n0" appends="YES" id="YFk-YW-Udx"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="carColor" destination="z7b-Df-jmX" id="LfF-EN-dqb"/>
@@ -426,6 +430,11 @@
                 <tapGestureRecognizer id="xPi-W4-Hti">
                     <connections>
                         <action selector="didTapImage:" destination="4vy-R2-BAa" id="aDE-cQ-65o"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="RZc-52-0n0">
+                    <connections>
+                        <action selector="didTapView:" destination="4vy-R2-BAa" id="HvU-77-nhb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -612,6 +621,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uTF-xn-x9V" firstAttribute="trailing" secondItem="caq-eO-eRx" secondAttribute="trailing" id="2nE-r6-ZlK"/>
                             <constraint firstItem="uTF-xn-x9V" firstAttribute="firstBaseline" secondItem="KuE-9D-f3R" secondAttribute="firstBaseline" id="4f1-Ru-4Le"/>
@@ -641,6 +651,9 @@
                             <constraint firstItem="spZ-ae-i8h" firstAttribute="leading" secondItem="KuE-9D-f3R" secondAttribute="leading" id="yas-Xa-jhE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PBm-9K-HbS"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zgm-Iu-NOt" appends="YES" id="Tsa-Fv-pgy"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="oDn-fM-5Xi"/>
                     <connections>
@@ -654,6 +667,11 @@
                 <tapGestureRecognizer id="DRh-Ds-CDd">
                     <connections>
                         <action selector="didTapCar:" destination="VIC-TO-GYt" id="Yso-cC-tsA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zgm-Iu-NOt">
+                    <connections>
+                        <action selector="didTapView:" destination="VIC-TO-GYt" id="WDr-at-HYr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

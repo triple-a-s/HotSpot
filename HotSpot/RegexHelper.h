@@ -10,7 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "Car.h"
 
-BOOL isValidCar(NSString * _Nonnull licensePlate, NSString * _Nonnull carColor, UIAlertController * _Nonnull alert);
+BOOL isValidCar(NSString * _Nonnull licensePlate, NSString * _Nonnull carColor, UIAlertController * _Nonnull alert, BOOL isSameLicensePlate);
+
+BOOL isProfileTaken(NSString * _Nonnull username);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isEmpty:(NSString *)givenString;
 
-+ (BOOL)isTaken:(NSString *)givenString
-          withKey:(NSString *)givenKey;
++ (BOOL)isTaken:(NSString *)givenString;
 
 + (BOOL)validateEmail:(NSString *)emailAddress;
 
@@ -28,7 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
            withEmail:(NSString *)email
         withFullName:(NSString *)fullName
      withPhoneNumber:(NSString *)phoneNumber
- withAlertController:(UIAlertController *)alert;
+ withAlertController:(UIAlertController *)alert
+       withSameProfile:(BOOL)isSameProfile;
 
 + (UIAlertController*)createAlertController;
 

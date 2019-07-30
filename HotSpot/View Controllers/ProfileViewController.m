@@ -38,6 +38,13 @@
     [self configureProfilePage];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [[PFUser currentUser] fetchIfNeededInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    }];
+    self.currentUser = [PFUser currentUser];
+    [self configureProfilePage];
+}
+
 #pragma mark - Private methods
 
 //this retrieves the current user and sets the fields of the objects
@@ -81,6 +88,13 @@
             if(object) {
             self.licensePlate.text = object[@"licensePlate"];
             self.carColor.text = object[@"carColor"];
+            PFFileObject *imageFile = object[@"carImage"];
+            [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
+                    if (!error) {
+                        UIImage *carImage = [UIImage imageWithData:imageData];
+                        self.carImage.image = carImage;
+                    }
+                }];
             }
             else {
                 NSLog(@"%@", error);
@@ -114,16 +128,5 @@
 - (IBAction)didTapCarCell:(UITapGestureRecognizer *)sender {
     [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
