@@ -15,6 +15,7 @@
 
 @implementation ImagePickerHelper 
 
+//sets up the image picker and alert for selecting an image
 + (void)imageHelper: (UIImagePickerController *)imagePicker
         withViewController:(nonnull UIViewController *)UIViewController{
     
@@ -41,6 +42,7 @@
     }
 }
 
+//resizes the given image to fit whatever view it's going to be in
 + (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     

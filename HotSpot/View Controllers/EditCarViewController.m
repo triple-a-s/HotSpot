@@ -38,6 +38,8 @@
     }];
 }
 
+#pragma mark - Private methods
+
 - (void)configureCar {
     self.car[@"licensePlate"] = self.licensePlate.text;
     self.car[@"carColor"] = self.carColor.text;
@@ -74,17 +76,6 @@
 - (IBAction)didTapDefaultButton:(UIButton *)sender {
     [self.defaultButton setSelected:(![self.defaultButton isSelected])];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
     UIAlertController *alert = [RegexHelper createAlertController];

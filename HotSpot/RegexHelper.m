@@ -11,6 +11,8 @@
 #import "Car.h"
 #import <UIKit/UIKit.h>
 
+//returns whether the car is "valid", by performing checks such as empty fields,
+//incorrect field lengths, and if the license plate is taken
 BOOL isValidCar(NSString *licensePlate, NSString *carColor, UIAlertController *alert, BOOL isSameLicensePlate) {
     if ([RegexHelper isEmpty:licensePlate] || [RegexHelper isEmpty:carColor]) {
         alert.title = @"Empty field(s)";
@@ -31,6 +33,7 @@ BOOL isValidCar(NSString *licensePlate, NSString *carColor, UIAlertController *a
     return true;
 }
 
+//returns whether or not there are any profiles with a certain username passed in as a parameter
 BOOL isProfileTaken(NSString * _Nonnull username) {
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:username];
@@ -41,10 +44,12 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
 
 @implementation RegexHelper
 
+//returns whether or not the passed in string is empty
 + (BOOL)isEmpty:(NSString *)givenString {
     return (givenString.length == 0);
 }
 
+//returns whether there's a licensePlate matching the passed in string in the database
 + (BOOL)isTaken:(NSString *)givenString {
     PFQuery *query = [Car query];
     [query whereKey:@"licensePlate" equalTo:givenString];
@@ -52,6 +57,7 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
     return (object != nil);
 }
 
+//returns whether or not the email passed in is valid using regex
 + (BOOL) validateEmail: (NSString *) emailAddress {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
@@ -59,6 +65,9 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
     return [emailTest evaluateWithObject:emailAddress];
 }
 
+//returns whether the profile is valid by performing numerous checks,
+//such as checking whether fields are empty, checking for correct field lengths
+//checking whether the email is valid and checking whether the username has been used before
 + (BOOL)isValidProfile:(NSString *)username
           withPassword:(NSString *)password
              withEmail:(NSString *)email
@@ -89,6 +98,7 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
     return true;
 }
 
+//creates an alert controller
 + (UIAlertController*)createAlertController {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];

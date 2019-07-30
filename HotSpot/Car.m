@@ -24,6 +24,7 @@
     return @"Car";
 }
 
+//allows the user to initialize a car with all the info
 - (instancetype)initWithInfo:(NSString *)carColor withLicense:(NSString *)licensePlate withImage:(UIImage *)carImage withDefault:(BOOL)isDefault {
     if ((self = [super init])) {
         self.carImage = [Car getPFFileObjectFromImage:carImage];
@@ -34,6 +35,7 @@
     return self;
 }
 
+//adds the passed in car to the database utilizing the changeDefaultCar method
 + (void)addCar:(Car *)newCar
 withCompletion: (PFBooleanResultBlock _Nullable) completion {
     PFUser *user = [PFUser currentUser];
@@ -49,7 +51,8 @@ withCompletion: (PFBooleanResultBlock _Nullable) completion {
     }];
 }
 
-
+//Goes through the database and changes any cars that were previous default
+//to not the default, and sets the user's default car to the new car
 + (void)changeDefaultCar: (PFRelation *)relation
                  withCar: (Car *)car
                 withUser: (PFUser *)user {
@@ -71,7 +74,7 @@ withCompletion: (PFBooleanResultBlock _Nullable) completion {
     [user setObject:car forKey:@"defaultCar"];
 }
 
-                       
+//gets a pffileobject from an image
 + (PFFileObject *)getPFFileObjectFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;
