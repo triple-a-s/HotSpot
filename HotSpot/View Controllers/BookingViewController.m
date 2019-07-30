@@ -119,7 +119,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { 
-    return 24 * 4;
+    return 96; // 24 * 4, number of 15 minute intervals in a day
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -164,19 +164,20 @@
 }
 
 - (void)updateCells {
-    PFRelation *relation = [self.listing relationForKey:@"unavailable"];
-    PFQuery *query = relation.query;
-    [query orderByDescending:@"repeatsWeekly"];
-    
-    NSDate *date = self.datePicker.date;
+    PFRelation *relation = [self.listing relationForKey:@"unavailable"]; // get relation for unavailable times for a listing
+    PFQuery *query = relation.query;// the query
+
+    NSDate *date = self.datePicker.date; // date chosen by the user
     NSInteger secondsPerDay = 60 * 60 * 24;
     NSInteger timeSinceBeginningOfDay = (int)[date timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
     NSDate *beginningOfDay = [date dateByAddingTimeInterval: -timeSinceBeginningOfDay];
     NSDate *endOfDay = [date dateByAddingTimeInterval: secondsPerDay];
     
+    // only care about unavailable times on day chosen
     [query whereKey:@"endTime" greaterThan:beginningOfDay];
     [query whereKey:@"startTime" lessThan:endOfDay];
     
+    // initiate array of TimeSlots, one for each cell in the schedule UI, a.k.a. one for each 15 minute time interval in the day
     self.timeSlots = [NSMutableArray new];
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         TimeSlot *newTimeSlot = [TimeSlot new];
@@ -185,33 +186,12 @@
         [self.timeSlots addObject:newTimeSlot];
     }
     
+    // fetch the relevant time intervals
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
         if (timeIntervals) {
             for (TimeInterval *timeInterval in timeIntervals) {
-                // map to 0 through 95
+                [self makeTimeSlotsUnavailableGivenStartDate:timeInterval.startTime andEndDate:timeInterval.endTime andBeginningOfDay:beginningOfDay];
                 
-                NSDate *startTime = timeInterval.startTime;
-                NSDate *endTime = timeInterval.endTime;
-                
-                CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfDay];
-                NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
-                NSInteger start = startMinute / 15;
-                if ( start < 0 ) {
-                    start = 0;
-                }
-                
-                
-                CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfDay];
-                NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
-                NSInteger end = endMinute / 15;
-                if (end > 4 * 24 - 1 ) {
-                    end = 4 * 24 - 1;
-                }
-                
-                NSInteger i = 0;
-                for (i = start; i <= end; i++) {
-                    self.timeSlots[i].available = NO;
-                }
             }
             [self.collectionView reloadData];
         }
@@ -235,32 +215,9 @@
                 
                 NSDateInterval *intersection = [timeInterval intersectionWithTimeInterval:chosenDateInterval];
                 
-                if(intersection) {
-                    NSDate *startTime = intersection.startDate;
-                    NSDate *endTime = intersection.endDate;
-                    
-                    CGFloat startTimeIntervalSinceBeginningOfDay = [startTime timeIntervalSinceDate:beginningOfDay];
-                    NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
-                    NSInteger start = startMinute / 15;
-                    if ( start < 0 ) {
-                        start = 0;
-                    }
-                    
-                    
-                    CGFloat endTimeIntervalSinceBeginningOfDay = [endTime timeIntervalSinceDate: beginningOfDay];
-                    NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
-                    NSInteger end = endMinute / 15;
-                    if (end > 4 * 24 - 1 ) {
-                        end = 4 * 24 - 1;
-                    }
-                    
-                    NSInteger i = 0;
-                    for (i = start; i <= end; i++) {
-                        self.timeSlots[i].available = NO;
-                    }
+                if(intersection) { // if the chosen date is the same week day as the repeating unavailable time interval
+                    [self makeTimeSlotsUnavailableGivenStartDate:intersection.startDate andEndDate:intersection.endDate andBeginningOfDay:beginningOfDay];
                 }
-                
-                
             }
             [self.collectionView reloadData];
         }
@@ -272,6 +229,27 @@
     pickingStartTime = YES;
 }
 
+- (void)makeTimeSlotsUnavailableGivenStartDate:(NSDate *)startDate
+                                    andEndDate:(NSDate *)endDate
+                             andBeginningOfDay:(NSDate *)beginningOfDay {
+    CGFloat startTimeIntervalSinceBeginningOfDay = [startDate timeIntervalSinceDate:beginningOfDay];
+    NSInteger startMinute = (int)startTimeIntervalSinceBeginningOfDay / 60;
+    NSInteger start = startMinute / 15; // transform minute to an index for the cells, 0 to 95
+    if ( start < 0 ) {
+        start = 0; // if starts before today, normalize to beginning of day
+    }
+    
+    CGFloat endTimeIntervalSinceBeginningOfDay = [endDate timeIntervalSinceDate: beginningOfDay];
+    NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
+    NSInteger end = endMinute / 15; // transform minute to an index for the cells, 0 to 95
+    if (end > 4 * 24 - 1 ) {
+        end = 4 * 24 - 1; // if ends after today, normalize to end of day
+    }
+    
+    for (NSInteger i = start; i <= end; i++) {
+        self.timeSlots[i].available = NO;
+    }
+}
 - (IBAction)dateChanged:(id)sender {
     [self updateCells];
 }
