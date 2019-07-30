@@ -18,6 +18,7 @@
 @dynamic address;
 @dynamic price;
 @dynamic homeowner;
+@dynamic picture;
 
 # pragma mark - Class Methods
 

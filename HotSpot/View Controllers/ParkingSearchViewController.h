@@ -1,3 +1,4 @@
+
 //
 //  ParkingMapSearchViewController.h
 //  HotSpot
@@ -7,10 +8,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MapKit/MapKit.h"
+#import "Listing.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ParkingSearchViewController : UIViewController
+@interface ParkingSearchViewController : UIViewController <MKMapViewDelegate>
+@property (strong,nonatomic) CLLocation *initialLocation;
+@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (strong, nonatomic) NSArray<Listing *> *listings;
 
 @end
 

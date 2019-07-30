@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Details View Controller-->
+        <!--Booking-->
         <scene sceneID="gr7-Tr-38T">
             <objects>
                 <viewController storyboardIdentifier="DetailsViewController" id="dao-gK-gXZ" customClass="DetailsViewController" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lwu-zp-pNN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NUv-Co-sD2"/>
+                    <navigationItem key="navigationItem" title="Booking" id="dVH-OH-FTN"/>
                     <connections>
                         <outlet property="listingAddressLabel" destination="5Vp-89-8W9" id="UA6-2M-uFg"/>
                         <outlet property="listingImageView" destination="a9Y-Ph-bDz" id="50c-Ze-rQ3"/>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.43478260869574" y="-343.52678571428572"/>
+            <point key="canvasLocation" x="-830" y="-378"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
@@ -283,12 +283,12 @@
                         <outlet property="listingImageView" destination="jsM-A7-T6H" id="a0k-To-Zvl"/>
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
-                        <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="eVy-mN-B6A"/>
+                        <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="qgi-e5-3Cx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.43478260869574" y="327.45535714285711"/>
+            <point key="canvasLocation" x="-830" y="333"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="982"/>
+            <point key="canvasLocation" x="-830" y="1092"/>
         </scene>
         <!--Tabs-->
         <scene sceneID="SyB-c6-EA4">
