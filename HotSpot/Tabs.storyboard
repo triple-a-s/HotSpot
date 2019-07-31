@@ -18,16 +18,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="9hi-3g-arB" kind="relationship" relationship="viewControllers" id="b9t-k9-t7D"/>
+                        <segue destination="fSR-PR-E2g" kind="relationship" relationship="viewControllers" id="ozJ-ZD-iZ6"/>
                         <segue destination="y7n-Lf-6G1" kind="relationship" relationship="viewControllers" id="9hL-NO-yT1"/>
+                        <segue destination="9hi-3g-arB" kind="relationship" relationship="viewControllers" id="b9t-k9-t7D"/>
                         <segue destination="EwC-d9-IJ6" kind="relationship" relationship="viewControllers" id="mtY-pa-OQi"/>
                         <segue destination="n8Q-Kk-MGb" kind="relationship" relationship="viewControllers" id="kFk-5v-dok"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Azp-lh-eDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="354"/>
+            <point key="canvasLocation" x="377" y="331"/>
         </scene>
         <!--Current-->
         <scene sceneID="V01-1e-556">
@@ -62,12 +68,22 @@
         <!--Settings-->
         <scene sceneID="kpc-RV-AON">
             <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="n8Q-Kk-MGb" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" id="n8Q-Kk-MGb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="2dK-aH-HLZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pE-3E-KWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="656" y="749"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="tn6-tC-9K3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" id="fSR-PR-E2g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6fE-7e-uti"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxN-1x-8Yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="749"/>
         </scene>
     </scenes>
 </document>
