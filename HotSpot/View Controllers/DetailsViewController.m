@@ -74,7 +74,7 @@
     
     // Configure the fields of the interface.
     composeVC.recipients = @[self.homeownerNumber];
-    composeVC.body = @"Hello from California!";
+    composeVC.body = @"Hello! I am interested in parking at your HotSpot listing. I was wondering ";
     
     // Present the view controller modally.
     [self presentViewController:composeVC animated:YES completion:nil];
