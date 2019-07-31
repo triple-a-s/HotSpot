@@ -40,6 +40,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-bN-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
                                         <state key="normal" title="Contact Owner"/>
+                                        <connections>
+                                            <action selector="contactPressed:" destination="dao-gK-gXZ" eventType="touchUpInside" id="yL4-nl-Oed"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldQ-K9-Omw">
                                         <rect key="frame" x="0.0" y="38" width="45.5" height="20.5"/>

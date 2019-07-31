@@ -10,14 +10,15 @@
 
 #import "BookingViewController.h"
 #import "DataManager.h"
+#import <MessageUI/MessageUI.h>
 
-@interface DetailsViewController ()
+@interface DetailsViewController ()<MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
-
+@property (strong, nonatomic) NSString *homeownerNumber;
 @end
 
 @implementation DetailsViewController
@@ -40,8 +41,17 @@
     PFUser *homeowner = self.listing.homeowner;
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         self.listingOwnerLabel.text = object[@"name"];
+        
+        self.homeownerNumber = object[@"phone"];
     }];
+    
+    
 }
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result {
+    // Check the result or perform other tasks.    // Dismiss the message compose view controller.
+    [self dismissViewControllerAnimated:YES completion:nil];}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender {
@@ -53,6 +63,21 @@
 
 - (IBAction)bookingBackPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)contactPressed:(id)sender {
+    if (![MFMessageComposeViewController canSendText]) {
+        NSLog(@"Message services are not available.");
+    }
+    
+    MFMessageComposeViewController* composeVC = [[MFMessageComposeViewController alloc] init];
+    composeVC.messageComposeDelegate = self;
+    
+    // Configure the fields of the interface.
+    composeVC.recipients = @[self.homeownerNumber];
+    composeVC.body = @"Hello from California!";
+    
+    // Present the view controller modally.
+    [self presentViewController:composeVC animated:YES completion:nil];
 }
 
 
