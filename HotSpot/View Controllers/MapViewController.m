@@ -10,20 +10,30 @@
 #import "MapKit/MapKit.h"
 #import "MainContainerViewController.h"
 #import "DetailsViewController.h"
+#import "DataManager.h"
 
 @interface MapViewController ()
 
 @property (strong,nonatomic) CLLocationManager *locationManager;
+
 @end
 
 @implementation MapViewController
 
+NSInteger tagInteger;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.initialLocation = [[CLLocation alloc] init];
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
+    [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+        self.listings = listings;
+    }];
     self.searchMap.delegate = self;
     for (int i =0; i<=self.searchMap.annotations.count; i++){
         if (self.searchMap.annotations.count>0){
-        [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
+            [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
+            tagInteger = (NSInteger)i;
         }
     }
     self.locationManager.delegate = self;
@@ -42,6 +52,7 @@
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
         annotationView.image = pinImageResized;
         annotationView.canShowCallout = YES;
+        annotationView.tag= tagInteger;
         return annotationView;
     }
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
@@ -51,8 +62,10 @@
     [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *houseImage = [UIImage imageWithData:imageData];
         UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
-        UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
-        [leftCAV addSubview:houseImagefinal];
+       // UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
+        UIButton *calloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [calloutButton setImage:houseImageResized forState:UIControlStateNormal];
+        [leftCAV addSubview:calloutButton];
     }];
     [leftCAV addSubview:textLabel];
     annotationView.leftCalloutAccessoryView = leftCAV;
@@ -60,31 +73,26 @@
     UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
     annotationView.image = pinImageResized;
     annotationView.canShowCallout = YES;
-    
+   /* UIGestureRecognizer *tapRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [annotationView addGestureRecognizer:tapRecognizer]; */
     return annotationView;
 }
 
-- (void) mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-    view.canShowCallout = YES;
-    
-}
-
- -(void) mapView:(MKMapView *)mapView didDeselectAnnotationView:(nonnull MKAnnotationView *)view{
-    view.canShowCallout = NO;
-}
-
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    [self performSegueWithIdentifier:@"detailsSegue2" sender:self];
-    
+    if(control == view.leftCalloutAccessoryView){
+    //[self performSegueWithIdentifier:@"maptodetails" sender:self.searchMap];
+    NSLog(@"ABCDEFG");
+    }
 }
 
 # pragma mark - Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"detailsSegue2"]) {
+    /*if([segue.identifier isEqualToString:@"detailsSegue2"]) {
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.listing = sender;
     }
+     */
 }
 
 # pragma mark - Helper Methods

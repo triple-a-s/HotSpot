@@ -53,6 +53,8 @@
     // setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
+    [self.mapView setUserInteractionEnabled:YES];
+    [self.spotListView setUserInteractionEnabled:YES];
     
     // setting delegates and dataSources for tableView and searchbar
     self.searchResultTableView.delegate = self;
@@ -69,7 +71,7 @@
 # pragma mark - Action Items
 
 - (IBAction)switchMode:(id)sender {
-    // sets the views to hidden or not hidden depending on what is tapped
+    // sets the views to hidden or not hidden depending on what is tapped using conditionals
     if(self.spotListView.hidden){
         self.mapView.hidden = YES;
         self.spotListView.hidden = NO;
@@ -101,6 +103,20 @@
     [self.searchResultTableView reloadData];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    // when you click search, you want the 
+    [self.mainSearchBar endEditing:YES];
+}
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    [self.mainSearchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.mainSearchBar endEditing:YES];
+}
+
 # pragma mark - TableView Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -130,20 +146,23 @@
             self.tableVC.initialLocation = location;
             self.mapVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
+            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:location];
+            [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+                self.mapVC.listings = listings;
+            }];
             
             // setting the searched location's annotation on the map
             MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
             [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
             [self.mapVC.searchMap addAnnotation:searchedLocation];
-            
             // setting the annotation pins for the listings nearby
             NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
-            for ( int i=0; i<=self.tableVC.listings.count-1; i++)
+            for ( int i=0; i<=self.mapVC.listings.count-1; i++)
             {
                 MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
-                CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.tableVC.listings[i].address.latitude, self.tableVC.listings[i].address.longitude);
+                CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.mapVC.listings[i].address.latitude, self.mapVC.listings[i].address.longitude);
                 [spotPins setCoordinate: spotLocation];
-                [DataManager getAddressNameFromPoint:self.tableVC.listings[i].address withCompletion:^(NSString *name, NSError * _Nullable error){
+                [DataManager getAddressNameFromPoint:self.mapVC.listings[i].address withCompletion:^(NSString *name, NSError * _Nullable error){
                     if(error) {
                         NSLog(@"%@", error);
                     }
@@ -154,12 +173,13 @@
                 [spotList addObject:spotPins];
                 [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
-                self.mapVC.listingAnnotationImage = self.tableVC.listings[i].picture;
+                self.mapVC.listingAnnotationImage = self.mapVC.listings[i].picture;
             }
             
         }
     }];
     self.searchResultTableView.hidden =YES;
+    [self.mainSearchBar endEditing:YES];
 }
 
 

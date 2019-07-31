@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-Rf-FaU">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-Rf-FaU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
                             </mapView>
                         </subviews>
@@ -158,7 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="searchMap" destination="DBG-Rf-FaU" id="Dpj-cL-pXc"/>
-                        <segue destination="9K2-sz-qct" kind="presentation" identifier="detailsSegue2" id="pgr-vC-sF8"/>
+                        <segue destination="9K2-sz-qct" kind="presentation" identifier="maptodetails" id="A4E-fw-Y4j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcy-HF-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +279,6 @@
         <image name="ourlogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5L-9V-gpc"/>
+        <segue reference="A4E-fw-Y4j"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import  "MapKit/MapKit.h"
 #import "Parse/Parse.h"
+#import "Listing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @property (nonatomic) CLLocation* initialLocation;
 @property (strong,nonatomic) PFFileObject *listingAnnotationImage;
+@property (strong, nonatomic) NSArray<Listing *> *listings;
 
 + (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map;
 

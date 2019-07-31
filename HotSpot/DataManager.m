@@ -27,13 +27,19 @@
 }
 
 + (void)getListingsNearLocation:(PFGeoPoint *)point
-                   withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
-    
+                   withCompletion:(void(^)(NSArray<Listing*> *listings, NSError *error))completion{
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinKilometers:100000]; // number of kilometers empirically set, for now
-    
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:200.40]; // number of miles empirically set, for now
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
+}
+
++ (void)getAllListings:(PFGeoPoint *)point
+                 withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
+    PFQuery *query = [Listing query];
+    [query whereKey:@"address" nearGeoPoint:point withinKilometers:1000000000];
+    [query findObjectsInBackgroundWithBlock:completion];
+    
 }
 
 + (void)test {
