@@ -128,6 +128,7 @@
 		D22F501222E920A7004BE9BF /* TimeSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
 		D22F501322E920A7004BE9BF /* TimeSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
 		D22F501522EA2098004BE9BF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		D264E25E22F1FE360054391A /* HotSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotSpot.entitlements; sourceTree = "<group>"; };
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -215,6 +216,7 @@
 		612FE8D322DE6A0B00112AF2 /* HotSpot */ = {
 			isa = PBXGroup;
 			children = (
+				D264E25E22F1FE360054391A /* HotSpot.entitlements */,
 				D22F500B22E7D946004BE9BF /* Views */,
 				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				D2BD365122E11F0C0001BD61 /* View Controllers  */,
@@ -402,7 +404,13 @@
 					612FE8D022DE6A0B00112AF2 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -756,14 +764,15 @@
 			baseConfigurationReference = 54A66600EFC49BC2B1D55B91 /* Pods-HotSpot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HotSpot/HotSpot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YGDMF63JJ6;
+				DEVELOPMENT_TEAM = W2PUF8XW54;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -774,14 +783,15 @@
 			baseConfigurationReference = A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HotSpot/HotSpot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YGDMF63JJ6;
+				DEVELOPMENT_TEAM = W2PUF8XW54;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
