@@ -15,7 +15,7 @@
 
 static NSString *const kYourServerBaseURLString = @"https://omnis.serveo.net";
 static NSString *const kAccessTokenEndpoint = @"/accessToken";
-static NSString *const kIdentity = @"alice";
+static NSString *const kIdentity = @"bob";
 static NSString *const kTwimlParamTo = @"to";
 
 @interface CallViewController ()<PKPushRegistryDelegate, TVONotificationDelegate, TVOCallDelegate, AVAudioPlayerDelegate, UITextFieldDelegate>
