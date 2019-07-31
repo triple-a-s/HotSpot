@@ -36,6 +36,7 @@
     Booking *newBooking = [Booking new];
     newBooking.driver = user;
     newBooking.listing = listing;
+
     
     if (startTime) {
         newBooking.startTime = startTime;
@@ -106,7 +107,7 @@
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
     [query orderByAscending:@"startTime"];
-    [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
+    [query whereKey:@"startTime" greaterThan:[NSDate date]];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
@@ -116,7 +117,7 @@
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"startTime"]; // most recent is listed first
-    [query whereKey:@"startTime" lessThanOrEqualTo:[[NSDate alloc] init]];
+    [query whereKey:@"startTime" lessThanOrEqualTo:[NSDate date]];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];

@@ -20,11 +20,12 @@
 
 @implementation MapViewController
 
-NSInteger tagInteger;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.initialLocation = [[CLLocation alloc] init];
+    [self.searchMap showsUserLocation];
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         self.listings = listings;
@@ -33,39 +34,44 @@ NSInteger tagInteger;
     for (int i =0; i<=self.searchMap.annotations.count; i++){
         if (self.searchMap.annotations.count>0){
             [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
-            tagInteger = (NSInteger)i;
         }
     }
+
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
-    self.searchMap.showsUserLocation = true;
 }
 
 # pragma mark - Map Delegate
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    [mapView setCenterCoordinate:mapView.userLocation.location.coordinate animated:YES];
+    mapView.showsUserLocation = NO;
+}
+
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    // setting the image for the pin of the location you just searched
     if((float) annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
         MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
         UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
         annotationView.image = pinImageResized;
         annotationView.canShowCallout = YES;
-        annotationView.tag= tagInteger;
         return annotationView;
     }
+    // setting up the callout view for the listings
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
     UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.text = annotation.title;
+    
+    // this will set the image on the callout view to be the one of the house you are buying
     [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *houseImage = [UIImage imageWithData:imageData];
         UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
-       // UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
-        UIButton *calloutButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [calloutButton setImage:houseImageResized forState:UIControlStateNormal];
-        [leftCAV addSubview:calloutButton];
+        UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
+        [leftCAV addSubview:houseImagefinal];
     }];
     [leftCAV addSubview:textLabel];
     annotationView.leftCalloutAccessoryView = leftCAV;
@@ -73,8 +79,7 @@ NSInteger tagInteger;
     UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
     annotationView.image = pinImageResized;
     annotationView.canShowCallout = YES;
-   /* UIGestureRecognizer *tapRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-    [annotationView addGestureRecognizer:tapRecognizer]; */
+ 
     return annotationView;
 }
 

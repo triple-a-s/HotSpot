@@ -35,6 +35,11 @@
         }
     }];
     
+    PFFileObject *img = self.listing.picture;
+    [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+        UIImage *imageToLoad = [UIImage imageWithData:imageData];
+        self.listingImageView.image = imageToLoad;
+    }];
     
     self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
     PFUser *homeowner = self.listing.homeowner;

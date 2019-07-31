@@ -29,7 +29,7 @@
 + (void)getListingsNearLocation:(PFGeoPoint *)point
                    withCompletion:(void(^)(NSArray<Listing*> *listings, NSError *error))completion{
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinMiles:200.40]; // number of miles empirically set, for now
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:20000000]; // number of miles empirically set, for now
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
 }
@@ -42,6 +42,11 @@
     
 }
 
++ (void)getListingFromID:(NSString *)objectID
+        withCompletion:(void(^)(Listing *listing, NSError *error))completion{
+  
+}
+
 + (void)test {
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
     
@@ -52,9 +57,18 @@
     }];
     
     [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@ oops", error);
+        }
     }];
     
     [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@ oops", error);
+        }
+        else{
+            NSLog(@"%@ these are your past bookings", bookings); 
+        }
     }];
     
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {

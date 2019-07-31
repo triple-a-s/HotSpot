@@ -34,6 +34,7 @@
 @property (strong,nonatomic) MKLocalSearchCompletion *completion;
 @property (strong,nonatomic) CLGeocoder *coder;
 @property (strong,nonatomic) CLLocation *location;
+@property (strong,nonatomic) UIRefreshControl *refreshControl;
 
 //dealing with child view controllers -- to pass information to them
 @property (strong, nonatomic) MapViewController *mapVC;
@@ -44,12 +45,14 @@
 
 
 
+
 @end
 
 @implementation MainContainerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [DataManager test]; 
     // setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
@@ -66,6 +69,7 @@
     self.searchResultTableView.rowHeight = 100;
     self.completer.delegate = self;
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
+    [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
 }
 
 # pragma mark - Action Items
@@ -104,16 +108,18 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    // when you click search, you want the 
+    // when you click search, you want the keyboard to go away
     [self.mainSearchBar endEditing:YES];
 }
 
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    // tells the keyboard what to do when we decide it ended editing --> actually dismisses keyboard
     [self.mainSearchBar resignFirstResponder];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    // this is necessary in certain cases, although it seems redundant
     [self.mainSearchBar endEditing:YES];
 }
 
@@ -130,14 +136,19 @@
     cell.searchResultTitle.text = completion.title;
     cell.searchResultSubtitle.text = completion.subtitle;
     return cell;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    // map and table updates
+    
+    // finding the completion to set the address
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
+    
+    // translate the address to coordinates we can work with to set on the map using prewritten method
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
         if(error) {
+            // shows us the error
             NSLog(@"%@", error);
         }
         else{
@@ -146,15 +157,19 @@
             self.tableVC.initialLocation = location;
             self.mapVC.initialLocation = location;
             [self.tableVC.searchTableView reloadData];
-            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:location];
+            
+            // not sure right no if I need this
+          /*  PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:location];
             [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
                 self.mapVC.listings = listings;
             }];
+           */ 
             
             // setting the searched location's annotation on the map
             MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
             [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
             [self.mapVC.searchMap addAnnotation:searchedLocation];
+            
             // setting the annotation pins for the listings nearby
             NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
             for ( int i=0; i<=self.mapVC.listings.count-1; i++)
@@ -162,6 +177,7 @@
                 MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
                 CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.mapVC.listings[i].address.latitude, self.mapVC.listings[i].address.longitude);
                 [spotPins setCoordinate: spotLocation];
+                // using the datamanager to set the address of the annotaion pin callout views
                 [DataManager getAddressNameFromPoint:self.mapVC.listings[i].address withCompletion:^(NSString *name, NSError * _Nullable error){
                     if(error) {
                         NSLog(@"%@", error);
@@ -170,20 +186,25 @@
                         [spotPins setTitle: name];
                     }
                 }];
+                // updating the image of the annotation callout view
+                self.mapVC.listingAnnotationImage = self.mapVC.listings[i].picture;
                 [spotList addObject:spotPins];
+                //adding the actual pins to thed map
                 [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
-                self.mapVC.listingAnnotationImage = self.mapVC.listings[i].picture;
             }
             
         }
     }];
+    // we don't want the search result to show after we already tapped on something
     self.searchResultTableView.hidden =YES;
+    // we want the keyboard to go away after we tapped on something
     [self.mainSearchBar endEditing:YES];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // the number of spots on the table should correspong to the number of spots available 
     return self.spotsArray.count;
 }
 

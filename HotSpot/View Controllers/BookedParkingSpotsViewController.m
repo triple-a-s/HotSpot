@@ -8,12 +8,20 @@
 
 #import "BookedParkingSpotsViewController.h"
 #import "SearchCell.h"
+#import "UserDataManager.h"
+#import "DataManager.h"
+#import "Listing.h"
+#import "Booking.h"
+#import "DetailsViewController.h"
 
 @interface BookedParkingSpotsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *bookedTableView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *bookedTitleBar;
+@property (strong, nonatomic) NSArray<Booking*> *bookings;
+@property (strong, nonatomic) Listing *bookedlisting;
+
 
 @end
 
@@ -23,29 +31,49 @@
     [super viewDidLoad];
     self.bookedTableView.dataSource = self;
     self.bookedTableView.delegate = self;
-    self.bookedTableView.rowHeight = 134 ;
+    self.bookedTableView.rowHeight = 134;
+    [self.bookedTableView reloadData]; 
+    [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+        self.bookings = bookings;
+        [self.bookedTableView reloadData];
+    }
+    }];
+
 }
 
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*
-     This is where we are passing information into the cells.
-     For now, I have placeholder information so that when we merge
-     I can have data to load actual information into the tables.
-     */
-    
-    SearchCell *bookedCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    SearchCell *bookedCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(bookedCell == nil){
-        bookedCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
+        bookedCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
+    Booking *booking = self.bookings[indexPath.row];
+    NSString *listingId = booking.listing.objectId;
+    Listing *listing = booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+            if(error){
+                NSLog(@"%@", error);
+            }
+            else{
+                bookedCell.searchTableAddress.text= name; 
+            }
+        }];
+        PFFileObject *img = object[@"picture"];
+        [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+            UIImage *imageToLoad = [UIImage imageWithData:imageData];
+            bookedCell.searchTableImage.image = imageToLoad;
+        }];
+        bookedCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
+    }];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    bookedCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
     
-    //placehodlder information
-    bookedCell.searchTableAddress.text= @"100 West Lake";
-    bookedCell.searchTableMilesAway.text = @"Parked 4/5/18";
-    bookedCell.searchTablePrice.text= @"$31.47";
-    bookedCell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
-    // trying to resize text to work with Autolayout
     bookedCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     bookedCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
     
@@ -54,8 +82,18 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // I return 10 for now just to see if this method is working
-    return 10;
+    return self.bookings.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"pastToBooking" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.listing = sender;
+    }
+}
 
 @end

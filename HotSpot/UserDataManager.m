@@ -33,7 +33,6 @@
         bookingRelation = [user relationForKey:@"bookings"];
     }
     return self;
-    
 }
 
 @end

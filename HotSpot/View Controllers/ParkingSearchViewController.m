@@ -24,16 +24,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // initializing our table
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
-    self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
+    // I don't know 
+  //  self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         self.listings = listings;
         [self.searchTableView reloadData];
     }];
-    NSLog(@"%@ LISTINGSS:" , self.listings);
 }
 
 # pragma mark - TableViewController methods
@@ -45,7 +46,7 @@
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     Listing *listing = self.listings[indexPath.row];
-    [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+    [DataManager getAddressNameFromPoint: listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
         }
@@ -57,6 +58,7 @@
     
     //placehodlder information
     cell.searchTableMilesAway.text = @"50 miles away";
+    
     PFFileObject *img = listing.picture;
     [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *imageToLoad = [UIImage imageWithData:imageData];
@@ -71,12 +73,12 @@
     return self.listings.count;
 }
 
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     [self performSegueWithIdentifier:@"detailsSegue"
                               sender:self.listings[indexPath.row]];
 }
- */ 
+ 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"detailsSegue"]) {
