@@ -71,18 +71,35 @@
 }
 - (IBAction)contactPressed:(id)sender {
     if (![MFMessageComposeViewController canSendText]) {
-        NSLog(@"Message services are not available.");
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Messaging Error"
+                                                                       message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                         }];
+        // add the OK action to the alert controller
+        [alert addAction:okAction];
+        
+        alert.message = @"Message services are not available.";
+        
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+        
     }
-    
-    MFMessageComposeViewController* composeVC = [[MFMessageComposeViewController alloc] init];
-    composeVC.messageComposeDelegate = self;
-    
-    // Configure the fields of the interface.
-    composeVC.recipients = @[self.homeownerNumber];
-    composeVC.body = @"Hello! I am interested in parking at your HotSpot listing. I was wondering ";
-    
-    // Present the view controller modally.
-    [self presentViewController:composeVC animated:YES completion:nil];
+    else {
+        MFMessageComposeViewController* composeVC = [[MFMessageComposeViewController alloc] init];
+        composeVC.messageComposeDelegate = self;
+        
+        // Configure the fields of the interface.
+        composeVC.recipients = @[self.homeownerNumber];
+        composeVC.body = @"Hello! I am interested in parking at your HotSpot listing. I was wondering ";
+        
+        // Present the view controller modally.
+        [self presentViewController:composeVC animated:YES completion:nil];
+    }
 }
 
 

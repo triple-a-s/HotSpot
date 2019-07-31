@@ -123,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="194.86607142857142"/>
         </scene>
-        <!--Booked Spots -->
+        <!--Past Spots -->
         <scene sceneID="AhQ-y8-HAb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOL-Ko-9FE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Booked Spots " id="ZKd-D3-sJM"/>
+                    <tabBarItem key="tabBarItem" title="Past Spots " id="ZKd-D3-sJM"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IIs-Ae-Vak">

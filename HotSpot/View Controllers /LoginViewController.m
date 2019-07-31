@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "RegexHelper.h"
 
 
 @interface LoginViewController ()
@@ -29,21 +30,11 @@
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Login Error"
-                                                                   message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [RegexHelper createAlertController];
     
-    // create an OK action
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                         // handle response here.
-                                                     }];
-    // add the OK action to the alert controller
-    [alert addAction:okAction];
-    
-    if (self.username.text.length == 0 || self.password.text.length == 0) {
+    if ([RegexHelper isEmpty:self.username.text] || [RegexHelper isEmpty:self.password.text]) {
         alert.message = @"Your username or password is empty";
-        
+        alert.title = @"Login Error";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {
@@ -53,7 +44,6 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                //perform own segue here
                 [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
@@ -71,4 +61,3 @@
 }
 
 @end
-

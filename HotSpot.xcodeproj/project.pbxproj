@@ -27,14 +27,22 @@
 		61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */; };
 		61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */; };
 		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
-		61BA376822EB9DD3002C1B5A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376122EB9DD3002C1B5A /* LoginViewController.m */; };
 		61BA376922EB9DD3002C1B5A /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */; };
-		61BA376A22EB9DD3002C1B5A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376522EB9DD3002C1B5A /* SignUpViewController.m */; };
-		61BA376B22EB9DD3002C1B5A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376622EB9DD3002C1B5A /* SettingsViewController.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
-		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
-		ADEC07D522DE7FE70035274F /* (null) in Sources */ = {isa = PBXBuildFile; };
-		ADEC07D822DE80310035274F /* (null) in Sources */ = {isa = PBXBuildFile; };
+		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
+		ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */; };
+		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
+		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
+		ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9622E119B000ED3F4D /* ProfileViewController.m */; };
+		ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9922E12F7D00ED3F4D /* CarCell.m */; };
+		ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */; };
+		ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */; };
+		ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */; };
+		ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */; };
+		ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FEC22EB745B00EF9E66 /* RegexHelper.m */; };
+		ADCF9FEF22F233CF00EF9E66 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */; };
+		ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D422DE7FE70035274F /* SignUpViewController.m */; };
+		ADEC07D822DE80310035274F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D722DE80310035274F /* LoginViewController.m */; };
 		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 		D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C7D6022E26817000BF3B1 /* TimeInterval.m */; };
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
@@ -111,19 +119,38 @@
 		61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booked.storyboard; sourceTree = "<group>"; };
 		61AB0BC822E13E50002B7EB6 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		61AB0BC922E13E50002B7EB6 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
-		61BA375E22EB9DD3002C1B5A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		61BA375F22EB9DD3002C1B5A /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
 		61BA376022EB9DD3002C1B5A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		61BA376122EB9DD3002C1B5A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		61BA376322EB9DD3002C1B5A /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
-		61BA376422EB9DD3002C1B5A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		61BA376522EB9DD3002C1B5A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		61BA376622EB9DD3002C1B5A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		61BA376722EB9DD3002C1B5A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
-		ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		ADBA5DCD22E638F80055BB17 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCarViewController.h; sourceTree = "<group>"; };
+		ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCarViewController.m; sourceTree = "<group>"; };
+		ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		ADC06E9322E1195B00ED3F4D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		ADC06E9522E119B000ED3F4D /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		ADC06E9622E119B000ED3F4D /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		ADC06E9822E12F7D00ED3F4D /* CarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarCell.h; sourceTree = "<group>"; };
+		ADC06E9922E12F7D00ED3F4D /* CarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarCell.m; sourceTree = "<group>"; };
+		ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarsViewController.h; sourceTree = "<group>"; };
+		ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarsViewController.m; sourceTree = "<group>"; };
+		ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditInformationViewController.h; sourceTree = "<group>"; };
+		ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditInformationViewController.m; sourceTree = "<group>"; };
+		ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditCarViewController.h; sourceTree = "<group>"; };
+		ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditCarViewController.m; sourceTree = "<group>"; };
+		ADCF9FE822EA5D2E00EF9E66 /* ImagePickerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerHelper.h; sourceTree = "<group>"; };
+		ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerHelper.m; sourceTree = "<group>"; };
+		ADCF9FEB22EB745B00EF9E66 /* RegexHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RegexHelper.h; path = HotSpot/RegexHelper.h; sourceTree = SOURCE_ROOT; };
+		ADCF9FEC22EB745B00EF9E66 /* RegexHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RegexHelper.m; path = HotSpot/RegexHelper.m; sourceTree = SOURCE_ROOT; };
+		ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		ADEC07D322DE7FE70035274F /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		ADEC07D422DE7FE70035274F /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		ADEC07D622DE80310035274F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		ADEC07D722DE80310035274F /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSignUp.storyboard; sourceTree = "<group>"; };
 		AE0E2DC664BBC0080BDDB3AD /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21C7D5F22E26817000BF3B1 /* TimeInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
@@ -230,21 +257,30 @@
 			children = (
 				D264E25E22F1FE360054391A /* HotSpot.entitlements */,
 				D22F500B22E7D946004BE9BF /* Views */,
-				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				D2BD365122E11F0C0001BD61 /* View Controllers  */,
 				D2B2772022DE8A5900EBC4EC /* Models */,
 				61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */,
 				61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */,
 				612FE8D422DE6A0B00112AF2 /* AppDelegate.h */,
+				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
 				61AB0BC822E13E50002B7EB6 /* SearchResult.h */,
 				6186183E22EA19F9007A2BD9 /* AnnotationPin.h */,
 				6186183F22EA19F9007A2BD9 /* AnnotationPin.m */,
 				61AB0BC922E13E50002B7EB6 /* SearchResult.m */,
 				D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */,
-				612FE8D522DE6A0B00112AF2 /* AppDelegate.m */,
+				ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */,
 				612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */,
 				612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */,
-				ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */,
+				ADC06E9322E1195B00ED3F4D /* Profile.storyboard */,
+				ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */,
+				ADC06E9822E12F7D00ED3F4D /* CarCell.h */,
+				ADC06E9922E12F7D00ED3F4D /* CarCell.m */,
+				ADBA5DCC22E638F80055BB17 /* Car.h */,
+				ADBA5DCD22E638F80055BB17 /* Car.m */,
+				ADCF9FE822EA5D2E00EF9E66 /* ImagePickerHelper.h */,
+				ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */,
+				ADCF9FEB22EB745B00EF9E66 /* RegexHelper.h */,
+				ADCF9FEC22EB745B00EF9E66 /* RegexHelper.m */,
 				612FE8E222DE6A0D00112AF2 /* Info.plist */,
 				612FE8E322DE6A0D00112AF2 /* main.m */,
 				D2B2771D22DE868600EBC4EC /* DataManager.h */,
@@ -344,15 +380,25 @@
 				61BA375F22EB9DD3002C1B5A /* ConfirmationViewController.h */,
 				61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */,
 				61BA376022EB9DD3002C1B5A /* DetailsViewController.h */,
-				61BA376422EB9DD3002C1B5A /* LoginViewController.h */,
-				61BA376122EB9DD3002C1B5A /* LoginViewController.m */,
-				61BA376722EB9DD3002C1B5A /* SettingsViewController.h */,
-				61BA376622EB9DD3002C1B5A /* SettingsViewController.m */,
-				61BA375E22EB9DD3002C1B5A /* SignUpViewController.h */,
-				61BA376522EB9DD3002C1B5A /* SignUpViewController.m */,
 				61547D6722EB9A0E00E57E34 /* ParkingSearchViewController.m */,
 				D264E26422F20D330054391A /* CallViewController.h */,
 				D264E26522F20D330054391A /* CallViewController.m */,
+				ADEC07D622DE80310035274F /* LoginViewController.h */,
+				ADEC07D722DE80310035274F /* LoginViewController.m */,
+				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
+				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
+				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
+				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
+				ADC06E9522E119B000ED3F4D /* ProfileViewController.h */,
+				ADC06E9622E119B000ED3F4D /* ProfileViewController.m */,
+				ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */,
+				ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */,
+				ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */,
+				ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */,
+				ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */,
+				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
+				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
+				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -479,6 +525,7 @@
 				D264E26022F20C500054391A /* Call.storyboard in Resources */,
 				61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */,
 				D264E26D22F214540054391A /* incoming.wav in Resources */,
+				ADCF9FEF22F233CF00EF9E66 /* Settings.storyboard in Resources */,
 				61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
 				D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */,
@@ -488,6 +535,8 @@
 				ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */,
 				D264E26F22F214540054391A /* disconnect.wav in Resources */,
 				D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */,
+				ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */,
+				ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,8 +657,9 @@
 				ADEC07D822DE80310035274F /* (null) in Sources */,
 				ADEC07D822DE80310035274F /* (null) in Sources */,
 				D264E26622F20D330054391A /* CallViewController.m in Sources */,
+				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
-				61BA376B22EB9DD3002C1B5A /* SettingsViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
@@ -619,18 +669,30 @@
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
-				61BA376A22EB9DD3002C1B5A /* SignUpViewController.m in Sources */,
 				61547D6A22EB9A0E00E57E34 /* BookedParkingSpotsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				61547D6B22EB9A0E00E57E34 /* MapViewController.m in Sources */,
 				61547D6E22EB9A0E00E57E34 /* ParkingSearchViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* (null) in Sources */,
-				ADEC07D522DE7FE70035274F /* (null) in Sources */,
+				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
+				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				61547D6C22EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
-				61BA376822EB9DD3002C1B5A /* LoginViewController.m in Sources */,
 				61BA376922EB9DD3002C1B5A /* ConfirmationViewController.m in Sources */,
+				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
+				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
+				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
+				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
+				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
+				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
+				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
+				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
+				ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */,
+				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
+				ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */,
+				ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

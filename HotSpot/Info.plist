@@ -4,6 +4,10 @@
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) would like to access your microphone</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to take pictures</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need library access to upload images</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
