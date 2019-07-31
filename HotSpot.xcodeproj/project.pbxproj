@@ -42,7 +42,9 @@
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
 		D264E26022F20C500054391A /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D264E25F22F20C500054391A /* Call.storyboard */; };
 		D264E26622F20D330054391A /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E26522F20D330054391A /* CallViewController.m */; };
-		D264E26822F211ED0054391A /* Ringtones in Resources */ = {isa = PBXBuildFile; fileRef = D264E26722F211ED0054391A /* Ringtones */; };
+		D264E26D22F214540054391A /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26A22F214540054391A /* incoming.wav */; };
+		D264E26E22F214540054391A /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26B22F214540054391A /* outgoing.wav */; };
+		D264E26F22F214540054391A /* disconnect.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26C22F214540054391A /* disconnect.wav */; };
 		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
@@ -135,7 +137,9 @@
 		D264E25F22F20C500054391A /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
 		D264E26422F20D330054391A /* CallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
 		D264E26522F20D330054391A /* CallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
-		D264E26722F211ED0054391A /* Ringtones */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ringtones; sourceTree = "<group>"; };
+		D264E26A22F214540054391A /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
+		D264E26B22F214540054391A /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
+		D264E26C22F214540054391A /* disconnect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = disconnect.wav; sourceTree = "<group>"; };
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -202,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				612FE8D322DE6A0B00112AF2 /* HotSpot */,
-				D264E26722F211ED0054391A /* Ringtones */,
+				D264E26922F214340054391A /* Ringtones */,
 				612FE8EC22DE6A0D00112AF2 /* HotSpotTests */,
 				612FE8F722DE6A0D00112AF2 /* HotSpotUITests */,
 				612FE8D222DE6A0B00112AF2 /* Products */,
@@ -295,6 +299,16 @@
 				D26617C422EB689700255BC3 /* SearchCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D264E26922F214340054391A /* Ringtones */ = {
+			isa = PBXGroup;
+			children = (
+				D264E26C22F214540054391A /* disconnect.wav */,
+				D264E26A22F214540054391A /* incoming.wav */,
+				D264E26B22F214540054391A /* outgoing.wav */,
+			);
+			path = Ringtones;
 			sourceTree = "<group>";
 		};
 		D2B2772022DE8A5900EBC4EC /* Models */ = {
@@ -464,13 +478,15 @@
 				612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */,
 				D264E26022F20C500054391A /* Call.storyboard in Resources */,
 				61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */,
+				D264E26D22F214540054391A /* incoming.wav in Resources */,
 				61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
 				D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */,
 				D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */,
+				D264E26E22F214540054391A /* outgoing.wav in Resources */,
 				ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */,
-				D264E26822F211ED0054391A /* Ringtones in Resources */,
 				ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */,
+				D264E26F22F214540054391A /* disconnect.wav in Resources */,
 				D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
