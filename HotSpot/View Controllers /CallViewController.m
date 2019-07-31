@@ -7,6 +7,7 @@
 //
 
 #import "CallViewController.h"
+#import "Parse/Parse.h"
 
 @import AVFoundation;
 @import PushKit;
@@ -15,7 +16,6 @@
 
 static NSString *const kYourServerBaseURLString = @"https://omnis.serveo.net";
 static NSString *const kAccessTokenEndpoint = @"/accessToken";
-static NSString *const kIdentity = @"alice";
 static NSString *const kTwimlParamTo = @"to";
 
 @interface CallViewController ()<PKPushRegistryDelegate, TVONotificationDelegate, TVOCallDelegate, CXProviderDelegate, UITextFieldDelegate>
@@ -66,6 +66,8 @@ static NSString *const kTwimlParamTo = @"to";
      */
     self.audioDevice = [TVODefaultAudioDevice audioDevice];
     TwilioVoice.audioDevice = self.audioDevice;
+    
+    self.outgoingValue.text = self.listing.homeowner.objectId;
 }
 
 - (void)configureCallKit {
@@ -92,7 +94,7 @@ static NSString *const kTwimlParamTo = @"to";
 }
 
 - (NSString *)fetchAccessToken {
-    NSString *accessTokenEndpointWithIdentity = [NSString stringWithFormat:@"%@?identity=%@", kAccessTokenEndpoint, kIdentity];
+    NSString *accessTokenEndpointWithIdentity = [NSString stringWithFormat:@"%@?identity=%@", kAccessTokenEndpoint, [PFUser currentUser].objectId];
     NSString *accessTokenURLString = [kYourServerBaseURLString stringByAppendingString:accessTokenEndpointWithIdentity];
     
     NSString *accessToken = [NSString stringWithContentsOfURL:[NSURL URLWithString:accessTokenURLString]

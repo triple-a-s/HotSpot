@@ -11,6 +11,7 @@
 #import "BookingViewController.h"
 #import "DataManager.h"
 #import <MessageUI/MessageUI.h>
+#import "CallViewController.h"
 
 @interface DetailsViewController ()<MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -58,6 +59,10 @@
     if([segue.identifier isEqualToString:@"bookingSegue"]) {
         BookingViewController *bookingViewController = [segue destinationViewController];
         bookingViewController.listing = self.listing;
+    }
+    else if([segue.identifier isEqualToString:@"callSegue"]) {
+        CallViewController *callViewController = [segue destinationViewController];
+        callViewController.listing = self.listing;
     }
 }
 
