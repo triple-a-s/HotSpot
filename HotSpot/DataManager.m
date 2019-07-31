@@ -67,7 +67,7 @@
             NSLog(@"%@ oops", error);
         }
         else{
-            NSLog(@"%@ these are your past bookings", bookings); 
+            
         }
     }];
     

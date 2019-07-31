@@ -7,6 +7,7 @@
 //
 
 #import "CurrentParkingSpotsViewController.h"
+#import "DetailsViewController.h"
 #import "SearchCell.h"
 #import "Booking.h"
 #import "Listing.h"
@@ -52,12 +53,7 @@
     Listing *listing = booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
-            if(error){
-                NSLog(@"%@", error);
-            }
-            else{
                 currentCell.searchTableAddress.text= name;
-            }
         }];
         PFFileObject *img = object[@"picture"];
         [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
@@ -78,6 +74,24 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // I return 10 for now just to see if this method is working
     return self.bookings.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // perform segue
+    Booking *booking = self.bookings[indexPath.row];
+    Listing *listing = booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
+    [self performSegueWithIdentifier:@"currentToDetails"
+                              sender:object];
+    }];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"currentToDetails"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.listing = sender;
+    }
 }
 
 

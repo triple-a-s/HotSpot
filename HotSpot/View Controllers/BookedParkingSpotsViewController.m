@@ -53,7 +53,6 @@
         bookedCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     Booking *booking = self.bookings[indexPath.row];
-    NSString *listingId = booking.listing.objectId;
     Listing *listing = booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
     [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {

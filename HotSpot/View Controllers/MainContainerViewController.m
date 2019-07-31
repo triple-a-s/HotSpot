@@ -52,7 +52,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [DataManager test]; 
     // setting things up (views)
     self.spotListView.hidden = YES;
     self.searchResultTableView.hidden = YES;
