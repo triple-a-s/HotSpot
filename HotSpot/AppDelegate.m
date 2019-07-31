@@ -32,7 +32,6 @@ PFUser *homeowner;
     
     // Twilio
     NSLog(@"Twilio Voice Version: %@", [TwilioVoice sdkVersion]);
-    [self requestNotificationPermission];
 
     return YES;
 }
@@ -64,28 +63,4 @@ PFUser *homeowner;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-- (void)requestNotificationPermission {
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
-        if (settings.authorizationStatus == UNAuthorizationStatusDenied) {
-            NSLog(@"User notification permission denied. Go to system settings to allow user notifications.");
-        } else if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
-            NSLog(@"User notificaiton already authorized.");
-        } else if (settings.authorizationStatus == UNAuthorizationStatusNotDetermined) {
-            UNAuthorizationOptions options = UNAuthorizationOptionAlert;
-            [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError *error) {
-                if (error) {
-                    NSLog(@"Failed to request for user notification permission: %@", error);
-                }
-                
-                if (granted) {
-                    NSLog(@"User notification permission granted.");
-                } else {
-                    NSLog(@"User notification permission denied.");
-                }
-            }];
-        }
-    }];
-}
 @end
