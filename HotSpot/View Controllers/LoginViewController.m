@@ -44,7 +44,7 @@
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
-                [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
+                //[self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
     }
