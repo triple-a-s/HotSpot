@@ -84,15 +84,22 @@
     return self.bookings.count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"pastToBooking" sender:self];
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // perform segue
+    Booking *booking = self.bookings[indexPath.row];
+    Listing *listing = booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
+        [self performSegueWithIdentifier:@"pastToBooking"
+                                  sender:object];
+    }];
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"detailsSegue"]) {
+    if([segue.identifier isEqualToString:@"pastToBooking"]) {
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.listing = sender;
     }
 }
-
 @end
