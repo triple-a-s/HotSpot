@@ -53,6 +53,7 @@
 		D264E26D22F214540054391A /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26A22F214540054391A /* incoming.wav */; };
 		D264E26E22F214540054391A /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26B22F214540054391A /* outgoing.wav */; };
 		D264E26F22F214540054391A /* disconnect.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26C22F214540054391A /* disconnect.wav */; };
+		D264E27222F352E30054391A /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E27122F352E30054391A /* CallManager.m */; };
 		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
@@ -167,6 +168,8 @@
 		D264E26A22F214540054391A /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
 		D264E26B22F214540054391A /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
 		D264E26C22F214540054391A /* disconnect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = disconnect.wav; sourceTree = "<group>"; };
+		D264E27022F352E30054391A /* CallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallManager.h; sourceTree = "<group>"; };
+		D264E27122F352E30054391A /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -291,6 +294,8 @@
 				D2BD364C22E111200001BD61 /* Booking.storyboard */,
 				D22F501522EA2098004BE9BF /* Tabs.storyboard */,
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
+				D264E27022F352E30054391A /* CallManager.h */,
+				D264E27122F352E30054391A /* CallManager.m */,
 			);
 			path = HotSpot;
 			sourceTree = "<group>";
@@ -532,7 +537,6 @@
 				D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */,
 				D264E26E22F214540054391A /* outgoing.wav in Resources */,
 				ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */,
-				ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */,
 				D264E26F22F214540054391A /* disconnect.wav in Resources */,
 				D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */,
 				ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */,
@@ -654,8 +658,8 @@
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
-				ADEC07D822DE80310035274F /* (null) in Sources */,
-				ADEC07D822DE80310035274F /* (null) in Sources */,
+				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				D264E26622F20D330054391A /* CallViewController.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
@@ -664,6 +668,7 @@
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
+				D264E27222F352E30054391A /* CallManager.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
