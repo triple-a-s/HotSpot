@@ -9,14 +9,14 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ak931536737187879</string>
+				<string>ak2475252602537767</string>
 			</array>
 		</dict>
 	</array>
 	<key>AccountKitClientToken</key>
-	<string>c10dad194ec2dd7761bfc6c514305020</string>
+	<string>34f1ee4175f1a33d00af0238dfe6a178</string>
 	<key>FacebookAppID</key>
-	<string>931536737187879</string>
+	<string>2475252602537767</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access to take pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>

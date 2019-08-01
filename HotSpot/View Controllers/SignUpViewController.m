@@ -10,8 +10,8 @@
 #import "Parse/Parse.h"
 #import "RegexHelper.h"
 #import <AccountKit/AKFAccountKit.h>
+#import <AccountKit/AKFViewController.h>
 #import <AccountKit/AKFSkinManager.h>
-#import "TransitionViewController.h"
 
 @interface SignUpViewController () <AKFViewControllerDelegate>
 
@@ -33,23 +33,23 @@
     [super viewDidLoad];
     
     accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
-    
     pendingSignUpViewController = [accountKit viewControllerForLoginResume];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     if (pendingSignUpViewController != nil) {
-        [self prepareSignUpViewController:pendingSignUpViewController];
-        [self presentViewController:pendingSignUpViewController animated:YES completion:nil];
+        [self _prepareSignUpViewController:pendingSignUpViewController];
+        [self presentViewController:pendingSignUpViewController animated:YES completion:NULL];
+        pendingSignUpViewController = nil;
     }
 }
 
-- (void)prepareSignUpViewController:(UIViewController<AKFViewController> *)signUpVC
-{
+- (void) _prepareSignUpViewController:(UIViewController<AKFViewController> *)signUpVC {
     signUpVC.delegate = self;
     signUpVC.uiManager = [[AKFSkinManager alloc] initWithSkinType:AKFSkinTypeClassic primaryColor:[UIColor blueColor]];
-    // Optionally, you may set up backup verification methods.
 }
 
 //registers a user, throws up an alert with an "empty" error message if one of the fields is empty.
@@ -61,35 +61,12 @@
     //checks if the phone number is 7 or 10 digits
     //if anything is wrong it will throw up an appropriate error
     if ([RegexHelper isValidProfile:self.username.text withPassword:self.password.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert withSameProfile:NO]) {
-        PFUser *newUser = [PFUser user];
-        
-        newUser.username = self.username.text;
-        newUser.password = self.password.text;
-        newUser[@"name"] = self.fullName.text;
-        newUser[@"phone"] = self.phoneNumber.text;
-        newUser.email = self.email.text;
-        
-        /*[newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (error != nil) {
-                //if there's an error, throw up an alert with the specific error as the message
-                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
-                [self presentViewController:alert animated:YES completion:^{
-                }];
-            }
-        }];
-        [PFUser logInWithUsernameInBackground:self.username.text password:self.password.text block:^(PFUser *user, NSError *error) {
-            if (error != nil) {
-                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
-                [self presentViewController:alert animated:YES completion:^{
-                }];
-            } else {
-                
-                [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
-            }
-        }];
+        UIViewController<AKFViewController> *viewController = [accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:nil];
+        [self _prepareSignUpViewController:viewController];
+        [self presentViewController:viewController animated:YES completion:nil];
     } else {
         [self presentViewController:alert animated:YES completion:^{
-        }];*/
+        }];
     }
 }
 
@@ -105,21 +82,43 @@
 
 
 - (IBAction)didTapCreateAccount:(UIButton *)sender {
-    UIViewController<AKFViewController> *viewController = [self->accountKit viewControllerForPhoneLogin];
-    [self prepareSignUpViewController:viewController];
-    [self presentViewController:viewController animated:YES completion:nil];
     [self registerUser];
 }
 
 #pragma mark -AKFViewController Delegate Methods
 
-- (void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error {
-    NSLog(@"%@", error.localizedDescription);
+- (void) viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error {
     
 }
 
-- (void)viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state {
-    NSLog(@"%@", accessToken.accountID);
+- (void) viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state {
+    UIAlertController *alert = [RegexHelper createAlertController];
+    
+    PFUser *newUser = [PFUser user];
+    
+    newUser.username = self.username.text;
+    newUser.password = self.password.text;
+    newUser[@"name"] = self.fullName.text;
+    newUser[@"phone"] = self.phoneNumber.text;
+    newUser.email = self.email.text;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            //if there's an error, throw up an alert with the specific error as the message
+            alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+            [self presentViewController:alert animated:YES completion:^{
+            }];
+        }
+    }];
+    [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password block:^(PFUser *user, NSError *error) {
+        if (error != nil) {
+            alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+            [self presentViewController:alert animated:YES completion:^{
+            }];
+        } else {
+            [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
+        }
+    }];
 }
 
 @end
