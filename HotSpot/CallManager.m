@@ -37,6 +37,18 @@ static NSString *const kTwimlParamTo = @"to";
 @end
 
 @implementation CallManager
+
+#pragma mark Singleton Methods
+
++ (id)sharedCallManager {
+    static CallManager *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -59,6 +71,14 @@ static NSString *const kTwimlParamTo = @"to";
 }
 
 
+- (void)dealloc {
+    if (self.callKitProvider) {
+        [self.callKitProvider invalidate];
+    }
+}
+
+#pragma mark Methods
+
 - (void)configureCallKit {
     CXProviderConfiguration *configuration = [[CXProviderConfiguration alloc] initWithLocalizedName:@"CallKit Quickstart"];
     configuration.maximumCallGroups = 1;
@@ -72,11 +92,6 @@ static NSString *const kTwimlParamTo = @"to";
     _callKitCallController = [[CXCallController alloc] init];
 }
 
-- (void)dealloc {
-    if (self.callKitProvider) {
-        [self.callKitProvider invalidate];
-    }
-}
 
 - (NSString *)fetchAccessToken {
     NSString *accessTokenEndpointWithIdentity = [NSString stringWithFormat:@"%@?identity=%@", kAccessTokenEndpoint, [PFUser currentUser].objectId];
@@ -299,6 +314,8 @@ withCompletionHandler:(void (^)(void))completion {
     self.call = call;
     self.callKitCompletionCallback(YES);
     self.callKitCompletionCallback = nil;
+    
+//    [self.delegate show];
     
     [self.delegate setCallButtonTitle:@"Hang Up"];
     

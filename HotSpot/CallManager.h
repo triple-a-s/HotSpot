@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)presentAlert:(UIAlertController *)alertController;
 - (void)startSpin;
 - (void)stopSpin;
+- (void)show;
 - (void)dismiss;
 - (NSString *)getOutgoingIdentity;
 @end
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) TVOCall *call;
 - (void)placeCall:(id)sender;
 - (void)toggleAudioRoute:(BOOL)toSpeaker;
++ (id)sharedCallManager;
 @end
 
 

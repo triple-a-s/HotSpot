@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 
 #import "DataManager.h"
+#import "CallManager.h"
+#import "CallViewController.h"
+
 @import TwilioVoice;
 @import UserNotifications;
 
@@ -23,6 +26,10 @@ PFUser *homeowner;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
     [DataManager configureParse];
+    
+    CallManager *sharedCallManager = [CallManager sharedCallManager];
+    
+    sharedCallManager.delegate = [[CallViewController alloc] init];
     
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];

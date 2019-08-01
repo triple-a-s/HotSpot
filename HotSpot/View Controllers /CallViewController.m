@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *speakerSwitch;
 
 @property (strong, nonatomic) CallManager *callManager;
+
+@property BOOL visible;
 @end
 
 @implementation CallViewController
@@ -31,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.callManager = [[CallManager alloc] init];
+    self.callManager = [CallManager sharedCallManager];
     self.callManager.delegate = self;
     
     [self toggleUIState:YES showCallControl:NO];
@@ -101,6 +103,16 @@
                      }];
 }
 
+- (void)show {
+    if (!self.visible) {
+        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        while (topController.presentedViewController) {
+            topController = topController.presentedViewController;
+        }
+        [topController showViewController:self sender:nil];
+    }
+}
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
@@ -109,14 +121,29 @@
 - (NSString *)getOutgoingIdentity {
     return self.outgoingValue.text;
 }
-- (IBAction)cancelClicked:(id)sender {
-    [self dismiss];
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    //We are now invisible
+    self.visible = false;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    //We are now visible
+    self.visible = true;
 }
 
 # pragma mark - IBActions
 
 - (IBAction)placeCall:(id)sender {
     [self.callManager placeCall:sender];
+}
+
+- (IBAction)cancelClicked:(id)sender {
+    [self dismiss];
 }
 
 - (IBAction)muteSwitchToggled:(UISwitch *)sender {
