@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeBooked;
 
 @end
 
@@ -46,8 +45,6 @@
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         self.listingOwnerLabel.text = object[@"name"];
     }];
-    
-    self.timeBooked.text = @"dfsdfs";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

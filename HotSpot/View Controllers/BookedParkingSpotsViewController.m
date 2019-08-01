@@ -48,7 +48,6 @@
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     SearchCell *bookedCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(bookedCell == nil){
         bookedCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
