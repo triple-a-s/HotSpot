@@ -23,14 +23,19 @@
 
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    [self.searchMap showsUserLocation];
+    self.searchMap.delegate = self;
+    // show the user location when the map loads -- not working currently
+    // [self.searchMap showsUserLocation];
+    // setting the initial region to the user location
     self.initialLocation = [[CLLocation alloc] initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+    // getting the initial listings to load on the map
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         self.listings = listings;
+
     }];
-    self.searchMap.delegate = self;
     for (int i =0; i<=self.searchMap.annotations.count; i++){
         if (self.searchMap.annotations.count>0){
             [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
@@ -45,10 +50,11 @@
 
 # pragma mark - Map Delegate
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+/*- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     [mapView setCenterCoordinate:mapView.userLocation.location.coordinate animated:YES];
     mapView.showsUserLocation = NO;
 }
+*/
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     // setting the image for the pin of the location you just searched
@@ -62,32 +68,36 @@
     }
     // setting up the callout view for the listings
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
-    UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,23,23)];
+    UIView *leftCAV = [[UIView alloc] initWithFrame:CGRectMake(0,0,30,30)];
     UILabel *textLabel = [[UILabel alloc] init];
     textLabel.text = annotation.title;
-    
     // this will set the image on the callout view to be the one of the house you are buying
+    
     [self.listingAnnotationImage getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
         UIImage *houseImage = [UIImage imageWithData:imageData];
-        UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(40, 40))];
-        UIView *houseImagefinal = [[UIImageView alloc] initWithImage: houseImageResized];
+        UIImage *houseImageResized =  [self imageWithImage:houseImage scaledToSize:(CGSizeMake(20, 20))];
+        UIView *houseImagefinal = [[UIImageView alloc] initWithImage:houseImageResized];
         [leftCAV addSubview:houseImagefinal];
     }];
     [leftCAV addSubview:textLabel];
     annotationView.leftCalloutAccessoryView = leftCAV;
     UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
-    UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
+    UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(40, 40))];
     annotationView.image = pinImageResized;
     annotationView.canShowCallout = YES;
- 
     return annotationView;
 }
 
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     if(control == view.leftCalloutAccessoryView){
-    //[self performSegueWithIdentifier:@"maptodetails" sender:self.searchMap];
-    NSLog(@"ABCDEFG");
+    //Not once has it printed ABCDEFG --> look into this today
+     NSLog(@"ABCDEFG");
     }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    view.canShowCallout = YES;
+
 }
 
 # pragma mark - Segue
