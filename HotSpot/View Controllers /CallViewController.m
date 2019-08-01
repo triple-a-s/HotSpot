@@ -37,8 +37,10 @@
     [self toggleUIState:YES showCallControl:NO];
     self.outgoingValue.delegate = self;
     
-    self.outgoingValue.text = self.listing.homeowner.objectId;
-    
+    if(self.listing) {
+        self.outgoingValue.text = self.listing.homeowner.objectId;
+    }
+
     self.callManager.outgoingIdentity = self.outgoingValue.text;
 }
 
@@ -104,6 +106,9 @@
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
+}
+- (IBAction)cancelClicked:(id)sender {
+    [self dismiss];
 }
 
 # pragma mark - IBActions

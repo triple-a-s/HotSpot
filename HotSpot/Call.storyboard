@@ -92,12 +92,20 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kS-iZ-Jjm">
+                                <rect key="frame" x="8" y="28" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EyN-wa-gYa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yv2-Ab-jqI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-97.5" id="0Zb-hN-aPE"/>
                             <constraint firstItem="V5R-Ky-YRW" firstAttribute="top" secondItem="9l7-43-b08" secondAttribute="bottom" constant="4" id="0c6-DE-aUu"/>
                             <constraint firstItem="9l7-43-b08" firstAttribute="top" secondItem="C6T-hp-s2N" secondAttribute="bottom" constant="8" id="1yi-5k-n8b"/>
+                            <constraint firstItem="7kS-iZ-Jjm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Qft-Xq-DLC"/>
                             <constraint firstItem="C6T-hp-s2N" firstAttribute="top" secondItem="Yv2-Ab-jqI" secondAttribute="bottom" constant="24" id="Rhf-nx-6Nu"/>
                             <constraint firstItem="V5R-Ky-YRW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sje-sA-ye7"/>
                             <constraint firstItem="C6T-hp-s2N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XrL-7t-HW0"/>
@@ -105,6 +113,7 @@
                             <constraint firstItem="7FK-6B-aN9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nlF-Eb-AVB"/>
                             <constraint firstItem="Yv2-Ab-jqI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o83-xB-gqy"/>
                             <constraint firstItem="7FK-6B-aN9" firstAttribute="top" secondItem="V5R-Ky-YRW" secondAttribute="bottom" constant="8" id="tvA-E7-Qsm"/>
+                            <constraint firstItem="7kS-iZ-Jjm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="yDX-Iz-gZ9"/>
                         </constraints>
                     </view>
                     <connections>
