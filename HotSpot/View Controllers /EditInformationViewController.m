@@ -39,11 +39,6 @@
 - (IBAction)didTapSaveChanges:(UIButton *)sender {
     UIAlertController *alert = [RegexHelper createAlertController];
     
-    NSLog(@"%@", self.username.text);
-    NSLog(@"%@", self.email.text);
-    NSLog(@"%@", self.fullName.text);
-    NSLog(@"%@", self.phoneNumber.text);
-    
     if ([self.currentUser.username isEqualToString:self.username.text]) {
         self.isSameProfile = YES;
     }

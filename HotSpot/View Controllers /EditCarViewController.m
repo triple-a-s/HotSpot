@@ -63,7 +63,7 @@
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     
-    [ImagePickerHelper imageHelper:imagePickerVC withViewController:self];
+    [ImagePickerHelper imageSelector:imagePickerVC withViewController:self];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {

@@ -16,7 +16,7 @@
 @implementation ImagePickerHelper 
 
 //sets up the image picker and alert for selecting an image
-+ (void)imageHelper: (UIImagePickerController *)imagePicker
++ (void)imageSelector: (UIImagePickerController *)imagePicker
         withViewController:(nonnull UIViewController *)UIViewController{
     
     UIAlertController *imageAlert = [UIAlertController alertControllerWithTitle:nil

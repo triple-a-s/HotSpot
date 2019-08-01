@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ImagePickerHelper : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-+ (void)imageHelper: (UIImagePickerController *)imagePicker
++ (void)imageSelector: (UIImagePickerController *)imagePicker
  withViewController:(UIViewController *)UIViewController;
 
 + (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size;
