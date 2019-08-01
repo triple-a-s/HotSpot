@@ -20,12 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)startSpin;
 - (void)stopSpin;
 - (void)dismiss;
+- (NSString *)getOutgoingIdentity;
 @end
 
 @interface CallManager : NSObject
 @property (nonatomic, weak) id<CallManagerDelegate> delegate;
 @property (nonatomic, strong) TVOCall *call;
-@property (nonatomic, strong) NSString *outgoingIdentity;
 - (void)placeCall:(id)sender;
 - (void)toggleAudioRoute:(BOOL)toSpeaker;
 @end

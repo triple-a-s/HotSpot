@@ -541,7 +541,7 @@ withCompletionHandler:(void (^)(void))completion {
     __weak typeof(self) weakSelf = self;
     TVOConnectOptions *connectOptions = [TVOConnectOptions optionsWithAccessToken:[self fetchAccessToken] block:^(TVOConnectOptionsBuilder *builder) {
         __strong typeof(self) strongSelf = weakSelf;
-        builder.params = @{kTwimlParamTo: strongSelf.outgoingIdentity};
+        builder.params = @{kTwimlParamTo: [strongSelf.delegate getOutgoingIdentity]};
         builder.uuid = uuid;
     }];
     self.call = [TwilioVoice connectWithOptions:connectOptions delegate:self];

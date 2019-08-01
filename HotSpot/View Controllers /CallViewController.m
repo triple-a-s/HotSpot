@@ -40,8 +40,6 @@
     if(self.listing) {
         self.outgoingValue.text = self.listing.homeowner.objectId;
     }
-
-    self.callManager.outgoingIdentity = self.outgoingValue.text;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +104,10 @@
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
+}
+
+- (NSString *)getOutgoingIdentity {
+    return self.outgoingValue.text;
 }
 - (IBAction)cancelClicked:(id)sender {
     [self dismiss];
