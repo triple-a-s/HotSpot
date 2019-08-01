@@ -89,7 +89,6 @@
                                             <outlet property="searchTableImage" destination="TZd-1m-qZL" id="qmX-x6-kB2"/>
                                             <outlet property="searchTableMilesAway" destination="QLn-wg-o8h" id="P7x-P0-BaS"/>
                                             <outlet property="searchTablePrice" destination="qto-cC-vim" id="jIa-Fg-9LU"/>
-                                            <segue destination="KIp-la-Kxr" kind="presentation" identifier="pastToBooking" id="1fI-KU-Xpy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -125,6 +124,7 @@
                     <connections>
                         <outlet property="bookedTableView" destination="8sh-5o-2vt" id="aUZ-XJ-OFf"/>
                         <outlet property="bookedTitleBar" destination="xPh-Dj-7pd" id="GYz-0F-Cwz"/>
+                        <segue destination="KIp-la-Kxr" kind="presentation" identifier="pastToBooking" id="OLz-gn-dH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QN-g1-FLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,11 +139,11 @@
             </objects>
             <point key="canvasLocation" x="1736" y="-107"/>
         </scene>
-        <!--Booked Spots -->
+        <!--Past Spots -->
         <scene sceneID="AhQ-y8-HAb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOL-Ko-9FE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Booked Spots " id="ZKd-D3-sJM"/>
+                    <tabBarItem key="tabBarItem" title="Past Spots " id="ZKd-D3-sJM"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IIs-Ae-Vak">

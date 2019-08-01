@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-378"/>
+            <point key="canvasLocation" x="-830.43478260869574" y="-378.34821428571428"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">

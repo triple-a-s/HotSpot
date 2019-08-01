@@ -91,6 +91,7 @@
     if([segue.identifier isEqualToString:@"currentToDetails"]) {
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.listing = sender;
+
     }
 }
 

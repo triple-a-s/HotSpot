@@ -28,13 +28,13 @@
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
-    // I don't know 
-  //  self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
+    // self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         self.listings = listings;
         [self.searchTableView reloadData];
     }];
+
 }
 
 # pragma mark - TableViewController methods
