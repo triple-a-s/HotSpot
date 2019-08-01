@@ -55,6 +55,7 @@
 		D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772722DFBD9D00EBC4EC /* Listing.m */; };
 		D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */; };
 		D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BD364C22E111200001BD61 /* Booking.storyboard */; };
+		D2C50F7F22F11839003AB2E0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C50F7E22F11839003AB2E0 /* MessageUI.framework */; };
 		D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		D2B2772922DFBEF900EBC4EC /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		D2BD364C22E111200001BD61 /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
+		D2C50F7E22F11839003AB2E0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContainerViewSearch.storyboard; sourceTree = "<group>"; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C50F7F22F11839003AB2E0 /* MessageUI.framework in Frameworks */,
 				D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */,
 				612FE91422DE9A9500112AF2 /* MapKit.framework in Frameworks */,
 				2E20AF0B041166B2C6B8CCA9 /* Pods_HotSpot.framework in Frameworks */,
@@ -298,6 +301,7 @@
 		BACE3C37E144EA6607DB5993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2C50F7E22F11839003AB2E0 /* MessageUI.framework */,
 				D27B986A22E654170018EFE4 /* UIKit.framework */,
 				612FE91322DE9A9500112AF2 /* MapKit.framework */,
 				DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */,
@@ -812,13 +816,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SMCPGF93SS;
+				DEVELOPMENT_TEAM = W2PUF8XW54;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -830,13 +834,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SMCPGF93SS;
+				DEVELOPMENT_TEAM = W2PUF8XW54;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.HotSpot3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
