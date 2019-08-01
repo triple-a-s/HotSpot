@@ -247,6 +247,7 @@
                     <connections>
                         <outlet property="password" destination="FVu-3J-6ym" id="DgV-h9-Zno"/>
                         <outlet property="username" destination="CaS-ye-oAk" id="x3b-di-UVp"/>
+                        <segue destination="AwN-FO-jNc" kind="show" identifier="LoginSegue" id="DYW-mC-QuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oER-XR-OHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,4 +263,7 @@
     <resources>
         <image name="App Logo" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DYW-mC-QuO"/>
+    </inferredMetricsTieBreakers>
 </document>

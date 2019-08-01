@@ -15,7 +15,6 @@
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
 		612FE8F922DE6A0D00112AF2 /* HotSpotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8F822DE6A0D00112AF2 /* HotSpotUITests.m */; };
 		97FFB7816BF362B3585B031B /* Pods_HotSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF90B3ACA458D20FCDEBED1 /* Pods_HotSpot.framework */; };
-		AD3A4F7322F35885007179E9 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3A4F7222F35885007179E9 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */; };
 		ADC06E8A22DFCF9300ED3F4D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E8922DFCF9300ED3F4D /* Settings.storyboard */; };
@@ -70,8 +69,6 @@
 		612FE8FA22DE6A0D00112AF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C1182DA13E8143281BC7AB2 /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D232D11E2E1D205D816D4A /* Pods-HotSpotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.debug.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AD3A4F7122F35885007179E9 /* TransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
-		AD3A4F7222F35885007179E9 /* TransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		ADBA5DCD22E638F80055BB17 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCarViewController.h; sourceTree = "<group>"; };
@@ -240,8 +237,6 @@
 				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
 				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
 				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
-				AD3A4F7122F35885007179E9 /* TransitionViewController.h */,
-				AD3A4F7222F35885007179E9 /* TransitionViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -499,7 +494,6 @@
 				ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
 				ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */,
-				AD3A4F7322F35885007179E9 /* TransitionViewController.m in Sources */,
 				ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

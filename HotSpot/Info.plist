@@ -13,9 +13,9 @@
 			</array>
 		</dict>
 	</array>
-	<key>Account Kit Client Token</key>
+	<key>AccountKitClientToken</key>
 	<string>c10dad194ec2dd7761bfc6c514305020</string>
-	<key>Account Kit AppId</key>
+	<key>FacebookAppID</key>
 	<string>931536737187879</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access to take pictures</string>
