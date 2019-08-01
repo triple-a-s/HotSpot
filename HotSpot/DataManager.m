@@ -42,9 +42,14 @@
     
 }
 
-+ (void)getListingFromID:(NSString *)objectID
-        withCompletion:(void(^)(Listing *listing, NSError *error))completion{
-  
+
++ (double) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo {
+    CLLocation *locationOne = [[CLLocation alloc] initWithLatitude: addressOne.latitude longitude:addressTwo.longitude];
+    CLLocation *locationTwo = [[CLLocation alloc] initWithLatitude:addressTwo.latitude longitude:addressTwo.longitude];
+    CLLocationDistance distance = [locationOne distanceFromLocation:locationTwo];
+    double distanceValue= (double)distance * 0.000621371;
+    // this is in miles
+    return distanceValue;
 }
 
 + (void)test {

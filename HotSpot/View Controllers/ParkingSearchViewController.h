@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) CLLocation *initialLocation;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property (strong, nonatomic) NSArray<Listing *> *listings;
+@property (strong,nonatomic) NSMutableString *distanceTo;
 
 @end
 

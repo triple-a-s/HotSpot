@@ -22,9 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getAllListings:(PFGeoPoint *)point
         withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
 + (void)getAllBookings:(PFUser*)user
-        withCompletion:(void(^)(NSArray<Booking*> *booking, NSError *error))completion;
-+ (void)getListingFromID:(NSString *)objectID
-          withCompletion:(void(^)(Listing *listing, NSError *error))completion;
+        withCompletion:(void(^)(NSArray<Booking*> *booking, NSError *error))completion;;
++ (double) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo;
 @end
 
 NS_ASSUME_NONNULL_END

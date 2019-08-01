@@ -57,7 +57,7 @@
     cell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", listing.price];
     
     //placehodlder information
-    cell.searchTableMilesAway.text = @"50 miles away";
+    cell.searchTableMilesAway.text = self.distanceTo;
     
     PFFileObject *img = listing.picture;
     [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){

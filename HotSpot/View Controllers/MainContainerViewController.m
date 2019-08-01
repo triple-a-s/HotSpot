@@ -191,10 +191,13 @@
                 //adding the actual pins to thed map
                 [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
                 [self.mapVC.searchMap addAnnotation:spotList[i]];
+                double distanceBetweenPoints = [DataManager getDistancebetweenAddressOne:spotLocation andAddressTwo:location.coordinate];
+                self.tableVC.distanceTo = [NSMutableString stringWithFormat:@"%f miles away",distanceBetweenPoints];
             }
             
         }
     }];
+    
     // we don't want the search result to show after we already tapped on something
     self.searchResultTableView.hidden =YES;
     // we want the keyboard to go away after we tapped on something
@@ -230,5 +233,8 @@
         completion(placemark.location, error);
     }];
 }
+
+
+
 
 @end
