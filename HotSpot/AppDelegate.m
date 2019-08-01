@@ -8,8 +8,11 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import <AccountKit/AKFAccountKit.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    AKFAccountKit *accountKit;
+}
 
 @end
 
@@ -18,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
     
+    accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         configuration.applicationId = @"myAppId";

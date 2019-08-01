@@ -1,22 +1,29 @@
 PODS:
+  - AccountKit (5.0.1)
   - Bolts/Tasks (1.9.0)
   - Parse (1.17.2):
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
     - Bolts/Tasks (~> 1.9)
+  - Parse/UI (1.17.2):
+    - Parse/Core
 
 DEPENDENCIES:
+  - AccountKit
   - Parse
+  - Parse/UI
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AccountKit
     - Bolts
     - Parse
 
 SPEC CHECKSUMS:
+  AccountKit: d05258857e74b04386c263a1365b27dbb5ff62b9
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
 
-PODFILE CHECKSUM: 1659ff25c0e5f65d54f08788e0bfaf54a8ac0ea0
+PODFILE CHECKSUM: 4e35b931fe62f338bfa9a4589e188432754dad38
 
 COCOAPODS: 1.7.2

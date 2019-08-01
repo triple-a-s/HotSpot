@@ -158,7 +158,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6GV-FW-Wpa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="SmF-pk-q8k"/>
+                    <navigationItem key="navigationItem" title="Profile" id="SmF-pk-q8k">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Rof-X1-Dtm">
+                            <connections>
+                                <segue destination="T5D-ew-rij" kind="show" id="SPS-2M-CDP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="carColor" destination="oyn-ek-0hn" id="fgr-ZU-K52"/>
                         <outlet property="carImage" destination="y6f-2f-WU2" id="Bw0-Tf-kqL"/>
@@ -184,6 +190,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1771.0144927536232" y="164.73214285714286"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="qvq-9B-wWS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" id="T5D-ew-rij" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NEP-nQ-J8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2383" y="-225"/>
         </scene>
         <!--Edit Info-->
         <scene sceneID="SCr-J0-uGS">

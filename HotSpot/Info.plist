@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ak931536737187879</string>
+			</array>
+		</dict>
+	</array>
+	<key>Account Kit Client Token</key>
+	<string>c10dad194ec2dd7761bfc6c514305020</string>
+	<key>Account Kit AppId</key>
+	<string>931536737187879</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access to take pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>
