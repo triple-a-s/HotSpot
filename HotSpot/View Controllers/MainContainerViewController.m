@@ -93,6 +93,36 @@
     // setting the views to hidden or not
     self.searchResultTableView.hidden = NO;
     
+    // starting to try out a simple animation 
+    if(self.searchResultTableView.frame.size.height == 0){
+    
+    [UIView animateWithDuration:1
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         CGRect frame = self.searchResultTableView.frame;
+                         frame.size.height = 300;
+                         self.searchResultTableView.frame = frame;
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    }
+    
+    else if (self.searchResultTableView.frame.size.height == 300){
+        [UIView animateWithDuration:1
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.searchResultTableView.frame;
+                             frame.size.height = 0;
+                             self.searchResultTableView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                             NSLog(@"Done!");
+                         }];
+        
+    }
     // the search bar will go away once you delete text
     if(searchText.length ==0){
         [self.mainSearchBar endEditing:YES];
