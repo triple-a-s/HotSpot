@@ -185,7 +185,18 @@
         }
         else{
             // update the map and the table according to the requested location
-            self.tableVC.initialLocation = location;
+            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude]; // san francisco
+            [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+                if(error) {
+                    NSLog(@"%@ oops", error);
+                }
+                else{
+                    self.tableVC.listings = listings;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableVC.searchTableView reloadData];
+                    });
+                }
+            }];
             self.mapVC.initialLocation = location; 
             MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.05, 0.05));
             [self.mapVC.searchMap setRegion:setRegion animated:YES];
