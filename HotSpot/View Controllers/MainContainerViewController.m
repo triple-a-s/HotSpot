@@ -185,7 +185,7 @@
             // update the map and the table according to the requested location
             self.tableVC.initialLocation = location;
             self.mapVC.initialLocation = location; 
-            MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+            MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.05, 0.05));
             [self.mapVC.searchMap setRegion:setRegion animated:YES];
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             [annotation setCoordinate: location.coordinate];
