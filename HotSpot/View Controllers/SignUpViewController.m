@@ -12,6 +12,7 @@
 #import <AccountKit/AKFAccountKit.h>
 #import <AccountKit/AKFViewController.h>
 #import <AccountKit/AKFSkinManager.h>
+#import <AccountKit/AKFPhoneNumber.h>
 
 @interface SignUpViewController () <AKFViewControllerDelegate>
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *fullName;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *email;
+@property (nonatomic) BOOL isAuthenticated;
 
 @end
 
@@ -29,9 +31,10 @@
     UIViewController<AKFViewController> *pendingSignUpViewController;
 }
 
+#pragma mark - view Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
     pendingSignUpViewController = [accountKit viewControllerForLoginResume];
     
@@ -39,7 +42,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     if (pendingSignUpViewController != nil) {
         [self _prepareSignUpViewController:pendingSignUpViewController];
         [self presentViewController:pendingSignUpViewController animated:YES completion:NULL];
@@ -47,10 +49,44 @@
     }
 }
 
-- (void) _prepareSignUpViewController:(UIViewController<AKFViewController> *)signUpVC {
-    signUpVC.delegate = self;
-    signUpVC.uiManager = [[AKFSkinManager alloc] initWithSkinType:AKFSkinTypeClassic primaryColor:[UIColor blueColor]];
+//if the user is authenticated, signs them up and logs them in
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.isAuthenticated) {
+        UIAlertController *alert = [RegexHelper createAlertController];
+        
+        PFUser *newUser = [PFUser user];
+        
+        newUser.username = self.username.text;
+        newUser.password = self.password.text;
+        newUser[@"name"] = self.fullName.text;
+        newUser[@"phone"] = self.phoneNumber.text;
+        newUser.email = self.email.text;
+        
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                //if there's an error, throw up an alert with the specific error as the message
+                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
+            }
+        }];
+        [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password block:^(PFUser *user, NSError *error) {
+            if (error != nil) {
+                alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
+                [self presentViewController:alert animated:YES completion:^{
+                }];
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
+                    self.isAuthenticated = NO;
+                });
+                
+            }
+        }];
+    }
 }
+
+#pragma mark - Private Methods
 
 //registers a user, throws up an alert with an "empty" error message if one of the fields is empty.
 //if there's a different error, it throws up an alert with the specific error description
@@ -61,7 +97,8 @@
     //checks if the phone number is 7 or 10 digits
     //if anything is wrong it will throw up an appropriate error
     if ([RegexHelper isValidProfile:self.username.text withPassword:self.password.text withEmail:self.email.text withFullName:self.fullName.text withPhoneNumber:self.phoneNumber.text withAlertController:alert withSameProfile:NO]) {
-        UIViewController<AKFViewController> *viewController = [accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:nil];
+        AKFPhoneNumber *phoneNumber = [[AKFPhoneNumber alloc] initWithCountryCode:@"" phoneNumber:self.phoneNumber.text];
+        UIViewController<AKFViewController> *viewController = [accountKit viewControllerForPhoneLoginWithPhoneNumber:phoneNumber state:nil];
         [self _prepareSignUpViewController:viewController];
         [self presentViewController:viewController animated:YES completion:nil];
     } else {
@@ -85,40 +122,22 @@
     [self registerUser];
 }
 
+#pragma mark -AKFViewController methods
+
+//prepares the AKFViewController for presentation
+- (void) _prepareSignUpViewController:(UIViewController<AKFViewController> *)signUpVC {
+    signUpVC.delegate = self;
+    signUpVC.uiManager = [[AKFSkinManager alloc] initWithSkinType:AKFSkinTypeClassic primaryColor:[UIColor blueColor]];
+}
+
 #pragma mark -AKFViewController Delegate Methods
 
 - (void) viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error {
-    
+    NSLog(@"%@", error.localizedDescription);
 }
 
 - (void) viewController:(UIViewController<AKFViewController> *)viewController didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken state:(NSString *)state {
-    UIAlertController *alert = [RegexHelper createAlertController];
-    
-    PFUser *newUser = [PFUser user];
-    
-    newUser.username = self.username.text;
-    newUser.password = self.password.text;
-    newUser[@"name"] = self.fullName.text;
-    newUser[@"phone"] = self.phoneNumber.text;
-    newUser.email = self.email.text;
-    
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            //if there's an error, throw up an alert with the specific error as the message
-            alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
-            [self presentViewController:alert animated:YES completion:^{
-            }];
-        }
-    }];
-    [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password block:^(PFUser *user, NSError *error) {
-        if (error != nil) {
-            alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
-            [self presentViewController:alert animated:YES completion:^{
-            }];
-        } else {
-            [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
-        }
-    }];
+    self.isAuthenticated = YES;
 }
 
 @end

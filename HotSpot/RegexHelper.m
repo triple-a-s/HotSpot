@@ -34,9 +34,9 @@ BOOL isValidCar(NSString *licensePlate, NSString *carColor, UIAlertController *a
 }
 
 //returns whether or not there are any profiles with a certain username passed in as a parameter
-BOOL isProfileTaken(NSString * _Nonnull username) {
+BOOL isProfileTaken(NSString * _Nonnull info, NSString * _Nonnull key) {
     PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:username];
+    [query whereKey:key equalTo:info];
     PFObject *object = [query getFirstObject];
     return (object != nil);
 }
@@ -76,18 +76,18 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
     withAlertController:(UIAlertController *)alert
         withSameProfile:(BOOL)isSameProfile{
     if ([self isEmpty:fullName] || [self isEmpty:username] || [self isEmpty:phoneNumber] || [self isEmpty:email] || [self isEmpty:password]) {
-        alert.title = @"Invalid";
+        alert.title = @"Invalid input";
         alert.message = @"One or more of your fields is empty.";
         return false;
     } else if (!(phoneNumber.length == 10 || phoneNumber.length == 7)) {
-        alert.title = @"Phone Number Change Error";
-        alert.message = @"Your phone number is invalid";
+        alert.title = @"Phone Number Invalid";
+        alert.message = @"That phone number is invalid";
         return false;
-    } else if (![self validateEmail:email] || [self isTaken:email]) {
+    } else if (![self validateEmail:email] || isProfileTaken(email, @"email")) {
         alert.title = @"Email invalid";
-        alert.message = @"Your email is invalid.";
+        alert.message = @"That email is in the wrong format or has already been taken.";
         return false;
-    } else if (isProfileTaken(username)) {
+    } else if (isProfileTaken(username, @"username")) {
         if (isSameProfile) {
             return true;
         }
@@ -113,7 +113,5 @@ BOOL isProfileTaken(NSString * _Nonnull username) {
     [alert addAction:okAction];
     return alert;
 }
-
-
 
 @end

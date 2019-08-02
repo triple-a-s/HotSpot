@@ -12,7 +12,7 @@
 
 BOOL isValidCar(NSString * _Nonnull licensePlate, NSString * _Nonnull carColor, UIAlertController * _Nonnull alert, BOOL isSameLicensePlate);
 
-BOOL isProfileTaken(NSString * _Nonnull username);
+BOOL isProfileTaken(NSString * _Nonnull info, NSString * _Nonnull key);
 
 NS_ASSUME_NONNULL_BEGIN
 

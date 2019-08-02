@@ -29,11 +29,11 @@
     }];
     
     [Parse initializeWithConfiguration:config];
-    
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
         UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"Profile"];
         self.window.rootViewController = navigationController;
+        
     }
     return YES;
 }
