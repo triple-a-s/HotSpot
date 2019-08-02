@@ -29,6 +29,7 @@
 		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
 		61BA376922EB9DD3002C1B5A /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */; };
 		8834DDE07841E03D69B0AD4D /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */; };
+		AD6B6D4322F4FACC000D5939 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6B6D4222F4FACC000D5939 /* ReportViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */; };
 		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
@@ -120,6 +121,8 @@
 		61BA376322EB9DD3002C1B5A /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		82CBD2548F49C9F32A5AED14 /* Pods_HotSpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A517A8E8AABE0EB29E38F4A3 /* Pods-HotSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.release.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.release.xcconfig"; sourceTree = "<group>"; };
+		AD6B6D4122F4FACC000D5939 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		AD6B6D4222F4FACC000D5939 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		ADBA5DCD22E638F80055BB17 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCarViewController.h; sourceTree = "<group>"; };
@@ -340,12 +343,13 @@
 		D2BD365122E11F0C0001BD61 /* View Controllers  */ = {
 			isa = PBXGroup;
 			children = (
+				AD6B6D4122F4FACC000D5939 /* ReportViewController.h */,
+				AD6B6D4222F4FACC000D5939 /* ReportViewController.m */,
 				61547D6122EB9A0D00E57E34 /* BookedParkingSpotsViewController.h */,
 				61547D5F22EB9A0D00E57E34 /* BookedParkingSpotsViewController.m */,
 				61547D5D22EB9A0D00E57E34 /* BookingViewController.m */,
 				61547D6322EB9A0D00E57E34 /* CurrentParkingSpotsViewController.h */,
 				61547D6422EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m */,
-				61547D5C22EB9A0D00E57E34 /* DetailsViewController.m */,
 				61547D5E22EB9A0D00E57E34 /* MainContainerViewController.h */,
 				61547D6522EB9A0E00E57E34 /* MainContainerViewController.m */,
 				61547D6622EB9A0E00E57E34 /* MapViewController.h */,
@@ -355,6 +359,7 @@
 				61BA375F22EB9DD3002C1B5A /* ConfirmationViewController.h */,
 				61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */,
 				61BA376022EB9DD3002C1B5A /* DetailsViewController.h */,
+				61547D5C22EB9A0D00E57E34 /* DetailsViewController.m */,
 				61547D6722EB9A0E00E57E34 /* ParkingSearchViewController.m */,
 				ADEC07D622DE80310035274F /* LoginViewController.h */,
 				ADEC07D722DE80310035274F /* LoginViewController.m */,
@@ -645,6 +650,7 @@
 				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
+				AD6B6D4322F4FACC000D5939 /* ReportViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
 				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,

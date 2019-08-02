@@ -86,6 +86,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZU-tt-Hmc">
+                                <rect key="frame" x="125" y="381" width="159" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Report Homeowner"/>
+                                <connections>
+                                    <action selector="reportHomeowner:" destination="dao-gK-gXZ" eventType="touchUpInside" id="wWi-Dv-PYK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -115,7 +124,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-378"/>
+            <point key="canvasLocation" x="-830.43478260869574" y="-378.34821428571428"/>
+        </scene>
+        <!--Report View Controller-->
+        <scene sceneID="YD5-Fs-C5u">
+            <objects>
+                <viewController id="PUa-jV-kbG" customClass="ReportViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iSA-9a-aDt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="W5a-h4-Gtf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbu-RI-PVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="-378"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">

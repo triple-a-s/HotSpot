@@ -11,6 +11,7 @@
 #import "BookingViewController.h"
 #import "DataManager.h"
 #import <MessageUI/MessageUI.h>
+#import "RegexHelper.h"
 
 @interface DetailsViewController ()<MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -46,6 +47,19 @@
     }];
     
     
+}
+
+- (IBAction)reportHomeowner:(UIButton *)sender {
+    UIAlertController *errorAlert = [[UIAlertController alloc] init];
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"Comment") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"There was a car parked in the spot") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"The homewowner cancelled my listing without 24 hour notice") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [self presentViewController:errorAlert animated:YES completion:nil];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller
