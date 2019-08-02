@@ -124,7 +124,7 @@
                     <connections>
                         <outlet property="bookedTableView" destination="8sh-5o-2vt" id="aUZ-XJ-OFf"/>
                         <outlet property="bookedTitleBar" destination="xPh-Dj-7pd" id="GYz-0F-Cwz"/>
-                        <segue destination="KIp-la-Kxr" kind="presentation" identifier="pastToBooking" id="OLz-gn-dH7"/>
+                        <segue destination="KIp-la-Kxr" kind="show" identifier="pastToBooking" id="OLz-gn-dH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QN-g1-FLs" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -95,7 +95,7 @@
                     <connections>
                         <outlet property="currentTableView" destination="MP9-rx-1iL" id="SHv-LO-k8m"/>
                         <outlet property="savedTitleBar" destination="ma2-Tn-Qpk" id="yju-PT-xZf"/>
-                        <segue destination="TX2-Rl-qJf" kind="presentation" identifier="currentToDetails" id="sMj-zn-pvk"/>
+                        <segue destination="TX2-Rl-qJf" kind="show" identifier="currentToDetails" id="sMj-zn-pvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9M-0t-0s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
