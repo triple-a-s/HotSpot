@@ -173,6 +173,7 @@
     // finding the completion to set the address
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
+    self.mapVC.annotationTitle = completionForMap.subtitle;
     
     // translate the address to coordinates we can work with to set on the map using prewritten method
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
@@ -182,47 +183,15 @@
         }
         else{
             // update the map and the table according to the requested location
-            [MapViewController setLocation:location onMap:self.mapVC.searchMap];
             self.tableVC.initialLocation = location;
-            self.mapVC.initialLocation = location;
+            self.mapVC.initialLocation = location; 
+            MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+            [self.mapVC.searchMap setRegion:setRegion animated:YES];
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            [annotation setCoordinate: location.coordinate];
+            [annotation setTitle: completionForMap.title];
+            [self.mapVC.searchMap addAnnotation:annotation]; 
             [self.tableVC.searchTableView reloadData];
-            
-            // not sure right no if I need this
-          /*  PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:location];
-            [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-                self.mapVC.listings = listings;
-            }];
-           */ 
-            
-            // setting the searched location's annotation on the map
-            MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
-            [MapViewController makeAnnotation:searchedLocation atLocation:location.coordinate withTitle:completionForMap.title];
-            [self.mapVC.searchMap addAnnotation:searchedLocation];
-            
-            // setting the annotation pins for the listings nearby
-            NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
-            for ( int i=0; i<=self.mapVC.listings.count-1; i++)
-            {
-                MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
-                CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(self.mapVC.listings[i].address.latitude, self.mapVC.listings[i].address.longitude);
-                [spotPins setCoordinate: spotLocation];
-                // using the datamanager to set the address of the annotaion pin callout views
-                [DataManager getAddressNameFromPoint:self.mapVC.listings[i].address withCompletion:^(NSString *name, NSError * _Nullable error){
-                    if(error) {
-                        NSLog(@"%@", error);
-                    }
-                    else {
-                        [spotPins setTitle: name];
-                    }
-                }];
-                // updating the image of the annotation callout view
-                self.mapVC.listingAnnotationImage = self.mapVC.listings[i].picture;
-                [spotList addObject:spotPins];
-                //adding the actual pins to thed map
-                [self.mapVC mapView:self.mapVC.searchMap viewForAnnotation:spotPins];
-                [self.mapVC.searchMap addAnnotation:spotList[i]];
-            }
-            
         }
     }];
     // we don't want the search result to show after we already tapped on something

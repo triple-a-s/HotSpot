@@ -13,8 +13,8 @@
 #import "DataManager.h"
 
 @interface MapViewController ()
-
-@property (strong,nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
+@property (strong, nonatomic) CLLocation *startLocation;
 
 @end
 
@@ -23,38 +23,67 @@
 
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    
+    // set the delegate to itself
     self.searchMap.delegate = self;
+    
     // show the user location when the map loads -- not working currently
-    // [self.searchMap showsUserLocation];
-    // setting the initial region to the user location
-    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
-    // getting the initial listings to load on the map
-    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
-    [DataManager getAllListings :geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-        self.listings = listings;
-
-    }];
-    for (int i =0; i<=self.searchMap.annotations.count; i++){
-        if (self.searchMap.annotations.count>0){
-            [self mapView:self.searchMap viewForAnnotation:self.searchMap.annotations[i]];
-        }
-    }
-
+    // things associated with showing the actual use location
     self.locationManager.delegate = self;
+    self.locationManager =[[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    [self.searchMap showsUserLocation];
+
+    
+    // getting the initial listings to load on the map
+    self.initialLocation = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude]; 
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
+    
+    [DataManager getAllListings:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+        self.ourMapListings = listings;
+        
+        NSMutableArray<MKPointAnnotation*> *spotList = [[NSMutableArray alloc]init];
+        
+        for ( int i=0; i<=self.ourMapListings.count-1; i++)
+        {
+            MKPointAnnotation *spotPins = [[MKPointAnnotation alloc]init];
+            Listing *mapListing = self.ourMapListings[i];
+            CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(mapListing.address.latitude, mapListing.address.longitude);
+            [spotPins setCoordinate: spotLocation];
+            // using the datamanager to set the address of the annotaion pin callout views
+            [DataManager getAddressNameFromPoint:mapListing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+                if(error) {
+                    NSLog(@"%@", error);
+                }
+                else {
+                    [spotPins setTitle: name];
+                }
+            }];
+            // updating the image of the annotation callout view
+            self.listingAnnotationImage = mapListing.picture;
+            [spotList addObject:spotPins];
+            //adding the actual pins to thedmap
+            [self.searchMap addAnnotation:spotList[i]];
+        }
+        // setting the searched location's annotation on the map
+        MKPointAnnotation *searchedLocation = [[MKPointAnnotation alloc]init];
+        [self makeAnnotation:searchedLocation atLocation:self.initialLocation.coordinate withTitle:self.annotationTitle];
+        [self.searchMap addAnnotation:searchedLocation];
+    }];
+    // setting the location on the map 
+    [self setLocation:self.initialLocation onMap:self.searchMap];
 }
 
 # pragma mark - Map Delegate
 
-/*- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     [mapView setCenterCoordinate:mapView.userLocation.location.coordinate animated:YES];
     mapView.showsUserLocation = NO;
 }
-*/
+
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     // setting the image for the pin of the location you just searched
@@ -100,6 +129,12 @@
 
 }
 
+# pragma mark - Location Manager delegate methods
+/*- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.searchMap.userLocation.location.coordinate.latitude longitude:self.searchMap.userLocation.location.coordinate.longitude];
+    [self setLocation:self.initialLocation onMap:self.searchMap];
+}
+  */
 # pragma mark - Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -112,12 +147,12 @@
 
 # pragma mark - Helper Methods
 
-+ (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map{
+- (void) setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map{
     MKCoordinateRegion initialRegion = MKCoordinateRegionMake(ourLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
     [map setRegion:initialRegion animated:YES];
 }
 
-+ (void)makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title{
+- (void) makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title{
     [ourAnnotation setCoordinate: ourLocation];
     [ourAnnotation setTitle: title];
 }

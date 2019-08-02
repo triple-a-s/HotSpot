@@ -22,6 +22,7 @@
 
 @implementation ParkingSearchViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // initializing our table
