@@ -29,12 +29,20 @@
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
-    // self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:45.344];
-    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.initialLocation.coordinate.latitude longitude:self.initialLocation.coordinate.longitude]; // san francisco
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-        self.listings = listings;
-        [self.searchTableView reloadData];
+        if(error) {
+            NSLog(@"%@ oops", error);
+        }
+        else{
+            self.listings = listings;
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [self.searchTableView reloadData];
+            });
+        }
     }];
+    
 
 }
 

@@ -69,6 +69,8 @@
     self.completer.delegate = self;
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
+    
+    self.tableVC.initialLocation = self.mapVC.locationManager.location;
 }
 
 # pragma mark - Action Items

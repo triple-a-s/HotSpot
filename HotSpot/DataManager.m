@@ -29,7 +29,7 @@
 + (void)getListingsNearLocation:(PFGeoPoint *)point
                    withCompletion:(void(^)(NSArray<Listing*> *listings, NSError *error))completion{
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinMiles:20000000]; // number of miles empirically set, for now
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:100]; // number of miles empirically set, for now
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
 }
@@ -48,6 +48,9 @@
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         if(error) {
             NSLog(@"%@ oops", error);
+        }
+        else{
+            NSLog(@"%@ our listings", listings);
         }
     }];
     
