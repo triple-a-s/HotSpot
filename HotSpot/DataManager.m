@@ -42,11 +42,6 @@
     
 }
 
-+ (void)getListingFromID:(NSString *)objectID
-        withCompletion:(void(^)(Listing *listing, NSError *error))completion{
-  
-}
-
 + (void)test {
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:37.773972 longitude:-122.431297]; // san francisco
     
