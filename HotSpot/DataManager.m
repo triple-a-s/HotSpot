@@ -34,10 +34,11 @@
     [query findObjectsInBackgroundWithBlock:completion];
 }
 
+  // this method was for testing --> rewriting 
 + (void)getAllListings:(PFGeoPoint *)point
                  withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinKilometers:1000000000];
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:1000000000];
     [query findObjectsInBackgroundWithBlock:completion];
     
 }
