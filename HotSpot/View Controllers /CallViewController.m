@@ -103,12 +103,6 @@
                      }];
 }
 
-- (void)show {
-    NSLog(@"ya");
-    if (!self.visible) {
-        
-    }
-}
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
@@ -116,20 +110,6 @@
 
 - (NSString *)getOutgoingIdentity {
     return self.outgoingValue.text;
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    //We are now invisible
-    self.visible = false;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    //We are now visible
-    self.visible = true;
 }
 
 # pragma mark - IBActions

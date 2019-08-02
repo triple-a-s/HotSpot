@@ -185,7 +185,6 @@ static NSString *const kTwimlParamTo = @"to";
 
 #pragma mark - PKPushRegistryDelegate
 - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-    NSLog(@"pushRegistry:didUpdatePushCredentials:forType:");
     
     if ([type isEqualToString:PKPushTypeVoIP]) {
         self.deviceTokenString = [credentials.token description];
@@ -197,15 +196,11 @@ static NSString *const kTwimlParamTo = @"to";
                                       if (error) {
                                           NSLog(@"An error occurred while registering: %@", [error localizedDescription]);
                                       }
-                                      else {
-                                          NSLog(@"Successfully registered for VoIP push notifications.");
-                                      }
                                   }];
     }
 }
 
 - (void)pushRegistry:(PKPushRegistry *)registry didInvalidatePushTokenForType:(PKPushType)type {
-    NSLog(@"pushRegistry:didInvalidatePushTokenForType:");
     
     if ([type isEqualToString:PKPushTypeVoIP]) {
         NSString *accessToken = [self fetchAccessToken];
@@ -215,9 +210,6 @@ static NSString *const kTwimlParamTo = @"to";
                                     completion:^(NSError * _Nullable error) {
                                         if (error) {
                                             NSLog(@"An error occurred while unregistering: %@", [error localizedDescription]);
-                                        }
-                                        else {
-                                            NSLog(@"Successfully unregistered for VoIP push notifications.");
                                         }
                                     }];
         
@@ -230,7 +222,6 @@ static NSString *const kTwimlParamTo = @"to";
  * your application is targeting iOS 11. According to the docs, this delegate method is deprecated by Apple.
  */
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type {
-    NSLog(@"pushRegistry:didReceiveIncomingPushWithPayload:forType:");
     if ([type isEqualToString:PKPushTypeVoIP]) {
         if (![TwilioVoice handleNotification:payload.dictionaryPayload delegate:self]) {
             NSLog(@"This is not a valid Twilio Voice notification.");
@@ -246,7 +237,6 @@ static NSString *const kTwimlParamTo = @"to";
 didReceiveIncomingPushWithPayload:(PKPushPayload *)payload
              forType:(PKPushType)type
 withCompletionHandler:(void (^)(void))completion {
-    NSLog(@"pushRegistry:didReceiveIncomingPushWithPayload:forType:withCompletionHandler:");
     
     // Save for later when the notification is properly handled.
     self.incomingPushCompletionCallback = completion;
@@ -267,7 +257,6 @@ withCompletionHandler:(void (^)(void))completion {
 
 #pragma mark - TVONotificationDelegate
 - (void)callInviteReceived:(TVOCallInvite *)callInvite {
-    NSLog(@"callInviteReceived:");
     
     if (self.callInvite) {
         NSLog(@"A CallInvite is already in progress. Ignoring the incoming CallInvite from %@", callInvite.from);
@@ -285,7 +274,6 @@ withCompletionHandler:(void (^)(void))completion {
 }
 
 - (void)cancelledCallInviteReceived:(TVOCancelledCallInvite *)cancelledCallInvite {
-    NSLog(@"cancelledCallInviteReceived:");
     
     [self incomingPushHandled];
     
@@ -303,14 +291,10 @@ withCompletionHandler:(void (^)(void))completion {
 
 #pragma mark - TVOCallDelegate
 - (void)callDidStartRinging:(TVOCall *)call {
-    NSLog(@"callDidStartRinging:");
-    
     [self.delegate setCallButtonTitle:@"Ringing"];
 }
 
 - (void)callDidConnect:(TVOCall *)call {
-    NSLog(@"callDidConnect:");
-    
     self.call = call;
     self.callKitCompletionCallback(YES);
     self.callKitCompletionCallback = nil;
@@ -323,16 +307,12 @@ withCompletionHandler:(void (^)(void))completion {
 }
 
 - (void)call:(TVOCall *)call isReconnectingWithError:(NSError *)error {
-    NSLog(@"Call is reconnecting");
-    
     [self.delegate setCallButtonTitle:@"Reconnecting"];
 
     [self.delegate toggleUIState:NO showCallControl:NO];
 }
 
 - (void)callDidReconnect:(TVOCall *)call {
-    NSLog(@"Call reconnected");
-    
     [self.delegate setCallButtonTitle:@"Hang Up"];
     [self.delegate toggleUIState:YES showCallControl:YES];
 }
@@ -400,30 +380,23 @@ withCompletionHandler:(void (^)(void))completion {
 
 #pragma mark - CXProviderDelegate
 - (void)providerDidReset:(CXProvider *)provider {
-    NSLog(@"providerDidReset:");
     self.audioDevice.enabled = YES;
 }
 
 - (void)providerDidBegin:(CXProvider *)provider {
-    NSLog(@"providerDidBegin:");
 }
 
 - (void)provider:(CXProvider *)provider didActivateAudioSession:(AVAudioSession *)audioSession {
-    NSLog(@"provider:didActivateAudioSession:");
     self.audioDevice.enabled = YES;
 }
 
 - (void)provider:(CXProvider *)provider didDeactivateAudioSession:(AVAudioSession *)audioSession {
-    NSLog(@"provider:didDeactivateAudioSession:");
 }
 
 - (void)provider:(CXProvider *)provider timedOutPerformingAction:(CXAction *)action {
-    NSLog(@"provider:timedOutPerformingAction:");
 }
 
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action {
-    NSLog(@"provider:performStartCallAction:");
-    
     [self.delegate toggleUIState:NO showCallControl:NO];
     [self.delegate startSpin];
     
@@ -445,8 +418,6 @@ withCompletionHandler:(void (^)(void))completion {
 }
 
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action {
-    NSLog(@"provider:performAnswerCallAction:");
-    
     NSAssert([self.callInvite.uuid isEqual:action.callUUID], @"We only support one Invite at a time.");
     
     self.audioDevice.enabled = NO;
@@ -476,8 +447,6 @@ withCompletionHandler:(void (^)(void))completion {
 }
 
 - (void)provider:(CXProvider *)provider performEndCallAction:(CXEndCallAction *)action {
-    NSLog(@"provider:performEndCallAction:");
-    
     if (self.callInvite) {
         [self.callInvite reject];
         self.callInvite = nil;
@@ -512,8 +481,6 @@ withCompletionHandler:(void (^)(void))completion {
         if (error) {
             NSLog(@"StartCallAction transaction request failed: %@", [error localizedDescription]);
         } else {
-            NSLog(@"StartCallAction transaction request successful");
-            
             CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
             callUpdate.remoteHandle = callHandle;
             callUpdate.supportsDTMF = YES;
@@ -539,10 +506,7 @@ withCompletionHandler:(void (^)(void))completion {
     callUpdate.hasVideo = NO;
     
     [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
-        if (!error) {
-            NSLog(@"Incoming call successfully reported.");
-        }
-        else {
+        if (error) {
             NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
         }
     }];
