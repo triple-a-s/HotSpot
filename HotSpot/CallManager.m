@@ -16,7 +16,7 @@
 @import CallKit;
 
 
-static NSString *const kYourServerBaseURLString = @"https://omnis.serveo.net";
+static NSString *const kYourServerBaseURLString = @"https://hotspot.serveo.net";
 static NSString *const kAccessTokenEndpoint = @"/accessToken";
 static NSString *const kTwimlParamTo = @"to";
 
@@ -315,8 +315,6 @@ withCompletionHandler:(void (^)(void))completion {
     self.callKitCompletionCallback(YES);
     self.callKitCompletionCallback = nil;
     
-//    [self.delegate show];
-    
     [self.delegate setCallButtonTitle:@"Hang Up"];
     
     [self.delegate toggleUIState:YES showCallControl:YES];
@@ -453,6 +451,18 @@ withCompletionHandler:(void (^)(void))completion {
     
     self.audioDevice.enabled = NO;
     self.audioDevice.block();
+    
+    if (!self.delegate) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Call" bundle:nil];
+        
+        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        while (topController.presentedViewController) {
+            topController = topController.presentedViewController;
+        }
+        [topController showViewController:[storyboard instantiateViewControllerWithIdentifier:@"CallViewController"] sender:nil];
+    }
+    
     
     [self performAnswerVoiceCallWithUUID:action.callUUID completion:^(BOOL success) {
         if (success) {

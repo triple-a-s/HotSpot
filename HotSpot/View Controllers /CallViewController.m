@@ -104,13 +104,9 @@
 }
 
 - (void)show {
+    NSLog(@"ya");
     if (!self.visible) {
-        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
         
-        while (topController.presentedViewController) {
-            topController = topController.presentedViewController;
-        }
-        [topController showViewController:self sender:nil];
     }
 }
 - (void)dismiss {
