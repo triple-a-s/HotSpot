@@ -270,4 +270,9 @@
     [self reset];
 }
 
+
+- (IBAction)didTapCarCell:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
+}
+
 @end

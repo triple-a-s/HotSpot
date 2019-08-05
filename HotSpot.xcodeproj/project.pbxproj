@@ -64,6 +64,7 @@
 		D2C50F7F22F11839003AB2E0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C50F7E22F11839003AB2E0 /* MessageUI.framework */; };
 		D2ECF6B522F8A9B900901E9D /* Checkin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */; };
 		D2ECF6B722F8D37F00901E9D /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */; };
+		D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6B922F8E2F800901E9D /* CarView.m */; };
 		D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		D2C50F7E22F11839003AB2E0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkin.storyboard; sourceTree = "<group>"; };
 		D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		D2ECF6B822F8E2F800901E9D /* CarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarView.h; sourceTree = "<group>"; };
+		D2ECF6B922F8E2F800901E9D /* CarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarView.m; sourceTree = "<group>"; };
 		D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContainerViewSearch.storyboard; sourceTree = "<group>"; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 				D22F501022E7D974004BE9BF /* TimeCell.m */,
 				D26617C522EB689700255BC3 /* SearchCell.h */,
 				D26617C422EB689700255BC3 /* SearchCell.m */,
+				D2ECF6B822F8E2F800901E9D /* CarView.h */,
+				D2ECF6B922F8E2F800901E9D /* CarView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */,
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
+				D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */,
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
