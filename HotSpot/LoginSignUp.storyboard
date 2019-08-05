@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Transition View Controller-->
         <scene sceneID="uyN-6I-Xzj">
             <objects>
-                <viewController id="6MB-mP-Kq7" sceneMemberID="viewController">
+                <viewController id="6MB-mP-Kq7" customClass="TransitionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wa2-3C-Z69">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +23,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Profile Page"/>
                                 <connections>
+                                    <action selector="didTapProfilePage:" destination="6MB-mP-Kq7" eventType="touchUpInside" id="Ndr-Xu-25L"/>
                                     <segue destination="mgN-1J-YBj" kind="show" id="xQv-bS-HpQ"/>
                                 </connections>
                             </button>
@@ -45,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3R-L5-cp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="-123"/>
+            <point key="canvasLocation" x="1321.7391304347827" y="-123.21428571428571"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vCh-yV-Kb1">

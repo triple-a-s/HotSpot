@@ -19,6 +19,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)didTapProfilePage:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"profileSegue" sender:nil];
+}
+
 /*
 #pragma mark - Navigation
 

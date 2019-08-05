@@ -25,29 +25,29 @@
 		61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BB722DFEFAA002B7EB6 /* Current.storyboard */; };
 		61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */; };
 		61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB0BC922E13E50002B7EB6 /* SearchResult.m */; };
-		61BA376922EB9DD3002C1B5A /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */; };
+		AD08283C22F8D1580069A20D /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282A22F8D1570069A20D /* CallViewController.m */; };
+		AD08283D22F8D1580069A20D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282B22F8D1570069A20D /* ProfileViewController.m */; };
+		AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282C22F8D1570069A20D /* SignUpViewController.m */; };
+		AD08283F22F8D1580069A20D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283022F8D1570069A20D /* SettingsViewController.m */; };
+		AD08284022F8D1580069A20D /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283122F8D1570069A20D /* AddCarViewController.m */; };
+		AD08284122F8D1580069A20D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283222F8D1570069A20D /* LoginViewController.m */; };
+		AD08284222F8D1580069A20D /* EditCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283322F8D1570069A20D /* EditCarViewController.m */; };
+		AD08284322F8D1580069A20D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283722F8D1570069A20D /* CarsViewController.m */; };
+		AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283822F8D1570069A20D /* EditInformationViewController.m */; };
+		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
-		ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */; };
-		ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
-		ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9622E119B000ED3F4D /* ProfileViewController.m */; };
 		ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9922E12F7D00ED3F4D /* CarCell.m */; };
-		ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */; };
-		ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */; };
-		ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */; };
 		ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */; };
 		ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCF9FEC22EB745B00EF9E66 /* RegexHelper.m */; };
 		ADCF9FEF22F233CF00EF9E66 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */; };
-		ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D422DE7FE70035274F /* SignUpViewController.m */; };
-		ADEC07D822DE80310035274F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEC07D722DE80310035274F /* LoginViewController.m */; };
 		ADEC07DB22DE80AA0035274F /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 		D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C7D6022E26817000BF3B1 /* TimeInterval.m */; };
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
 		D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501322E920A7004BE9BF /* TimeSlot.m */; };
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
 		D264E26022F20C500054391A /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D264E25F22F20C500054391A /* Call.storyboard */; };
-		D264E26622F20D330054391A /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E26522F20D330054391A /* CallViewController.m */; };
 		D264E26D22F214540054391A /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26A22F214540054391A /* incoming.wav */; };
 		D264E26E22F214540054391A /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26B22F214540054391A /* outgoing.wav */; };
 		D264E26F22F214540054391A /* disconnect.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26C22F214540054391A /* disconnect.wav */; };
@@ -121,41 +121,43 @@
 		61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booked.storyboard; sourceTree = "<group>"; };
 		61AB0BC822E13E50002B7EB6 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		61AB0BC922E13E50002B7EB6 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
-		61BA375F22EB9DD3002C1B5A /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmationViewController.h; sourceTree = "<group>"; };
 		61BA376022EB9DD3002C1B5A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmationViewController.m; sourceTree = "<group>"; };
 		61BA376322EB9DD3002C1B5A /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		867D2E3EE16FA82973B72782 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE34E68664960EC755D9399 /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E2F41223846B7E032C5336 /* Pods-HotSpotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD08282A22F8D1570069A20D /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallViewController.m; path = "HotSpot/View Controllers/CallViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08282B22F8D1570069A20D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "HotSpot/View Controllers/ProfileViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08282C22F8D1570069A20D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = "HotSpot/View Controllers/SignUpViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08282D22F8D1570069A20D /* CarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarsViewController.h; path = "HotSpot/View Controllers/CarsViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08282E22F8D1570069A20D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "HotSpot/View Controllers/SettingsViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08282F22F8D1570069A20D /* AddCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCarViewController.h; path = "HotSpot/View Controllers/AddCarViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283022F8D1570069A20D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "HotSpot/View Controllers/SettingsViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283122F8D1570069A20D /* AddCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCarViewController.m; path = "HotSpot/View Controllers/AddCarViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283222F8D1570069A20D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "HotSpot/View Controllers/LoginViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283322F8D1570069A20D /* EditCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditCarViewController.m; path = "HotSpot/View Controllers/EditCarViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283422F8D1570069A20D /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallViewController.h; path = "HotSpot/View Controllers/CallViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283522F8D1570069A20D /* EditCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditCarViewController.h; path = "HotSpot/View Controllers/EditCarViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283622F8D1570069A20D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "HotSpot/View Controllers/LoginViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283722F8D1570069A20D /* CarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarsViewController.m; path = "HotSpot/View Controllers/CarsViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283822F8D1570069A20D /* EditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditInformationViewController.m; path = "HotSpot/View Controllers/EditInformationViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08283922F8D1570069A20D /* EditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditInformationViewController.h; path = "HotSpot/View Controllers/EditInformationViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283A22F8D1570069A20D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "HotSpot/View Controllers/ProfileViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08283B22F8D1570069A20D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "HotSpot/View Controllers/SignUpViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08284522F8D18F0069A20D /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmationViewController.h; path = "HotSpot/View Controllers/ConfirmationViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD08284622F8D1900069A20D /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmationViewController.m; path = "HotSpot/View Controllers/ConfirmationViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		ADBA5DCD22E638F80055BB17 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
-		ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCarViewController.h; sourceTree = "<group>"; };
-		ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCarViewController.m; sourceTree = "<group>"; };
-		ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		ADC06E9322E1195B00ED3F4D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		ADC06E9522E119B000ED3F4D /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		ADC06E9622E119B000ED3F4D /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		ADC06E9822E12F7D00ED3F4D /* CarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarCell.h; sourceTree = "<group>"; };
 		ADC06E9922E12F7D00ED3F4D /* CarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarCell.m; sourceTree = "<group>"; };
-		ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarsViewController.h; sourceTree = "<group>"; };
-		ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarsViewController.m; sourceTree = "<group>"; };
-		ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditInformationViewController.h; sourceTree = "<group>"; };
-		ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditInformationViewController.m; sourceTree = "<group>"; };
-		ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditCarViewController.h; sourceTree = "<group>"; };
-		ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditCarViewController.m; sourceTree = "<group>"; };
 		ADCF9FE822EA5D2E00EF9E66 /* ImagePickerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickerHelper.h; sourceTree = "<group>"; };
 		ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerHelper.m; sourceTree = "<group>"; };
 		ADCF9FEB22EB745B00EF9E66 /* RegexHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RegexHelper.h; path = HotSpot/RegexHelper.h; sourceTree = SOURCE_ROOT; };
 		ADCF9FEC22EB745B00EF9E66 /* RegexHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RegexHelper.m; path = HotSpot/RegexHelper.m; sourceTree = SOURCE_ROOT; };
 		ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		ADEC07D322DE7FE70035274F /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		ADEC07D422DE7FE70035274F /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		ADEC07D622DE80310035274F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		ADEC07D722DE80310035274F /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSignUp.storyboard; sourceTree = "<group>"; };
 		C9A601628216F0A583FBA4A6 /* Pods-HotSpotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D21C7D5F22E26817000BF3B1 /* TimeInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeInterval.h; sourceTree = "<group>"; };
@@ -167,8 +169,6 @@
 		D22F501522EA2098004BE9BF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		D264E25E22F1FE360054391A /* HotSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotSpot.entitlements; sourceTree = "<group>"; };
 		D264E25F22F20C500054391A /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
-		D264E26422F20D330054391A /* CallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
-		D264E26522F20D330054391A /* CallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
 		D264E26A22F214540054391A /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
 		D264E26B22F214540054391A /* outgoing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outgoing.wav; sourceTree = "<group>"; };
 		D264E26C22F214540054391A /* disconnect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = disconnect.wav; sourceTree = "<group>"; };
@@ -383,32 +383,32 @@
 				61547D5C22EB9A0D00E57E34 /* DetailsViewController.m */,
 				61547D5E22EB9A0D00E57E34 /* MainContainerViewController.h */,
 				61547D6522EB9A0E00E57E34 /* MainContainerViewController.m */,
+				AD08284522F8D18F0069A20D /* ConfirmationViewController.h */,
+				AD08284622F8D1900069A20D /* ConfirmationViewController.m */,
 				61547D6622EB9A0E00E57E34 /* MapViewController.h */,
 				61547D6022EB9A0D00E57E34 /* MapViewController.m */,
-				61BA375F22EB9DD3002C1B5A /* ConfirmationViewController.h */,
-				61BA376222EB9DD3002C1B5A /* ConfirmationViewController.m */,
 				61547D6222EB9A0D00E57E34 /* ParkingSearchViewController.h */,
 				61547D6722EB9A0E00E57E34 /* ParkingSearchViewController.m */,
-				D264E26422F20D330054391A /* CallViewController.h */,
-				D264E26522F20D330054391A /* CallViewController.m */,
-				ADEC07D622DE80310035274F /* LoginViewController.h */,
-				ADEC07D722DE80310035274F /* LoginViewController.m */,
-				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
-				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
-				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
-				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
-				ADC06E9522E119B000ED3F4D /* ProfileViewController.h */,
-				ADC06E9622E119B000ED3F4D /* ProfileViewController.m */,
-				ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */,
-				ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */,
-				ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */,
-				ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */,
-				ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */,
-				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
-				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
-				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
 				ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */,
 				ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */,
+				AD08282F22F8D1570069A20D /* AddCarViewController.h */,
+				AD08283122F8D1570069A20D /* AddCarViewController.m */,
+				AD08283422F8D1570069A20D /* CallViewController.h */,
+				AD08282A22F8D1570069A20D /* CallViewController.m */,
+				AD08282D22F8D1570069A20D /* CarsViewController.h */,
+				AD08283722F8D1570069A20D /* CarsViewController.m */,
+				AD08283522F8D1570069A20D /* EditCarViewController.h */,
+				AD08283322F8D1570069A20D /* EditCarViewController.m */,
+				AD08283922F8D1570069A20D /* EditInformationViewController.h */,
+				AD08283822F8D1570069A20D /* EditInformationViewController.m */,
+				AD08283622F8D1570069A20D /* LoginViewController.h */,
+				AD08283222F8D1570069A20D /* LoginViewController.m */,
+				AD08283A22F8D1570069A20D /* ProfileViewController.h */,
+				AD08282B22F8D1570069A20D /* ProfileViewController.m */,
+				AD08282E22F8D1570069A20D /* SettingsViewController.h */,
+				AD08283022F8D1570069A20D /* SettingsViewController.m */,
+				AD08283B22F8D1570069A20D /* SignUpViewController.h */,
+				AD08282C22F8D1570069A20D /* SignUpViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -676,16 +676,15 @@
 			files = (
 				D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */,
 				61AB0BCA22E13E50002B7EB6 /* SearchResult.m in Sources */,
+				AD08284122F8D1580069A20D /* LoginViewController.m in Sources */,
 				D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */,
+				AD08283F22F8D1580069A20D /* SettingsViewController.m in Sources */,
+				AD08284222F8D1580069A20D /* EditCarViewController.m in Sources */,
 				D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */,
+				AD08283D22F8D1580069A20D /* ProfileViewController.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
-				D264E26622F20D330054391A /* CallViewController.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
@@ -694,6 +693,7 @@
 				D264E27222F352E30054391A /* CallManager.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
+				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
@@ -701,27 +701,21 @@
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				61547D6B22EB9A0E00E57E34 /* MapViewController.m in Sources */,
 				61547D6E22EB9A0E00E57E34 /* ParkingSearchViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
+				AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */,
+				AD08284022F8D1580069A20D /* AddCarViewController.m in Sources */,
 				61547D6C22EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m in Sources */,
 				ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */,
+				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
-				61BA376922EB9DD3002C1B5A /* ConfirmationViewController.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
-				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
+				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
-				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
-				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
-				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
-				ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */,
+				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
-				ADC06E9D22E13B1100ED3F4D /* CarsViewController.m in Sources */,
-				ADBB8D6222E7B8E0004C28EA /* AddCarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
