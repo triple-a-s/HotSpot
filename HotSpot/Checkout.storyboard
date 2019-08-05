@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GNz-bi-pVH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lEL-Tv-reO">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Checkout View Controller-->
         <scene sceneID="7eR-gf-vm9">
             <objects>
-                <viewController id="GNz-bi-pVH" sceneMemberID="viewController">
+                <viewController id="GNz-bi-pVH" customClass="CheckoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HVo-ca-Ses">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06d-Uk-Zo6">
-                                <rect key="frame" x="136" y="434.5" width="142" height="37"/>
+                                <rect key="frame" x="136" y="456.5" width="142" height="37"/>
                                 <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
@@ -33,11 +33,14 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58l-wF-out">
-                                <rect key="frame" x="141" y="475" width="132" height="33"/>
+                                <rect key="frame" x="141" y="497" width="132" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="I want more time!">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="4au-cY-4a9" kind="show" id="6Kd-DL-dol"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,15 +52,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RPm-Z8-HEF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Afa-57-fmP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeA-lB-Sgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-136" y="812"/>
+            <point key="canvasLocation" x="773.91304347826087" y="811.60714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--More Time View Controller-->
         <scene sceneID="Occ-3l-Yw4">
             <objects>
-                <viewController id="4au-cY-4a9" sceneMemberID="viewController">
+                <viewController id="4au-cY-4a9" customClass="MoreTimeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJs-Xy-1Go">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,6 +80,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doneClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="fSg-Io-NIf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ3-bl-f5T">
                                 <rect key="frame" x="144" y="483" width="118" height="33"/>
@@ -84,6 +91,9 @@
                                 <state key="normal" title="Add 15 minutes">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="fifteenClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="DhY-sT-cxu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-u7-iEb">
                                 <rect key="frame" x="162" y="524" width="83" height="33"/>
@@ -92,6 +102,9 @@
                                 <state key="normal" title="Add 1 hour">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="hourClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="saP-Ey-V36"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time: blah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-0b-6Ri">
                                 <rect key="frame" x="150" y="438" width="114" height="21"/>
@@ -101,10 +114,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-eA-mgZ">
-                                <rect key="frame" x="181" y="663" width="53" height="33"/>
+                                <rect key="frame" x="131" y="663" width="154" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Nevermind I'm good">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
@@ -112,10 +125,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Klh-HT-YIh"/>
                     </view>
+                    <connections>
+                        <outlet property="endTimeLabel" destination="Zex-0b-6Ri" id="DNO-oH-bsb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEd-Me-CeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="812"/>
+            <point key="canvasLocation" x="1666.6666666666667" y="811.60714285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UKN-L1-qhX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lEL-Tv-reO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hsE-kI-mH2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GNz-bi-pVH" kind="relationship" relationship="rootViewController" id="BAE-NT-b4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLg-gM-6S3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136.23188405797103" y="811.60714285714278"/>
         </scene>
     </scenes>
 </document>

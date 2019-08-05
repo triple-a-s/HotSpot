@@ -65,6 +65,8 @@
 		D2ECF6B522F8A9B900901E9D /* Checkin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */; };
 		D2ECF6B722F8D37F00901E9D /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */; };
 		D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6B922F8E2F800901E9D /* CarView.m */; };
+		D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */; };
+		D2ECF6C022F8E88F00901E9D /* MoreTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */; };
 		D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +192,10 @@
 		D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
 		D2ECF6B822F8E2F800901E9D /* CarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarView.h; sourceTree = "<group>"; };
 		D2ECF6B922F8E2F800901E9D /* CarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarView.m; sourceTree = "<group>"; };
+		D2ECF6BB22F8E85800901E9D /* CheckoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckoutViewController.h; sourceTree = "<group>"; };
+		D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckoutViewController.m; sourceTree = "<group>"; };
+		D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreTimeViewController.h; sourceTree = "<group>"; };
+		D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreTimeViewController.m; sourceTree = "<group>"; };
 		D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContainerViewSearch.storyboard; sourceTree = "<group>"; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -415,6 +421,10 @@
 				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
 				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
 				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
+				D2ECF6BB22F8E85800901E9D /* CheckoutViewController.h */,
+				D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */,
+				D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */,
+				D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -678,6 +688,7 @@
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				ADEC07D822DE80310035274F /* LoginViewController.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
+				D2ECF6C022F8E88F00901E9D /* MoreTimeViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
@@ -707,6 +718,7 @@
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
 				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
+				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				ADCF9FE722E9211700EF9E66 /* EditCarViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
