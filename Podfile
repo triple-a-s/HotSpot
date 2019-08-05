@@ -7,7 +7,7 @@ target 'HotSpot' do
 
   # Pods for HotSpot
     pod 'Parse'
-    pod 'ParseUI'
+    pod 'Parse/UI'
     pod 'TwilioVoice', '~> 4.1'
 
   target 'HotSpotTests' do

@@ -4,10 +4,13 @@ PODS:
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
     - Bolts/Tasks (~> 1.9)
+  - Parse/UI (1.17.2):
+    - Parse/Core
   - TwilioVoice (4.1.0)
 
 DEPENDENCIES:
   - Parse
+  - Parse/UI
   - TwilioVoice (~> 4.1)
 
 SPEC REPOS:
@@ -21,6 +24,6 @@ SPEC CHECKSUMS:
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   TwilioVoice: f02ca9098bd746c9eeb4b9888998aa74cd17f3b8
 
-PODFILE CHECKSUM: dec6856dd7b66f9be8dfd1d42e357defae26d2e3
+PODFILE CHECKSUM: 1fe86bee9967da6c750bd2c3ecd143f678fe02b3
 
 COCOAPODS: 1.7.2
