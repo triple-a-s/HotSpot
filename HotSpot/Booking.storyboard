@@ -103,7 +103,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Booking" id="dVH-OH-FTN"/>
                     <connections>
-                        <outlet property="bookingButton" destination="C9n-UD-Ud6" id="t8t-d7-dJM"/>
                         <outlet property="listingAddressLabel" destination="5Vp-89-8W9" id="UA6-2M-uFg"/>
                         <outlet property="listingImageView" destination="a9Y-Ph-bDz" id="50c-Ze-rQ3"/>
                         <outlet property="listingNotesLabel" destination="WB4-D2-akE" id="CjH-4U-bBi"/>
@@ -118,7 +117,7 @@
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
             <objects>
-                <viewController id="ogF-Ac-Squ" customClass="BookingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookings" id="ogF-Ac-Squ" customClass="BookingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gio-3n-Vrf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

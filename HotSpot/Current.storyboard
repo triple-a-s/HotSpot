@@ -102,11 +102,11 @@
             </objects>
             <point key="canvasLocation" x="833.33333333333337" y="-20.758928571428569"/>
         </scene>
-        <!--DetailsViewController-->
+        <!--CurrentAndPast-->
         <scene sceneID="YQN-mb-uH2">
             <objects>
-                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="DetailsViewController" id="TX2-Rl-qJf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeU-nR-bY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="CurrentAndPastDetails" referencedIdentifier="CurrentAndPast" id="TX2-Rl-qJf" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="1466" y="-304"/>
         </scene>

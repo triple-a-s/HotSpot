@@ -12,7 +12,7 @@
 #import "DataManager.h"
 #import "Listing.h"
 #import "Booking.h"
-#import "DetailsViewController.h"
+#import "CurrentAndPastDetails.h"
 
 @interface BookedParkingSpotsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -87,18 +87,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     Booking *booking = self.bookings[indexPath.row];
-    Listing *listing = booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        [self performSegueWithIdentifier:@"pastToBooking"
-                                  sender:object];
-    }];
+    [self performSegueWithIdentifier:@"pastToBooking"
+                              sender:booking];
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"pastToBooking"]) {
-        DetailsViewController *detailsViewController = [segue destinationViewController];
-        detailsViewController.listing = sender;
+        CurrentAndPastDetails *ourViewController = [segue destinationViewController];
+        ourViewController.booking = sender;
     }
 }
 @end

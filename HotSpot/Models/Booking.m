@@ -108,7 +108,6 @@
     PFQuery *query = relation.query;
     [query orderByAscending:@"startTime"];
     [query whereKey:@"startTime" greaterThan:[NSDate date]];
-    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
 }

@@ -7,6 +7,7 @@ target 'HotSpot' do
 
   # Pods for HotSpot
     pod 'Parse'
+    
 
   target 'HotSpotTests' do
     inherit! :search_paths

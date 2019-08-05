@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
         withCompletion:(void(^)(NSArray<Booking*> *booking, NSError *error))completion;
 + (void)getListingFromID:(NSString *)objectID
           withCompletion:(void(^)(Listing *listing, NSError *error))completion;
++ (CGFloat) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo;
 @end
 
 NS_ASSUME_NONNULL_END

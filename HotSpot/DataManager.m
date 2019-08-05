@@ -92,5 +92,14 @@
     }];
 }
 
++ (CGFloat) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo {
+    CLLocation *locationOne = [[CLLocation alloc] initWithLatitude: addressOne.latitude longitude:addressTwo.longitude];
+    CLLocation *locationTwo = [[CLLocation alloc] initWithLatitude:addressTwo.latitude longitude:addressTwo.longitude];
+    CLLocationDistance distance = [locationOne distanceFromLocation:locationTwo];
+    CGFloat distanceValue = (CGFloat)distance * 0.000621371;
+    // this is in miles
+    return distanceValue;
+}
+
 
 @end

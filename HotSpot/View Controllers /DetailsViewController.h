@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 @property (nonatomic, strong) Listing *listing;
-@property (nonatomic, strong) Booking *booking;
-@property (weak, nonatomic) IBOutlet UIButton *bookingButton;
 
 @end
 

@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="194.86607142857142"/>
         </scene>
-        <!--DetailsViewController-->
+        <!--CurrentAndPast-->
         <scene sceneID="DSE-IE-ont">
             <objects>
-                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="DetailsViewController" id="KIp-la-Kxr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CurrentAndPastDetails" referencedIdentifier="CurrentAndPast" id="KIp-la-Kxr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb4-5W-iPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1736" y="-107"/>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Current And Past Details-->
+        <scene sceneID="uww-fc-KyL">
+            <objects>
+                <viewController storyboardIdentifier="CurrentAndPast" id="q1s-Ok-vte" customClass="CurrentAndPastDetails" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W6e-4M-V8P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="7C3-mN-U85">
+                                <rect key="frame" x="9" y="44" width="221" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="Wys-nZ-lV4"/>
+                                    <constraint firstAttribute="width" constant="221" id="xBQ-gX-XtC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-dC-vih">
+                                <rect key="frame" x="238" y="100" width="123.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="756" fixedFrame="YES" text="$10.59" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-2y-Lqa">
+                                <rect key="frame" x="0.0" y="427" width="394" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alan Dookes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtQ-bY-m0b">
+                                <rect key="frame" x="254" y="127" width="90.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-VP-Re1">
+                                <rect key="frame" x="9" y="259" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Contact Owner"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Parked / Time you will park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRV-aY-bkW">
+                                <rect key="frame" x="9" y="297" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Booking Processed On " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPx-gD-AFk">
+                                <rect key="frame" x="9" y="326" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJD-qA-l5B">
+                                <rect key="frame" x="36" y="550" width="322" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Book Again "/>
+                                <connections>
+                                    <action selector="bookAgain:" destination="q1s-Ok-vte" eventType="touchUpInside" id="Kq8-hP-6zD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tCd-uc-8in" firstAttribute="bottom" secondItem="fJD-qA-l5B" secondAttribute="bottom" constant="95" id="5Fo-4o-tkg"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" id="E6Z-rS-6Ya"/>
+                            <constraint firstItem="tCd-uc-8in" firstAttribute="trailing" secondItem="fJD-qA-l5B" secondAttribute="trailing" constant="150" id="HGc-T9-hFr"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="9" id="Iqd-Gx-fIh"/>
+                            <constraint firstItem="fJD-qA-l5B" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="150" id="TDK-ZO-SG9"/>
+                            <constraint firstItem="fJD-qA-l5B" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" constant="684" id="bDW-Ja-NVW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tCd-uc-8in"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookingProcessing" destination="MPx-gD-AFk" id="vxl-Vb-quH"/>
+                        <outlet property="homeOwner" destination="AtQ-bY-m0b" id="rJy-5s-eob"/>
+                        <outlet property="houseAddress" destination="RYa-dC-vih" id="sTR-pH-v7h"/>
+                        <outlet property="houseImage" destination="7C3-mN-U85" id="RGv-oY-nFA"/>
+                        <outlet property="moneySpent" destination="kNi-2y-Lqa" id="Rln-2Q-Hz9"/>
+                        <outlet property="timeParked" destination="RRV-aY-bkW" id="uOy-qi-qfu"/>
+                        <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="TSe-nV-JnB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ze-i2-hre" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="-46.205357142857139"/>
+        </scene>
+        <!--bookings-->
+        <scene sceneID="aal-iE-aYh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="bookings" id="6qO-Fd-S9i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeA-e7-ApK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="652" y="-355"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="houseimageexample" width="550" height="413"/>
+    </resources>
+</document>

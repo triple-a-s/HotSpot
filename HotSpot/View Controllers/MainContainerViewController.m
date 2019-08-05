@@ -152,6 +152,8 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     // this is necessary in certain cases, although it seems redundant
     [self.mainSearchBar endEditing:YES];
+    self.tableVC.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
+    [self.tableVC.searchTableView reloadData];
 }
 
 # pragma mark - TableView Methods
@@ -176,6 +178,7 @@
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;
     self.mapVC.annotationTitle = completionForMap.subtitle;
+    
     
     // translate the address to coordinates we can work with to set on the map using prewritten method
     [MainContainerViewController getCoordinateFromAddress:mapAddressForConversion withCompletion:^(CLLocation *location, NSError *error) {
