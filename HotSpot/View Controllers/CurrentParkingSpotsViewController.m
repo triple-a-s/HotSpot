@@ -7,7 +7,7 @@
 //
 
 #import "CurrentParkingSpotsViewController.h"
-#import "DetailsViewController.h"
+#import "CurrentAndPastDetails.h"
 #import "SearchCell.h"
 #import "Booking.h"
 #import "Listing.h"
@@ -45,12 +45,12 @@
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Booking *booking = self.bookings[indexPath.row];
+    Listing *listing = booking.listing;
     SearchCell *currentCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(currentCell == nil){
         currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
-    Booking *booking = self.bookings[indexPath.row];
-    Listing *listing = booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
                 currentCell.searchTableAddress.text= name;
@@ -72,25 +72,22 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // I return 10 for now just to see if this method is working
     return self.bookings.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     Booking *booking = self.bookings[indexPath.row];
-    Listing *listing = booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
     [self performSegueWithIdentifier:@"currentToDetails"
-                              sender:object];
-    }];
+                              sender:booking];
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"currentToDetails"]) {
-        DetailsViewController *detailsViewController = [segue destinationViewController];
-        detailsViewController.listing = sender;
+        CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
+        detailsViewController.booking = sender;
+        detailsViewController.bookAgainButton.hidden = YES;
        // detailsViewController.bookingButton.hidden = YES; 
     }
 }

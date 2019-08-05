@@ -53,12 +53,6 @@
     
 
 }
-- (IBAction)bookAgain:(id)sender {
-    Listing *listing =self.booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
-    }];
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
@@ -68,6 +62,11 @@
         bookingViewController.listing = listing;
     }
     }];
+}
+- (IBAction)bookAgain:(id)sender {
+    if (!self.bookAgainButton.hidden){
+    [self performSegueWithIdentifier:@"bookingSegue2" sender:self];
+    }
 }
 
 - (IBAction)bookingBackPressed:(id)sender {

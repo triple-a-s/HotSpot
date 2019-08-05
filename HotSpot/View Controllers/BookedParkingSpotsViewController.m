@@ -96,6 +96,7 @@
     if([segue.identifier isEqualToString:@"pastToBooking"]) {
         CurrentAndPastDetails *ourViewController = [segue destinationViewController];
         ourViewController.booking = sender;
+        ourViewController.bookAgainButton.hidden = NO; 
     }
 }
 @end

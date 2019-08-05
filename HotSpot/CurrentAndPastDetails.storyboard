@@ -64,27 +64,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJD-qA-l5B">
-                                <rect key="frame" x="36" y="550" width="322" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Book Again "/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-ct-482">
+                                <rect key="frame" x="169" y="166" width="285" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Book Again"/>
                                 <connections>
-                                    <action selector="bookAgain:" destination="q1s-Ok-vte" eventType="touchUpInside" id="Kq8-hP-6zD"/>
+                                    <action selector="bookAgain:" destination="q1s-Ok-vte" eventType="touchUpInside" id="1b7-O4-0Wk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount charged to your account: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnm-0b-OFH">
+                                <rect key="frame" x="9" y="398" width="261" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tCd-uc-8in" firstAttribute="bottom" secondItem="fJD-qA-l5B" secondAttribute="bottom" constant="95" id="5Fo-4o-tkg"/>
                             <constraint firstItem="7C3-mN-U85" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" id="E6Z-rS-6Ya"/>
-                            <constraint firstItem="tCd-uc-8in" firstAttribute="trailing" secondItem="fJD-qA-l5B" secondAttribute="trailing" constant="150" id="HGc-T9-hFr"/>
                             <constraint firstItem="7C3-mN-U85" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="9" id="Iqd-Gx-fIh"/>
-                            <constraint firstItem="fJD-qA-l5B" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="150" id="TDK-ZO-SG9"/>
-                            <constraint firstItem="fJD-qA-l5B" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" constant="684" id="bDW-Ja-NVW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tCd-uc-8in"/>
                     </view>
                     <connections>
+                        <outlet property="bookAgainButton" destination="kRZ-ct-482" id="pgJ-18-4da"/>
                         <outlet property="bookingProcessing" destination="MPx-gD-AFk" id="vxl-Vb-quH"/>
                         <outlet property="homeOwner" destination="AtQ-bY-m0b" id="rJy-5s-eob"/>
                         <outlet property="houseAddress" destination="RYa-dC-vih" id="sTR-pH-v7h"/>
