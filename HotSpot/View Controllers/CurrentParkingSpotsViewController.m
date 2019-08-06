@@ -60,10 +60,10 @@
             UIImage *imageToLoad = [UIImage imageWithData:imageData];
             currentCell.searchTableImage.image = imageToLoad;
         }];
-        currentCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
     }];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    currentCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
+    currentCell.searchTableMilesAway.text = [formatter stringFromDate: booking.startTime];
     
     currentCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     currentCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;

@@ -68,7 +68,6 @@
             UIImage *imageToLoad = [UIImage imageWithData:imageData];
             bookedCell.searchTableImage.image = imageToLoad;
         }];
-        bookedCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
     }];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
