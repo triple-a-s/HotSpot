@@ -54,7 +54,6 @@
     [super viewDidLoad];
     // setting things up (views)
     self.spotListView.hidden = YES;
-    self.searchResultTableView.hidden = YES;
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
     
@@ -71,6 +70,11 @@
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
     self.tableVC.initialLocation = self.mapVC.locationManager.location;
+    
+    // animations
+    CGRect frame =  self.searchResultTableView.frame;
+    frame.size.height = 0;
+    self.searchResultTableView.frame  = frame;
 }
 
 # pragma mark - Action Items
@@ -93,42 +97,19 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     // setting the views to hidden or not
-    self.searchResultTableView.hidden = NO;
+
     
-    // starting to try out a simple animation 
-    if(self.searchResultTableView.frame.size.height == 0){
+    // starting to try out a simple animation
+    if(self.searchResultTableView.frame.size.height ==0)
+    [UIView animateWithDuration:0.4 animations:^{CGRect frame = self.searchResultTableView.frame;
+        frame.size.height = 800;
+        self.searchResultTableView.frame = frame;}];
     
-    [UIView animateWithDuration:1
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         CGRect frame = self.searchResultTableView.frame;
-                         frame.size.height = 300;
-                         self.searchResultTableView.frame = frame;
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
-    }
     
-    else if (self.searchResultTableView.frame.size.height == 300){
-        [UIView animateWithDuration:1
-                              delay:0.0
-                            options: UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             CGRect frame = self.searchResultTableView.frame;
-                             frame.size.height = 0;
-                             self.searchResultTableView.frame = frame;
-                         }
-                         completion:^(BOOL finished){
-                             NSLog(@"Done!");
-                         }];
-        
-    }
     // the search bar will go away once you delete text
     if(searchText.length ==0){
         [self.mainSearchBar endEditing:YES];
-        self.searchResultTableView.hidden = YES;
+        
     }
     
     // the actual implementation of the autocompleter!
@@ -146,6 +127,9 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
     // tells the keyboard what to do when we decide it ended editing --> actually dismisses keyboard
+    CGRect frame =  self.searchResultTableView.frame;
+    frame.size.height = 0;
+    self.searchResultTableView.frame  = frame;
     [self.mainSearchBar resignFirstResponder];
 }
 
@@ -209,7 +193,9 @@
         }
     }];
     // we don't want the search result to show after we already tapped on something
-    self.searchResultTableView.hidden =YES;
+    CGRect frame =  self.searchResultTableView.frame;
+    frame.size.height = 0;
+    self.searchResultTableView.frame  = frame;
     // we want the keyboard to go away after we tapped on something
     [self.mainSearchBar endEditing:YES];
 }

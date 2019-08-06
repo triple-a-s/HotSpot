@@ -59,8 +59,8 @@
                                     <action selector="switchMode:" destination="ACg-sL-kal" eventType="valueChanged" id="CKF-8a-vkM"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-V2-Q4b">
-                                <rect key="frame" x="0.0" y="144" width="414" height="650"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-V2-Q4b">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResult" rowHeight="84" id="br4-o5-NoU" customClass="SearchResult">
@@ -104,8 +104,7 @@
                             <constraint firstItem="61B-eg-jNy" firstAttribute="top" secondItem="eML-tz-l8n" secondAttribute="bottom" constant="80" id="KGn-fA-vNt"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="PIw-HH-heq"/>
                             <constraint firstItem="6sP-V2-Q4b" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="UAG-QK-amp"/>
-                            <constraint firstItem="6sP-V2-Q4b" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" id="V1P-de-NtN"/>
-                            <constraint firstItem="6sP-V2-Q4b" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" constant="3" id="YFA-QK-Ay6"/>
+                            <constraint firstItem="6sP-V2-Q4b" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" id="YFA-QK-Ay6"/>
                             <constraint firstItem="61B-eg-jNy" firstAttribute="top" secondItem="SEi-fP-YzU" secondAttribute="bottom" constant="8" id="asd-w8-qi6"/>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="top" secondItem="ylp-ov-5C3" secondAttribute="top" id="cQp-YA-yNa"/>
                             <constraint firstItem="61B-eg-jNy" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" id="dlw-XI-c7t"/>
