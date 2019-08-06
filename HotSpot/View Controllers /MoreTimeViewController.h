@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Booking.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MoreTimeViewController : UIViewController
+@property (strong, nonatomic) Booking *booking;
 
 @end
 

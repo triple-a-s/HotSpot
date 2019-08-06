@@ -24,22 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    // get the next booking for this user
-    PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
-    PFQuery *query = relation.query;
-    [query orderByAscending:@"startTime"];
-    [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
-    
-    // fetch data asynchronously
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    [DataManager getNextBookingWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if(error) {
             NSLog(@"%@", error);
         }
         else {
-            self.booking = object;
             Booking *booking = object;
+            self.booking = booking;
             [booking.listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 Listing *listing = object;
                 [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){

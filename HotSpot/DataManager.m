@@ -73,5 +73,15 @@
     }];
 }
 
++ (void)getNextBookingWithBlock:(PFObjectResultBlock)block {
+    // get the next booking for this user
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
+    PFQuery *query = relation.query;
+    [query orderByAscending:@"startTime"];
+    [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
+    // fetch data asynchronously
+    [query getFirstObjectInBackgroundWithBlock:block];
+}
+
 
 @end

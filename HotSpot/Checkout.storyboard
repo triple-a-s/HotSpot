@@ -42,7 +42,7 @@
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4au-cY-4a9" kind="show" id="6Kd-DL-dol"/>
+                                    <segue destination="4au-cY-4a9" kind="show" identifier="moreTimeSegue" id="6Kd-DL-dol"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-YD-qzT">
@@ -78,9 +78,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-3E-WSo">
-                                <rect key="frame" x="157" y="618" width="101" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-3E-WSo">
+                                <rect key="frame" x="156.5" y="593.5" width="101" height="37"/>
                                 <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
@@ -96,9 +95,8 @@
                                     <action selector="doneClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="fSg-Io-NIf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ3-bl-f5T">
-                                <rect key="frame" x="144" y="483" width="118" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ3-bl-f5T">
+                                <rect key="frame" x="148" y="458.5" width="118" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add 15 minutes">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -107,9 +105,8 @@
                                     <action selector="fifteenClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="DhY-sT-cxu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-u7-iEb">
-                                <rect key="frame" x="162" y="524" width="83" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-u7-iEb">
+                                <rect key="frame" x="165.5" y="499.5" width="83" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add 1 hour">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -118,16 +115,8 @@
                                     <action selector="hourClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="saP-Ey-V36"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time: blah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-0b-6Ri">
-                                <rect key="frame" x="150" y="438" width="114" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-eA-mgZ">
-                                <rect key="frame" x="131" y="663" width="154" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-eA-mgZ">
+                                <rect key="frame" x="130" y="638.5" width="154" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Nevermind I'm good">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -136,12 +125,31 @@
                                     <action selector="nevermindClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="A4R-v4-Be8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End Time: blah" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-0b-6Ri">
+                                <rect key="frame" x="8" y="101" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jXj-u7-iEb" firstAttribute="centerX" secondItem="ZZ3-bl-f5T" secondAttribute="centerX" id="5Ug-rE-Jmk"/>
+                            <constraint firstItem="ZZ3-bl-f5T" firstAttribute="centerY" secondItem="Klh-HT-YIh" secondAttribute="centerY" id="7JW-Kq-swU"/>
+                            <constraint firstItem="Zex-0b-6Ri" firstAttribute="leading" secondItem="Klh-HT-YIh" secondAttribute="leading" constant="8" id="95J-bY-NBV"/>
+                            <constraint firstItem="Klh-HT-YIh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zex-0b-6Ri" secondAttribute="trailing" constant="8" id="9mF-J7-QKJ"/>
+                            <constraint firstItem="Zex-0b-6Ri" firstAttribute="top" secondItem="Klh-HT-YIh" secondAttribute="top" constant="13" id="ClY-JF-edn"/>
+                            <constraint firstItem="ibz-3E-WSo" firstAttribute="centerX" secondItem="jXj-u7-iEb" secondAttribute="centerX" id="Pik-oX-rgF"/>
+                            <constraint firstItem="ibz-3E-WSo" firstAttribute="top" secondItem="jXj-u7-iEb" secondAttribute="bottom" constant="61" id="VXI-Su-7iz"/>
+                            <constraint firstItem="Bdj-eA-mgZ" firstAttribute="centerX" secondItem="ibz-3E-WSo" secondAttribute="centerX" id="iKv-AC-tDL"/>
+                            <constraint firstItem="ZZ3-bl-f5T" firstAttribute="centerX" secondItem="Klh-HT-YIh" secondAttribute="centerX" id="ods-2S-Kdc"/>
+                            <constraint firstItem="Bdj-eA-mgZ" firstAttribute="top" secondItem="ibz-3E-WSo" secondAttribute="bottom" constant="8" id="sD3-oU-HFG"/>
+                            <constraint firstItem="jXj-u7-iEb" firstAttribute="top" secondItem="ZZ3-bl-f5T" secondAttribute="bottom" constant="8" id="shr-kz-Zkn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Klh-HT-YIh"/>
                     </view>
                     <connections>
-                        <outlet property="endTimeLabel" destination="Zex-0b-6Ri" id="DNO-oH-bsb"/>
+                        <outlet property="endTimeLabel" destination="Zex-0b-6Ri" id="nZi-AW-g4K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEd-Me-CeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
