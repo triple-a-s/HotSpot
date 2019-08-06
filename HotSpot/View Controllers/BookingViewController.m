@@ -171,8 +171,12 @@
 
     NSDate *date = self.datePicker.date; // date chosen by the user
     NSInteger secondsPerDay = 60 * 60 * 24;
-    NSInteger timeSinceBeginningOfDay = (int)[date timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
-    NSDate *beginningOfDay = [date dateByAddingTimeInterval: -timeSinceBeginningOfDay];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [gregorian setTimeZone:[NSTimeZone localTimeZone]];
+
+    NSDate *beginningOfDay = [gregorian startOfDayForDate:date];
+    
     NSDate *endOfDay = [date dateByAddingTimeInterval: secondsPerDay];
     
     // only care about unavailable times on day chosen
