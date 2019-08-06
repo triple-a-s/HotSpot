@@ -70,8 +70,10 @@
         }];
         bookedCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
     }];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    bookedCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
+    bookedCell.searchTableMilesAway.text = [formatter stringFromDate: booking.createdAt];
+
     
     bookedCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     bookedCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
