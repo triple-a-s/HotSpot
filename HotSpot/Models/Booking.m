@@ -138,10 +138,11 @@
 }
 
 - (void)canAddDuration:(CGFloat)duration WithCompletion:(void(^)(BOOL can, NSError * _Nullable error))completion{
+    NSInteger buffer = 2;
     Booking *newBooking = [Booking new];
     newBooking.timeInterval = [TimeInterval new];
-    newBooking.timeInterval.startTime = self.timeInterval.endTime;
-    newBooking.timeInterval.endTime = [newBooking.timeInterval.startTime dateByAddingTimeInterval:duration];
+    newBooking.timeInterval.startTime = [self.timeInterval.endTime dateByAddingTimeInterval:buffer];
+    newBooking.timeInterval.endTime = [newBooking.timeInterval.startTime dateByAddingTimeInterval:duration - buffer];
     [self.listing canBook:newBooking
            withCompletion:completion];
 }

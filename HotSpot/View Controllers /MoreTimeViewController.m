@@ -61,7 +61,7 @@
 }
 - (void)updateViews {
     self.endTimeLabel.text = [NSString stringWithFormat:@"End time: %@", [self.timeInterval.endTime dateByAddingTimeInterval:self.addedDuration]];
-    [self.booking canAddDuration:15 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
+    [self.booking canAddDuration:self.addedDuration + 15 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);
         }
@@ -74,7 +74,7 @@
             self.add15MinButton.alpha = 0.2;
         }
     }];
-    [self.booking canAddDuration:60 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
+    [self.booking canAddDuration:self.addedDuration + 60 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);
         }
