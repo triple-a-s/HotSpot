@@ -72,7 +72,7 @@
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
        
-    self.listings = [self sortListingArraybyPriceAscending:self.listings];
+    self.listings = [self sortListingArraybyAscending:self.listings];
     
     Listing *listing = self.listings[indexPath.row];
     [DataManager getAddressNameFromPoint: listing.address withCompletion:^(NSString *name, NSError * _Nullable error){

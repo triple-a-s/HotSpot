@@ -152,8 +152,6 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     // this is necessary in certain cases, although it seems redundant
     [self.mainSearchBar endEditing:YES];
-    self.tableVC.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
-    [self.tableVC.searchTableView reloadData];
 }
 
 # pragma mark - TableView Methods
@@ -195,6 +193,7 @@
                 }
                 else{
                     self.tableVC.listings = listings;
+                    self.tableVC.initialLocation = location;
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.tableVC.searchTableView reloadData];
                     });
@@ -206,8 +205,7 @@
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             [annotation setCoordinate: location.coordinate];
             [annotation setTitle: completionForMap.title];
-            [self.mapVC.searchMap addAnnotation:annotation]; 
-            [self.tableVC.searchTableView reloadData];
+            [self.mapVC.searchMap addAnnotation:annotation];
         }
     }];
     // we don't want the search result to show after we already tapped on something

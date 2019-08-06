@@ -74,7 +74,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Booking Error"
                                                                    message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
-    // ceate an OK action
+    // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
