@@ -137,6 +137,7 @@
         else if (pickingStartTime) {
             startIndexPath = indexPath;
             startTime = date;
+            endTime = [date dateByAddingTimeInterval:15 * 60 - 4];
             pickingStartTime = NO;
             self.instructionsLabel.text = @"Adjust your end time:";
             self.timeSlots[indexPath.item].chosen = YES;
@@ -154,7 +155,7 @@
                 // start date cannot be later than end date
                 return;
             }
-            endTime = date;
+            endTime = [date dateByAddingTimeInterval:15 * 60 - 4];
             for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
                 if (i<=indexPath.item) {
                     self.timeSlots[i].chosen = YES;
