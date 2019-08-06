@@ -68,6 +68,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="5Q8-hJ-KWI" secondAttribute="bottom" constant="20" id="waI-SE-D8I"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="searchTableAddress" destination="uXK-bs-1Sj" id="9ID-Nt-5ef"/>
+                                            <outlet property="searchTableImage" destination="bXd-gg-Ks9" id="nzD-fN-Hd7"/>
+                                            <outlet property="searchTableMilesAway" destination="5Q8-hJ-KWI" id="7yW-hR-Y6r"/>
+                                            <outlet property="searchTablePrice" destination="9gg-3Z-c5h" id="vcB-NU-RJR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -105,8 +111,8 @@
         <!--CurrentAndPast-->
         <scene sceneID="YQN-mb-uH2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eeU-nR-bY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="CurrentAndPastDetails" referencedIdentifier="CurrentAndPast" id="TX2-Rl-qJf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeU-nR-bY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1466" y="-304"/>
         </scene>
