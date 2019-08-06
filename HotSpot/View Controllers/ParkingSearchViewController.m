@@ -111,8 +111,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
+    if (self.listings.count >0){
     [self performSegueWithIdentifier:@"detailsSegue"
                               sender:self.listings[indexPath.row]];
+    }
 }
  
 
