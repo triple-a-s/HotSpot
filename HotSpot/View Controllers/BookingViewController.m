@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeRangeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
@@ -136,11 +138,13 @@
             startIndexPath = indexPath;
             startTime = date;
             pickingStartTime = NO;
+            self.instructionsLabel.text = @"Adjust your end time:";
             self.timeSlots[indexPath.item].chosen = YES;
             cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
             [self.collectionView reloadData];
         }
         else {
+            self.instructionsLabel.text = @"Adjust your end time:";
             for (int i = startIndexPath.item; i < indexPath.item; i++) {
                 if ( self.timeSlots[i].available == NO) {
                     return;
@@ -233,6 +237,7 @@
     }];
     
     pickingStartTime = YES;
+    self.instructionsLabel.text = @"Select a start time:";
 }
 
 - (void)makeTimeSlotsUnavailableGivenStartDate:(NSDate *)startDate
@@ -265,6 +270,7 @@
     startIndexPath = nil;
     endTime = nil;
     pickingStartTime = YES;
+    self.instructionsLabel.text = @"Select a start time:";
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
     }

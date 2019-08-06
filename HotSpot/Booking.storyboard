@@ -344,6 +344,27 @@
                                     <outletCollection property="gestureRecognizers" destination="Gu0-jR-LSz" appends="YES" id="Op4-gR-kSH"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose start time/Choose end time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czN-Af-MNg">
+                                <rect key="frame" x="5" y="422" width="276" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which day are you parking?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdl-7h-HS9">
+                                <rect key="frame" x="5" y="362" width="211" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00AM to 12:15AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-zT-wpO">
+                                <rect key="frame" x="5" y="513" width="158" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -373,10 +394,12 @@
                     <connections>
                         <outlet property="collectionView" destination="YrE-Cb-wov" id="pWa-Ru-jUC"/>
                         <outlet property="datePicker" destination="Obk-FO-7Wr" id="72D-01-h7D"/>
+                        <outlet property="instructionsLabel" destination="czN-Af-MNg" id="K7N-0V-tpx"/>
                         <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>
                         <outlet property="listingImageView" destination="jsM-A7-T6H" id="a0k-To-Zvl"/>
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
+                        <outlet property="timeRangeLabel" destination="wsY-zT-wpO" id="6eb-8x-QhW"/>
                         <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="qgi-e5-3Cx"/>
                         <segue destination="o8G-pB-FRW" kind="show" identifier="carSegue" id="A3x-wQ-Rtt"/>
                     </connections>
