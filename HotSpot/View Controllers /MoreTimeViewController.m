@@ -25,5 +25,8 @@
 }
 - (IBAction)doneClicked:(id)sender {
 }
+- (IBAction)nevermindClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

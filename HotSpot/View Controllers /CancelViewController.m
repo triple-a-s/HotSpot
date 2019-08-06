@@ -23,5 +23,8 @@
     [self dismissViewControllerAnimated:YES
                              completion:nil];
 }
+- (IBAction)goBackClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

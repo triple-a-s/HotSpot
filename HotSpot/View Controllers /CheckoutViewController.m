@@ -21,5 +21,8 @@
 - (IBAction)checkoutClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)closeClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

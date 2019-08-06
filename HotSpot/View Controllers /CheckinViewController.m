@@ -40,6 +40,9 @@
 - (IBAction)checkinClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)closeClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"cancelSegue"]) {
         CancelViewController *cancelViewController = [segue destinationViewController];

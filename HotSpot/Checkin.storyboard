@@ -50,6 +50,9 @@
                                 <state key="normal" title="Go Back">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBackClicked:" destination="wKb-bH-DVm" eventType="touchUpInside" id="Hwq-ZJ-Cb3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,11 +98,20 @@
                                     <segue destination="wKb-bH-DVm" kind="show" identifier="cancelSegue" id="Ggm-Gf-Hbt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-v1-hU7">
+                                <rect key="frame" x="8" y="96" width="80" height="24"/>
+                                <state key="normal" title="Button" image="close-icon"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="Ud7-5Q-viZ" eventType="touchUpInside" id="G12-Im-C9I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fCf-v1-hU7" firstAttribute="top" secondItem="qD3-B3-rUv" secondAttribute="top" constant="8" id="8Eg-bM-FWI"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="top" secondItem="oG9-m8-bzm" secondAttribute="bottom" constant="3.5" id="BkS-20-RW7"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerX" secondItem="qD3-B3-rUv" secondAttribute="centerX" id="RIL-8X-JaO"/>
+                            <constraint firstItem="fCf-v1-hU7" firstAttribute="leading" secondItem="qD3-B3-rUv" secondAttribute="leading" constant="8" id="evC-a9-7W9"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="centerX" secondItem="oG9-m8-bzm" secondAttribute="centerX" id="hLs-0h-ibe"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerY" secondItem="qD3-B3-rUv" secondAttribute="centerY" id="m5s-nf-Vl0"/>
                         </constraints>
@@ -130,4 +142,7 @@
             <point key="canvasLocation" x="-136.23188405797103" y="142.63392857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close-icon" width="26" height="24"/>
+    </resources>
 </document>

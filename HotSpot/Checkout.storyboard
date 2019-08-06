@@ -45,13 +45,22 @@
                                     <segue destination="4au-cY-4a9" kind="show" id="6Kd-DL-dol"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-YD-qzT">
+                                <rect key="frame" x="8" y="96" width="80" height="24"/>
+                                <state key="normal" title="Button" image="close-icon"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="GNz-bi-pVH" eventType="touchUpInside" id="PWS-eB-pJp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="06d-Uk-Zo6" firstAttribute="centerX" secondItem="RPm-Z8-HEF" secondAttribute="centerX" id="45o-tx-dMk"/>
+                            <constraint firstItem="4VB-YD-qzT" firstAttribute="leading" secondItem="RPm-Z8-HEF" secondAttribute="leading" constant="8" id="C2u-OP-89h"/>
                             <constraint firstItem="06d-Uk-Zo6" firstAttribute="centerY" secondItem="RPm-Z8-HEF" secondAttribute="centerY" id="NT8-Qm-ngo"/>
                             <constraint firstItem="58l-wF-out" firstAttribute="top" secondItem="06d-Uk-Zo6" secondAttribute="bottom" constant="3.5" id="QZr-D9-f9x"/>
                             <constraint firstItem="58l-wF-out" firstAttribute="centerX" secondItem="06d-Uk-Zo6" secondAttribute="centerX" id="vGl-MD-N4F"/>
+                            <constraint firstItem="4VB-YD-qzT" firstAttribute="top" secondItem="RPm-Z8-HEF" secondAttribute="top" constant="8" id="vqI-KB-iZc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RPm-Z8-HEF"/>
                     </view>
@@ -123,6 +132,9 @@
                                 <state key="normal" title="Nevermind I'm good">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="nevermindClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="A4R-v4-Be8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,4 +167,7 @@
             <point key="canvasLocation" x="-136.23188405797103" y="811.60714285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close-icon" width="26" height="24"/>
+    </resources>
 </document>
