@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MEA-fe-olX">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Booking-->
+        <!--Listing-->
         <scene sceneID="gr7-Tr-38T">
             <objects>
                 <viewController storyboardIdentifier="DetailsViewController" id="dao-gK-gXZ" customClass="DetailsViewController" sceneMemberID="viewController">
@@ -28,14 +28,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="a9Y-Ph-bDz">
-                                <rect key="frame" x="0.0" y="44" width="219" height="180"/>
+                                <rect key="frame" x="0.0" y="88" width="219" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="Ufx-ge-GJ5"/>
                                     <constraint firstAttribute="height" constant="180" id="du3-0l-ROc"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-Al-bDx">
-                                <rect key="frame" x="8" y="232" width="398" height="136"/>
+                                <rect key="frame" x="8" y="276" width="398" height="136"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-bN-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
@@ -65,7 +65,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-Ol-FE5">
-                                <rect key="frame" x="227" y="52" width="159" height="122"/>
+                                <rect key="frame" x="227" y="96" width="159" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vp-89-8W9">
                                         <rect key="frame" x="18" y="0.0" width="123.5" height="19"/>
@@ -86,20 +86,23 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZU-tt-Hmc">
+                                <rect key="frame" x="128" y="490" width="159" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Report Driver"/>
+                                <connections>
+                                    <segue destination="zH8-n7-w1A" kind="presentation" identifier="" id="rtl-bs-koo"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozG-ll-q0B">
-                                <rect key="frame" x="128" y="397" width="159" height="32"/>
+                                <rect key="frame" x="128" y="450" width="159" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Report Homeowner"/>
                                 <connections>
                                     <action selector="reportHomeowner:" destination="dao-gK-gXZ" eventType="touchUpInside" id="zvs-1f-SWR"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZU-tt-Hmc">
-                                <rect key="frame" x="128" y="437" width="159" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Report Driver"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -119,20 +122,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lwu-zp-pNN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Booking" id="dVH-OH-FTN"/>
+                    <navigationItem key="navigationItem" title="Listing" id="dVH-OH-FTN"/>
                     <connections>
                         <outlet property="listingAddressLabel" destination="5Vp-89-8W9" id="UA6-2M-uFg"/>
                         <outlet property="listingImageView" destination="a9Y-Ph-bDz" id="50c-Ze-rQ3"/>
                         <outlet property="listingNotesLabel" destination="WB4-D2-akE" id="CjH-4U-bBi"/>
                         <outlet property="listingOwnerLabel" destination="vbr-aN-eec" id="Xd0-sh-rzn"/>
                         <outlet property="listingPriceLabel" destination="UPB-cK-8Dx" id="rhT-Te-3I4"/>
-                        <segue destination="zH8-n7-w1A" kind="presentation" identifier="reportUserSegue" id="0D0-xl-Mko"/>
                         <segue destination="DQ3-N0-0SU" kind="presentation" identifier="reportHomeownerSegue" id="VIB-DH-C1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.43478260869574" y="-413.16964285714283"/>
+            <point key="canvasLocation" x="79.710144927536234" y="-413.16964285714283"/>
         </scene>
         <!--Report Homeowner View Controller-->
         <scene sceneID="SPy-0H-Bp6">
@@ -143,38 +145,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="xcj-lO-2fb">
-                                <rect key="frame" x="0.0" y="44" width="219" height="180"/>
+                                <rect key="frame" x="0.0" y="115" width="219" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ9-h2-Li0">
-                                <rect key="frame" x="227" y="44" width="123.5" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="756" fixedFrame="YES" text="$10/hr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-PB-t6v">
-                                <rect key="frame" x="227" y="92" width="101.5" height="42"/>
+                                <rect key="frame" x="221" y="226" width="101.5" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alan Dookes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-mV-AcX">
-                                <rect key="frame" x="232" y="163" width="90.5" height="19"/>
+                                <rect key="frame" x="232" y="276" width="90.5" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tell us more about what was wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ7-JM-LXN">
-                                <rect key="frame" x="47" y="254" width="321" height="21"/>
+                                <rect key="frame" x="47" y="336" width="321" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-1P-8s6">
-                                <rect key="frame" x="20" y="305" width="378" height="166.5"/>
+                                <rect key="frame" x="20" y="365" width="378" height="166.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">There was someone in my spotzxcmvn.z,xmcnv.z,mcvn.z,mcnv.z,mcnv.,zmxcnv.,zxmcnv.,mzxcnv.,mzxncv.,mxzncv.,mzxcnv.,mxzcnv.,mzxcnv.,mzxcnv.,mxzcnv.,zmxcnv.,zmxcnv.,zxmcnv.,zmxcnv.,xzmcnv.,zxmcnv.,zxmcnv.,zmxncv.,mznxcv.,mznxcv.,mnzxc,.vmnzx,cmvn.z,mxcnv.,zmxcnv.,zmxncv.,mzxncv.,zmxncv.,zmxncv.,zmxcnv.,zmxcnv.,zmxncv.,mzxncv.,mzxncv.,mzxncv.,mznxcv.,mzxncv.,mzxncv.,mzxncv.,zmxncv.,zmxncv.,zxmcnv</string>
@@ -182,11 +177,28 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8t9-sI-e1n">
-                                <rect key="frame" x="142" y="522" width="134" height="42"/>
+                                <rect key="frame" x="142" y="576" width="134" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Send Report"/>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVY-5g-6FH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Report Homeowner" id="KMG-hP-poY">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8r2-fc-4zC"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Send" id="cot-Lz-2GX"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ9-h2-Li0">
+                                <rect key="frame" x="221" y="173" width="123.5" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qjJ-Bz-k4g"/>
@@ -194,9 +206,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXY-nk-yCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="-1029"/>
+            <point key="canvasLocation" x="926.08695652173924" y="-1029.2410714285713"/>
         </scene>
-        <!--Booking View Controller-->
+        <!--Booking-->
         <scene sceneID="ZcI-6C-sBG">
             <objects>
                 <viewController id="ogF-Ac-Squ" customClass="BookingViewController" sceneMemberID="viewController">
@@ -213,7 +225,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU2-vK-DAD">
-                                <rect key="frame" x="8" y="232" width="398" height="70"/>
+                                <rect key="frame" x="8" y="276" width="398" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="XX7-ir-ai5">
                                         <rect key="frame" x="8" y="8" width="57" height="54"/>
@@ -247,7 +259,7 @@
                                 </constraints>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FO-7Wr">
-                                <rect key="frame" x="0.0" y="334" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="378" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="qQq-bC-e4K"/>
                                 </constraints>
@@ -259,7 +271,7 @@
                                 </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4Kt-Gu-WGE">
-                                <rect key="frame" x="227" y="52" width="123.5" height="122"/>
+                                <rect key="frame" x="227" y="96" width="123.5" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-1n-pDX">
                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="19"/>
@@ -281,21 +293,21 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="jsM-A7-T6H">
-                                <rect key="frame" x="0.0" y="44" width="219" height="180"/>
+                                <rect key="frame" x="0.0" y="88" width="219" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Iya-EM-tB8"/>
                                     <constraint firstAttribute="width" constant="219" id="nuZ-iL-ZGU"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccr-ss-TgP">
-                                <rect key="frame" x="367" y="486" width="39" height="30"/>
+                                <rect key="frame" x="367" y="530" width="39" height="30"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="resetClicked:" destination="ogF-Ac-Squ" eventType="touchUpInside" id="Ubk-d8-VWz"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
-                                <rect key="frame" x="0.0" y="402" width="414" height="76"/>
+                                <rect key="frame" x="0.0" y="446" width="414" height="76"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="kbS-Wh-G6u"/>
@@ -357,7 +369,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k0o-OM-vs8"/>
                     </view>
-                    <navigationItem key="navigationItem" id="T3B-ww-crv"/>
+                    <navigationItem key="navigationItem" title="Booking" id="T3B-ww-crv"/>
                     <connections>
                         <outlet property="collectionView" destination="YrE-Cb-wov" id="pWa-Ru-jUC"/>
                         <outlet property="datePicker" destination="Obk-FO-7Wr" id="72D-01-h7D"/>
@@ -381,40 +393,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ThI-MD-DWY">
-                                <rect key="frame" x="20" y="118" width="378" height="166.5"/>
+                                <rect key="frame" x="20" y="172" width="378" height="166.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">There was someone in my spotzxcmvn.z,xmcnv.z,mcvn.z,mcnv.z,mcnv.,zmxcnv.,zxmcnv.,mzxcnv.,mzxncv.,mxzncv.,mzxcnv.,mxzcnv.,mzxcnv.,mzxcnv.,mxzcnv.,zmxcnv.,zmxcnv.,zxmcnv.,zmxcnv.,xzmcnv.,zxmcnv.,zxmcnv.,zmxncv.,mznxcv.,mznxcv.,mnzxc,.vmnzx,cmvn.z,mxcnv.,zmxcnv.,zmxncv.,mzxncv.,zmxncv.,zmxncv.,zmxcnv.,zmxcnv.,zmxncv.,mzxncv.,mzxncv.,mzxncv.,mznxcv.,mzxncv.,mzxncv.,mzxncv.,zmxncv.,zmxncv.,zxmcnv</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tell us more about what was wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ock-nD-art">
-                                <rect key="frame" x="47" y="74" width="321" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please provide a picture of the car in your spot:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgq-8U-R0u">
-                                <rect key="frame" x="31" y="318" width="360" height="21"/>
+                                <rect key="frame" x="29" y="384" width="360" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-Gb-mC0">
-                                <rect key="frame" x="89" y="367" width="240" height="128"/>
+                                <rect key="frame" x="89" y="437" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please provide the license plate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPm-UD-apq">
-                                <rect key="frame" x="84" y="560" width="246" height="21"/>
+                                <rect key="frame" x="83" y="641" width="246" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AOS4932" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-hY-3ri">
-                                <rect key="frame" x="89" y="589" width="240" height="30"/>
+                                <rect key="frame" x="89" y="670" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -426,6 +431,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Send Report"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tell us more about what was wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ock-nD-art">
+                                <rect key="frame" x="46" y="143" width="321" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnx-xa-Hsi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Report Driver" id="3ms-j2-GZQ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cVQ-C5-HMG"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Send" id="k6b-ZD-7Xa"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IEq-nz-YI9"/>
@@ -433,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xZ-Ls-Nu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1.4492753623188408" y="332.8125"/>
+            <point key="canvasLocation" x="926" y="333"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
@@ -489,6 +511,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tw-Td-VFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2343" y="919"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MPG-Lp-1uO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MEA-fe-olX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4gk-Mv-YUj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dao-gK-gXZ" kind="relationship" relationship="rootViewController" id="zv4-VM-BwR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQ7-2y-bRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-830.43478260869574" y="-413.16964285714283"/>
         </scene>
     </scenes>
     <resources>
