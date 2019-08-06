@@ -1,8 +1,8 @@
 //
-//  ReportViewController.h
+//  ReportUserViewController.h
 //  HotSpot
 //
-//  Created by aaronm17 on 8/2/19.
+//  Created by aaronm17 on 8/5/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ReportViewController : UIViewController
+@interface ReportUserViewController : UIViewController
 
 @end
 

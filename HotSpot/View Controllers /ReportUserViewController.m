@@ -1,27 +1,22 @@
 //
-//  ReportViewController.m
+//  ReportUserViewController.m
 //  HotSpot
 //
-//  Created by aaronm17 on 8/2/19.
+//  Created by aaronm17 on 8/5/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
-#import "ReportViewController.h"
-#import "RegexHelper.h"
+#import "ReportUserViewController.h"
 
-@interface ReportViewController ()
+@interface ReportUserViewController ()
 
 @end
 
-@implementation ReportViewController
+@implementation ReportUserViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)reportError {
-    
 }
 
 /*

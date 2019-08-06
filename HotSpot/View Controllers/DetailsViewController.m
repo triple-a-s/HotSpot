@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
 @property (strong, nonatomic) NSString *homeownerNumber;
+
 @end
 
 @implementation DetailsViewController
@@ -45,8 +46,6 @@
         
         self.homeownerNumber = object[@"phone"];
     }];
-    
-    
 }
 
 - (IBAction)reportHomeowner:(UIButton *)sender {
@@ -54,10 +53,13 @@
     [errorAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [errorAlert addAction:[UIAlertAction actionWithTitle:(@"Comment") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"reportSegue" sender:nil];
     }]];
-    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"There was a car parked in the spot") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"There were damages to my car") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [errorAlert addAction:[UIAlertAction actionWithTitle:(@"The homewowner cancelled my listing without 24 hour notice") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [errorAlert addAction:[UIAlertAction actionWithTitle:(@"There wasn't enough space to park my car") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [self presentViewController:errorAlert animated:YES completion:nil];
 }
