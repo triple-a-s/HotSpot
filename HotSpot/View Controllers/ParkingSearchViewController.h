@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray<Listing *> *listings;
 
 - (NSMutableArray*) sortListingArrayNumber:(NSArray<Listing*>*)unsortedArray;
-- (NSArray*) sortListingArray:(NSMutableArray*)numberArray andListing:(NSArray<Listing*>*)unsortedArray; 
+- (NSArray*) sortListingArray:(NSMutableArray*)numberArray andListing:(NSArray<Listing*>*)unsortedArray;
+- (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray;
 @end
 
 NS_ASSUME_NONNULL_END
