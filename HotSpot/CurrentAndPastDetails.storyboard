@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Book Again"/>
                                 <connections>
-                                    <action selector="bookAgain:" destination="q1s-Ok-vte" eventType="touchUpInside" id="1b7-O4-0Wk"/>
+                                    <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="dKY-SS-Gsc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount charged to your account: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnm-0b-OFH">
@@ -102,14 +102,12 @@
                         <viewLayoutGuide key="safeArea" id="tCd-uc-8in"/>
                     </view>
                     <connections>
-                        <outlet property="bookAgainButton" destination="kRZ-ct-482" id="pgJ-18-4da"/>
                         <outlet property="bookingProcessing" destination="MPx-gD-AFk" id="vxl-Vb-quH"/>
                         <outlet property="homeOwner" destination="AtQ-bY-m0b" id="rJy-5s-eob"/>
                         <outlet property="houseAddress" destination="RYa-dC-vih" id="sTR-pH-v7h"/>
                         <outlet property="houseImage" destination="7C3-mN-U85" id="RGv-oY-nFA"/>
                         <outlet property="moneySpent" destination="kNi-2y-Lqa" id="Rln-2Q-Hz9"/>
                         <outlet property="timeParked" destination="RRV-aY-bkW" id="uOy-qi-qfu"/>
-                        <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="TSe-nV-JnB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ze-i2-hre" userLabel="First Responder" sceneMemberID="firstResponder"/>

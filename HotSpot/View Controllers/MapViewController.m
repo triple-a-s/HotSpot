@@ -89,7 +89,7 @@
     // setting the image for the pin of the location you just searched
     
     if((float) annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
-        UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
+        UIImage *pinImage = [UIImage imageNamed:@"greenpin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
         annotationView.image = pinImageResized;
         annotationView.canShowCallout = YES;

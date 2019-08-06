@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeParked;
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
 @property (strong, nonatomic) Listing *listing;
+
 @end
 
 @implementation CurrentAndPastDetails
@@ -61,18 +62,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
     if([segue.identifier isEqualToString:@"bookingSegue2"]) {
-        BookingViewController *bookingViewController = [segue destinationViewController];
-        bookingViewController.listing = listing;
+        BookingViewController *bookingsViewController = [segue destinationViewController];
+        bookingsViewController.listing = listing;
     }
-    }];
-}
-- (IBAction)bookAgain:(id)sender {
-    Listing *listing = self.booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-    [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
-    }];
 }
 
 - (IBAction)bookingBackPressed:(id)sender {
