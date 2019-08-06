@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cancel View Controller-->
         <scene sceneID="Tgd-VL-NmW">
             <objects>
-                <viewController id="wKb-bH-DVm" sceneMemberID="viewController">
+                <viewController id="wKb-bH-DVm" customClass="CancelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5aC-R3-D8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelConfirmClicked:" destination="wKb-bH-DVm" eventType="touchUpInside" id="app-Qp-Yxs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOu-ra-IeY">
                                 <rect key="frame" x="175" y="559" width="65" height="33"/>
@@ -89,7 +92,7 @@
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wKb-bH-DVm" kind="show" id="Ggm-Gf-Hbt"/>
+                                    <segue destination="wKb-bH-DVm" kind="show" identifier="cancelSegue" id="Ggm-Gf-Hbt"/>
                                 </connections>
                             </button>
                         </subviews>

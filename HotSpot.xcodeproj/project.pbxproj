@@ -56,6 +56,7 @@
 		D264E27222F352E30054391A /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E27122F352E30054391A /* CallManager.m */; };
 		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
+		D28F555B22F9023B00628316 /* CancelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28F555A22F9023B00628316 /* CancelViewController.m */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
 		D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772222DE8A7300EBC4EC /* Booking.m */; };
 		D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772722DFBD9D00EBC4EC /* Listing.m */; };
@@ -179,6 +180,8 @@
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D28F555922F9023B00628316 /* CancelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CancelViewController.h; sourceTree = "<group>"; };
+		D28F555A22F9023B00628316 /* CancelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CancelViewController.m; sourceTree = "<group>"; };
 		D2B2771D22DE868600EBC4EC /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D2B2771E22DE868600EBC4EC /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		D2B2772122DE8A7300EBC4EC /* Booking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Booking.h; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */,
 				D2ECF6C122F8FBA200901E9D /* CheckinViewController.h */,
 				D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */,
+				D28F555922F9023B00628316 /* CancelViewController.h */,
+				D28F555A22F9023B00628316 /* CancelViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
 				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
