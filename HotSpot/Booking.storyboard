@@ -393,6 +393,7 @@
                     <navigationItem key="navigationItem" id="T3B-ww-crv"/>
                     <connections>
                         <outlet property="collectionView" destination="YrE-Cb-wov" id="pWa-Ru-jUC"/>
+                        <outlet property="confirmButton" destination="m1E-lv-paK" id="IOw-IQ-ktp"/>
                         <outlet property="datePicker" destination="Obk-FO-7Wr" id="72D-01-h7D"/>
                         <outlet property="instructionsLabel" destination="czN-Af-MNg" id="K7N-0V-tpx"/>
                         <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeRangeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
@@ -139,12 +140,14 @@
             startTime = date;
             endTime = [date dateByAddingTimeInterval:15 * 60 - 4];
             pickingStartTime = NO;
+            self.confirmButton.enabled = YES;
             self.instructionsLabel.text = @"Adjust your end time:";
             self.timeSlots[indexPath.item].chosen = YES;
             cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
             [self.collectionView reloadData];
         }
         else {
+            self.confirmButton.enabled = YES;
             self.instructionsLabel.text = @"Adjust your end time:";
             for (int i = startIndexPath.item; i < indexPath.item; i++) {
                 if ( self.timeSlots[i].available == NO) {
@@ -238,6 +241,7 @@
     }];
     
     pickingStartTime = YES;
+    self.confirmButton.enabled = NO;
     self.instructionsLabel.text = @"Select a start time:";
 }
 
@@ -271,6 +275,7 @@
     startIndexPath = nil;
     endTime = nil;
     pickingStartTime = YES;
+    self.confirmButton.enabled = NO;
     self.instructionsLabel.text = @"Select a start time:";
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
