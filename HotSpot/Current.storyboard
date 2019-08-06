@@ -63,9 +63,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="searchTableAddress" destination="uXK-bs-1Sj" id="9ID-Nt-5ef"/>
-                                            <outlet property="searchTableImage" destination="bXd-gg-Ks9" id="nzD-fN-Hd7"/>
-                                            <outlet property="searchTableMilesAway" destination="5Q8-hJ-KWI" id="7yW-hR-Y6r"/>
+                                            <outlet property="searchTableAddress" destination="uXK-bs-1Sj" id="BNa-YL-T3m"/>
+                                            <outlet property="searchTableImage" destination="bXd-gg-Ks9" id="Sbz-WH-9Xl"/>
+                                            <outlet property="searchTableMilesAway" destination="5Q8-hJ-KWI" id="I3R-dg-Ywl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

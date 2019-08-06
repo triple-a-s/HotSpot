@@ -120,6 +120,7 @@
         }];
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.rightCalloutAccessoryView = rightButton;
+        UILabel *priceLabel = [[UILabel alloc]init]; 
         UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(40, 40))];
         annotationView.image = pinImageResized;

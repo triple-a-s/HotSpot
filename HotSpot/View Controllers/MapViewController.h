@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *annotationTitle;
 
 - (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map;
-- (void)makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title;
+- (void) makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title;
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 
