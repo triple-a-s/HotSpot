@@ -53,6 +53,23 @@
     
 
 }
+- (IBAction)reportHomeowner:(UIButton *)sender {
+    UIAlertController *reportAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                        message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"There were damages to my car") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"My listing was cancelled without 24 hour notice") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"There wasn't enough space to park my car") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Comment") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"reportHomeownerSegue" sender:nil];
+    }]];
+    [self presentViewController:reportAlert animated:YES completion:nil];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;

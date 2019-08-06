@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.h">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.m">
+   </FileRef>
+   <FileRef
       location = "group:HotSpot.xcodeproj">
    </FileRef>
    <FileRef

@@ -38,6 +38,8 @@
 		AD08284322F8D1580069A20D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283722F8D1570069A20D /* CarsViewController.m */; };
 		AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283822F8D1570069A20D /* EditInformationViewController.m */; };
 		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
+		AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */; };
+		AD08285622F9FB430069A20D /* ReportDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285422F9FB430069A20D /* ReportDriverViewController.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
@@ -153,6 +155,10 @@
 		AD08283B22F8D1570069A20D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "HotSpot/View Controllers/SignUpViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284522F8D18F0069A20D /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmationViewController.h; path = "HotSpot/View Controllers/ConfirmationViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284622F8D1900069A20D /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmationViewController.m; path = "HotSpot/View Controllers/ConfirmationViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD08285122F9FB290069A20D /* ReportHomeownerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportHomeownerViewController.h; sourceTree = "<group>"; };
+		AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportHomeownerViewController.m; sourceTree = "<group>"; };
+		AD08285422F9FB430069A20D /* ReportDriverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ReportDriverViewController.m; path = "/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.m"; sourceTree = "<absolute>"; };
+		AD08285522F9FB430069A20D /* ReportDriverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReportDriverViewController.h; path = "/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.h"; sourceTree = "<absolute>"; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -430,6 +436,10 @@
 				AD08283022F8D1570069A20D /* SettingsViewController.m */,
 				AD08283B22F8D1570069A20D /* SignUpViewController.h */,
 				AD08282C22F8D1570069A20D /* SignUpViewController.m */,
+				AD08285122F9FB290069A20D /* ReportHomeownerViewController.h */,
+				AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */,
+				AD08285522F9FB430069A20D /* ReportDriverViewController.h */,
+				AD08285422F9FB430069A20D /* ReportDriverViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -733,7 +743,9 @@
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
+				AD08285622F9FB430069A20D /* ReportDriverViewController.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
+				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
