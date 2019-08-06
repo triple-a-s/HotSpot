@@ -1,24 +1,24 @@
 //
-//  CheckoutViewController.m
+//  CheckinViewController.m
 //  HotSpot
 //
 //  Created by drealin on 8/5/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
-#import "CheckoutViewController.h"
+#import "CheckinViewController.h"
 
-@interface CheckoutViewController ()
+@interface CheckinViewController ()
 
 @end
 
-@implementation CheckoutViewController
+@implementation CheckinViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (IBAction)checkoutClicked:(id)sender {
+- (IBAction)checkinClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -67,6 +67,7 @@
 		D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6B922F8E2F800901E9D /* CarView.m */; };
 		D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */; };
 		D2ECF6C022F8E88F00901E9D /* MoreTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */; };
+		D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */; };
 		D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +197,8 @@
 		D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckoutViewController.m; sourceTree = "<group>"; };
 		D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreTimeViewController.h; sourceTree = "<group>"; };
 		D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreTimeViewController.m; sourceTree = "<group>"; };
+		D2ECF6C122F8FBA200901E9D /* CheckinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
+		D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContainerViewSearch.storyboard; sourceTree = "<group>"; };
 		DE63EED1733784CEB35B5015 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A8C7CA6B9E48BB606312DE /* Pods-HotSpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotTests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotTests/Pods-HotSpotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */,
 				D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */,
 				D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */,
+				D2ECF6C122F8FBA200901E9D /* CheckinViewController.h */,
+				D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
 				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
+				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
 				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,

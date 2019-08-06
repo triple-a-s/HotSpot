@@ -31,6 +31,9 @@
                                         <integer key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkoutClicked:" destination="GNz-bi-pVH" eventType="touchUpInside" id="loW-7z-QDy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58l-wF-out">
                                 <rect key="frame" x="141" y="497" width="132" height="33"/>
