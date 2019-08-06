@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (nonatomic, assign, readwrite) CGFloat addedDuration;
 @property (strong, nonatomic) TimeInterval* timeInterval;
+@property (weak, nonatomic) IBOutlet UIButton *add15MinButton;
+@property (weak, nonatomic) IBOutlet UIButton *add1HourButton;
 @end
 
 @implementation MoreTimeViewController
@@ -28,20 +30,19 @@
         else {
             TimeInterval *timeInterval = object;
             self.timeInterval = timeInterval;
-            self.endTimeLabel.text = [NSString stringWithFormat:@"End time: %@", timeInterval.endTime];
+            [self updateViews];
         }
     }];
     
     self.addedDuration = 0;
-    
 }
 - (IBAction)fifteenClicked:(id)sender {
     self.addedDuration += 15 * 60;
-    [self updateTimeLabel];
+    [self updateViews];
 }
 - (IBAction)hourClicked:(id)sender {
     self.addedDuration += 60 * 60;
-    [self updateTimeLabel];
+    [self updateViews];
 }
 - (IBAction)doneClicked:(id)sender {
     self.timeInterval.endTime = [self.timeInterval.endTime dateByAddingTimeInterval:self.addedDuration];
@@ -58,8 +59,34 @@
 - (IBAction)nevermindClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)updateTimeLabel {
+- (void)updateViews {
     self.endTimeLabel.text = [NSString stringWithFormat:@"End time: %@", [self.timeInterval.endTime dateByAddingTimeInterval:self.addedDuration]];
+    [self.booking canAddDuration:15 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        else if (can) {
+            self.add15MinButton.enabled = YES;
+            self.add15MinButton.alpha = 1.0;
+        }
+        else {
+            self.add15MinButton.enabled = NO;
+            self.add15MinButton.alpha = 0.2;
+        }
+    }];
+    [self.booking canAddDuration:60 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        else if (can) {
+            self.add1HourButton.enabled = YES;
+            self.add1HourButton.alpha = 1.0;
+        }
+        else {
+            self.add1HourButton.enabled = NO;
+            self.add1HourButton.alpha = 0.2;
+        }
+    }];
 }
 
 @end

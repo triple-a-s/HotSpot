@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
 
 - (void)cancel;
+- (void)canAddDuration:(CGFloat)duration WithCompletion:(void(^)(BOOL can, NSError * _Nullable error))completion;
 
 @end
 

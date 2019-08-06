@@ -101,6 +101,9 @@
                                 <state key="normal" title="Add 15 minutes">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="fifteenClicked:" destination="4au-cY-4a9" eventType="touchUpInside" id="DhY-sT-cxu"/>
                                 </connections>
@@ -149,6 +152,8 @@
                         <viewLayoutGuide key="safeArea" id="Klh-HT-YIh"/>
                     </view>
                     <connections>
+                        <outlet property="add15MinButton" destination="ZZ3-bl-f5T" id="CJv-gV-90X"/>
+                        <outlet property="add1HourButton" destination="jXj-u7-iEb" id="LJf-ci-s76"/>
                         <outlet property="endTimeLabel" destination="Zex-0b-6Ri" id="nZi-AW-g4K"/>
                     </connections>
                 </viewController>
