@@ -64,9 +64,10 @@
     }];
 }
 - (IBAction)bookAgain:(id)sender {
-    if (!self.bookAgainButton.hidden){
-    [self performSegueWithIdentifier:@"bookingSegue2" sender:self];
-    }
+    Listing *listing = self.booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
+    [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
+    }];
 }
 
 - (IBAction)bookingBackPressed:(id)sender {

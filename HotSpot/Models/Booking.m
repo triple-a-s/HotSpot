@@ -117,7 +117,6 @@
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"createdAt"];
-    
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
 }

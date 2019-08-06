@@ -18,6 +18,8 @@
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSArray *numberArray;
+
 @end
 
 @implementation ParkingSearchViewController
@@ -30,7 +32,7 @@
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
     
-    // will replace this with user location
+    // this is replaced by the user location once it is called in map 
     self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.initialLocation.coordinate.latitude longitude:self.initialLocation.coordinate.longitude]; // san francisco
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
@@ -69,7 +71,9 @@
     if(cell == nil){
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
-    Listing *listing = self.listings[indexPath.row];
+        NSMutableArray *numberArray= [self sortListingArrayNumber:self.listings];
+        NSArray *ListingArray = [self sortListingArray:numberArray andListing:self.listings];
+    Listing *listing = ListingArray[indexPath.row];
     [DataManager getAddressNameFromPoint: listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
@@ -120,4 +124,45 @@
 
 #pragma mark - Action Items
 
+#pragma mark - Helper Methods
+
+- (NSMutableArray*) sortListingArrayNumber:(NSArray<Listing*>*)unsortedArray{
+    NSMutableArray *numberArray = [[NSMutableArray alloc] init];
+    if (unsortedArray.count == 0){
+        return numberArray;
+    }
+    else{
+    for (int i = 0; i<= unsortedArray.count-1; i ++){
+    CLLocationCoordinate2D addressOne = CLLocationCoordinate2DMake(unsortedArray[i].address.latitude, unsortedArray[i].address.longitude);
+        NSNumber *distance = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:self.initialLocation.coordinate]];
+        [numberArray addObject: distance];
+        NSSortDescriptor *lowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+        [numberArray sortUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
+    }
+    return numberArray;
+    }
+}
+
+- (NSArray*) sortListingArray:(NSMutableArray*)numberArray andListing:(NSArray<Listing*>*)unsortedArray{
+    NSMutableArray<Listing*> *sortedArray  = [[NSMutableArray alloc] init];
+    if (numberArray.count == 0){
+        NSArray *returnArray = [[NSArray alloc]initWithArray:(sortedArray)];
+        return returnArray;
+    }
+    else{
+    for (int i =0; i<numberArray.count; i ++){
+        CLLocationCoordinate2D addressOne = CLLocationCoordinate2DMake(unsortedArray[i].address.latitude, unsortedArray[i].address.longitude);
+        NSNumber *distance = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:self.initialLocation.coordinate]];
+    for (NSNumber* number in numberArray){
+        if ([distance doubleValue] == [number doubleValue]){
+            [sortedArray addObject:unsortedArray[i]];
+        }
+        }
+}
+
+    NSArray *returnArray = [[NSArray alloc]initWithArray:(sortedArray)];
+    return returnArray;
+}
+}
+    
 @end
