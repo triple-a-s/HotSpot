@@ -71,7 +71,7 @@
         <!--Settings-->
         <scene sceneID="Qf4-ZU-Tw5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="SNZ-wh-gyP"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

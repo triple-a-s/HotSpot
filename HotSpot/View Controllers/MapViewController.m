@@ -150,12 +150,7 @@
 - (void) mapView:(MKMapView*)mapView didSelectAnnotationView:(nonnull MKAnnotationView *)view{
     [view canShowCallout];
 }
-# pragma mark - Location Manager delegate methods
-/*- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.searchMap.userLocation.location.coordinate.latitude longitude:self.searchMap.userLocation.location.coordinate.longitude];
-    [self setLocation:self.initialLocation onMap:self.searchMap];
-}
-  */
+
 # pragma mark - Segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

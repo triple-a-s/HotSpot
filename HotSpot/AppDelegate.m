@@ -9,8 +9,16 @@
 #import "AppDelegate.h"
 
 #import "DataManager.h"
+#import "CallManager.h"
+#import "CallViewController.h"
+#import <AccountKit/AKFAccountKit.h>
 
-@interface AppDelegate ()
+@import TwilioVoice;
+@import UserNotifications;
+
+@interface AppDelegate () {
+    AKFAccountKit *accountKit;
+}
 
 @end
 
@@ -19,8 +27,22 @@
 PFUser *homeowner;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
-    
+    accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
     [DataManager configureParse];
+    CallManager *sharedCallManager = [CallManager sharedCallManager];
+    
+    sharedCallManager.delegate = [[CallViewController alloc] init];
+    
+    if (PFUser.currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+        //search page
+        tabBar.selectedIndex = 2;
+    }
+    
+    // Twilio
+    NSLog(@"Twilio Voice Version: %@", [TwilioVoice sdkVersion]);
 
     return YES;
 }
@@ -51,6 +73,5 @@ PFUser *homeowner;
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end
