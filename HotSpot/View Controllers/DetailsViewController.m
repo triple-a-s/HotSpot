@@ -7,7 +7,6 @@
 //
 
 #import "DetailsViewController.h"
-
 #import "BookingViewController.h"
 #import "DataManager.h"
 #import <MessageUI/MessageUI.h>
@@ -26,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // image
     [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
@@ -37,12 +35,16 @@
         }
     }];
     
+    PFFileObject *img = self.listing.picture;
+    [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+        UIImage *imageToLoad = [UIImage imageWithData:imageData];
+        self.listingImageView.image = imageToLoad;
+    }];
     
     self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
     PFUser *homeowner = self.listing.homeowner;
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         self.listingOwnerLabel.text = object[@"name"];
-        
         self.homeownerNumber = object[@"phone"];
     }];
     
@@ -69,6 +71,7 @@
 - (IBAction)bookingBackPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (IBAction)contactPressed:(id)sender {
     if (![MFMessageComposeViewController canSendText]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Messaging Error"

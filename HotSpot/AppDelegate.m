@@ -11,11 +11,14 @@
 #import "DataManager.h"
 #import "CallManager.h"
 #import "CallViewController.h"
+#import <AccountKit/AKFAccountKit.h>
 
 @import TwilioVoice;
 @import UserNotifications;
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    AKFAccountKit *accountKit;
+}
 
 @end
 
@@ -24,17 +27,18 @@
 PFUser *homeowner;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(  NSDictionary *)launchOptions {
-    
+    accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
     [DataManager configureParse];
-    
     CallManager *sharedCallManager = [CallManager sharedCallManager];
     
     sharedCallManager.delegate = [[CallViewController alloc] init];
     
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
-        
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+        //search page
+        tabBar.selectedIndex = 2;
     }
     
     // Twilio

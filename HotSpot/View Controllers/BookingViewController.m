@@ -33,10 +33,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
     self.collectionView.allowsMultipleSelection = YES;
 
     // image
@@ -49,7 +47,11 @@
         }
     }];
     
-    
+    PFFileObject *img = self.listing.picture;
+    [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+        UIImage *imageToLoad = [UIImage imageWithData:imageData];
+        self.listingImageView.image = imageToLoad;
+    }];
     self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
     PFUser *homeowner = self.listing.homeowner;
     [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {

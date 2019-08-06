@@ -36,6 +36,7 @@
     Booking *newBooking = [Booking new];
     newBooking.driver = user;
     newBooking.listing = listing;
+
     
     if (startTime) {
         newBooking.startTime = startTime;
@@ -92,11 +93,11 @@
       }];
 }
 
-+ (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
-    
++ (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
-    [query orderByDescending:@"createdAt"];
+    [query orderByDescending:@"startTime"]; // most recent is listed first
+    [query whereKey:@"startTime" lessThanOrEqualTo:[NSDate date]];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
@@ -106,18 +107,16 @@
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
     [query orderByAscending:@"startTime"];
-    [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
-    
+    [query whereKey:@"startTime" greaterThan:[NSDate date]];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
 }
 
-+ (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
++ (void)getBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block {
+    
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"bookings"];
     PFQuery *query = relation.query;
-    [query orderByDescending:@"startTime"]; // most recent is listed first
-    [query whereKey:@"startTime" lessThanOrEqualTo:[[NSDate alloc] init]];
-    
+    [query orderByDescending:@"createdAt"];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:block];
 }

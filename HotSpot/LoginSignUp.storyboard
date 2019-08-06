@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Transition View Controller-->
         <scene sceneID="uyN-6I-Xzj">
             <objects>
-                <viewController id="6MB-mP-Kq7" sceneMemberID="viewController">
+                <viewController id="6MB-mP-Kq7" customClass="TransitionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wa2-3C-Z69">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Profile Page"/>
                                 <connections>
-                                    <segue destination="AwN-FO-jNc" kind="show" id="bTI-lN-ShG"/>
+                                    <action selector="didTapProfilePage:" destination="6MB-mP-Kq7" eventType="touchUpInside" id="Ndr-Xu-25L"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Created Successfully!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-tC-tJ5">
@@ -42,10 +42,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hop-jr-RMq"/>
                     </view>
+                    <connections>
+                        <segue destination="uGr-xf-tee" kind="show" identifier="profileSegue" id="cb4-71-eaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3R-L5-cp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="-123"/>
+            <point key="canvasLocation" x="1321.7391304347827" y="-123.21428571428571"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vCh-yV-Kb1">
@@ -73,7 +76,6 @@
                                 <state key="normal" title="Create Your Account"/>
                                 <connections>
                                     <action selector="didTapCreateAccount:" destination="rfa-de-SEm" eventType="touchUpInside" id="Ox5-u1-F3V"/>
-                                    <segue destination="6MB-mP-Kq7" kind="show" identifier="signUpSegue" id="goc-dO-Fw6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have An Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-lk-gN1">
@@ -155,6 +157,7 @@
                         <outlet property="password" destination="sVU-tU-HeI" id="ZhA-Ps-UvD"/>
                         <outlet property="phoneNumber" destination="c0o-eY-b95" id="qlS-l3-dM4"/>
                         <outlet property="username" destination="LsN-t3-uJK" id="5df-yb-Hhn"/>
+                        <segue destination="6MB-mP-Kq7" kind="presentation" identifier="signUpSegue" id="N8s-vM-m5p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bG-ot-uRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,14 +168,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="883" y="693"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="1o7-bu-GJB">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" id="AwN-FO-jNc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AOC-Ry-xMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1854" y="425"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ssa-0f-5Dl">
@@ -216,7 +211,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="rfa-de-SEm" kind="show" id="Ou8-Ts-319"/>
+                                    <segue destination="rfa-de-SEm" kind="show" identifier="" id="Ou8-Ts-319"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -272,4 +267,7 @@
     <resources>
         <image name="App Logo" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jm7-RX-coN"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion;
 + (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion;
 + (void)getNextBookingWithBlock:(PFObjectResultBlock)block;
++ (void)getAllListings:(PFGeoPoint *)point
+        withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
++ (void)getAllBookings:(PFUser*)user
+        withCompletion:(void(^)(NSArray<Booking*> *booking, NSError *error))completion;
++ (void)getListingFromID:(NSString *)objectID
+          withCompletion:(void(^)(Listing *listing, NSError *error))completion;
++ (CGFloat) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo;
 @end
 
 NS_ASSUME_NONNULL_END

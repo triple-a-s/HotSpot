@@ -9,6 +9,7 @@ target 'HotSpot' do
     pod 'Parse'
     pod 'Parse/UI'
     pod 'TwilioVoice', '~> 4.1'
+    pod 'AccountKit'
 
   target 'HotSpotTests' do
     inherit! :search_paths

@@ -7,12 +7,17 @@
 //
 
 #import "CurrentParkingSpotsViewController.h"
+#import "CurrentAndPastDetails.h"
 #import "SearchCell.h"
+#import "Booking.h"
+#import "Listing.h"
+#import "DataManager.h"
 
 @interface CurrentParkingSpotsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *currentTableView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *savedTitleBar;
+@property (strong, nonatomic) NSArray<Booking*> *bookings;
 
 
 @end
@@ -24,29 +29,42 @@
     self.currentTableView.dataSource = self;
     self.currentTableView.delegate = self;
     self.currentTableView.rowHeight = 134;
+    [self.currentTableView reloadData];
+    [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+            self.bookings = bookings;
+            [self.currentTableView reloadData];
+        }
+    }];
+    
 }
-
 
 # pragma mark - TableViewController methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*
-     This is where we are passing information into the cells.
-     For now, I have placeholder information so that when we merge
-     I can have data to load actual information into the tables.
-     */
-    
-    SearchCell *currentCell = [tableView dequeueReusableCellWithIdentifier:@"SpotCell"];
+    Booking *booking = self.bookings[indexPath.row];
+    Listing *listing = booking.listing;
+    SearchCell *currentCell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
     if(currentCell == nil){
-        currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SpotCell"];
+        currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+                currentCell.searchTableAddress.text= name;
+        }];
+        PFFileObject *img = object[@"picture"];
+        [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
+            UIImage *imageToLoad = [UIImage imageWithData:imageData];
+            currentCell.searchTableImage.image = imageToLoad;
+        }];
+        currentCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
+    }];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    currentCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
     
-    //placehodlder information
-    currentCell.searchTableAddress.text= @"100 West Lake";
-    currentCell.searchTableMilesAway.text = @"Time till park: 2hrs";
-    currentCell.searchTablePrice.text= @"$5/hr";
-    currentCell.searchTableImage.image = [UIImage imageNamed:@"houseimageexample"];
-    // trying to resize text to work with Autolayout
     currentCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     currentCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
     
@@ -54,8 +72,24 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // I return 10 for now just to see if this method is working
-    return 10;
+    return self.bookings.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // perform segue
+    Booking *booking = self.bookings[indexPath.row];
+    [self performSegueWithIdentifier:@"currentToDetails"
+                              sender:booking];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"currentToDetails"]) {
+        CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
+        detailsViewController.booking = sender;
+        detailsViewController.bookAgainButton.hidden = YES;
+       // detailsViewController.bookingButton.hidden = YES; 
+    }
 }
 
 

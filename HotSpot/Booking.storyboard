@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMB-Dr-iQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="-378"/>
+            <point key="canvasLocation" x="-830.43478260869574" y="-378.34821428571428"/>
         </scene>
         <!--Call-->
         <scene sceneID="bVa-K0-mY8">
@@ -189,7 +189,7 @@
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
             <objects>
-                <viewController id="ogF-Ac-Squ" customClass="BookingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookings" id="ogF-Ac-Squ" customClass="BookingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gio-3n-Vrf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

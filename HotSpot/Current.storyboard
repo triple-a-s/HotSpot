@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="764"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpotCell" rowHeight="134" id="yRs-Bh-6S5" customClass="SearchCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="134" id="yRs-Bh-6S5" customClass="SearchCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="yRs-Bh-6S5" id="nGu-JX-hiE">
@@ -74,7 +74,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ma2-Tn-Qpk">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Booked Spots " id="GkU-Sd-Z0w"/>
+                                    <navigationItem title="Upcoming Spots " id="GkU-Sd-Z0w"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -95,11 +95,20 @@
                     <connections>
                         <outlet property="currentTableView" destination="MP9-rx-1iL" id="SHv-LO-k8m"/>
                         <outlet property="savedTitleBar" destination="ma2-Tn-Qpk" id="yju-PT-xZf"/>
+                        <segue destination="TX2-Rl-qJf" kind="show" identifier="currentToDetails" id="sMj-zn-pvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9M-0t-0s8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="833.33333333333337" y="-20.758928571428569"/>
+        </scene>
+        <!--CurrentAndPast-->
+        <scene sceneID="YQN-mb-uH2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeU-nR-bY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="CurrentAndPastDetails" referencedIdentifier="CurrentAndPast" id="TX2-Rl-qJf" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="1466" y="-304"/>
         </scene>
         <!--Current Spots -->
         <scene sceneID="LjF-5h-LfK">

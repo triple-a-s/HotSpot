@@ -27,13 +27,20 @@
 }
 
 + (void)getListingsNearLocation:(PFGeoPoint *)point
-                   withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
-    
+                   withCompletion:(void(^)(NSArray<Listing*> *listings, NSError *error))completion{
     PFQuery *query = [Listing query];
-    [query whereKey:@"address" nearGeoPoint:point withinKilometers:100000]; // number of kilometers empirically set, for now
-    
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:20]; // number of miles empirically set, for now
     // fetch data for home timeline posts asynchronously
     [query findObjectsInBackgroundWithBlock:completion];
+}
+
+  // this method was for testing --> rewriting 
++ (void)getAllListings:(PFGeoPoint *)point
+                 withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion{
+    PFQuery *query = [Listing query];
+    [query whereKey:@"address" nearGeoPoint:point withinMiles:1000000000];
+    [query findObjectsInBackgroundWithBlock:completion];
+    
 }
 
 + (void)test {
@@ -43,12 +50,24 @@
         if(error) {
             NSLog(@"%@ oops", error);
         }
+        else{
+            NSLog(@"%@ our listings", listings);
+        }
     }];
     
     [Booking getBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@ oops", error);
+        }
     }];
     
     [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
+        if(error){
+            NSLog(@"%@ oops", error);
+        }
+        else{
+            
+        }
     }];
     
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
@@ -81,6 +100,15 @@
     [query whereKey:@"startTime" greaterThan:[[NSDate alloc] init]];
     // fetch data asynchronously
     [query getFirstObjectInBackgroundWithBlock:block];
+}
+
++ (CGFloat) getDistancebetweenAddressOne:(CLLocationCoordinate2D)addressOne andAddressTwo:(CLLocationCoordinate2D)addressTwo {
+    CLLocation *locationOne = [[CLLocation alloc] initWithLatitude: addressOne.latitude longitude:addressTwo.longitude];
+    CLLocation *locationTwo = [[CLLocation alloc] initWithLatitude:addressTwo.latitude longitude:addressTwo.longitude];
+    CLLocationDistance distance = [locationOne distanceFromLocation:locationTwo];
+    CGFloat distanceValue = (CGFloat)distance * 0.000621371;
+    // this is in miles
+    return distanceValue;
 }
 
 
