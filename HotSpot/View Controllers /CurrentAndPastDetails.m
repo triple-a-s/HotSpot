@@ -82,7 +82,7 @@
 }
 
 - (IBAction)directionsPressed:(id)sender {
-    [self openMap]; 
+    [self openMap];
 }
 
 
@@ -93,14 +93,9 @@
         CLLocationDegrees latitude= listing.address.latitude;
         NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude,  latitude, longitude];
         if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{} completionHandler:^(BOOL success) {}];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {}];
         } else {
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:directionsURL] options:@{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {
-                if(success){
-                    NSLog(@"opened URL!");
-                }
-            }];
+            NSLog(@"sorry, you need to have Apple Maps installed"); 
         }
     }];
 }

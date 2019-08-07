@@ -33,7 +33,6 @@
     self.bookedTableView.dataSource = self;
     self.bookedTableView.delegate = self;
     self.bookedTableView.rowHeight = 134;
-    [self.bookedTableView reloadData];
     
     //initializing bookings array
     [Booking getPastBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {

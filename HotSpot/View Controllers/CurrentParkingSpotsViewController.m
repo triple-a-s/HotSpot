@@ -29,7 +29,6 @@
     self.currentTableView.dataSource = self;
     self.currentTableView.delegate = self;
     self.currentTableView.rowHeight = 134;
-    [self.currentTableView reloadData];
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
         if(error){
             NSLog(@"%@", error);

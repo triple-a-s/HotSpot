@@ -28,6 +28,7 @@
 		61D1E3E322F50AB000070919 /* Payment .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D1E3E222F50AB000070919 /* Payment .storyboard */; };
 		61E418BD22F89CE700AE5327 /* CurrentAndPastDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */; };
 		61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */; };
+		61E418C922FB425800AE5327 /* LocationManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418C822FB425800AE5327 /* LocationManagerSingleton.m */; };
 		AD08283C22F8D1580069A20D /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282A22F8D1570069A20D /* CallViewController.m */; };
 		AD08283D22F8D1580069A20D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282B22F8D1570069A20D /* ProfileViewController.m */; };
 		AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282C22F8D1570069A20D /* SignUpViewController.m */; };
@@ -137,6 +138,8 @@
 		61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentAndPastDetails.h; sourceTree = "<group>"; };
 		61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentAndPastDetails.m; sourceTree = "<group>"; };
 		61E418C322F9F26300AE5327 /* BookingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BookingViewController.h; path = "HotSpot/View Controllers/BookingViewController.h"; sourceTree = SOURCE_ROOT; };
+		61E418C722FB425800AE5327 /* LocationManagerSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManagerSingleton.h; sourceTree = "<group>"; };
+		61E418C822FB425800AE5327 /* LocationManagerSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManagerSingleton.m; sourceTree = "<group>"; };
 		867D2E3EE16FA82973B72782 /* Pods_HotSpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE34E68664960EC755D9399 /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E2F41223846B7E032C5336 /* Pods-HotSpotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -441,6 +444,8 @@
 				D28F555A22F9023B00628316 /* CancelViewController.m */,
 				61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */,
 				61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */,
+				61E418C722FB425800AE5327 /* LocationManagerSingleton.h */,
+				61E418C822FB425800AE5327 /* LocationManagerSingleton.m */,
 				ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */,
 				ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */,
 				AD08282F22F8D1570069A20D /* AddCarViewController.h */,
@@ -776,6 +781,7 @@
 				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
 				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				61E418C922FB425800AE5327 /* LocationManagerSingleton.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,

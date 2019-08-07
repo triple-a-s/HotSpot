@@ -83,25 +83,6 @@
     self.speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
    self.speechRecognizer.delegate = self;
 
-    // used to request authorization -- the different cases
-    [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
-        switch (status) {
-            case SFSpeechRecognizerAuthorizationStatusAuthorized:
-                NSLog(@"Authorized");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusDenied:
-                NSLog(@"Denied");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusNotDetermined:
-                NSLog(@"Not Determined");
-                break;
-            case SFSpeechRecognizerAuthorizationStatusRestricted:
-                NSLog(@"Restricted");
-                break;
-            default:
-                break;
-        }
-    }];
 
 }
 
@@ -144,7 +125,6 @@
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
-                 NSLog(@"Done!");
              }];
     
     // the search bar will go away once you delete text
@@ -304,14 +284,6 @@
             NSString *resultText = [NSString stringWithFormat: @"%@ ",result.bestTranscription.formattedString];
             [self.mainSearchBar becomeFirstResponder];
             [self.mainSearchBar setText:resultText];
-            // tried to create typer to mirror a keyboard
-            /*
-            for (int i =0; i<=resultText.length; i++){
-               NSString *searchBarTyperHelper = @"";
-               NSString *searchBarTyper = [searchBarTyperHelper stringByAppendingString:[resultText substringWithRange:NSMakeRange(0, i)]];
-                self.mainSearchBar.text = searchBarTyper;
-            }
-             */
         }
         
         if (error) {
