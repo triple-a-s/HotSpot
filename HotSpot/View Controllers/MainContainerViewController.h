@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MapKit/MapKit.h"
+#import <Speech/Speech.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>
+@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, SFSpeechRecognizerDelegate, UISearchDisplayDelegate> {
+    SFSpeechRecognizer *speechRecognizer;
+    SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
+    SFSpeechRecognitionTask *recognitionTask;
+    AVAudioEngine *audioEngine;
+}
 
 + (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
 - (void) resetTableViewFrame;
+- (void)startListening;
 
 @end
 

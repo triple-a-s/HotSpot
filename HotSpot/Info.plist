@@ -58,16 +58,10 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Need camera access to take pictures</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>HotSpot wants to use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>HotSpot wants to use your location</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) would like to access your microphone</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Need library access to upload images</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -85,12 +79,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>HotSpot would like to use speech recognition </string>
 </dict>
 </plist>

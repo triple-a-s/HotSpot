@@ -83,6 +83,49 @@
     mapView.showsUserLocation = NO;
 }
 
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    MKAnnotationView *annotationView;
+    for (annotationView in views) {
+        if ([annotationView.annotation isKindOfClass:[MKUserLocation class]]) {
+            continue;
+        }
+        // Check if current annotation is inside visible map rect, else go to next one
+        MKMapPoint point =  MKMapPointForCoordinate(annotationView.annotation.coordinate);
+        if (!MKMapRectContainsPoint(self.searchMap.visibleMapRect, point)) {
+            continue;
+        }
+        CGRect endFrame = annotationView.frame;
+        // Move annotation out of view
+        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y - self.view.frame.size.height, annotationView.frame.size.width, annotationView.frame.size.height);
+        // Animate drop
+        [UIView animateWithDuration:0.5 delay:0.04*[views indexOfObject:annotationView] options: UIViewAnimationOptionCurveLinear animations:^{
+            annotationView.frame = endFrame;
+            
+            // Animate bounce
+        }completion:^(BOOL finished){
+            if (finished) {
+                [UIView animateWithDuration:0.05 delay:0.05*[views indexOfObject:annotationView] options:UIViewAnimationOptionCurveLinear animations:^{
+                    annotationView.transform = CGAffineTransformMakeScale(1.0, 0.7);
+                    
+                }completion:^(BOOL finished){
+                    if (finished) {
+                        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y + 10, annotationView.frame.size.width, annotationView.frame.size.height);
+                        [UIView animateWithDuration:0.3 delay:0.5*[views indexOfObject:annotationView] options: UIViewAnimationOptionCurveLinear animations:^{
+                            annotationView.frame = endFrame;
+                        } completion:^(BOOL finished){
+                    if (finished) {
+                        [UIView animateWithDuration:0.2 animations:^{
+                            annotationView.transform = CGAffineTransformIdentity;
+                        }];
+                    }
+                }];
+            }
+        }];
+    }
+        }];
+    }
+}
+         
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]init];
@@ -93,7 +136,7 @@
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
         annotationView.image = pinImageResized;
         annotationView.canShowCallout = YES;
-    }
+            }
     
     else{
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
@@ -120,7 +163,6 @@
         }];
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.rightCalloutAccessoryView = rightButton;
-        UILabel *priceLabel = [[UILabel alloc]init]; 
         UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(40, 40))];
         annotationView.image = pinImageResized;

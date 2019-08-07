@@ -73,6 +73,37 @@
     
     // animations
     [self resetTableViewFrame];
+    
+    // Do any additional setup after loading the view.
+    // Initialize the Speech Recognizer with the locale, couldn't find a list of locales
+    // but I assume it's standard UTF-8 https://wiki.archlinux.org/index.php/locale
+    speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    
+    // Set speech recognizer delegate
+    speechRecognizer.delegate = self;
+    
+    // Request the authorization to make sure the user is asked for permission so you can
+    // get an authorized response, also remember to change the .plist file, check the repo's
+    // readme file or this project's info.plist
+    [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+        switch (status) {
+            case SFSpeechRecognizerAuthorizationStatusAuthorized:
+                NSLog(@"Authorized");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusDenied:
+                NSLog(@"Denied");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusNotDetermined:
+                NSLog(@"Not Determined");
+                break;
+            case SFSpeechRecognizerAuthorizationStatusRestricted:
+                NSLog(@"Restricted");
+                break;
+            default:
+                break;
+        }
+    }];
+
 }
 
 # pragma mark - Action Items
@@ -102,7 +133,6 @@
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
     // setting the views to hidden or not
 
     
@@ -143,6 +173,7 @@
     [self resetTableViewFrame];
     [self.mainSearchBar resignFirstResponder];
 }
+
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     // this is necessary in certain cases, although it seems redundant
@@ -247,6 +278,97 @@
 
 #pragma mark - Actions
 
+- (void)startListening {
+    
+    // Initialize the AVAudioEngine
+    audioEngine = [[AVAudioEngine alloc] init];
+    
+    // Make sure there's not a recognition task already running
+    if (recognitionTask) {
+        [recognitionTask cancel];
+        recognitionTask = nil;
+    }
+    
+    // Starts an AVAudio Session
+    NSError *error;
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryRecord error:&error];
+    [audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&error];
+    
+    // Starts a recognition process, in the block it logs the input or stops the audio
+    // process if there's an error.
+    recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+    AVAudioInputNode *inputNode = audioEngine.inputNode;
+    recognitionRequest.shouldReportPartialResults = YES;
+    recognitionTask = [speechRecognizer recognitionTaskWithRequest:recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
+        BOOL isFinal = NO;
+        if (result) {
+            // Whatever you say in the microphone after pressing the button should be being logged
+            // in the console
+            NSLog(@"RESULT:%@ ",result.bestTranscription.formattedString);
+            isFinal = !result.isFinal;
+            NSString *resultText = [NSString stringWithFormat: @"%@ ",result.bestTranscription.formattedString];
+            [self.mainSearchBar becomeFirstResponder];
+            [self.mainSearchBar setText:resultText];
+            // tried to create typer
+            /*
+            for (int i =0; i<=resultText.length; i++){
+               NSString *searchBarTyperHelper = @"";
+               NSString *searchBarTyper = [searchBarTyperHelper stringByAppendingString:[resultText substringWithRange:NSMakeRange(0, i)]];
+                self.mainSearchBar.text = searchBarTyper;
+            }
+             */
+        }
+        if (error) {
+            [audioEngine stop];
+            [inputNode removeTapOnBus:0];
+            recognitionRequest = nil;
+            recognitionTask = nil;
+        }
+    }];
+    
+    // Sets the recording format
+    AVAudioFormat *recordingFormat = [inputNode outputFormatForBus:0];
+    [inputNode installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+        [recognitionRequest appendAudioPCMBuffer:buffer];
+    }];
+    
+    // Starts the audio engine, i.e. it starts listening.
+    [audioEngine prepare];
+    [audioEngine startAndReturnError:&error];
+    NSLog(@"Say Something, I'm listening");
+}
+
+-(void)stopRecording{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(audioEngine.isRunning){
+            [audioEngine.inputNode removeTapOnBus:0];
+            [audioEngine.inputNode reset];
+            [audioEngine stop];
+            [recognitionRequest endAudio];
+            [recognitionTask cancel];
+            recognitionTask = nil;
+            recognitionRequest = nil;
+        }
+    });
+}
+
+- (IBAction)microPhoneTapped:(id)sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+    if (audioEngine.isRunning) {
+        [self stopRecording];
+    } else {
+        [self startListening];
+    }
+    });
+}
+
+#pragma mark - SFSpeechRecognizerDelegate Delegate Methods
+
+- (void)speechRecognizer:(SFSpeechRecognizer *)speechRecognizer availabilityDidChange:(BOOL)available {
+    NSLog(@"Availability:%d",available);
+}
 
 
 

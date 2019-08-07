@@ -101,6 +101,9 @@
                                     <constraint firstAttribute="height" constant="56" id="KPA-Tz-Afa"/>
                                 </constraints>
                                 <state key="normal" image="microphone "/>
+                                <connections>
+                                    <action selector="microPhoneTapped:" destination="ACg-sL-kal" eventType="touchUpInside" id="Xk7-9o-ujw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

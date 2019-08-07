@@ -75,8 +75,6 @@
     UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    
-    
     [ImagePickerHelper imageSelector:imagePickerVC withViewController:self];
 }
 
