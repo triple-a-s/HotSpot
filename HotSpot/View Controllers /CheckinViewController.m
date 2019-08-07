@@ -34,7 +34,7 @@
             self.booking = booking;
             [booking.listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 Listing *listing = object;
-                [DataManager getAddressNameFromPoint:listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+                [DataManager getAddressNameFromListing:listing withCompletion:^(NSString *name, NSError * _Nullable error){
                     if(error) {
                         NSLog(@"%@", error);
                     }

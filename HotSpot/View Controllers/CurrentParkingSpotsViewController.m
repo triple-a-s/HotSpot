@@ -52,7 +52,7 @@
         currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+        [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error) {
                 currentCell.searchTableAddress.text= name;
         }];
         PFFileObject *img = object[@"picture"];

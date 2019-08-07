@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFGeoPoint *address;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) PFUser *homeowner;
-@property (nonatomic, strong) PFFileObject *picture; 
+@property (nonatomic, strong) PFFileObject *picture;
+@property (nonatomic, strong) NSString *addressName;
 - (void)canBook:(Booking *)booking withCompletion:(void(^)(BOOL can, NSError * _Nullable error))completion;
 @end
 

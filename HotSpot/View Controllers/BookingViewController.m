@@ -42,7 +42,7 @@
     self.collectionView.allowsMultipleSelection = YES;
 
     // image
-    [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+    [DataManager getAddressNameFromListing:self.listing withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
         }
