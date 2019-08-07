@@ -359,7 +359,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00AM to 12:15AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-zT-wpO">
-                                <rect key="frame" x="5" y="513" width="158" height="21"/>
+                                <rect key="frame" x="5" y="513" width="401" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -412,7 +412,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-830" y="333"/>
+            <point key="canvasLocation" x="-830.43478260869574" y="332.8125"/>
         </scene>
         <!--cars-->
         <scene sceneID="PtC-Pm-Px6">

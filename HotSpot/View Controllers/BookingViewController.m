@@ -33,6 +33,7 @@
     NSDate *endTime;
     BOOL pickingStartTime;
     NSIndexPath *startIndexPath;
+    NSDateFormatter *formatter;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,6 +62,8 @@
         self.listingOwnerLabel.text = object[@"name"];
     }];
     
+    formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mmaa"];
     
     [self updateCells];
 }
@@ -139,7 +142,7 @@
             startIndexPath = indexPath;
             startTime = date;
             endTime = [date dateByAddingTimeInterval:15 * 60];
-            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", startTime, endTime];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", [formatter stringFromDate:startTime], [formatter stringFromDate:endTime]];
             pickingStartTime = NO;
             self.confirmButton.enabled = YES;
             self.instructionsLabel.text = @"Adjust your end time:";
@@ -160,7 +163,7 @@
                 return;
             }
             endTime = [date dateByAddingTimeInterval:15 * 60];
-            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", startTime, endTime];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", [formatter stringFromDate:startTime], [formatter stringFromDate:endTime]];
             for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
                 if (i<=indexPath.item) {
                     self.timeSlots[i].chosen = YES;
@@ -245,6 +248,7 @@
     pickingStartTime = YES;
     self.confirmButton.enabled = NO;
     self.instructionsLabel.text = @"Select a start time:";
+    self.timeRangeLabel.text = @"";
 }
 
 - (void)makeTimeSlotsUnavailableGivenStartDate:(NSDate *)startDate
@@ -280,6 +284,7 @@
     pickingStartTime = YES;
     self.confirmButton.enabled = NO;
     self.instructionsLabel.text = @"Select a start time:";
+    self.timeRangeLabel.text = @"";
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
     }
