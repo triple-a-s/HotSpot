@@ -78,7 +78,7 @@ withCompletion: (PFBooleanResultBlock _Nullable) completion {
 
 //gets a pffileobject from an image
 + (PFFileObject *)getPFFileObjectFromImage: (UIImage * _Nullable)image {
-    if (!image) {
+    if (!(image)) {
         return nil;
     }
     

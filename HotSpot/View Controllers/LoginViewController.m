@@ -30,11 +30,9 @@
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"Login error" withMessage:@"Your username or password is empty"];
     
     if ([RegexHelper isEmpty:self.username.text] || [RegexHelper isEmpty:self.password.text]) {
-        alert.message = @"Your username or password is empty";
-        alert.title = @"Login Error";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {

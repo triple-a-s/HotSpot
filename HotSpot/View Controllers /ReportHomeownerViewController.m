@@ -33,10 +33,8 @@
 //checks if the report field is empty, if not sends a specialized report
 - (IBAction)didTapSendReport:(UIButton *)sender {
     if ([RegexHelper isEmpty:self.reportField.text]) {
-        UIAlertController *alert = [RegexHelper createAlertController];
+        UIAlertController *alert = [RegexHelper createAlertController:@"Empty text field" withMessage:@"Please give a report of what went wrong"];
         
-        alert.title = @"Empty text field";
-        alert.message = @"Please give a report of what went wrong";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {

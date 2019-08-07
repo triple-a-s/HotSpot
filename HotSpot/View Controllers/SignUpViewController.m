@@ -48,7 +48,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if (self.isAuthenticated) {
-        UIAlertController *alert = [RegexHelper createAlertController];
+        UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
         PFUser *newUser = [PFUser user];
         
         newUser.username = self.username.text;
@@ -81,7 +81,7 @@
 //registers a user, throws up an alert with an "empty" error message if one of the fields is empty.
 //if there's a different error, it throws up an alert with the specific error description
 - (void)registerUser {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"Sign up error" withMessage:@"There was an error during signup"];
     
     //checks if any of the fields are empty
     //checks if the phone number is 7 or 10 digits

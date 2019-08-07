@@ -31,9 +31,7 @@
 //checks if the image field is nil, if not sends a specialized report for damages
 - (IBAction)didTapSendReport:(UIButton *)sender {
     if (self.damageImage.image == nil) {
-        UIAlertController *alert = [RegexHelper createAlertController];
-        alert.title = @"No image detected";
-        alert.message = @"Please upload a picture so we can assess your car's damages";
+        UIAlertController *alert = [RegexHelper createAlertController:@"No image detected" withMessage:@"Please upload a picture so we can assess your car's damages"];
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {

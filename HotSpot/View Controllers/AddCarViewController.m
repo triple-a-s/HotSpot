@@ -56,7 +56,7 @@
 }
 
 - (IBAction)didTapConfirm:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
     
     if (isValidCar(self.licensePlate.text, self.carColor.text, alert, NO)) {
         [self addCar];

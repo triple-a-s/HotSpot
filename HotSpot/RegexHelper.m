@@ -98,9 +98,10 @@ BOOL isProfileTaken(NSString * _Nonnull info, NSString * _Nonnull key) {
 }
 
 //creates an alert controller
-+ (UIAlertController*)createAlertController {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
-                                                                   message:@"" preferredStyle:UIAlertControllerStyleAlert];
++ (UIAlertController*)createAlertController:(NSString *)title
+                                withMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message preferredStyle:UIAlertControllerStyleAlert];
     
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"

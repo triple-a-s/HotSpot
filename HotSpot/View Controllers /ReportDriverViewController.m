@@ -33,19 +33,16 @@
 //checks if the license plate is invalid, if not retrieves the driver
 //of that car and sends a specialized report
 - (IBAction)didTapSendReport:(UIButton *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"Invalid license plate" withMessage:@""];
     if ([RegexHelper isEmpty:@"licensePlate"]) {
-        alert.title = @"Empty license plate";
         alert.message = @"Please provide a license plate so we can identify the driver";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else if (self.licensePlate.text.length != 7) {
-        alert.title = @"Invalid license plate";
         alert.message = @"The license plate must be 7 characters";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else if (![RegexHelper isTaken:self.licensePlate.text]) {
-        alert.title = @"Invalid license plate.";
         alert.message = @"That license plate doesn't exist in our database.";
         [self presentViewController:alert animated:YES completion:^{
         }];

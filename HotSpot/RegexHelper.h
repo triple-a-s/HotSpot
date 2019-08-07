@@ -32,7 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
  withAlertController:(UIAlertController *)alert
        withSameProfile:(BOOL)isSameProfile;
 
-+ (UIAlertController*)createAlertController;
++ (UIAlertController*)createAlertController:(NSString *)title
+                                withMessage:(NSString *)message;
 
 
 @end

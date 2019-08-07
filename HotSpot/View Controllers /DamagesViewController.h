@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DamagesViewController : UIViewController
 
-@property (weak, nonatomic) NSString *reportedUser;
+@property (nonatomic, strong) NSString *reportedUser;
 
 @end
 

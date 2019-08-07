@@ -16,16 +16,11 @@ void sendEmail(NSString * _Nonnull text, UIImageView * _Nullable image, NSString
     SendGridEmail *email = [[SendGridEmail alloc] init];
     PFUser *currentUser = [PFUser currentUser];
     
-    if (!(image.image == nil)) {
+    if (image.image != nil) {
         [email attachImage:image.image];
     }
     NSString *subject = [NSString stringWithFormat:@"%@ report for: %@", reportType, reportedUser];
 
-    /*if ([reportType isEqualToString:@"Homeowner"]) {
-        subject = [NSString stringWithFormat:@"Homeowner report for: %@", reportedUser];
-    } else {
-        subject = [NSString stringWithFormat:@"Driver report for: %@", reportedUser];
-    }*/
     email.to = @"hotspothelp@yahoo.com";
     email.from = currentUser[@"email"];
     email.subject = subject;
@@ -33,8 +28,3 @@ void sendEmail(NSString * _Nonnull text, UIImageView * _Nullable image, NSString
     
     [sendGrid sendWithWeb:email];
 }
-
-@implementation EmailHelper
-
-
-@end

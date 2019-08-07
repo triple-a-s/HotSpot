@@ -78,7 +78,7 @@
 }
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
     if ([self.car[@"licensePlate"] isEqualToString:self.licensePlate.text]) {
         self.isSameCar = YES;
     }
