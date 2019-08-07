@@ -85,11 +85,14 @@
     }]];
     [self presentViewController:reportAlert animated:YES completion:nil];
 }
+- (IBAction)didTapReportDriver:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"reportDriverSegue" sender:nil];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        if([segue.identifier isEqualToString:@"bookingSegue2"]) {
+        if ([segue.identifier isEqualToString:@"bookingSegue2"]) {
             BookingViewController *bookingViewController = [segue destinationViewController];
             bookingViewController.listing = listing;
         } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
@@ -102,7 +105,7 @@
             damagesViewController.reportedUser = self.homeOwner.text;
         } else if ([segue.identifier isEqualToString:@"reportDriverSegue"]) {
             ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
-            reportDriverViewController.listing = self.listing;
+            reportDriverViewController.listing = listing;
         }
     }];
 }

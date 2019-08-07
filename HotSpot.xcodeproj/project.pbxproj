@@ -27,6 +27,7 @@
 		61D1E3E322F50AB000070919 /* Payment .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D1E3E222F50AB000070919 /* Payment .storyboard */; };
 		61E418BD22F89CE700AE5327 /* CurrentAndPastDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */; };
 		61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */; };
+		61E418D422FB894C00AE5327 /* ReportDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418D322FB894C00AE5327 /* ReportDriverViewController.m */; };
 		6CB77EF92B958EC8F1305237 /* Pods_HotSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18B4064C2CD2C5768C2E3F0 /* Pods_HotSpot.framework */; };
 		78658EA0895A7F93B24721DB /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0141CF2128C1E9667762FD8A /* Pods_HotSpotTests.framework */; };
 		AD08283C22F8D1580069A20D /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282A22F8D1570069A20D /* CallViewController.m */; };
@@ -40,7 +41,6 @@
 		AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283822F8D1570069A20D /* EditInformationViewController.m */; };
 		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
 		AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */; };
-		AD08285622F9FB430069A20D /* ReportDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285422F9FB430069A20D /* ReportDriverViewController.m */; };
 		AD08285722FA2A8F0069A20D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8D522DE6A0B00112AF2 /* AppDelegate.m */; };
 		AD08285822FA2A8F0069A20D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8E322DE6A0D00112AF2 /* main.m */; };
 		AD08285922FA2A8F0069A20D /* TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D21C7D6022E26817000BF3B1 /* TimeInterval.m */; };
@@ -137,6 +137,8 @@
 		61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentAndPastDetails.h; sourceTree = "<group>"; };
 		61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentAndPastDetails.m; sourceTree = "<group>"; };
 		61E418C322F9F26300AE5327 /* BookingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BookingViewController.h; path = "HotSpot/View Controllers/BookingViewController.h"; sourceTree = SOURCE_ROOT; };
+		61E418D222FB894B00AE5327 /* ReportDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDriverViewController.h; sourceTree = "<group>"; };
+		61E418D322FB894C00AE5327 /* ReportDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDriverViewController.m; sourceTree = "<group>"; };
 		68FBF08CBFB5BADA6F3988D1 /* Pods-HotSpotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3814DBD9D1F117A6039B9B5 /* Pods-HotSpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.debug.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.debug.xcconfig"; sourceTree = "<group>"; };
 		AD08282A22F8D1570069A20D /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallViewController.m; path = "HotSpot/View Controllers/CallViewController.m"; sourceTree = SOURCE_ROOT; };
@@ -161,8 +163,6 @@
 		AD08284622F8D1900069A20D /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmationViewController.m; path = "HotSpot/View Controllers/ConfirmationViewController.m"; sourceTree = SOURCE_ROOT; };
 		AD08285122F9FB290069A20D /* ReportHomeownerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportHomeownerViewController.h; sourceTree = "<group>"; };
 		AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportHomeownerViewController.m; sourceTree = "<group>"; };
-		AD08285422F9FB430069A20D /* ReportDriverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ReportDriverViewController.m; path = "/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.m"; sourceTree = "<absolute>"; };
-		AD08285522F9FB430069A20D /* ReportDriverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ReportDriverViewController.h; path = "/Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/View Controllers /ReportDriverViewController.h"; sourceTree = "<absolute>"; };
 		AD08285B22FA30EC0069A20D /* DamagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DamagesViewController.h; sourceTree = "<group>"; };
 		AD08285C22FA30EC0069A20D /* DamagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamagesViewController.m; sourceTree = "<group>"; };
 		AD08285E22FA37680069A20D /* EmailHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailHelper.h; sourceTree = "<group>"; };
@@ -455,8 +455,6 @@
 				61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */,
 				AD08285122F9FB290069A20D /* ReportHomeownerViewController.h */,
 				AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */,
-				AD08285522F9FB430069A20D /* ReportDriverViewController.h */,
-				AD08285422F9FB430069A20D /* ReportDriverViewController.m */,
 				AD08285B22FA30EC0069A20D /* DamagesViewController.h */,
 				AD08285C22FA30EC0069A20D /* DamagesViewController.m */,
 				AD08286122FB77D20069A20D /* ReportTransitionViewController.h */,
@@ -465,6 +463,8 @@
 				AD08286522FB7C5D0069A20D /* CustomerSupportViewController.m */,
 				AD08286722FB7FA70069A20D /* SettingsReportTransitionViewController.h */,
 				AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */,
+				61E418D222FB894B00AE5327 /* ReportDriverViewController.h */,
+				61E418D322FB894C00AE5327 /* ReportDriverViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -746,6 +746,7 @@
 				AD08285922FA2A8F0069A20D /* TimeInterval.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
 				AD08286622FB7C5D0069A20D /* CustomerSupportViewController.m in Sources */,
+				61E418D422FB894C00AE5327 /* ReportDriverViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				AD08285822FA2A8F0069A20D /* main.m in Sources */,
 				AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */,
@@ -767,7 +768,6 @@
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
 				AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */,
-				AD08285622F9FB430069A20D /* ReportDriverViewController.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,

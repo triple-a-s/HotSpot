@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Report Driver"/>
                                 <connections>
-                                    <segue destination="GnJ-Jf-wcy" kind="presentation" id="Ahi-Ru-TQd"/>
+                                    <action selector="didTapReportDriver:" destination="q1s-Ok-vte" eventType="touchUpInside" id="be3-Xk-isS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-BD-R6t">
@@ -118,6 +118,7 @@
                         <segue destination="hfi-qK-LKZ" kind="presentation" identifier="reportHomeownerSegue" id="z4l-EC-4rY"/>
                         <segue destination="D6H-cf-GgJ" kind="presentation" identifier="reportDamagesSegue" id="dhi-x6-vy6"/>
                         <segue destination="vYP-9v-sw8" kind="presentation" identifier="directReportSegue" id="jGl-C2-7Gn"/>
+                        <segue destination="GnJ-Jf-wcy" kind="presentation" identifier="reportDriverSegue" id="jYb-8j-Zfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ze-i2-hre" userLabel="First Responder" sceneMemberID="firstResponder"/>

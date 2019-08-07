@@ -16,10 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) CLLocation *initialLocation;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property (strong, nonatomic) NSArray<Listing *> *listings;
++ (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray withLocation:(CLLocation*)location;
 
-- (NSMutableArray*) sortListingArrayNumber:(NSArray<Listing*>*)unsortedArray;
-- (NSArray*) sortListingArray:(NSMutableArray*)numberArray andListing:(NSArray<Listing*>*)unsortedArray;
-- (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray;
 @end
 
 NS_ASSUME_NONNULL_END

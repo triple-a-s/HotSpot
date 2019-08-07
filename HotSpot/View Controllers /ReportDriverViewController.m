@@ -6,17 +6,20 @@
 //
 
 #import "ReportDriverViewController.h"
+#import "DataManager.h"
 #import "ReportTransitionViewController.h"
 #import <Parse/Parse.h>
 #import "RegexHelper.h"
 #import "EmailHelper.h"
 #import "ImagePickerHelper.h"
+#import "ParkingSearchViewController.h"
 
 @interface ReportDriverViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
 @property (weak, nonatomic) IBOutlet UITextField *licensePlate;
 @property (weak, nonatomic) IBOutlet UITextView *reportMessage;
+@property (strong, nonatomic) NSArray<Listing*> *transitionListings;
 
 @end
 
@@ -90,9 +93,20 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"driverReportSegue"]) {
-        ReportTransitionViewController *reportTransitionVC = segue.destinationViewController;
-        reportTransitionVC.needNearestSpot = YES;
-        reportTransitionVC.listing = self.listing;
+        
+        [DataManager getListingsNearLocation:self.listing.address
+                              withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+                                  if(!error){
+                                ReportTransitionViewController *reportTransitionVC = segue.destinationViewController;
+                                      reportTransitionVC.needNearestSpot = YES;
+                                CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
+                                  self.transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
+                                  reportTransitionVC.listing = self.transitionListings[0];
+                                  }
+                                  else{
+                                      NSLog(@"FML");
+                                  }
+                              }];
     }
 }
 
