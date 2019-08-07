@@ -74,17 +74,9 @@
     // animations
     [self resetTableViewFrame];
     
-    // Do any additional setup after loading the view.
-    // Initialize the Speech Recognizer with the locale, couldn't find a list of locales
-    // but I assume it's standard UTF-8 https://wiki.archlinux.org/index.php/locale
     speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    
-    // Set speech recognizer delegate
     speechRecognizer.delegate = self;
-    
-    // Request the authorization to make sure the user is asked for permission so you can
-    // get an authorized response, also remember to change the .plist file, check the repo's
-    // readme file or this project's info.plist
+
     [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
         switch (status) {
             case SFSpeechRecognizerAuthorizationStatusAuthorized:
