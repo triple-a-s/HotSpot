@@ -74,7 +74,7 @@
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
-    self.tableVC.initialLocation = self.mapVC.locationManager.location;
+    // self.tableVC.initialLocation = self.mapVC.mapLocationManager.location;
     
     // animations -- sets frame size to 0!
     [self resetTableViewFrame];
@@ -121,7 +121,7 @@
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
         // set to size of the view controller
-            frame.size.height = self.accessibilityFrame.size.height;
+            frame.size.height = 800;
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
@@ -282,7 +282,6 @@
     self.recognitionTask = [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
         if (result) {
             NSString *resultText = [NSString stringWithFormat: @"%@ ",result.bestTranscription.formattedString];
-            [self.mainSearchBar becomeFirstResponder];
             [self.mainSearchBar setText:resultText];
         }
         

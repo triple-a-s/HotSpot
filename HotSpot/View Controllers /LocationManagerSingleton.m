@@ -12,15 +12,24 @@
 
 @synthesize locationManager;
 
++ (id)sharedLocationManager {
+    static LocationManagerSingleton *sharedLocationManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedLocationManager = [[self alloc] init];
+    });
+    return sharedLocationManager;
+}
 - (id)init {
     self = [super init];
     
     if(self) {
-        self.locationManager = [CLLocationManager new];
-        [self.locationManager setDelegate:self];
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        [self.locationManager startUpdatingLocation];
         [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
         [self.locationManager setHeadingFilter:kCLHeadingFilterNone];
-        [self.locationManager startUpdatingLocation];
+        [self.locationManager requestWhenInUseAuthorization];
         //do any more customization to your location manager
     }
     

@@ -11,11 +11,13 @@
 #import "MainContainerViewController.h"
 #import "DetailsViewController.h"
 #import "DataManager.h"
+#import "LocationManagerSingleton.h"
 
 @interface MapViewController ()
 @property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
 @property (strong, nonatomic) CLLocation *startLocation;
 @property (strong, nonatomic) NSMutableArray <PFFileObject*> *listingImageArray;
+@property (strong, nonatomic) LocationManagerSingleton *mapLocationManager;
 @end
 
 @implementation MapViewController
@@ -27,19 +29,9 @@
     
     // set the delegate to itself
     self.searchMap.delegate = self;
-    
-    // show the user location when the map loads -- not working currently
-    // things associated with showing the actual use location
-    self.locationManager.delegate = self;
-    self.locationManager =[[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager requestWhenInUseAuthorization];
-    [self.locationManager startUpdatingLocation];
-    [self.searchMap showsUserLocation];
-
-    
+    self.mapLocationManager = [LocationManagerSingleton sharedSingleton];
     // getting the initial listings to load on the map
-    self.initialLocation = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude]; 
+    self.initialLocation = [[CLLocation alloc]initWithLatitude:self.mapLocationManager.locationManager.location.coordinate.latitude longitude:self.mapLocationManager.locationManager.location.coordinate.longitude];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     
     [DataManager getAllListings:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
