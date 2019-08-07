@@ -50,6 +50,7 @@
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
 		D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501322E920A7004BE9BF /* TimeSlot.m */; };
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
+		D251627D22FB93B200ACFADD /* FancyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D251627C22FB93B200ACFADD /* FancyButton.m */; };
 		D264E26022F20C500054391A /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D264E25F22F20C500054391A /* Call.storyboard */; };
 		D264E26D22F214540054391A /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26A22F214540054391A /* incoming.wav */; };
 		D264E26E22F214540054391A /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26B22F214540054391A /* outgoing.wav */; };
@@ -182,6 +183,8 @@
 		D22F501222E920A7004BE9BF /* TimeSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
 		D22F501322E920A7004BE9BF /* TimeSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
 		D22F501522EA2098004BE9BF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		D251627B22FB93B200ACFADD /* FancyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FancyButton.h; sourceTree = "<group>"; };
+		D251627C22FB93B200ACFADD /* FancyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FancyButton.m; sourceTree = "<group>"; };
 		D264E25E22F1FE360054391A /* HotSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotSpot.entitlements; sourceTree = "<group>"; };
 		D264E25F22F20C500054391A /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
 		D264E26A22F214540054391A /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				D26617C422EB689700255BC3 /* SearchCell.m */,
 				D2ECF6B822F8E2F800901E9D /* CarView.h */,
 				D2ECF6B922F8E2F800901E9D /* CarView.m */,
+				D251627B22FB93B200ACFADD /* FancyButton.h */,
+				D251627C22FB93B200ACFADD /* FancyButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
 				D264E27222F352E30054391A /* CallManager.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
+				D251627D22FB93B200ACFADD /* FancyButton.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
