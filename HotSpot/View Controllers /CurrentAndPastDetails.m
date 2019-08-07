@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "BookingViewController.h"
 #import "MapKit/MapKit.h"
+#import "LocationManagerSingleton.h"
 
 @interface CurrentAndPastDetails ()
 
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeParked;
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
 @property (strong, nonatomic) Listing *listing;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) LocationManagerSingleton *locationManager;
 
 @end
 
@@ -28,11 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.locationManager.delegate = self;
-    self.locationManager =[[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager requestWhenInUseAuthorization];
-    [self.locationManager startUpdatingLocation];
+    self.locationManager = [LocationManagerSingleton sharedSingleton];
     // image
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
@@ -91,7 +88,7 @@
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
         CLLocationDegrees longitude = listing.address.longitude;
         CLLocationDegrees latitude= listing.address.latitude;
-        NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude,  latitude, longitude];
+        NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.locationManager.location.coordinate.latitude, self.locationManager.locationManager.location.coordinate.longitude,  latitude, longitude];
         if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {}];
         } else {

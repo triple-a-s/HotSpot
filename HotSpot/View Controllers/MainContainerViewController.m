@@ -74,8 +74,6 @@
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
-    // self.tableVC.initialLocation = self.mapVC.mapLocationManager.location;
-    
     // animations -- sets frame size to 0!
     [self resetTableViewFrame];
     
