@@ -62,8 +62,8 @@
 //to choose between predetermined reports to send automatically
 //or gives them the option to write their own report
 - (IBAction)reportHomeowner:(UIButton *)sender {
-    UIAlertController *reportAlert = [UIAlertController alertControllerWithTitle:nil
-                                                                        message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *reportAlert = [UIAlertController alertControllerWithTitle:@"Choose report type"
+                                                                        message:@"You can choose between these automated report options, or write your own." preferredStyle:UIAlertControllerStyleActionSheet];
     
     [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
