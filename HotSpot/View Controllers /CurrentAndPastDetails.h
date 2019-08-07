@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) Booking *booking;
 @property (weak, nonatomic) IBOutlet UIButton *bookAgainButton;
-
+@property (nonatomic, assign, readwrite) BOOL showCheckInCheckOut;
 
 @end
 

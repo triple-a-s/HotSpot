@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) TimeInterval *timeInterval;
+@property (nonatomic, assign, readwrite) BOOL next;
 
 + (void)bookDriveway:(Listing * _Nullable)listing
        withStartTime:(NSDate * _Nullable)startTime

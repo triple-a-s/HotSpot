@@ -93,6 +93,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faR-7N-LLU">
+                                <rect key="frame" x="10" y="477" width="127" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
+                                <state key="normal" title="Check In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="qmI-fz-glt" kind="presentation" id="5YP-q6-pqe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-2u-jGs">
+                                <rect key="frame" x="240" y="477" width="142" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
+                                <state key="normal" title="Check Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="g95-fA-UMh" kind="presentation" id="dX3-4l-tBw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -103,6 +139,8 @@
                     </view>
                     <connections>
                         <outlet property="bookingProcessing" destination="MPx-gD-AFk" id="vxl-Vb-quH"/>
+                        <outlet property="checkinButton" destination="faR-7N-LLU" id="Upy-us-J9f"/>
+                        <outlet property="checkoutButton" destination="Ht9-2u-jGs" id="DRo-L8-xeE"/>
                         <outlet property="homeOwner" destination="AtQ-bY-m0b" id="rJy-5s-eob"/>
                         <outlet property="houseAddress" destination="RYa-dC-vih" id="sTR-pH-v7h"/>
                         <outlet property="houseImage" destination="7C3-mN-U85" id="RGv-oY-nFA"/>
@@ -121,6 +159,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeA-e7-ApK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="652" y="-355"/>
+        </scene>
+        <!--Checkout-->
+        <scene sceneID="Ncd-cM-wvm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Checkout" id="g95-fA-UMh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tU-wy-9j4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="601" y="83"/>
+        </scene>
+        <!--Checkin-->
+        <scene sceneID="5Em-ff-qo1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Checkin" id="qmI-fz-glt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLw-ce-Ld1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="202"/>
+        </scene>
+        <!--Checkin-->
+        <scene sceneID="j9k-wi-pJy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Checkin" id="aeL-cj-nDq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOi-za-Gaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-289" y="-260"/>
         </scene>
     </scenes>
     <resources>

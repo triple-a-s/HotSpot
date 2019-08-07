@@ -78,6 +78,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     Booking *booking = self.bookings[indexPath.row];
+    if (indexPath.row==0) {
+        booking.next = YES;
+    }
+    else {
+        booking.next = NO;
+    }
     [self performSegueWithIdentifier:@"currentToDetails"
                               sender:booking];
 }
@@ -88,6 +94,8 @@
         CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
         detailsViewController.booking = sender;
         detailsViewController.bookAgainButton.hidden = YES;
+        Booking *booking = sender;
+        detailsViewController.showCheckInCheckOut = booking.next;
        // detailsViewController.bookingButton.hidden = YES; 
     }
 }
