@@ -138,7 +138,8 @@
         else if (pickingStartTime) {
             startIndexPath = indexPath;
             startTime = date;
-            endTime = [date dateByAddingTimeInterval:15 * 60 - 4];
+            endTime = [date dateByAddingTimeInterval:15 * 60];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", startTime, endTime];
             pickingStartTime = NO;
             self.confirmButton.enabled = YES;
             self.instructionsLabel.text = @"Adjust your end time:";
@@ -158,7 +159,8 @@
                 // start date cannot be later than end date
                 return;
             }
-            endTime = [date dateByAddingTimeInterval:15 * 60 - 4];
+            endTime = [date dateByAddingTimeInterval:15 * 60];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", startTime, endTime];
             for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
                 if (i<=indexPath.item) {
                     self.timeSlots[i].chosen = YES;
@@ -255,7 +257,8 @@
         start = 0; // if starts before today, normalize to beginning of day
     }
     
-    CGFloat endTimeIntervalSinceBeginningOfDay = [endDate timeIntervalSinceDate: beginningOfDay];
+    CGFloat buffer = 2; // in seconds
+    CGFloat endTimeIntervalSinceBeginningOfDay = [endDate timeIntervalSinceDate: beginningOfDay] - buffer;
     NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
     NSInteger end = endMinute / 15; // transform minute to an index for the cells, 0 to 95
     if (end > 4 * 24 - 1 ) {

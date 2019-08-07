@@ -19,7 +19,7 @@
     /**
      transforms the indexpath.item, a number from 0 to 95, to a time in 15 minute intervals from 0:00 to 23:45
      **/
-    NSInteger buffer = 2; // buffer for calculations, in terms of seconds
+    NSInteger buffer = 0; // buffer for calculations, in terms of seconds
     self.hour = item / 4;
     self.minute = item % 4 * 15;
     self.date = [date dateByAddingTimeInterval:(self.hour * 60 + self.minute) * 60 + buffer];
