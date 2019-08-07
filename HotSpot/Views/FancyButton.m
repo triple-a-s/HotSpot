@@ -21,5 +21,13 @@
     self.titleLabel.font = [UIFont systemFontOfSize:17.0];
     self.contentEdgeInsets = UIEdgeInsetsMake(8, 30, 8, 30);
 }
-
+- (void)setEnabled:(BOOL)enabled {
+    [super setEnabled:enabled];
+    if (enabled) {
+        self.alpha = 1;
+    }
+    else {
+        self.alpha = .2;
+    }
+}
 @end
