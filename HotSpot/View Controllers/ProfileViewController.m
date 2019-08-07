@@ -110,7 +110,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:self.profileImage.image.size];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
     self.profileImage.image = resizedImage;
     
     self.currentUser[@"profilePicture"] =
