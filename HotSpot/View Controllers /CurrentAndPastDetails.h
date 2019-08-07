@@ -11,10 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CurrentAndPastDetails : UIViewController
+@interface CurrentAndPastDetails : UIViewController<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) Booking *booking;
 @property (weak, nonatomic) IBOutlet UIButton *bookAgainButton;
+
 
 
 @end

@@ -9,6 +9,7 @@
 #import "CurrentAndPastDetails.h"
 #import "DataManager.h"
 #import "BookingViewController.h"
+#import "MapKit/MapKit.h"
 
 @interface CurrentAndPastDetails ()
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeParked;
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
 @property (strong, nonatomic) Listing *listing;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -26,6 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locationManager.delegate = self;
+    self.locationManager =[[CLLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
     // image
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
@@ -68,9 +75,36 @@
     }
 }
 
+
+
 - (IBAction)bookingBackPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)directionsPressed:(id)sender {
+    [self openMap]; 
+}
+
+
+- (void) openMap{
+    Listing *listing = self.booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
+        CLLocationDegrees longitude = listing.address.longitude;
+        CLLocationDegrees latitude= listing.address.latitude;
+        NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude,  latitude, longitude];
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{} completionHandler:^(BOOL success) {}];
+        } else {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:directionsURL] options:@{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {
+                if(success){
+                    NSLog(@"opened URL!");
+                }
+            }];
+        }
+    }];
+}
+
 
 
 @end
