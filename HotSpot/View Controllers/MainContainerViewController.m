@@ -43,6 +43,11 @@
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
+// affiliated with voice search
+@property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
+@property (strong, nonatomic) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
+@property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
+@property (strong, nonatomic) AVAudioEngine *audioEngine;
 
 
 
@@ -71,12 +76,14 @@
     
     self.tableVC.initialLocation = self.mapVC.locationManager.location;
     
-    // animations
+    // animations -- sets frame size to 0!
     [self resetTableViewFrame];
     
-    speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    speechRecognizer.delegate = self;
+    // I'm assuming that the people using HotSpot are Americans that speak english
+    self.speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+   self.speechRecognizer.delegate = self;
 
+    // used to request authorization -- the different cases
     [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
         switch (status) {
             case SFSpeechRecognizerAuthorizationStatusAuthorized:
@@ -101,6 +108,7 @@
 # pragma mark - Action Items
 
 - (IBAction)switchMode:(id)sender {
+    
     // sets the views to hidden or not hidden depending on what is tapped using conditionals
     if(self.spotListView.hidden){
         self.mapView.hidden = YES;
@@ -112,6 +120,8 @@
         self.spotListView.hidden = YES;
     }
     
+    // cute little animation that is unnecessary but necessary
+    // expands and then shrinks
     [UIView animateWithDuration:.2
                      animations:^{
                          self.modeSwitchButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
@@ -125,21 +135,17 @@
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    // setting the views to hidden or not
-
     
-    // starting to try out a simple animation
+    // this is the animation for a search results drop down
     if(self.searchResultTableView.frame.size.height ==0)
-        
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
         // set to size of the view controller
-        frame.size.height = 800;
+            frame.size.height = self.accessibilityFrame.size.height;
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
                  NSLog(@"Done!");
              }];
-    
     
     // the search bar will go away once you delete text
     if(searchText.length ==0){
@@ -268,32 +274,37 @@
     self.searchResultTableView.frame  = frame;
 }
 
-#pragma mark - Actions
-
 - (void)startListening {
     
-    audioEngine = [[AVAudioEngine alloc] init];
+    // initializing our audioEngine
+    /*
+     AVAudio Engine (from Apple Documentation: A group of connected audio node objects used to generate and process audio signals and perform audio input and output.
+     */
+    self.audioEngine = [[AVAudioEngine alloc] init];
     
-    if (recognitionTask) {
-        [recognitionTask cancel];
-        recognitionTask = nil;
+    // if there is an ongoing task -- cancel that lol
+    if (self.recognitionTask) {
+        [self.recognitionTask cancel];
+        self.recognitionTask = nil;
     }
     
+    // setting up the session
     NSError *error;
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryRecord error:&error];
     [audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&error];
     
     
-    recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
-    AVAudioInputNode *inputNode = audioEngine.inputNode;
-    recognitionRequest.shouldReportPartialResults = YES;
-    recognitionTask = [speechRecognizer recognitionTaskWithRequest:recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
+    self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+    AVAudioInputNode *inputNode = self.audioEngine.inputNode;
+    // NECESSARY for voice search
+    self.recognitionRequest.shouldReportPartialResults = YES;
+    self.recognitionTask = [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
         if (result) {
             NSString *resultText = [NSString stringWithFormat: @"%@ ",result.bestTranscription.formattedString];
             [self.mainSearchBar becomeFirstResponder];
             [self.mainSearchBar setText:resultText];
-            // tried to create typer
+            // tried to create typer to mirror a keyboard
             /*
             for (int i =0; i<=resultText.length; i++){
                NSString *searchBarTyperHelper = @"";
@@ -302,48 +313,44 @@
             }
              */
         }
+        
         if (error) {
-            [audioEngine stop];
+            [self.audioEngine stop];
             [inputNode removeTapOnBus:0];
-            recognitionRequest = nil;
-            recognitionTask = nil;
+            self.recognitionRequest = nil;
+            self.recognitionTask = nil;
         }
     }];
     
     AVAudioFormat *recordingFormat = [inputNode outputFormatForBus:0];
     [inputNode installTapOnBus:0 bufferSize:1800 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
-        [recognitionRequest appendAudioPCMBuffer:buffer];
+        [self.recognitionRequest appendAudioPCMBuffer:buffer];
     }];
     
     // Starts the audio engine, i.e. it starts listening.
-    [audioEngine prepare];
-    [audioEngine startAndReturnError:&error];
+    [self.audioEngine prepare];
+    [self.audioEngine startAndReturnError:&error];
     self.mainSearchBar.placeholder = @"Recording has started";
 }
 
 -(void)stopRecording{
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(audioEngine.isRunning){
-            [audioEngine.inputNode removeTapOnBus:0];
-            [audioEngine.inputNode reset];
-            [audioEngine stop];
-            [recognitionRequest endAudio];
-            [recognitionTask cancel];
-            recognitionTask = nil;
-            recognitionRequest = nil;
+        if(self.audioEngine.isRunning){
+            [self.audioEngine.inputNode removeTapOnBus:0];
+            [self.audioEngine.inputNode reset];
+            [self.audioEngine stop];
+            [self.recognitionRequest endAudio];
+            [self.recognitionTask cancel];
+            self.recognitionTask = nil;
+            self.recognitionRequest = nil;
         }
-    });
 }
 
 - (IBAction)microPhoneTapped:(id)sender {
-    dispatch_async(dispatch_get_main_queue(), ^{
     if (audioEngine.isRunning) {
         [self stopRecording];
     } else {
         [self startListening];
     }
-    });
 }
 
 

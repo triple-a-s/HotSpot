@@ -88,7 +88,6 @@
         CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
         detailsViewController.booking = sender;
         detailsViewController.bookAgainButton.hidden = YES;
-       // detailsViewController.bookingButton.hidden = YES; 
     }
 }
 

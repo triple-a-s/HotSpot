@@ -12,6 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, SFSpeechRecognizerDelegate, UISearchDisplayDelegate> {
+    
+    // affiliated with voice search
     SFSpeechRecognizer *speechRecognizer;
     SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
     SFSpeechRecognitionTask *recognitionTask;
