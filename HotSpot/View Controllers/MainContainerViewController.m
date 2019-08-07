@@ -111,6 +111,18 @@
                      }];
 }
 
+
+- (IBAction)microPhoneTapped:(id)sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.audioEngine.isRunning) {
+            [self stopRecording];
+            self.mainSearchBar.placeholder = @"Search for a parking area: (eg. Rosebowl Stadium)";
+        } else {
+            [self startListening];
+        }
+    });
+}
+
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -119,7 +131,7 @@
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
         // set to size of the view controller
-            frame.size.height = 800;
+            frame.size.height = self.view.frame.size.height;
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
@@ -317,15 +329,6 @@
     });
 }
 
-- (IBAction)microPhoneTapped:(id)sender {
-    dispatch_async(dispatch_get_main_queue(), ^{
-    if (self.audioEngine.isRunning) {
-        [self stopRecording];
-    } else {
-        [self startListening];
-    }
-    });
-}
 
 
 

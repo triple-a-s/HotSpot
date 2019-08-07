@@ -48,7 +48,7 @@
                       }
                       
                       - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
-                          //handle your location updates here
+                          [self.locationManager stopUpdatingLocation];
                       }
 
 @end
