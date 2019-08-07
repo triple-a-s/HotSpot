@@ -76,7 +76,6 @@
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     
-    
     [ImagePickerHelper imageSelector:imagePickerVC withViewController:self];
 }
 

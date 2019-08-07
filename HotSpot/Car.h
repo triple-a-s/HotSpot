@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *carColor;
 @property (nonatomic, strong) PFFileObject *carImage;
 @property (nonatomic) BOOL isDefault;
+@property (nonatomic, strong) PFUser *driver;
 
 
 - (instancetype)initWithInfo:(NSString *)carColor

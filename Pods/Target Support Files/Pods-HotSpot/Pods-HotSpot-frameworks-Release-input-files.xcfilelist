@@ -1,4 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-HotSpot/Pods-HotSpot-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
+${BUILT_PRODUCTS_DIR}/SMTPAPI/SMTPAPI.framework
+${BUILT_PRODUCTS_DIR}/SendGrid/SendGrid.framework
 ${PODS_ROOT}/TwilioVoice/Build/iOS/TwilioVoice.framework

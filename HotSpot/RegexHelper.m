@@ -41,7 +41,6 @@ BOOL isProfileTaken(NSString * _Nonnull info, NSString * _Nonnull key) {
     return (object != nil);
 }
 
-
 @implementation RegexHelper
 
 //returns whether or not the passed in string is empty

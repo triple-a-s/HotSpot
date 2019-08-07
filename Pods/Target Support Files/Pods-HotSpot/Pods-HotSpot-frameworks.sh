@@ -161,13 +161,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMTPAPI/SMTPAPI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SendGrid/SendGrid.framework"
   install_framework "${PODS_ROOT}/TwilioVoice/Build/iOS/TwilioVoice.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SMTPAPI/SMTPAPI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SendGrid/SendGrid.framework"
   install_framework "${PODS_ROOT}/TwilioVoice/Build/iOS/TwilioVoice.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

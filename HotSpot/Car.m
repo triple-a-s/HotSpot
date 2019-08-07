@@ -19,6 +19,7 @@
 @dynamic licensePlate;
 @dynamic carColor;
 @dynamic isDefault;
+@dynamic driver;
 
 + (nonnull NSString *)parseClassName {
     return @"Car";
@@ -31,6 +32,7 @@
         self.licensePlate = licensePlate;
         self.carColor = carColor;
         self.isDefault = isDefault;
+        self.driver = [PFUser currentUser];
     }
     return self;
 }

@@ -7,8 +7,12 @@
 //
 
 #import "ReportHomeownerViewController.h"
+#import "RegexHelper.h"
+#import "EmailHelper.h"
 
 @interface ReportHomeownerViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextView *reportField;
 
 @end
 
@@ -16,7 +20,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (IBAction)didTapCancel:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)didTapView:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:(YES)];
+}
+
+//checks if the report field is empty, if not sends a specialized report
+- (IBAction)didTapSendReport:(UIButton *)sender {
+    if ([RegexHelper isEmpty:self.reportField.text]) {
+        UIAlertController *alert = [RegexHelper createAlertController];
+        
+        alert.title = @"Empty text field";
+        alert.message = @"Please give a report of what went wrong";
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+    } else {
+        sendEmail(self.reportField.text, nil, self.nameLabel.text, @"Homeowner");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 /*
