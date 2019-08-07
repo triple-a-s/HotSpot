@@ -140,7 +140,7 @@
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
         // set to size of the view controller
-            frame.size.height = 800;
+            frame.size.height = self.accessibilityFrame.size.height;
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
@@ -334,6 +334,8 @@
 }
 
 -(void)stopRecording{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
         if(self.audioEngine.isRunning){
             [self.audioEngine.inputNode removeTapOnBus:0];
             [self.audioEngine.inputNode reset];
@@ -343,14 +345,17 @@
             self.recognitionTask = nil;
             self.recognitionRequest = nil;
         }
+    });
 }
 
 - (IBAction)microPhoneTapped:(id)sender {
-    if (audioEngine.isRunning) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+    if (self.audioEngine.isRunning) {
         [self stopRecording];
     } else {
         [self startListening];
     }
+    });
 }
 
 
