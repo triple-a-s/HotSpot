@@ -88,7 +88,7 @@
     CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(listing.address.latitude,
                                                                      listing.address.longitude);
     CGFloat distanceBetweenPoints = [DataManager getDistancebetweenAddressOne:spotLocation andAddressTwo:self.initialLocation.coordinate];
-    cell.searchTableMilesAway.text = [NSMutableString stringWithFormat:@"%.02f miles away",distanceBetweenPoints];
+    cell.searchTableMilesAway.text = [NSMutableString stringWithFormat:@"%.02f mi",distanceBetweenPoints];
     
     PFFileObject *img = listing.picture;
     [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){

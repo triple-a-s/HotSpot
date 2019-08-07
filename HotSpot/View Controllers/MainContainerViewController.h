@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>
 
 + (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
+- (void) resetTableViewFrame;
 
 @end
 

@@ -72,9 +72,7 @@
     self.tableVC.initialLocation = self.mapVC.locationManager.location;
     
     // animations
-    CGRect frame =  self.searchResultTableView.frame;
-    frame.size.height = 0;
-    self.searchResultTableView.frame  = frame;
+    [self resetTableViewFrame];
 }
 
 # pragma mark - Action Items
@@ -90,6 +88,15 @@
         self.mapView.hidden = NO;
         self.spotListView.hidden = YES;
     }
+    
+    [UIView animateWithDuration:.2
+                     animations:^{
+                         self.modeSwitchButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                     }completion:^(BOOL finished) {
+                         [UIView animateWithDuration:.35 animations:^{
+                             self.modeSwitchButton.transform = CGAffineTransformIdentity;
+                         }];
+                     }];
 }
 
 # pragma mark - Search Related
@@ -101,9 +108,15 @@
     
     // starting to try out a simple animation
     if(self.searchResultTableView.frame.size.height ==0)
-    [UIView animateWithDuration:0.4 animations:^{CGRect frame = self.searchResultTableView.frame;
+        
+        [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
+        // set to size of the view controller
         frame.size.height = 800;
-        self.searchResultTableView.frame = frame;}];
+        self.searchResultTableView.frame =
+            frame;}
+             completion:^(BOOL finished){
+                 NSLog(@"Done!");
+             }];
     
     
     // the search bar will go away once you delete text
@@ -127,9 +140,7 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
     // tells the keyboard what to do when we decide it ended editing --> actually dismisses keyboard
-    CGRect frame =  self.searchResultTableView.frame;
-    frame.size.height = 0;
-    self.searchResultTableView.frame  = frame;
+    [self resetTableViewFrame];
     [self.mainSearchBar resignFirstResponder];
 }
 
@@ -193,9 +204,7 @@
         }
     }];
     // we don't want the search result to show after we already tapped on something
-    CGRect frame =  self.searchResultTableView.frame;
-    frame.size.height = 0;
-    self.searchResultTableView.frame  = frame;
+    [self resetTableViewFrame];
     // we want the keyboard to go away after we tapped on something
     [self.mainSearchBar endEditing:YES];
 }
@@ -229,5 +238,16 @@
         completion(placemark.location, error);
     }];
 }
+
+- (void) resetTableViewFrame{
+    CGRect frame =  self.searchResultTableView.frame;
+    frame.size.height = 0;
+    self.searchResultTableView.frame  = frame;
+}
+
+#pragma mark - Actions
+
+
+
 
 @end
