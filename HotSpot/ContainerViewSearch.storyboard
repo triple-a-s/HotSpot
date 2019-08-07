@@ -257,7 +257,9 @@
         <scene sceneID="IKW-fG-cSg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hHW-Sp-HEk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="Ehe-CV-tee"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="Ehe-CV-tee">
+                        <color key="badgeColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oiP-Xj-fu6">
@@ -281,4 +283,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="A4E-fw-Y4j"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

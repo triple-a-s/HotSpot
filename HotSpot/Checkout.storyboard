@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-YD-qzT">
-                                <rect key="frame" x="8" y="96" width="80" height="24"/>
+                                <rect key="frame" x="8" y="96" width="77" height="23"/>
                                 <state key="normal" title="Button" image="close-icon"/>
                                 <connections>
                                     <action selector="closeClicked:" destination="GNz-bi-pVH" eventType="touchUpInside" id="PWS-eB-pJp"/>
@@ -181,6 +181,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-icon" width="26" height="24"/>
+        <image name="close-icon" width="23" height="23"/>
     </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
