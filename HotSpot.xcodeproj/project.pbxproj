@@ -431,24 +431,6 @@
 				61547D6022EB9A0D00E57E34 /* MapViewController.m */,
 				61547D6222EB9A0D00E57E34 /* ParkingSearchViewController.h */,
 				61547D6722EB9A0E00E57E34 /* ParkingSearchViewController.m */,
-				D264E26422F20D330054391A /* CallViewController.h */,
-				D264E26522F20D330054391A /* CallViewController.m */,
-				ADEC07D622DE80310035274F /* LoginViewController.h */,
-				ADEC07D722DE80310035274F /* LoginViewController.m */,
-				ADEC07D322DE7FE70035274F /* SignUpViewController.h */,
-				ADEC07D422DE7FE70035274F /* SignUpViewController.m */,
-				ADC06E8B22DFCFFB00ED3F4D /* SettingsViewController.h */,
-				ADC06E8C22DFCFFB00ED3F4D /* SettingsViewController.m */,
-				ADC06E9522E119B000ED3F4D /* ProfileViewController.h */,
-				ADC06E9622E119B000ED3F4D /* ProfileViewController.m */,
-				ADC06E9B22E13B1100ED3F4D /* CarsViewController.h */,
-				ADC06E9C22E13B1100ED3F4D /* CarsViewController.m */,
-				ADBB8D6022E7B8E0004C28EA /* AddCarViewController.h */,
-				ADBB8D6122E7B8E0004C28EA /* AddCarViewController.m */,
-				ADC06E9E22E147FF00ED3F4D /* EditInformationViewController.h */,
-				ADC06E9F22E147FF00ED3F4D /* EditInformationViewController.m */,
-				ADCF9FE522E9211700EF9E66 /* EditCarViewController.h */,
-				ADCF9FE622E9211700EF9E66 /* EditCarViewController.m */,
 				D2ECF6BB22F8E85800901E9D /* CheckoutViewController.h */,
 				D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */,
 				D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */,
@@ -789,13 +771,9 @@
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
-				ADC06E8D22DFCFFB00ED3F4D /* SettingsViewController.m in Sources */,
 				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
-				ADC06E9722E119B000ED3F4D /* ProfileViewController.m in Sources */,
-				ADC06EA022E147FF00ED3F4D /* EditInformationViewController.m in Sources */,
-				ADEC07D522DE7FE70035274F /* SignUpViewController.m in Sources */,
 				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
@@ -966,7 +944,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HotSpot/HotSpot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W2PUF8XW54;
+				DEVELOPMENT_TEAM = RW6F5L2HZM;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -985,7 +963,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HotSpot/HotSpot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W2PUF8XW54;
+				DEVELOPMENT_TEAM = RW6F5L2HZM;
 				INFOPLIST_FILE = HotSpot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
