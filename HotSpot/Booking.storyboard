@@ -110,23 +110,6 @@
                                     <segue destination="ssz-KO-HMw" kind="presentation" id="IBx-Mg-DIf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-Hu-Hg0">
-                                <rect key="frame" x="264" y="414" width="142" height="37"/>
-                                <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
-                                <state key="normal" title="Check Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="18"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="bYH-Xt-YTg" kind="presentation" id="O4o-aa-hpL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -137,8 +120,6 @@
                             <constraint firstItem="7aY-Al-bDx" firstAttribute="leading" secondItem="fzW-ub-55k" secondAttribute="leading" constant="8" id="IxW-MD-zBZ"/>
                             <constraint firstItem="a9Y-Ph-bDz" firstAttribute="leading" secondItem="Lwu-zp-pNN" secondAttribute="leading" id="LfO-na-roc"/>
                             <constraint firstItem="7aY-Al-bDx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DAE-Ol-FE5" secondAttribute="bottom" constant="8" symbolic="YES" id="Qrc-CF-48A"/>
-                            <constraint firstItem="I5N-Hu-Hg0" firstAttribute="centerY" secondItem="FFP-FF-Ajk" secondAttribute="centerY" id="TJd-rW-lO6"/>
-                            <constraint firstItem="I5N-Hu-Hg0" firstAttribute="trailing" secondItem="7aY-Al-bDx" secondAttribute="trailing" id="YWe-uQ-QQw"/>
                             <constraint firstItem="C9n-UD-Ud6" firstAttribute="centerX" secondItem="Lwu-zp-pNN" secondAttribute="centerX" id="egA-sX-gN8"/>
                             <constraint firstItem="Lwu-zp-pNN" firstAttribute="bottom" secondItem="C9n-UD-Ud6" secondAttribute="bottom" constant="8" id="m7S-4d-1A4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DAE-Ol-FE5" secondAttribute="trailing" constant="8" id="ntS-nJ-4si"/>
@@ -177,14 +158,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trQ-O1-4Rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-289" y="-260"/>
-        </scene>
-        <!--Checkout-->
-        <scene sceneID="JfA-uX-lyR">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Checkout" id="bYH-Xt-YTg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qtm-3M-woH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-321" y="-163"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
