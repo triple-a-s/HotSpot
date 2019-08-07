@@ -93,37 +93,18 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFP-FF-Ajk">
-                                <rect key="frame" x="8" y="414" width="127" height="37"/>
-                                <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
-                                <state key="normal" title="Check In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="18"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="ssz-KO-HMw" kind="presentation" id="IBx-Mg-DIf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C9n-UD-Ud6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7aY-Al-bDx" secondAttribute="bottom" constant="8" symbolic="YES" id="4EV-Ct-5oO"/>
                             <constraint firstItem="DAE-Ol-FE5" firstAttribute="top" secondItem="Lwu-zp-pNN" secondAttribute="top" constant="8" id="90S-ot-ZF3"/>
                             <constraint firstItem="DAE-Ol-FE5" firstAttribute="leading" secondItem="a9Y-Ph-bDz" secondAttribute="trailing" constant="8" symbolic="YES" id="E8K-5W-4UB"/>
-                            <constraint firstItem="FFP-FF-Ajk" firstAttribute="leading" secondItem="yfs-dU-39B" secondAttribute="leading" id="Itm-bI-HU0"/>
                             <constraint firstItem="7aY-Al-bDx" firstAttribute="leading" secondItem="fzW-ub-55k" secondAttribute="leading" constant="8" id="IxW-MD-zBZ"/>
                             <constraint firstItem="a9Y-Ph-bDz" firstAttribute="leading" secondItem="Lwu-zp-pNN" secondAttribute="leading" id="LfO-na-roc"/>
                             <constraint firstItem="7aY-Al-bDx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DAE-Ol-FE5" secondAttribute="bottom" constant="8" symbolic="YES" id="Qrc-CF-48A"/>
                             <constraint firstItem="C9n-UD-Ud6" firstAttribute="centerX" secondItem="Lwu-zp-pNN" secondAttribute="centerX" id="egA-sX-gN8"/>
                             <constraint firstItem="Lwu-zp-pNN" firstAttribute="bottom" secondItem="C9n-UD-Ud6" secondAttribute="bottom" constant="8" id="m7S-4d-1A4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DAE-Ol-FE5" secondAttribute="trailing" constant="8" id="ntS-nJ-4si"/>
-                            <constraint firstItem="FFP-FF-Ajk" firstAttribute="top" secondItem="yfs-dU-39B" secondAttribute="bottom" constant="8" id="ofP-hQ-fZw"/>
                             <constraint firstAttribute="trailing" secondItem="7aY-Al-bDx" secondAttribute="trailing" constant="8" id="pzg-jg-ci7"/>
                             <constraint firstItem="7aY-Al-bDx" firstAttribute="top" secondItem="a9Y-Ph-bDz" secondAttribute="bottom" constant="8" symbolic="YES" id="rl1-f9-7RQ"/>
                             <constraint firstItem="a9Y-Ph-bDz" firstAttribute="top" secondItem="Lwu-zp-pNN" secondAttribute="top" id="zjv-MI-krB"/>
@@ -150,14 +131,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgO-Nd-twt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-223" y="-459"/>
-        </scene>
-        <!--Checkin-->
-        <scene sceneID="iV2-eb-vhr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Checkin" id="ssz-KO-HMw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="trQ-O1-4Rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-289" y="-260"/>
         </scene>
         <!--Booking View Controller-->
         <scene sceneID="ZcI-6C-sBG">
