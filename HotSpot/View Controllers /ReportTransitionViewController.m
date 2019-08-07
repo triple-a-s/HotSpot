@@ -7,6 +7,7 @@
 //
 
 #import "ReportTransitionViewController.h"
+#import "DetailsViewController.h"
 
 @interface ReportTransitionViewController ()
 
@@ -18,12 +19,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if (self.needNearestSpot) {
+        [self.transitionButton setTitle:@"Go to nearest spot" forState:UIControlStateNormal];
+    } else {
+        [self.transitionButton setTitle:@"Return to Search Page" forState:UIControlStateNormal];
+    }
 }
 
 
 - (IBAction)didTapReturn:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"returnSegue" sender:nil];
+    if (self.needNearestSpot) {
+        [self performSegueWithIdentifier:@"newSpotSegue" sender:nil];
+    } else {
+        [self performSegueWithIdentifier:@"returnSegue" sender:nil];
+    }
+    
 }
 
 #pragma mark - Navigation
@@ -33,6 +44,9 @@
     if ([segue.identifier isEqualToString:@"returnSegue"]) {
         UITabBarController *tabBar = segue.destinationViewController;
         tabBar.selectedIndex = 2;
+    } else if ([segue.identifier isEqualToString:@"newSpotSegue"]) {
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        //detailsViewController.listing = self.listing;
     }
 }
 

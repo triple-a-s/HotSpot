@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "BookingViewController.h"
 #import "ReportHomeownerViewController.h"
+#import "ReportDriverViewController.h"
 #import "DamagesViewController.h"
 #import <SendGrid.h>
 #import <SendGridEmail.h>
@@ -99,6 +100,9 @@
         } else if ([segue.identifier isEqualToString:@"reportDamagesSegue"]) {
             DamagesViewController *damagesViewController = [segue destinationViewController];
             damagesViewController.reportedUser = self.homeOwner.text;
+        } else if ([segue.identifier isEqualToString:@"reportDriverSegue"]) {
+            ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
+            reportDriverViewController.listing = self.listing;
         }
     }];
 }

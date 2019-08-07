@@ -6,6 +6,7 @@
 //
 
 #import "ReportDriverViewController.h"
+#import "ReportTransitionViewController.h"
 #import <Parse/Parse.h>
 #import "RegexHelper.h"
 #import "EmailHelper.h"
@@ -83,14 +84,17 @@
     [self.view endEditing:(YES)];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"driverReportSegue"]) {
+        ReportTransitionViewController *reportTransitionVC = segue.destinationViewController;
+        reportTransitionVC.needNearestSpot = YES;
+        reportTransitionVC.listing = self.listing;
+    }
 }
-*/
+
 
 @end
