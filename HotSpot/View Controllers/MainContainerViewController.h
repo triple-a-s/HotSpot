@@ -21,8 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 + (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
-- (void) resetTableViewFrame;
-- (void)startListening;
+
 
 @end
 
