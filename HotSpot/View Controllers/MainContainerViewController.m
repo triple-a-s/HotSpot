@@ -140,7 +140,7 @@
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
         // set to size of the view controller
-            frame.size.height = self.accessibilityFrame.size.height;
+            frame.size.height = 800;
         self.searchResultTableView.frame =
             frame;}
              completion:^(BOOL finished){
