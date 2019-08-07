@@ -117,6 +117,7 @@
                         <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="TSe-nV-JnB"/>
                         <segue destination="hfi-qK-LKZ" kind="presentation" identifier="reportHomeownerSegue" id="z4l-EC-4rY"/>
                         <segue destination="D6H-cf-GgJ" kind="presentation" identifier="reportDamagesSegue" id="dhi-x6-vy6"/>
+                        <segue destination="vYP-9v-sw8" kind="presentation" identifier="directReportSegue" id="jGl-C2-7Gn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ze-i2-hre" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,15 +145,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLG-J3-0VD">
-                                <rect key="frame" x="87" y="421" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ekh-Fn-ouj" appends="YES" id="xln-Zr-dwF"/>
-                                </connections>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tell us more about what went wrong:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrU-lW-BGF">
                                 <rect key="frame" x="41" y="109" width="333" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -164,7 +156,7 @@
                                 <rect key="frame" x="30" y="154" width="354" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -196,8 +188,18 @@
                                 <state key="normal" title="Send Report"/>
                                 <connections>
                                     <action selector="didTapSendReport:" destination="GnJ-Jf-wcy" eventType="touchUpInside" id="SDZ-Hx-ijT"/>
+                                    <segue destination="vYP-9v-sw8" kind="presentation" identifier="driverReportSegue" id="Sw8-6J-MaQ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carImage" translatesAutoresizingMaskIntoConstraints="NO" id="OLG-J3-0VD">
+                                <rect key="frame" x="123" y="421" width="169" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ekh-Fn-ouj" appends="YES" id="xln-Zr-dwF"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -224,7 +226,68 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2403" y="125"/>
+            <point key="canvasLocation" x="2402.898550724638" y="124.55357142857142"/>
+        </scene>
+        <!--Tabs-->
+        <scene sceneID="GxT-Ug-YYN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tabs" id="Dem-ft-B1F" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xby-Fy-JKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557" y="1097"/>
+        </scene>
+        <!--Report Transition View Controller-->
+        <scene sceneID="W76-NF-XGn">
+            <objects>
+                <viewController id="vYP-9v-sw8" customClass="ReportTransitionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oyz-vG-MoS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll look into that as soon as possible for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-9A-YhY">
+                                <rect key="frame" x="31" y="383" width="352" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for sending a report!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Jh-SE3">
+                                <rect key="frame" x="28" y="339" width="359" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-2K-pA0">
+                                <rect key="frame" x="112" y="432" width="193" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Return to Search Page"/>
+                                <connections>
+                                    <action selector="didTapReturn:" destination="vYP-9v-sw8" eventType="touchUpInside" id="i03-vx-kgA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pQY-Bu-gKM"/>
+                    </view>
+                    <connections>
+                        <outlet property="transitionButton" destination="aC1-2K-pA0" id="Cpf-An-TQs"/>
+                        <segue destination="Dem-ft-B1F" kind="show" identifier="returnSegue" id="4Rf-B7-IAd"/>
+                        <segue destination="Bez-9y-exH" kind="show" identifier="newSpotSegue" id="RA1-1v-D2e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ1-MR-0s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272" y="1097"/>
+        </scene>
+        <!--DetailsViewController-->
+        <scene sceneID="LyY-EO-Plb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="DetailsViewController" id="Bez-9y-exH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ft6-Zz-pUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-300" y="1753"/>
         </scene>
         <!--Damages View Controller-->
         <scene sceneID="u7a-6D-Ptv">
@@ -254,7 +317,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pe-zV-9Uj">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carImage" translatesAutoresizingMaskIntoConstraints="NO" id="9pe-zV-9Uj">
                                 <rect key="frame" x="26" y="176" width="362" height="227"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
@@ -270,6 +333,7 @@
                                 <state key="normal" title="Send Report"/>
                                 <connections>
                                     <action selector="didTapSendReport:" destination="D6H-cf-GgJ" eventType="touchUpInside" id="745-g5-eM7"/>
+                                    <segue destination="vYP-9v-sw8" kind="presentation" identifier="damageReportSegue" id="3S2-Kh-bFP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -357,6 +421,7 @@
                                 <state key="normal" title="Send Report"/>
                                 <connections>
                                     <action selector="didTapSendReport:" destination="hfi-qK-LKZ" eventType="touchUpInside" id="deF-3m-L3D"/>
+                                    <segue destination="vYP-9v-sw8" kind="presentation" identifier="homeownerReportSegue" id="OMy-vK-lr8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -403,6 +468,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="carImage" width="173" height="130"/>
         <image name="houseimageexample" width="550" height="413"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3S2-Kh-bFP"/>
+    </inferredMetricsTieBreakers>
 </document>

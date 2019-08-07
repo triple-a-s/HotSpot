@@ -39,7 +39,7 @@
         }];
     } else {
         sendEmail(self.reportField.text, nil, self.nameLabel.text, @"Homeowner");
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"homeownerReportSegue" sender:nil];
     }
 }
 

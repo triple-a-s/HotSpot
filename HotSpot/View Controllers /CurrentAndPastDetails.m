@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "BookingViewController.h"
 #import "ReportHomeownerViewController.h"
+#import "DamagesViewController.h"
 #import <SendGrid.h>
 #import <SendGridEmail.h>
 #import "EmailHelper.h"
@@ -72,9 +73,11 @@
     }]];
     [reportAlert addAction:[UIAlertAction actionWithTitle:(@"My listing was cancelled without 24 hour notice.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         sendEmail(@"My listing was cancelled without 24 hour notice", nil, self.homeOwner.text, @"Homeowner");
+        [self performSegueWithIdentifier:@"directReportSegue" sender:nil];
     }]];
     [reportAlert addAction:[UIAlertAction actionWithTitle:(@"There wasn't enough space to park my car.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         sendEmail(@"There wasn't enough space to park my car", nil, self.homeOwner.text, @"Homeowner");
+        [self performSegueWithIdentifier:@"directReportSegue" sender:nil];
     }]];
     [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Write Report") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self performSegueWithIdentifier:@"reportHomeownerSegue" sender:nil];
@@ -85,22 +88,25 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-    if([segue.identifier isEqualToString:@"bookingSegue2"]) {
-        BookingViewController *bookingViewController = [segue destinationViewController];
-        bookingViewController.listing = listing;
-    } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
-        ReportHomeownerViewController *reportHomeownerViewController = [segue destinationViewController];
-        reportHomeownerViewController.houseImage.image = self.houseImage.image;
-        reportHomeownerViewController.addressLabel.text = self.houseAddress.text;
-        reportHomeownerViewController.nameLabel.text = self.homeOwner.text;
-    }
+        if([segue.identifier isEqualToString:@"bookingSegue2"]) {
+            BookingViewController *bookingViewController = [segue destinationViewController];
+            bookingViewController.listing = listing;
+        } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
+            ReportHomeownerViewController *reportHomeownerViewController = [segue destinationViewController];
+            reportHomeownerViewController.houseImage.image = self.houseImage.image;
+            reportHomeownerViewController.addressLabel.text = self.houseAddress.text;
+            reportHomeownerViewController.nameLabel.text = self.homeOwner.text;
+        } else if ([segue.identifier isEqualToString:@"reportDamagesSegue"]) {
+            DamagesViewController *damagesViewController = [segue destinationViewController];
+            damagesViewController.reportedUser = self.homeOwner.text;
+        }
     }];
 }
 - (IBAction)bookAgain:(id)sender {
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-    [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
-    }];
+        [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
+        }];
 }
 
 - (IBAction)bookingBackPressed:(id)sender {

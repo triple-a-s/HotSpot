@@ -28,3 +28,16 @@ void sendEmail(NSString * _Nonnull text, UIImageView * _Nullable image, NSString
     
     [sendGrid sendWithWeb:email];
 }
+
+void reportIssue(NSString * _Nonnull text, NSString * _Nonnull reportSubject) {
+    SendGrid *sendGrid = [SendGrid apiUser:@"aaronm17" apiKey:@"TuvaLuI7S4O8!!"];
+    SendGridEmail *email = [[SendGridEmail alloc] init];
+    PFUser *currentUser = [PFUser currentUser];
+    
+    email.to = @"hotspothelp@yahoo.com";
+    email.from = currentUser[@"email"];
+    email.subject = reportSubject;
+    email.text = text;
+    
+    [sendGrid sendWithWeb:email];
+}

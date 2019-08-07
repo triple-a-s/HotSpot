@@ -55,7 +55,7 @@
             [driver fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 NSString *reportedUser = object[@"username"];
                 sendEmail(self.reportMessage.text, self.carImage, reportedUser, @"Driver");
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self performSegueWithIdentifier:@"driverReportSegue" sender:nil];
             }];
         }
         

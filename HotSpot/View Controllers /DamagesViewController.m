@@ -36,6 +36,7 @@
         }];
     } else {
         sendEmail(@"Damage report", self.damageImage, self.reportedUser, @"Homeowner");
+        [self performSegueWithIdentifier:@"damageReportSegue" sender:nil];
     }
 }
 

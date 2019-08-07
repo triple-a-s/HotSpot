@@ -47,6 +47,9 @@
 		AD08285A22FA2A8F0069A20D /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC07DA22DE80AA0035274F /* LoginSignUp.storyboard */; };
 		AD08285D22FA30EC0069A20D /* DamagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285C22FA30EC0069A20D /* DamagesViewController.m */; };
 		AD08286022FA37680069A20D /* EmailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285F22FA37680069A20D /* EmailHelper.m */; };
+		AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286222FB77D20069A20D /* ReportTransitionViewController.m */; };
+		AD08286622FB7C5D0069A20D /* CustomerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286522FB7C5D0069A20D /* CustomerSupportViewController.m */; };
+		AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
@@ -165,6 +168,12 @@
 		AD08285C22FA30EC0069A20D /* DamagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DamagesViewController.m; sourceTree = "<group>"; };
 		AD08285E22FA37680069A20D /* EmailHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailHelper.h; sourceTree = "<group>"; };
 		AD08285F22FA37680069A20D /* EmailHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmailHelper.m; sourceTree = "<group>"; };
+		AD08286122FB77D20069A20D /* ReportTransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportTransitionViewController.h; sourceTree = "<group>"; };
+		AD08286222FB77D20069A20D /* ReportTransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportTransitionViewController.m; sourceTree = "<group>"; };
+		AD08286422FB7C5D0069A20D /* CustomerSupportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerSupportViewController.h; sourceTree = "<group>"; };
+		AD08286522FB7C5D0069A20D /* CustomerSupportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerSupportViewController.m; sourceTree = "<group>"; };
+		AD08286722FB7FA70069A20D /* SettingsReportTransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsReportTransitionViewController.h; sourceTree = "<group>"; };
+		AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsReportTransitionViewController.m; sourceTree = "<group>"; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -450,6 +459,12 @@
 				AD08285422F9FB430069A20D /* ReportDriverViewController.m */,
 				AD08285B22FA30EC0069A20D /* DamagesViewController.h */,
 				AD08285C22FA30EC0069A20D /* DamagesViewController.m */,
+				AD08286122FB77D20069A20D /* ReportTransitionViewController.h */,
+				AD08286222FB77D20069A20D /* ReportTransitionViewController.m */,
+				AD08286422FB7C5D0069A20D /* CustomerSupportViewController.h */,
+				AD08286522FB7C5D0069A20D /* CustomerSupportViewController.m */,
+				AD08286722FB7FA70069A20D /* SettingsReportTransitionViewController.h */,
+				AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -730,8 +745,10 @@
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				AD08285922FA2A8F0069A20D /* TimeInterval.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
+				AD08286622FB7C5D0069A20D /* CustomerSupportViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				AD08285822FA2A8F0069A20D /* main.m in Sources */,
+				AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */,
 				61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */,
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
@@ -749,6 +766,7 @@
 				ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */,
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
+				AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */,
 				AD08285622F9FB430069A20D /* ReportDriverViewController.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
