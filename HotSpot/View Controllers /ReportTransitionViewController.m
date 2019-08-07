@@ -12,6 +12,7 @@
 @interface ReportTransitionViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *transitionButton;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end
 
@@ -22,8 +23,10 @@
     
     if (self.needNearestSpot) {
         [self.transitionButton setTitle:@"Go to nearest spot" forState:UIControlStateNormal];
+        self.descriptionLabel.text = @"Meanwhile, we've found the nearest available spot for you.";
     } else {
         [self.transitionButton setTitle:@"Return to Search Page" forState:UIControlStateNormal];
+        self.descriptionLabel.text = @"We'll look into that as soon as possible for you.";
     }
 }
 

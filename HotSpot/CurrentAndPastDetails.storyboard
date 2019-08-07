@@ -272,6 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="pQY-Bu-gKM"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="mBx-9A-YhY" id="ojp-Wf-tgn"/>
                         <outlet property="transitionButton" destination="aC1-2K-pA0" id="Cpf-An-TQs"/>
                         <segue destination="Dem-ft-B1F" kind="show" identifier="returnSegue" id="4Rf-B7-IAd"/>
                         <segue destination="Bez-9y-exH" kind="show" identifier="newSpotSegue" id="RA1-1v-D2e"/>
