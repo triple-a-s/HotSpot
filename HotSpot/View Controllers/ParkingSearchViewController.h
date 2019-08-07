@@ -12,7 +12,7 @@
 #import "Listing.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ParkingSearchViewController : UIViewController <MKMapViewDelegate>
+@interface ParkingSearchViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (strong,nonatomic) CLLocation *initialLocation;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property (strong, nonatomic) NSArray<Listing *> *listings;

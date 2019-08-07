@@ -19,6 +19,7 @@
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *numberArray;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -32,8 +33,15 @@
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
     
+    
+    self.locationManager.delegate = self;
+    self.locationManager =[[CLLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+    
     // this is replaced by the user location once it is called in map 
-    self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.initialLocation.coordinate.latitude longitude:self.initialLocation.coordinate.longitude]; // san francisco
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         if(error) {
