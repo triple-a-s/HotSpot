@@ -18,30 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="7C3-mN-U85">
-                                <rect key="frame" x="9" y="44" width="221" height="190"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="Wys-nZ-lV4"/>
-                                    <constraint firstAttribute="width" constant="221" id="xBQ-gX-XtC"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="7C3-mN-U85">
+                                <rect key="frame" x="8" y="52" width="138" height="112"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-dC-vih">
-                                <rect key="frame" x="238" y="100" width="123.5" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alan Dookes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtQ-bY-m0b">
-                                <rect key="frame" x="254" y="127" width="90.5" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-VP-Re1">
-                                <rect key="frame" x="9" y="259" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-VP-Re1">
+                                <rect key="frame" x="8" y="172" width="104" height="30"/>
                                 <state key="normal" title="Contact Owner"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Parked / Time you will park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRV-aY-bkW">
@@ -51,14 +37,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-ct-482">
-                                <rect key="frame" x="169" y="166" width="285" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Book Again"/>
-                                <connections>
-                                    <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="dKY-SS-Gsc"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount charged to your account: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnm-0b-OFH">
                                 <rect key="frame" x="9" y="398" width="261" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,9 +71,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faR-7N-LLU">
-                                <rect key="frame" x="10" y="477" width="127" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faR-7N-LLU">
+                                <rect key="frame" x="8" y="817" width="127" height="37"/>
                                 <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
@@ -111,9 +88,8 @@
                                     <segue destination="qmI-fz-glt" kind="presentation" id="5YP-q6-pqe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-2u-jGs">
-                                <rect key="frame" x="240" y="477" width="142" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-2u-jGs">
+                                <rect key="frame" x="264" y="817" width="142" height="37"/>
                                 <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
@@ -129,11 +105,46 @@
                                     <segue destination="g95-fA-UMh" kind="presentation" id="dX3-4l-tBw"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WIS-dh-DE6">
+                                <rect key="frame" x="154" y="52" width="232" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-dC-vih">
+                                        <rect key="frame" x="54.5" y="0.0" width="123.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alan Dookes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtQ-bY-m0b">
+                                        <rect key="frame" x="71" y="27" width="90.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47S-pa-UdT" customClass="FancyButton">
+                                        <rect key="frame" x="77" y="54" width="78" height="30"/>
+                                        <state key="normal" title="Book Again"/>
+                                        <connections>
+                                            <segue destination="6qO-Fd-S9i" kind="show" identifier="bookingSegue2" id="ptz-12-ynj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7C3-mN-U85" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" id="E6Z-rS-6Ya"/>
-                            <constraint firstItem="7C3-mN-U85" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="9" id="Iqd-Gx-fIh"/>
+                            <constraint firstItem="4ce-VP-Re1" firstAttribute="leading" secondItem="7C3-mN-U85" secondAttribute="leading" id="23L-aZ-ZYA"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="width" secondItem="W6e-4M-V8P" secondAttribute="width" multiplier="1:3" id="2to-Fr-Fqk"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="top" secondItem="tCd-uc-8in" secondAttribute="top" constant="8" id="E6Z-rS-6Ya"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="8" id="Iqd-Gx-fIh"/>
+                            <constraint firstItem="tCd-uc-8in" firstAttribute="trailing" secondItem="Ht9-2u-jGs" secondAttribute="trailing" constant="8" id="O2e-Al-tIJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WIS-dh-DE6" secondAttribute="trailing" constant="8" id="ToO-2n-Lse"/>
+                            <constraint firstItem="7C3-mN-U85" firstAttribute="height" secondItem="W6e-4M-V8P" secondAttribute="height" multiplier="1:8" id="XbG-sG-WBS"/>
+                            <constraint firstItem="Ht9-2u-jGs" firstAttribute="centerY" secondItem="faR-7N-LLU" secondAttribute="centerY" id="ZHq-Ty-XB3"/>
+                            <constraint firstItem="tCd-uc-8in" firstAttribute="bottom" secondItem="faR-7N-LLU" secondAttribute="bottom" constant="8" id="aQ7-ke-O7Q"/>
+                            <constraint firstItem="4ce-VP-Re1" firstAttribute="top" secondItem="7C3-mN-U85" secondAttribute="bottom" constant="8" id="fgk-Ed-L2l"/>
+                            <constraint firstItem="WIS-dh-DE6" firstAttribute="leading" secondItem="7C3-mN-U85" secondAttribute="trailing" constant="8" id="rLJ-mL-af3"/>
+                            <constraint firstItem="WIS-dh-DE6" firstAttribute="top" secondItem="7C3-mN-U85" secondAttribute="top" id="vdq-nn-AEa"/>
+                            <constraint firstItem="faR-7N-LLU" firstAttribute="leading" secondItem="tCd-uc-8in" secondAttribute="leading" constant="8" id="yGO-N0-c33"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tCd-uc-8in"/>
                     </view>
