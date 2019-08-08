@@ -30,7 +30,11 @@
     self.bank.text = self.card.bank;
     self.expirationDate.text = self.card.expiration;
     self.cardNumber.text = self.card.number;
-    [self.defaultButton setSelected:self.card.isDefault];
+    Card *defaultCard = [[PFUser currentUser] objectForKey:@"defaultCard"];
+    NSString *defaultId = defaultCard.objectId;
+    NSString *currentId = self.card.objectId;
+    BOOL isCardDefault = [defaultId isEqualToString:currentId];
+    [self.defaultButton setSelected:isCardDefault];
 }
 
 #pragma mark - Private methods

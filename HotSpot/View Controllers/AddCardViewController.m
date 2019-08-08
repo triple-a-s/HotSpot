@@ -31,8 +31,8 @@
 - (void)addCard {
     BOOL selected = [self.isDefaultCard isSelected];
     Card *newCard = [Card new];
-    newCard = [newCard initWithInfo:self.cardType.text withBank:self.bank.text withExpiration:self.expirationDate.text withNumber:self.cardNumber.text withDefault:selected];
-    [Card addCard:newCard withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    newCard = [newCard initWithInfo:self.cardType.text withBank:self.bank.text withExpiration:self.expirationDate.text withNumber:self.cardNumber.text];
+    [Card addCard:newCard withDefault:selected withCompletion:^(BOOL succeeded, NSError * _Nullable error)   {
         if (succeeded) {
             [self.delegate didAddCard:newCard];
         }

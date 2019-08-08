@@ -137,7 +137,6 @@
 		61AB0BBC22E0F966002B7EB6 /* Booked.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booked.storyboard; sourceTree = "<group>"; };
 		61AB0BC822E13E50002B7EB6 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		61AB0BC922E13E50002B7EB6 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
-		61BA376022EB9DD3002C1B5A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		61D1E3E222F50AB000070919 /* Payment .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Payment .storyboard"; sourceTree = "<group>"; };
 		61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentAndPastDetails.storyboard; sourceTree = "<group>"; };
 		61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentAndPastDetails.h; sourceTree = "<group>"; };
@@ -176,6 +175,7 @@
 		AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = "HotSpot/View Controllers/AddCardViewController.m"; sourceTree = SOURCE_ROOT; };
 		AD9D7DA322FC86780019D9A1 /* EditCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditCardViewController.h; path = "HotSpot/View Controllers/EditCardViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditCardViewController.m; path = "HotSpot/View Controllers/EditCardViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA622FCE2540019D9A1 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = "HotSpot/View Controllers/DetailsViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 				61547D5D22EB9A0D00E57E34 /* BookingViewController.m */,
 				61547D6322EB9A0D00E57E34 /* CurrentParkingSpotsViewController.h */,
 				61547D6422EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m */,
-				61BA376022EB9DD3002C1B5A /* DetailsViewController.h */,
+				AD9D7DA622FCE2540019D9A1 /* DetailsViewController.h */,
 				61547D5C22EB9A0D00E57E34 /* DetailsViewController.m */,
 				61547D5E22EB9A0D00E57E34 /* MainContainerViewController.h */,
 				61547D6522EB9A0E00E57E34 /* MainContainerViewController.m */,
