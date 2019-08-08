@@ -38,6 +38,8 @@
 		AD08284322F8D1580069A20D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283722F8D1570069A20D /* CarsViewController.m */; };
 		AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283822F8D1570069A20D /* EditInformationViewController.m */; };
 		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
+		AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9522FB9D300019D9A1 /* Card.m */; };
+		AD9D7D9922FB9FAF0019D9A1 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9822FB9FAF0019D9A1 /* CardCell.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
@@ -160,6 +162,10 @@
 		AD08283B22F8D1570069A20D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "HotSpot/View Controllers/SignUpViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284522F8D18F0069A20D /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmationViewController.h; path = "HotSpot/View Controllers/ConfirmationViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284622F8D1900069A20D /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmationViewController.m; path = "HotSpot/View Controllers/ConfirmationViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD9D7D9422FB9D300019D9A1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		AD9D7D9522FB9D300019D9A1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		AD9D7D9722FB9FAF0019D9A1 /* CardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
+		AD9D7D9822FB9FAF0019D9A1 /* CardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -310,8 +316,12 @@
 				ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */,
 				ADC06E9822E12F7D00ED3F4D /* CarCell.h */,
 				ADC06E9922E12F7D00ED3F4D /* CarCell.m */,
+				AD9D7D9722FB9FAF0019D9A1 /* CardCell.h */,
+				AD9D7D9822FB9FAF0019D9A1 /* CardCell.m */,
 				ADBA5DCC22E638F80055BB17 /* Car.h */,
 				ADBA5DCD22E638F80055BB17 /* Car.m */,
+				AD9D7D9422FB9D300019D9A1 /* Card.h */,
+				AD9D7D9522FB9D300019D9A1 /* Card.m */,
 				ADCF9FE822EA5D2E00EF9E66 /* ImagePickerHelper.h */,
 				ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */,
 				ADCF9FEB22EB745B00EF9E66 /* RegexHelper.h */,
@@ -760,11 +770,13 @@
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				61547D6B22EB9A0E00E57E34 /* MapViewController.m in Sources */,
 				61547D6E22EB9A0E00E57E34 /* ParkingSearchViewController.m in Sources */,
+				AD9D7D9922FB9FAF0019D9A1 /* CardCell.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */,
 				AD08284022F8D1580069A20D /* AddCarViewController.m in Sources */,
 				61547D6C22EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m in Sources */,
 				ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */,
+				AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */,
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
