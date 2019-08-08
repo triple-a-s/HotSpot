@@ -52,7 +52,11 @@
     [super viewDidLoad];
     // setting things up (views)
     self.spotListView.hidden = YES;
-    self.filterView.hidden = YES;
+    
+    CGRect frame = self.filterView.frame;
+    frame.origin.x = -frame.size.width;
+    self.filterView.frame = frame;
+
     self.searchResultTableView.hidden = YES;
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
@@ -88,13 +92,31 @@
 }
 
 - (IBAction)filterPressed:(id)sender {
-    if(self.filterView.hidden){
-        self.filterView.hidden = NO;
-        
+   if(self.filterView.frame.origin.x <0){
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = 0;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+    
     }
-    else{
-    self.filterView.hidden = YES;
-    }
+   else{
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = -frame.size.width;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+}
 }
 
 
@@ -117,7 +139,6 @@
                          self.searchResultTableView.frame = frame;
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Done!");
                      }];
     }
     
@@ -131,7 +152,6 @@
                              self.searchResultTableView.frame = frame;
                          }
                          completion:^(BOOL finished){
-                             NSLog(@"Done!");
                          }];
         
     }
@@ -254,4 +274,18 @@
     }];
 }
 
+-(void)moveFromLeftOrRight:(NSTimer *) timer {
+    BOOL isLeft = [timer.userInfo boolValue];
+    CGFloat bounceDistance = 10;
+    CGFloat bounceDuration = 0.2;
+    [UIView animateWithDuration:.2 delay:0.0 options:UIViewAnimationOptionAllowAnimatedContent
+                     animations:^{
+                         CGFloat direction = (isLeft ? 1 : -1);
+                         self.filterView.center = CGPointMake(self.filterView.frame.size.width/2 + direction*bounceDistance, self.filterView.center.y);}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:bounceDuration animations:^{
+                             self.filterView.center = CGPointMake(self.filterView.frame.size.width/2, self.filterView.center.y);
+                         }];
+                     }];
+}
 @end
