@@ -208,6 +208,8 @@
         [self.timeSlots addObject:newTimeSlot];
     }
     
+    [self makeTimeSlotsUnavailableGivenStartDate:beginningOfDay andEndDate:[NSDate dateWithTimeIntervalSinceNow:-15 * 60] andBeginningOfDay:beginningOfDay]; // cannot select a time earlier in the day
+    
     // fetch the relevant time intervals
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
         if (timeIntervals) {
