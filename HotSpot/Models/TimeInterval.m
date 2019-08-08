@@ -27,8 +27,9 @@
 
 # pragma mark - Public Methods
 - (NSDateInterval * _Nullable)intersectionWithTimeInterval:(TimeInterval *)timeInterval {
+    CGFloat buffer = 2; // in seconds
     if(!dateInterval) {
-        dateInterval = [[NSDateInterval alloc] initWithStartDate:self.startTime endDate:self.endTime];
+        dateInterval = [[NSDateInterval alloc] initWithStartDate:[self.startTime dateByAddingTimeInterval:buffer] endDate:[self.endTime dateByAddingTimeInterval:-buffer]];
     }
     NSDateInterval *theirDateInterval = [[NSDateInterval alloc] initWithStartDate:timeInterval.startTime endDate:timeInterval.endTime];
     if (self.repeatsWeekly) {
