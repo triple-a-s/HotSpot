@@ -104,14 +104,7 @@
                                     <segue destination="wKb-bH-DVm" kind="show" identifier="cancelSegue" id="Ggm-Gf-Hbt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-v1-hU7">
-                                <rect key="frame" x="8" y="96" width="77" height="23"/>
-                                <state key="normal" title="Button" image="close-icon"/>
-                                <connections>
-                                    <action selector="closeClicked:" destination="Ud7-5Q-viZ" eventType="touchUpInside" id="G12-Im-C9I"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
                                 <rect key="frame" x="8" y="127" width="398" height="154"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-wa-XJ9">
@@ -153,19 +146,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fCf-v1-hU7" firstAttribute="top" secondItem="qD3-B3-rUv" secondAttribute="top" constant="8" id="8Eg-bM-FWI"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="top" secondItem="oG9-m8-bzm" secondAttribute="bottom" constant="3.5" id="BkS-20-RW7"/>
                             <constraint firstItem="e4s-gG-8lB" firstAttribute="leading" secondItem="qD3-B3-rUv" secondAttribute="leading" constant="8" id="EMx-NZ-mWB"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerX" secondItem="qD3-B3-rUv" secondAttribute="centerX" id="RIL-8X-JaO"/>
-                            <constraint firstItem="fCf-v1-hU7" firstAttribute="leading" secondItem="qD3-B3-rUv" secondAttribute="leading" constant="8" id="evC-a9-7W9"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="centerX" secondItem="oG9-m8-bzm" secondAttribute="centerX" id="hLs-0h-ibe"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerY" secondItem="qD3-B3-rUv" secondAttribute="centerY" id="m5s-nf-Vl0"/>
-                            <constraint firstItem="e4s-gG-8lB" firstAttribute="top" secondItem="fCf-v1-hU7" secondAttribute="bottom" constant="8" id="nry-jG-M8I"/>
                             <constraint firstItem="qD3-B3-rUv" firstAttribute="trailing" secondItem="e4s-gG-8lB" secondAttribute="trailing" constant="8" id="rgw-XV-37A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qD3-B3-rUv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K3c-QL-EL5"/>
+                    <navigationItem key="navigationItem" id="K3c-QL-EL5">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Y1U-TX-WPW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fCf-v1-hU7">
+                                <rect key="frame" x="8" y="96" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="close-icon"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="Ud7-5Q-viZ" eventType="touchUpInside" id="G12-Im-C9I"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="WRD-wa-XJ9" id="D6N-Vj-JAH"/>
                         <outlet property="endTimeLabel" destination="yAY-lH-7tC" id="dRg-YR-a9P"/>
