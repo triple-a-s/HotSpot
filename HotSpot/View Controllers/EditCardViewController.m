@@ -41,10 +41,8 @@
     self.card[@"expiration"] = self.expirationDate.text;
     self.card[@"number"] = self.cardNumber.text;
     PFUser *currentUser = [PFUser currentUser];
-    PFRelation *relation = [currentUser relationForKey:@"cards"];
     if (self.defaultButton.selected) {
-        [Card changeDefaultCard:relation withCard:self.card withUser:currentUser];
-        [self.card setObject:[NSNumber numberWithBool:YES] forKey:@"isDefault"];
+        [Card changeDefaultCard:self.card withUser:currentUser];
     }
     [self.card saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {

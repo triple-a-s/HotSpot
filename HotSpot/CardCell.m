@@ -6,6 +6,7 @@
 //
 
 #import "CardCell.h"
+#import "Card.h"
 
 @interface CardCell ()
 
@@ -33,7 +34,11 @@
 }
 
 - (void)configureCell:(Card *)card {
-    BOOL isCardDefault = [card[@"isDefault"] boolValue];
+    PFUser *currentUser = [PFUser currentUser];
+    Card *defaultCard = [currentUser objectForKey:@"defaultCard"];
+    NSString *defaultId = defaultCard.objectId;
+    NSString *currentId = card.objectId;
+    BOOL isCardDefault = [defaultId isEqualToString: currentId];
     if (isCardDefault) {
         self.isDefault.hidden = NO;
     } else {

@@ -28,9 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)addCard:(Card *)newCard
 withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
-+ (void)changeDefaultCard: (PFRelation *)relation
-                 withCard: (Card *)card
-                withUser: (PFUser *)user;
++ (void)changeDefaultCard:(Card *)card
+                 withUser: (PFUser *)user;
 @end
 
 NS_ASSUME_NONNULL_END
