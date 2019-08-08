@@ -306,7 +306,7 @@
                                 <rect key="frame" x="171" y="362.5" width="228" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNT-CU-tIB">
                                 <rect key="frame" x="113.5" y="442.5" width="187" height="48"/>
@@ -501,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="3092.753623188406" y="902.67857142857133"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Card View Controller-->
         <scene sceneID="mn7-ba-1dD">
             <objects>
-                <viewController id="tjh-Mj-MsD" sceneMemberID="viewController">
+                <viewController id="tjh-Mj-MsD" customClass="EditCardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cdi-99-oGC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,24 +514,121 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Edit Card" id="llp-vJ-Vdr">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZvN-Fz-FEx"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="4SC-4m-fi8"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZvN-Fz-FEx">
+                                            <connections>
+                                                <action selector="didTapCancel:" destination="tjh-Mj-MsD" id="t51-Xq-m9Z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="4SC-4m-fi8">
+                                            <connections>
+                                                <action selector="didTapDone:" destination="tjh-Mj-MsD" id="Suh-XF-139"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change this card's default setting?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBr-dv-024">
+                                <rect key="frame" x="80" y="397" width="266" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-4Z-1Eb">
+                                <rect key="frame" x="61" y="176" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNd-9O-955">
+                                <rect key="frame" x="163" y="171" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-bY-hul">
+                                <rect key="frame" x="102" y="232" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-hM-kW3">
+                                <rect key="frame" x="163" y="227" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-Ey-CRI">
+                                <rect key="frame" x="163" y="283" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIt-Dx-Glt">
+                                <rect key="frame" x="163" y="334" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ9-HN-m5a">
+                                <rect key="frame" x="24" y="288" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-ib-u6G">
+                                <rect key="frame" x="78" y="339" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48U-vU-Kkr">
+                                <rect key="frame" x="190" y="427" width="46" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="670109-200"/>
+                                <state key="selected" image="download-1"/>
+                                <connections>
+                                    <action selector="didTapDefaultButton:" destination="tjh-Mj-MsD" eventType="touchUpInside" id="iVg-19-bgj"/>
+                                    <action selector="didTapDefaultButton:" destination="4vy-R2-BAa" eventType="touchUpInside" id="sgB-Av-iwK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="WWh-E0-pgu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PFY-ke-qE8" appends="YES" id="zzh-q7-pU2"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="bank" destination="TpI-hM-kW3" id="J9L-RZ-CCs"/>
+                        <outlet property="cardNumber" destination="kIt-Dx-Glt" id="DVu-1u-S0k"/>
+                        <outlet property="cardType" destination="fNd-9O-955" id="ZhU-Qj-Lpe"/>
+                        <outlet property="defaultButton" destination="48U-vU-Kkr" id="emT-cs-ePr"/>
+                        <outlet property="expirationDate" destination="qnc-Ey-CRI" id="aOV-D4-NLD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bou-0v-Hwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PFY-ke-qE8">
+                    <connections>
+                        <action selector="didTapView:" destination="tjh-Mj-MsD" id="4Qm-oh-wMN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4083" y="-1243"/>
+            <point key="canvasLocation" x="4082.6086956521744" y="-1243.5267857142856"/>
         </scene>
         <!--Cards-->
         <scene sceneID="WSY-Pi-yFD">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Pdw-PM-lun" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Pdw-PM-lun" customClass="CardsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vzl-LT-hQA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,7 +715,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="tjh-Mj-MsD" kind="presentation" id="38y-Mc-4BE"/>
+                                            <outlet property="bank" destination="Mog-Fg-OCm" id="cDT-IO-iOM"/>
+                                            <outlet property="cardNumber" destination="UOe-km-cIV" id="LQf-NL-Oaj"/>
+                                            <outlet property="cardType" destination="p7u-tO-gQe" id="IBV-Oo-ZK6"/>
+                                            <outlet property="expirationDate" destination="tuH-vv-qZY" id="Zhu-db-tIE"/>
+                                            <outlet property="isDefault" destination="uw4-3L-VCg" id="PK0-sT-wH7"/>
+                                            <segue destination="tjh-Mj-MsD" kind="presentation" identifier="editSegue" id="38y-Mc-4BE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -634,15 +736,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="zLG-zh-wHw" id="A6p-aE-HhY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cag-34-I8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3092.753623188406" y="-516.29464285714289"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Card View Controller-->
         <scene sceneID="xqy-Ts-rIj">
             <objects>
-                <viewController id="PDK-SP-7zr" sceneMemberID="viewController">
+                <viewController id="PDK-SP-7zr" customClass="AddCardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D6w-4h-blh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -651,20 +756,124 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Add New Car" id="0u9-1E-srH">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="KqY-4w-jsM"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="UKf-mT-3NH"/>
+                                    <navigationItem title="Add New Card" id="0u9-1E-srH">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="KqY-4w-jsM">
+                                            <connections>
+                                                <action selector="didTapCancel:" destination="PDK-SP-7zr" id="Px5-wN-vov"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="UKf-mT-3NH">
+                                            <connections>
+                                                <action selector="didTapConfirm:" destination="PDK-SP-7zr" id="gIC-Vy-ZV2"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajJ-Z1-fJF">
+                                <rect key="frame" x="48" y="279" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNk-2L-RK2">
+                                <rect key="frame" x="140" y="275" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-NM-NUr">
+                                <rect key="frame" x="89" y="333" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjt-iW-Rb4">
+                                <rect key="frame" x="140" y="328" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please fill out your card information below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3B-aq-kRW">
+                                <rect key="frame" x="11" y="192" width="393" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egS-Oo-LyA">
+                                <rect key="frame" x="11" y="394" width="121" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sYg-5U-mJq">
+                                <rect key="frame" x="140" y="389" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRA-ga-Ebi">
+                                <rect key="frame" x="65" y="446" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-Ll-OTy">
+                                <rect key="frame" x="140" y="441" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Will this be your new default card?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LvR-6d-jpf">
+                                <rect key="frame" x="11" y="517" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-l0-9Ds">
+                                <rect key="frame" x="282" y="506" width="46" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="670109-200"/>
+                                <state key="selected" image="download-1"/>
+                                <connections>
+                                    <action selector="didTapDefault:" destination="VIC-TO-GYt" eventType="touchUpInside" id="dCV-AG-RFJ"/>
+                                    <action selector="didTapDefaultButton:" destination="PDK-SP-7zr" eventType="touchUpInside" id="Ue8-iR-gjB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="qPA-Yk-H5n"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Nq0-wP-hs5" appends="YES" id="QgU-Yc-nOf"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="bank" destination="bjt-iW-Rb4" id="yL8-tQ-z7m"/>
+                        <outlet property="cardNumber" destination="VoY-Ll-OTy" id="X1p-9l-dCi"/>
+                        <outlet property="cardType" destination="VNk-2L-RK2" id="WeW-OX-5PC"/>
+                        <outlet property="expirationDate" destination="sYg-5U-mJq" id="Nje-Yl-A16"/>
+                        <outlet property="isDefaultCard" destination="6jl-l0-9Ds" id="Bc7-3X-VwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlc-Bb-cHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Nq0-wP-hs5">
+                    <connections>
+                        <action selector="didTapView:" destination="PDK-SP-7zr" id="dOF-aP-Hea"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4083" y="-516"/>
+            <point key="canvasLocation" x="4082.6086956521744" y="-516.29464285714289"/>
         </scene>
         <!--Cars-->
         <scene sceneID="f5A-yQ-kql">
@@ -727,7 +936,7 @@
                                             <outlet property="carImage" destination="SHa-Px-POg" id="bOY-FG-QZJ"/>
                                             <outlet property="isDefault" destination="lF3-fN-QYj" id="bNR-2z-rFr"/>
                                             <outlet property="licensePlate" destination="lSl-hI-o41" id="hsP-Co-0sO"/>
-                                            <segue destination="4vy-R2-BAa" kind="presentation" identifier="detailsSegue" id="wvQ-IH-MhD"/>
+                                            <segue destination="4vy-R2-BAa" kind="presentation" identifier="editSegue" id="wvQ-IH-MhD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

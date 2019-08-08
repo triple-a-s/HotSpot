@@ -34,7 +34,6 @@
 //takes in a car and uses the information to configure the cell
 //if the car is the user's default car, it will display the checkmark
 - (void)configureCell: (Car *)car {
-    //self.carImage.image = car.carImage;
     BOOL isDefault = [car[@"isDefault"] boolValue];
     if (isDefault) {
         self.isDefault.hidden = NO;

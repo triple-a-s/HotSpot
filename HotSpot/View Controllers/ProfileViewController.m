@@ -81,7 +81,7 @@
                 self.cardType.text = object[@"type"];
                 self.bank.text = object[@"bank"];
                 self.expirationDate.text = object[@"expiration"];
-                self.cardNumber.text = [object[@"number"] substringFromIndex: [object[@"number"] length] - 4];
+                self.cardNumber.text = object[@"number"];
             }
         }];
     }

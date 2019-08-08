@@ -9,6 +9,7 @@
 #import "RegexHelper.h"
 #import "Parse/Parse.h"
 #import "Car.h"
+#import "Card.h"
 #import <UIKit/UIKit.h>
 
 //returns whether the car is "valid", by performing checks such as empty fields,
@@ -28,6 +29,26 @@ BOOL isValidCar(NSString *licensePlate, NSString *carColor, UIAlertController *a
         }
         alert.title = @"License Plate Taken";
         alert.message = @"That license plate has already been taken.";
+        return false;
+    }
+    return true;
+}
+
+BOOL isValidCard(NSString *type, NSString *bank, NSString *expiration, NSString *number, UIAlertController *cardAlert, BOOL isSameNumber) {
+    if ([RegexHelper isEmpty:type] || [RegexHelper isEmpty:bank] || [RegexHelper isEmpty:expiration] || [RegexHelper isEmpty:number]) {
+        cardAlert.title = @"Empty field(s)";
+        cardAlert.message = @"All fields are required";
+        return false;
+    } else if (number.length != 4) {
+        cardAlert.title = @"Invalid number";
+        cardAlert.message = @"The number must be 4 characters";
+        return false;
+    } else if ([RegexHelper isCardTaken:number]) {
+        if (isSameNumber) {
+            return true;
+        }
+        cardAlert.title = @"Number Taken";
+        cardAlert.message = @"That number has already been taken.";
         return false;
     }
     return true;
@@ -57,6 +78,14 @@ BOOL isProfileTaken(NSString * _Nonnull info, NSString * _Nonnull key) {
     return (object != nil);
 }
 
+//returns whether there's a card number matching the one passed in as a string
+//in the database
++ (BOOL)isCardTaken:(NSString *)givenString {
+    PFQuery *query = [Card query];
+    [query whereKey:@"number" equalTo:givenString];
+    PFObject *object = [query getFirstObject];
+    return (object != nil);
+}
 //returns whether or not the email passed in is valid using regex
 + (BOOL) validateEmail: (NSString *) emailAddress {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";

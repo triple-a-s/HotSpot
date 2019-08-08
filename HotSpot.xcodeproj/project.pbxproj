@@ -40,6 +40,9 @@
 		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
 		AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9522FB9D300019D9A1 /* Card.m */; };
 		AD9D7D9C22FBA2420019D9A1 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9B22FBA2410019D9A1 /* CardCell.m */; };
+		AD9D7D9F22FC82340019D9A1 /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */; };
+		AD9D7DA222FC86650019D9A1 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */; };
+		AD9D7DA522FC86780019D9A1 /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
@@ -166,6 +169,12 @@
 		AD9D7D9522FB9D300019D9A1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		AD9D7D9A22FBA2410019D9A1 /* CardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CardCell.h; path = /Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/CardCell.h; sourceTree = "<absolute>"; };
 		AD9D7D9B22FBA2410019D9A1 /* CardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CardCell.m; path = /Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/CardCell.m; sourceTree = "<absolute>"; };
+		AD9D7D9D22FC82340019D9A1 /* CardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
+		AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
+		AD9D7DA022FC86650019D9A1 /* AddCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddCardViewController.h; path = "HotSpot/View Controllers/AddCardViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = "HotSpot/View Controllers/AddCardViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA322FC86780019D9A1 /* EditCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditCardViewController.h; path = "HotSpot/View Controllers/EditCardViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditCardViewController.m; path = "HotSpot/View Controllers/EditCardViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -459,6 +468,12 @@
 				AD08282A22F8D1570069A20D /* CallViewController.m */,
 				AD08282D22F8D1570069A20D /* CarsViewController.h */,
 				AD08283722F8D1570069A20D /* CarsViewController.m */,
+				AD9D7D9D22FC82340019D9A1 /* CardsViewController.h */,
+				AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */,
+				AD9D7DA022FC86650019D9A1 /* AddCardViewController.h */,
+				AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */,
+				AD9D7DA322FC86780019D9A1 /* EditCardViewController.h */,
+				AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */,
 				AD08283522F8D1570069A20D /* EditCarViewController.h */,
 				AD08283322F8D1570069A20D /* EditCarViewController.m */,
 				AD08283922F8D1570069A20D /* EditInformationViewController.h */,
@@ -766,6 +781,7 @@
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				AD9D7DA522FC86780019D9A1 /* EditCardViewController.m in Sources */,
 				61547D6A22EB9A0E00E57E34 /* BookedParkingSpotsViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				61547D6B22EB9A0E00E57E34 /* MapViewController.m in Sources */,
@@ -781,6 +797,7 @@
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
+				AD9D7DA222FC86650019D9A1 /* AddCardViewController.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
 				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
@@ -788,6 +805,7 @@
 				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
 				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
 				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				AD9D7D9F22FC82340019D9A1 /* CardsViewController.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
