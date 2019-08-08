@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW" customClass="FancyButton">
                                 <rect key="frame" x="158.5" y="327" width="97" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Log Out"/>
@@ -71,8 +71,9 @@
         <!--Settings-->
         <scene sceneID="Qf4-ZU-Tw5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xg-gN-dlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="SNZ-wh-gyP"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="SNZ-wh-gyP"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PVw-Dt-ROa">
@@ -84,10 +85,12 @@
                         <segue destination="HAw-Qw-2OJ" kind="relationship" relationship="rootViewController" id="LY6-Mg-pIJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5xg-gN-dlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.739130434782609" y="110.49107142857143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="29" height="29"/>
+    </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
-

@@ -109,11 +109,11 @@
             </objects>
             <point key="canvasLocation" x="1466" y="-304"/>
         </scene>
-        <!--Current Spots -->
+        <!--Upcoming Spots-->
         <scene sceneID="LjF-5h-LfK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QJR-uJ-gAA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Current Spots " id="C0c-Kw-iEk"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming Spots" image="current" id="C0c-Kw-iEk"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7hf-R8-eTK">
@@ -131,6 +131,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="current" width="29" height="26"/>
         <image name="houseimageexample" width="550" height="413"/>
     </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

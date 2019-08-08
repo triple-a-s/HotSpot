@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to cancel? You will receive a 75%  refund." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIy-KX-13f">
-                                <rect key="frame" x="20" y="455" width="374" height="41"/>
+                                <rect key="frame" x="20" y="454.5" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -105,14 +105,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-v1-hU7">
-                                <rect key="frame" x="8" y="96" width="80" height="24"/>
+                                <rect key="frame" x="8" y="96" width="77" height="23"/>
                                 <state key="normal" title="Button" image="close-icon"/>
                                 <connections>
                                     <action selector="closeClicked:" destination="Ud7-5Q-viZ" eventType="touchUpInside" id="G12-Im-C9I"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
-                                <rect key="frame" x="8" y="128" width="398" height="154"/>
+                                <rect key="frame" x="8" y="127" width="398" height="154"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-wa-XJ9">
                                         <rect key="frame" x="0.0" y="0.0" width="114.5" height="20.5"/>
@@ -197,6 +197,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-icon" width="26" height="24"/>
+        <image name="close-icon" width="23" height="23"/>
     </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
