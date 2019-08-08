@@ -17,12 +17,7 @@
 @implementation LoadingViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://media.giphy.com/media/TdcmrLMF0TVqDLUjAT/giphy.gif"]]];
-    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
-    imageView.animatedImage = image;
-    imageView.frame = CGRectMake(50.0, 50.0, 150.0, 150.0);
-    [self.loadingGif addSubview:imageView];
+
     
 }
 /*

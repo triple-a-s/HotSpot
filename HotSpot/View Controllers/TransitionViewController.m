@@ -7,8 +7,10 @@
 //
 
 #import "TransitionViewController.h"
+#import <FLAnimatedImage/FLAnimatedImage.h>
 
 @interface TransitionViewController ()
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *carImage;
 
 @end
 
@@ -16,7 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];
+    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://media.giphy.com/media/TdcmrLMF0TVqDLUjAT/giphy.gif"]]];
+    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+    imageView.animatedImage = image;
+    
+    imageView.frame = CGRectMake(self.view.frame.origin.x-50, self.view.frame.origin.y-50, 300, 300.0);
+    [self.carImage addSubview:imageView];
 }
 
 - (IBAction)didTapProfilePage:(UIButton *)sender {
