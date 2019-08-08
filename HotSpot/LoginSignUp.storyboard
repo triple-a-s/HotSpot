@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="carImage" destination="lIe-y9-2e1" id="rLQ-7o-SIO"/>
+                        <outlet property="profileButton" destination="XsQ-JU-nxu" id="97T-XK-Wv8"/>
                         <segue destination="uGr-xf-tee" kind="show" identifier="profileSegue" id="cb4-71-eaS"/>
                     </connections>
                 </viewController>
