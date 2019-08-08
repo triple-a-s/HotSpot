@@ -48,7 +48,7 @@
             [withoutDayFormatter setDateFormat:@"hh:mmaa"];
             [booking.timeInterval fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 TimeInterval *timeInterval = object;
-                self.startTimeLabel.text = [NSString stringWithFormat:@"Booked time: %@ to %@", [withDayFormatter stringFromDate:booking.startTime], [withoutDayFormatter stringFromDate:timeInterval.endTime]];
+                self.startTimeLabel.text = [NSString stringWithFormat:@"Parking time: %@ to %@", [withDayFormatter stringFromDate:booking.startTime], [withoutDayFormatter stringFromDate:timeInterval.endTime]];
             }];
         }
     }];

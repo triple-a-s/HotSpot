@@ -40,6 +40,9 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.allowsMultipleSelection = YES;
+    
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0]; // today
+    self.datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:3 * 30 * 24 * 60 * 60]; // around three months from now
 
     // image
     [DataManager getAddressNameFromListing:self.listing withCompletion:^(NSString *name, NSError * _Nullable error){
