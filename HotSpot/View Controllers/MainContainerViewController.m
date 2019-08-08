@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *mainSearchButton;
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
+@property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 
@@ -43,10 +44,6 @@
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
-
-
-
-
 @end
 
 @implementation MainContainerViewController
@@ -55,6 +52,7 @@
     [super viewDidLoad];
     // setting things up (views)
     self.spotListView.hidden = YES;
+    self.filterView.hidden = YES;
     self.searchResultTableView.hidden = YES;
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
@@ -72,10 +70,6 @@
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
     self.tableVC.initialLocation = self.mapVC.locationManager.location;
-   /*[self.mainSearchBar setImage:[UIImage imageNamed: @"filter.png"]
-                forSearchBarIcon:UISearchBarIconSearch
-                           state:UIControlStateDisabled];
-    */
 }
 
 # pragma mark - Action Items
@@ -92,6 +86,17 @@
         self.spotListView.hidden = YES;
     }
 }
+
+- (IBAction)filterPressed:(id)sender {
+    if(self.filterView.hidden){
+        self.filterView.hidden = NO;
+        
+    }
+    else{
+    self.filterView.hidden = YES;
+    }
+}
+
 
 # pragma mark - Search Related
 

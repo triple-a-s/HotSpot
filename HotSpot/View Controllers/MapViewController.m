@@ -40,7 +40,6 @@
     [self.locationManager startUpdatingLocation];
     [self.searchMap showsUserLocation];
     
-    [self animateBounce];
     // getting the initial listings to load on the map
     self.initialLocation = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude]; 
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
@@ -79,8 +78,9 @@
     [self setLocation:self.initialLocation onMap:self.searchMap];
 }
 
-
-
+- (void) viewDidAppear:(BOOL)animated{
+     [self animateBounce];
+}
 # pragma mark - Map Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
@@ -200,7 +200,7 @@
     
     UIDynamicItemBehavior *elasticityBehavior =
     [[UIDynamicItemBehavior alloc] initWithItems:@[self.questionIcon]];
-    elasticityBehavior.elasticity = 0.9f;
+    elasticityBehavior.elasticity = 0.7f;
     [self.animator addBehavior:elasticityBehavior];
 }
 
