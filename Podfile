@@ -3,6 +3,7 @@
 
 target 'HotSpot' do
   # Comment the next line if you don't want to use dynamic frameworks
+  use_modular_headers!
   use_frameworks!
 
   # Pods for HotSpot
@@ -10,6 +11,8 @@ target 'HotSpot' do
     pod 'Parse/UI'
     pod 'TwilioVoice', '~> 4.1'
     pod 'AccountKit'
+    pod 'SendGrid'
+    pod 'FLAnimatedImage', '~> 1.0'
 
   target 'HotSpotTests' do
     inherit! :search_paths
