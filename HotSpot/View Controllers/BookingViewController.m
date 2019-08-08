@@ -35,9 +35,12 @@
     NSIndexPath *startIndexPath;
     NSDateFormatter *formatter;
     UIColor *themeRedColor;
+    BOOL viewDidLayoutSubviewsForTheFirstTime;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    viewDidLayoutSubviewsForTheFirstTime = YES;
     
     themeRedColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
                              green:0.3239448667
@@ -82,6 +85,30 @@
     [formatter setDateFormat:@"hh:mmaa"];
     
     [self updateCells];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if(viewDidLayoutSubviewsForTheFirstTime) {
+        viewDidLayoutSubviewsForTheFirstTime = NO;
+        
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [gregorian setTimeZone:[NSTimeZone localTimeZone]];
+        
+        NSDate *currentTime = [NSDate date];
+        
+        NSDate *beginningOfToday = [gregorian startOfDayForDate:currentTime];
+        
+        CGFloat minutesSinceBeginningOfToday = [currentTime timeIntervalSinceDate:beginningOfToday] / 60;
+        
+        NSIndexPath *currentTimeIndexPath = [NSIndexPath indexPathForItem:minutesSinceBeginningOfToday / 15 inSection:0];
+        
+        [self.collectionView scrollToItemAtIndexPath:currentTimeIndexPath
+                                    atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                            animated:NO];
+    }
+    
 }
 
 - (IBAction)closeClicked:(id)sender {
