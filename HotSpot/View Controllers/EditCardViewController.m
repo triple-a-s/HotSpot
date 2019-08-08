@@ -48,7 +48,8 @@
     }
     [self.card saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
-            [currentUser saveInBackgroundWithBlock:nil];
+            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            }];
         }
     }];
 }

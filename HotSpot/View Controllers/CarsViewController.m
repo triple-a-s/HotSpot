@@ -43,7 +43,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+    if ([segue.identifier isEqualToString:@"editSegue"]) {
         CarCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         tappedCell.selectionStyle = UITableViewCellSelectionStyleBlue;
