@@ -136,7 +136,7 @@
         <scene sceneID="AhQ-y8-HAb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOL-Ko-9FE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Past Spots " id="ZKd-D3-sJM"/>
+                    <tabBarItem key="tabBarItem" title="Past Spots " image="past" id="ZKd-D3-sJM"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IIs-Ae-Vak">
@@ -155,6 +155,7 @@
     </scenes>
     <resources>
         <image name="houseimageexample" width="550" height="413"/>
+        <image name="past" width="36" height="30"/>
     </resources>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
