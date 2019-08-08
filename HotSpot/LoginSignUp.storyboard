@@ -214,6 +214,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3j6-gh-KRV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -242,6 +246,7 @@
                     </view>
                     <connections>
                         <outlet property="password" destination="FVu-3J-6ym" id="DgV-h9-Zno"/>
+                        <outlet property="progressView" destination="3j6-gh-KRV" id="g07-GH-Zaw"/>
                         <outlet property="username" destination="CaS-ye-oAk" id="x3b-di-UVp"/>
                         <segue destination="uGr-xf-tee" kind="show" identifier="LoginSegue" id="jm7-RX-coN"/>
                     </connections>

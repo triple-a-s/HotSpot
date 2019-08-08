@@ -324,7 +324,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIF-WE-fNV">
                                 <rect key="frame" x="16" y="44" width="249" height="50"/>
                                 <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
                                 <state key="normal" title="Filtering ">
                                     <color key="titleColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -454,6 +454,7 @@
                             <constraint firstItem="jJ7-ci-WLn" firstAttribute="top" secondItem="9gp-ny-YD2" secondAttribute="bottom" constant="8" symbolic="YES" id="ygS-06-pGO"/>
                             <constraint firstItem="97f-I5-I9c" firstAttribute="leading" secondItem="g3J-UA-B6X" secondAttribute="leading" id="zs4-WY-9bR"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="lRk-bm-65O"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fy0-VE-zSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
