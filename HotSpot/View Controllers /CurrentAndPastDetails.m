@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeOwner;
 @property (weak, nonatomic) IBOutlet UILabel *timeParked;
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
+@property (weak, nonatomic) IBOutlet UIButton *checkinButton;
+@property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
+
 @property (strong, nonatomic) Listing *listing;
 
 @end
@@ -26,10 +29,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.checkinButton.hidden = !self.showCheckInCheckOut;
+    self.checkoutButton.hidden = !self.showCheckInCheckOut;
+    
     // image
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error){
+        [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error){
             if(error) {
                 NSLog(@"%@", error);
             }

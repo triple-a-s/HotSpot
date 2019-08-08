@@ -55,7 +55,7 @@
     Booking *booking = self.bookings[indexPath.row];
     Listing *listing = booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-    [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+    [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error) {
             if(error){
                 NSLog(@"%@", error);
             }
@@ -97,7 +97,8 @@
     if([segue.identifier isEqualToString:@"pastToBooking"]) {
         CurrentAndPastDetails *ourViewController = [segue destinationViewController];
         ourViewController.booking = sender;
-        ourViewController.bookAgainButton.hidden = NO; 
+        ourViewController.bookAgainButton.hidden = NO;
+        ourViewController.showCheckInCheckOut = NO;
     }
 }
 @end

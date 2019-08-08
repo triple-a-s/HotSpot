@@ -52,7 +52,7 @@
         currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+        [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error) {
                 currentCell.searchTableAddress.text= name;
         }];
         PFFileObject *img = object[@"picture"];
@@ -78,6 +78,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     Booking *booking = self.bookings[indexPath.row];
+    if (indexPath.row==0) {
+        booking.next = YES;
+    }
+    else {
+        booking.next = NO;
+    }
     [self performSegueWithIdentifier:@"currentToDetails"
                               sender:booking];
 }
@@ -88,6 +94,8 @@
         CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
         detailsViewController.booking = sender;
         detailsViewController.bookAgainButton.hidden = YES;
+        Booking *booking = sender;
+        detailsViewController.showCheckInCheckOut = booking.next;
        // detailsViewController.bookingButton.hidden = YES; 
     }
 }

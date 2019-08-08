@@ -83,13 +83,22 @@
     }];
 }
 
-+ (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion{
-    CLGeocoder *coder = [[CLGeocoder alloc] init];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:address.latitude longitude:address.longitude];
-    [coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        CLPlacemark *placemark = placemarks[0];
-        completion(placemark.name, error);
-    }];
++ (void)getAddressNameFromListing:(Listing *)listing withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion{
+    if (listing[@"addressName"]) {
+        completion(listing.addressName, nil);
+    }
+    else {
+        PFGeoPoint *address = listing.address;
+        CLGeocoder *coder = [[CLGeocoder alloc] init];
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:address.latitude longitude:address.longitude];
+        [coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+            CLPlacemark *placemark = placemarks[0];
+            listing.addressName = placemark.name;
+            [listing saveInBackground];
+            completion(placemark.name, error);
+        }];
+    }
+    
 }
 
 + (void)getNextBookingWithBlock:(PFObjectResultBlock)block {

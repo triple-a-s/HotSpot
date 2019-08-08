@@ -54,7 +54,7 @@
             CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(mapListing.address.latitude, mapListing.address.longitude);
             [spotPins setCoordinate: spotLocation];
             // using the datamanager to set the address of the annotaion pin callout views
-            [DataManager getAddressNameFromPoint:mapListing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+            [DataManager getAddressNameFromListing:mapListing withCompletion:^(NSString *name, NSError * _Nullable error){
                 if(error) {
                     NSLog(@"%@", error);
                 }

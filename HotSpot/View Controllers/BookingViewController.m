@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeRangeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
@@ -30,6 +33,7 @@
     NSDate *endTime;
     BOOL pickingStartTime;
     NSIndexPath *startIndexPath;
+    NSDateFormatter *formatter;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +42,7 @@
     self.collectionView.allowsMultipleSelection = YES;
 
     // image
-    [DataManager getAddressNameFromPoint:self.listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+    [DataManager getAddressNameFromListing:self.listing withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
         }
@@ -58,6 +62,8 @@
         self.listingOwnerLabel.text = object[@"name"];
     }];
     
+    formatter=[[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mmaa"];
     
     [self updateCells];
 }
@@ -135,12 +141,18 @@
         else if (pickingStartTime) {
             startIndexPath = indexPath;
             startTime = date;
+            endTime = [date dateByAddingTimeInterval:15 * 60];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", [formatter stringFromDate:startTime], [formatter stringFromDate:endTime]];
             pickingStartTime = NO;
+            self.confirmButton.enabled = YES;
+            self.instructionsLabel.text = @"Adjust your end time:";
             self.timeSlots[indexPath.item].chosen = YES;
             cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
             [self.collectionView reloadData];
         }
         else {
+            self.confirmButton.enabled = YES;
+            self.instructionsLabel.text = @"Adjust your end time:";
             for (int i = startIndexPath.item; i < indexPath.item; i++) {
                 if ( self.timeSlots[i].available == NO) {
                     return;
@@ -150,7 +162,8 @@
                 // start date cannot be later than end date
                 return;
             }
-            endTime = date;
+            endTime = [date dateByAddingTimeInterval:15 * 60];
+            self.timeRangeLabel.text = [NSString stringWithFormat:@"%@ to %@", [formatter stringFromDate:startTime], [formatter stringFromDate:endTime]];
             for (int i = startIndexPath.item; i < self.timeSlots.count; i++) {
                 if (i<=indexPath.item) {
                     self.timeSlots[i].chosen = YES;
@@ -171,8 +184,12 @@
 
     NSDate *date = self.datePicker.date; // date chosen by the user
     NSInteger secondsPerDay = 60 * 60 * 24;
-    NSInteger timeSinceBeginningOfDay = (int)[date timeIntervalSinceReferenceDate] % secondsPerDay; // TODO: consider time zones
-    NSDate *beginningOfDay = [date dateByAddingTimeInterval: -timeSinceBeginningOfDay];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [gregorian setTimeZone:[NSTimeZone localTimeZone]];
+
+    NSDate *beginningOfDay = [gregorian startOfDayForDate:date];
+    
     NSDate *endOfDay = [date dateByAddingTimeInterval: secondsPerDay];
     
     // only care about unavailable times on day chosen
@@ -229,6 +246,9 @@
     }];
     
     pickingStartTime = YES;
+    self.confirmButton.enabled = NO;
+    self.instructionsLabel.text = @"Select a start time:";
+    self.timeRangeLabel.text = @"";
 }
 
 - (void)makeTimeSlotsUnavailableGivenStartDate:(NSDate *)startDate
@@ -241,7 +261,8 @@
         start = 0; // if starts before today, normalize to beginning of day
     }
     
-    CGFloat endTimeIntervalSinceBeginningOfDay = [endDate timeIntervalSinceDate: beginningOfDay];
+    CGFloat buffer = 2; // in seconds
+    CGFloat endTimeIntervalSinceBeginningOfDay = [endDate timeIntervalSinceDate: beginningOfDay] - buffer;
     NSInteger endMinute = (int)endTimeIntervalSinceBeginningOfDay / 60;
     NSInteger end = endMinute / 15; // transform minute to an index for the cells, 0 to 95
     if (end > 4 * 24 - 1 ) {
@@ -261,6 +282,9 @@
     startIndexPath = nil;
     endTime = nil;
     pickingStartTime = YES;
+    self.confirmButton.enabled = NO;
+    self.instructionsLabel.text = @"Select a start time:";
+    self.timeRangeLabel.text = @"";
     for (NSInteger i = 0; i < 24 * 4; i ++) {
         self.timeSlots[i].chosen = NO;
     }

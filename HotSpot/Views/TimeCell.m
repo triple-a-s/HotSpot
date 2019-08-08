@@ -15,6 +15,8 @@
 @end
 @implementation TimeCell
 - (void)setTime:(TimeSlot *)timeSlot{
-    self.timeLabel.text = [NSString stringWithFormat:@"%d:%d", timeSlot.hour, timeSlot.minute];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mmaa"];
+    self.timeLabel.text = [formatter stringFromDate:timeSlot.date];
 }
 @end

@@ -75,7 +75,7 @@
     self.listings = [self sortListingArraybyAscending:self.listings];
     
     Listing *listing = self.listings[indexPath.row];
-    [DataManager getAddressNameFromPoint: listing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+    [DataManager getAddressNameFromListing: listing withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);
         }
