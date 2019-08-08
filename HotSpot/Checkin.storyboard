@@ -104,8 +104,8 @@
                                     <segue destination="wKb-bH-DVm" kind="show" identifier="cancelSegue" id="Ggm-Gf-Hbt"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
-                                <rect key="frame" x="8" y="127" width="398" height="154"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
+                                <rect key="frame" x="8" y="96" width="398" height="109.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-wa-XJ9">
                                         <rect key="frame" x="0.0" y="0.0" width="114.5" height="20.5"/>
@@ -119,28 +119,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time: 10am on 8/5/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-2B-AMk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time: 10am on 8/5/2019" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-2B-AMk">
                                         <rect key="frame" x="0.0" y="89" width="223" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End time: 12am on 8/5/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAY-lH-7tC">
-                                        <rect key="frame" x="0.0" y="133.5" width="214.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yAY-lH-7tC" secondAttribute="trailing" constant="8" id="55I-TG-6XM"/>
                                     <constraint firstItem="Hlf-2B-AMk" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="I3b-m9-Pvb"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lqm-gS-MT0" secondAttribute="trailing" constant="8" id="ORX-kv-RuX"/>
                                     <constraint firstItem="lqm-gS-MT0" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="TKQ-RY-qbH"/>
                                     <constraint firstItem="WRD-wa-XJ9" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="VXQ-mr-MbG"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hlf-2B-AMk" secondAttribute="trailing" constant="8" id="jcj-ww-iRP"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WRD-wa-XJ9" secondAttribute="trailing" constant="8" id="niS-gB-8yO"/>
-                                    <constraint firstItem="yAY-lH-7tC" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="z94-XY-BdP"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -151,6 +143,7 @@
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerX" secondItem="qD3-B3-rUv" secondAttribute="centerX" id="RIL-8X-JaO"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="centerX" secondItem="oG9-m8-bzm" secondAttribute="centerX" id="hLs-0h-ibe"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerY" secondItem="qD3-B3-rUv" secondAttribute="centerY" id="m5s-nf-Vl0"/>
+                            <constraint firstItem="e4s-gG-8lB" firstAttribute="top" secondItem="qD3-B3-rUv" secondAttribute="top" constant="8" id="nKd-r7-j06"/>
                             <constraint firstItem="qD3-B3-rUv" firstAttribute="trailing" secondItem="e4s-gG-8lB" secondAttribute="trailing" constant="8" id="rgw-XV-37A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qD3-B3-rUv"/>
@@ -158,7 +151,7 @@
                     <navigationItem key="navigationItem" id="K3c-QL-EL5">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Y1U-TX-WPW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fCf-v1-hU7">
-                                <rect key="frame" x="8" y="96" width="23" height="23"/>
+                                <rect key="frame" x="20" y="10.5" width="23" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="close-icon"/>
                                 <connections>
@@ -169,7 +162,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="WRD-wa-XJ9" id="D6N-Vj-JAH"/>
-                        <outlet property="endTimeLabel" destination="yAY-lH-7tC" id="dRg-YR-a9P"/>
                         <outlet property="startTimeLabel" destination="Hlf-2B-AMk" id="njF-xW-BRt"/>
                         <outlet property="totalPriceLabel" destination="lqm-gS-MT0" id="XFl-UD-Ow8"/>
                     </connections>
