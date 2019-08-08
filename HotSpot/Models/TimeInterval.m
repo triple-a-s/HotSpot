@@ -28,6 +28,9 @@
 # pragma mark - Public Methods
 - (NSDateInterval * _Nullable)intersectionWithTimeInterval:(TimeInterval *)timeInterval {
     CGFloat buffer = 2; // in seconds
+    if([self.startTime compare:self.endTime] == NSOrderedSame) {
+        return nil;
+    }
     if(!dateInterval) {
         dateInterval = [[NSDateInterval alloc] initWithStartDate:[self.startTime dateByAddingTimeInterval:buffer] endDate:[self.endTime dateByAddingTimeInterval:-buffer]];
     }
