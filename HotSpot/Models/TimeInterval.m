@@ -31,8 +31,16 @@
     if([self.startTime compare:self.endTime] == NSOrderedSame) {
         return nil;
     }
+    else if([self.startTime compare:self.endTime] == NSOrderedDescending) {
+        return nil;
+    }
     if(!dateInterval) {
-        dateInterval = [[NSDateInterval alloc] initWithStartDate:[self.startTime dateByAddingTimeInterval:buffer] endDate:[self.endTime dateByAddingTimeInterval:-buffer]];
+        @try {
+            dateInterval = [[NSDateInterval alloc] initWithStartDate:[self.startTime dateByAddingTimeInterval:buffer] endDate:[self.endTime dateByAddingTimeInterval:-buffer]];
+        }
+        @catch (NSException *exception) {
+            return nil;
+        }
     }
     NSDateInterval *theirDateInterval = [[NSDateInterval alloc] initWithStartDate:timeInterval.startTime endDate:timeInterval.endTime];
     if (self.repeatsWeekly) {
