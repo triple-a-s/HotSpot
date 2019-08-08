@@ -8,6 +8,8 @@
 
 #import "ReportTransitionViewController.h"
 #import "DetailsViewController.h"
+#import "DataManager.h"
+#import "ParkingSearchViewController.h"
 
 @interface ReportTransitionViewController ()
 
@@ -47,10 +49,28 @@
     if ([segue.identifier isEqualToString:@"returnSegue"]) {
         UITabBarController *tabBar = segue.destinationViewController;
         tabBar.selectedIndex = 2;
-    } else if ([segue.identifier isEqualToString:@"newSpotSegue"]) {
-        DetailsViewController *detailsViewController = [segue destinationViewController];
-        //detailsViewController.listing = self.listing;
     }
+    else if([segue.identifier isEqualToString:@"newSpotSegue"]){
+             [DataManager getListingsNearLocation:self.listing.address
+                              withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+                                          DetailsViewController *reportTransitionVC = segue.destinationViewController;
+                                          CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
+                                          NSArray *transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
+                                          reportTransitionVC.listing = transitionListings[0];
+                              }];
+     }
+    }
+
+- (IBAction)closeSpotClicked:(id)sender {
+    [DataManager getListingsNearLocation:self.listing.address
+                          withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+    CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
+    NSArray *transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
+    Listing *senderListing = transitionListings[0];
+    [self performSegueWithIdentifier:@"newSpotSegue" sender:senderListing];
+                          }];
 }
+
+
 
 @end

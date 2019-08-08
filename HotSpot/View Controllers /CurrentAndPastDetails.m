@@ -91,7 +91,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
         if ([segue.identifier isEqualToString:@"bookingSegue2"]) {
             BookingViewController *bookingViewController = [segue destinationViewController];
             bookingViewController.listing = listing;
@@ -107,7 +106,6 @@
             ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
             reportDriverViewController.listing = listing;
         }
-    }];
 }
 - (IBAction)bookAgain:(id)sender {
     Listing *listing = self.booking.listing;

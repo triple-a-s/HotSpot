@@ -265,7 +265,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Return to Search Page"/>
                                 <connections>
+                                    <action selector="closeSpotClicked:" destination="vYP-9v-sw8" eventType="touchUpInside" id="bgn-NB-BzW"/>
                                     <action selector="didTapReturn:" destination="vYP-9v-sw8" eventType="touchUpInside" id="i03-vx-kgA"/>
+                                    <segue destination="Bez-9y-exH" kind="show" identifier="newSpotSegue" id="CMj-yF-ulT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -276,7 +278,6 @@
                         <outlet property="descriptionLabel" destination="mBx-9A-YhY" id="ojp-Wf-tgn"/>
                         <outlet property="transitionButton" destination="aC1-2K-pA0" id="Cpf-An-TQs"/>
                         <segue destination="Dem-ft-B1F" kind="show" identifier="returnSegue" id="4Rf-B7-IAd"/>
-                        <segue destination="Bez-9y-exH" kind="show" identifier="newSpotSegue" id="RA1-1v-D2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ1-MR-0s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
