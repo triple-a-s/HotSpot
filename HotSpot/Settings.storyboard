@@ -71,7 +71,6 @@
         <!--Settings-->
         <scene sceneID="Qf4-ZU-Tw5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5xg-gN-dlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="q8c-iK-hB5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="SNZ-wh-gyP"/>
                     <toolbarItems/>
@@ -85,6 +84,7 @@
                         <segue destination="HAw-Qw-2OJ" kind="relationship" relationship="rootViewController" id="LY6-Mg-pIJ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xg-gN-dlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.739130434782609" y="110.49107142857143"/>
         </scene>

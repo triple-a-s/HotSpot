@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
 @property (strong, nonatomic) CLLocation *startLocation;
 @property (strong, nonatomic) NSMutableArray <PFFileObject*> *listingImageArray;
+@property (weak, nonatomic) IBOutlet UIButton *questionIcon;
+@property (strong, nonatomic) UIDynamicAnimator *animator;
+
 @end
 
 @implementation MapViewController
@@ -36,8 +39,8 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     [self.searchMap showsUserLocation];
-
     
+    [self animateBounce];
     // getting the initial listings to load on the map
     self.initialLocation = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude]; 
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
@@ -75,6 +78,8 @@
     // setting the location on the map 
     [self setLocation:self.initialLocation onMap:self.searchMap];
 }
+
+
 
 # pragma mark - Map Delegate
 
@@ -179,6 +184,24 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+
+- (void) animateBounce {
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    
+    UIGravityBehavior* gravityBehavior =
+    [[UIGravityBehavior alloc] initWithItems:@[self.questionIcon]];
+    [self.animator addBehavior:gravityBehavior];
+    
+    UICollisionBehavior* collisionBehavior =
+    [[UICollisionBehavior alloc] initWithItems:@[self.questionIcon]];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [self.animator addBehavior:collisionBehavior];
+    
+    UIDynamicItemBehavior *elasticityBehavior =
+    [[UIDynamicItemBehavior alloc] initWithItems:@[self.questionIcon]];
+    elasticityBehavior.elasticity = 0.9f;
+    [self.animator addBehavior:elasticityBehavior];
 }
 
 @end

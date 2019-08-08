@@ -10,7 +10,7 @@
 #import "MapKit/MapKit.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate>
+@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, UIViewControllerTransitioningDelegate>
 
 + (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
 

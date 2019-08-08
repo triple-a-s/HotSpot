@@ -46,6 +46,7 @@
 
 
 
+
 @end
 
 @implementation MainContainerViewController
@@ -71,6 +72,10 @@
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
     self.tableVC.initialLocation = self.mapVC.locationManager.location;
+   /*[self.mainSearchBar setImage:[UIImage imageNamed: @"filter.png"]
+                forSearchBarIcon:UISearchBarIconSearch
+                           state:UIControlStateDisabled];
+    */
 }
 
 # pragma mark - Action Items
