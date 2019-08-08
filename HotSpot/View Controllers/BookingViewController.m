@@ -34,12 +34,25 @@
     BOOL pickingStartTime;
     NSIndexPath *startIndexPath;
     NSDateFormatter *formatter;
+    UIColor *themeRedColor;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    themeRedColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
+                             green:0.3239448667
+                              blue:0.2989487052
+                             alpha:1.0];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.allowsMultipleSelection = YES;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 4;
+    
+    layout.itemSize = CGSizeMake(85, 50);
     
     self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0]; // today
     self.datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:3 * 30 * 24 * 60 * 60]; // around three months from now
@@ -117,15 +130,22 @@
                                                                forIndexPath:indexPath];
     TimeSlot *timeSlot = self.timeSlots[indexPath.item];
     [cell setTime:timeSlot];
-    if (!timeSlot.available) {
-        cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
+    if (!timeSlot.available) { // grayed out, unavailable
+        cell.backgroundColor = [UIColor grayColor];
+        cell.layer.borderColor = [UIColor grayColor].CGColor;
+        cell.timeLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeSlot.chosen) {
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
+    else if (timeSlot.chosen) { // red, chosen
+        cell.backgroundColor = themeRedColor;
+        cell.layer.borderColor = themeRedColor.CGColor;
+        cell.timeLabel.textColor = [UIColor whiteColor];
     }
-    else {
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.8 blue:.2 alpha:.6];
+    else { // white, available but unchosen
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.layer.borderColor = themeRedColor.CGColor;
+        cell.timeLabel.textColor = themeRedColor;
     }
+    cell.layer.borderWidth = 1;
     return cell;
 }
 
@@ -295,7 +315,6 @@
     }
     [self.collectionView reloadData];
 }
-
 
 - (IBAction)resetClicked:(id)sender {
     [self reset];
