@@ -32,11 +32,6 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIe-y9-2e1" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="87" y="141" width="266" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -48,7 +43,6 @@
                         <viewLayoutGuide key="safeArea" id="hop-jr-RMq"/>
                     </view>
                     <connections>
-                        <outlet property="carImage" destination="lIe-y9-2e1" id="rLQ-7o-SIO"/>
                         <outlet property="profileButton" destination="XsQ-JU-nxu" id="97T-XK-Wv8"/>
                         <segue destination="uGr-xf-tee" kind="show" identifier="profileSegue" id="cb4-71-eaS"/>
                     </connections>
@@ -280,7 +274,7 @@
         <image name="whitelogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jm7-RX-coN"/>
+        <segue reference="cb4-71-eaS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
