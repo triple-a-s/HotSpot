@@ -11,6 +11,7 @@
 #import "MainContainerViewController.h"
 #import "DetailsViewController.h"
 #import "DataManager.h"
+#import "LocationManagerSingleton.h"
 
 @interface MapViewController ()
 @property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray <PFFileObject*> *listingImageArray;
 @property (weak, nonatomic) IBOutlet UIButton *questionIcon;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
+@property (strong, nonatomic) LocationManagerSingleton *mapLocationManager;
 
 @end
 
@@ -33,15 +35,11 @@
     
     // show the user location when the map loads -- not working currently
     // things associated with showing the actual use location
-    self.locationManager.delegate = self;
-    self.locationManager =[[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager requestWhenInUseAuthorization];
-    [self.locationManager startUpdatingLocation];
+    self.mapLocationManager = [LocationManagerSingleton sharedSingleton];
     [self.searchMap showsUserLocation];
     
     // getting the initial listings to load on the map
-    self.initialLocation = [[CLLocation alloc]initWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+    self.initialLocation = [[CLLocation alloc]initWithLatitude:self.mapLocationManager.locationManager.location.coordinate.latitude longitude:self.mapLocationManager.locationManager.location.coordinate.longitude];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
     
     [DataManager getAllListings:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
@@ -134,6 +132,50 @@
     }
     return annotationView;
 }
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    MKAnnotationView *annotationView;
+    for (annotationView in views) {
+        if ([annotationView.annotation isKindOfClass:[MKUserLocation class]]) {
+            continue;
+        }
+        // Check if current annotation is inside visible map rect, else go to next one
+        MKMapPoint point =  MKMapPointForCoordinate(annotationView.annotation.coordinate);
+        if (!MKMapRectContainsPoint(self.searchMap.visibleMapRect, point)) {
+            continue;
+        }
+        CGRect endFrame = annotationView.frame;
+        // Move annotation out of view
+        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y - self.view.frame.size.height, annotationView.frame.size.width, annotationView.frame.size.height);
+        // Animate drop
+        [UIView animateWithDuration:0.5 delay:0.04*[views indexOfObject:annotationView] options: UIViewAnimationOptionCurveLinear animations:^{
+            annotationView.frame = endFrame;
+            
+            // Animate bounce
+        }completion:^(BOOL finished){
+            if (finished) {
+                [UIView animateWithDuration:0.05 delay:0.05*[views indexOfObject:annotationView] options:UIViewAnimationOptionCurveLinear animations:^{
+                    annotationView.transform = CGAffineTransformMakeScale(1.0, 0.7);
+                    
+                }completion:^(BOOL finished){
+                    if (finished) {
+                        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y + 10, annotationView.frame.size.width, annotationView.frame.size.height);
+                        [UIView animateWithDuration:0.3 delay:0.5*[views indexOfObject:annotationView] options: UIViewAnimationOptionCurveLinear animations:^{
+                            annotationView.frame = endFrame;
+                        } completion:^(BOOL finished){
+                            if (finished) {
+                                [UIView animateWithDuration:0.2 animations:^{
+                                    annotationView.transform = CGAffineTransformIdentity;
+                                }];
+                            }
+                        }];
+                    }
+                }];
+            }
+        }];
+    }
+}
+
 
 - (void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLocation:self.initialLocation];
