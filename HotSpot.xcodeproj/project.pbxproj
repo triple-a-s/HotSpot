@@ -29,6 +29,7 @@
 		61B08CCB22FCB6760007F96A /* car in Resources */ = {isa = PBXBuildFile; fileRef = 61B08CCA22FCB6760007F96A /* car */; };
 		61B08CCD22FCB6E20007F96A /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B08CCC22FCB6E20007F96A /* Loading.storyboard */; };
 		61B08CD022FCB7D00007F96A /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B08CCF22FCB7D00007F96A /* LoadingViewController.m */; };
+		61BEB46B22FCF6F000170818 /* bookingLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BEB46A22FCF6F000170818 /* bookingLoading.m */; };
 		61D1E3E322F50AB000070919 /* Payment .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D1E3E222F50AB000070919 /* Payment .storyboard */; };
 		61E418BD22F89CE700AE5327 /* CurrentAndPastDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */; };
 		61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */; };
@@ -143,6 +144,8 @@
 		61B08CCE22FCB7D00007F96A /* LoadingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		61B08CCF22FCB7D00007F96A /* LoadingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		61BA376022EB9DD3002C1B5A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		61BEB46922FCF6F000170818 /* bookingLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bookingLoading.h; sourceTree = "<group>"; };
+		61BEB46A22FCF6F000170818 /* bookingLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bookingLoading.m; sourceTree = "<group>"; };
 		61D1E3E222F50AB000070919 /* Payment .storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Payment .storyboard"; sourceTree = "<group>"; };
 		61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentAndPastDetails.storyboard; sourceTree = "<group>"; };
 		61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentAndPastDetails.h; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 				61547D5E22EB9A0D00E57E34 /* MainContainerViewController.h */,
 				61547D6522EB9A0E00E57E34 /* MainContainerViewController.m */,
 				AD08284522F8D18F0069A20D /* ConfirmationViewController.h */,
+				61BEB46922FCF6F000170818 /* bookingLoading.h */,
+				61BEB46A22FCF6F000170818 /* bookingLoading.m */,
 				AD08284622F8D1900069A20D /* ConfirmationViewController.m */,
 				61547D6622EB9A0E00E57E34 /* MapViewController.h */,
 				61547D6022EB9A0D00E57E34 /* MapViewController.m */,
@@ -776,6 +781,7 @@
 				D264E27222F352E30054391A /* CallManager.m in Sources */,
 				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				D251627D22FB93B200ACFADD /* FancyButton.m in Sources */,
+				61BEB46B22FCF6F000170818 /* bookingLoading.m in Sources */,
 				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,

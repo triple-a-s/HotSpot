@@ -421,102 +421,124 @@
             </objects>
             <point key="canvasLocation" x="-830" y="1092"/>
         </scene>
-        <!--View Controller-->
+        <!--Booking Loading-->
         <scene sceneID="eHS-cG-jav">
             <objects>
-                <viewController id="q46-H8-MDg" sceneMemberID="viewController">
+                <viewController id="q46-H8-MDg" customClass="bookingLoading" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YhC-V3-dyd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="FIs-K2-Qkc">
-                                <rect key="frame" x="20" y="768" width="147" height="37"/>
+                                <rect key="frame" x="58" y="298" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="3xw-Og-wvs">
-                                <rect key="frame" x="261" y="705" width="147" height="37"/>
+                                <rect key="frame" x="134" y="298" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="ZKW-v3-FJO">
-                                <rect key="frame" x="151" y="532" width="147" height="37"/>
+                                <rect key="frame" x="151" y="157" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="eUX-0n-LNz">
-                                <rect key="frame" x="92" y="707" width="147" height="37"/>
+                                <rect key="frame" x="233" y="298" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="Cpr-pn-6vH">
-                                <rect key="frame" x="65" y="593" width="147" height="37"/>
+                                <rect key="frame" x="58" y="223" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="Aao-Bk-YDD">
-                                <rect key="frame" x="156" y="471" width="147" height="37"/>
+                                <rect key="frame" x="58" y="157" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="CtI-D3-F9O">
-                                <rect key="frame" x="111" y="389" width="147" height="37"/>
+                                <rect key="frame" x="58" y="112" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="1UR-iu-5ba">
-                                <rect key="frame" x="60" y="225" width="147" height="37"/>
+                                <rect key="frame" x="-33" y="67" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="3we-jJ-qDJ">
-                                <rect key="frame" x="58" y="471" width="147" height="37"/>
+                                <rect key="frame" x="-33" y="157" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="TD6-hT-Bxl">
-                                <rect key="frame" x="233" y="418" width="147" height="37"/>
+                                <rect key="frame" x="151" y="112" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-Th-ggI">
-                                <rect key="frame" x="215" y="309" width="147" height="37"/>
+                                <rect key="frame" x="151" y="67" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="EM2-bB-qb5">
-                                <rect key="frame" x="70" y="293" width="147" height="37"/>
+                                <rect key="frame" x="233" y="67" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="vRk-KN-YFF">
-                                <rect key="frame" x="22" y="371" width="147" height="37"/>
+                                <rect key="frame" x="-33" y="112" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="8QI-lT-sdq">
-                                <rect key="frame" x="240" y="530" width="147" height="37"/>
+                                <rect key="frame" x="233" y="157" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="rcM-dP-N7h">
-                                <rect key="frame" x="176" y="650" width="147" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="7JH-Ng-Qit">
-                                <rect key="frame" x="163" y="773" width="147" height="37"/>
+                                <rect key="frame" x="134" y="223" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="FwY-7Y-hLL">
-                                <rect key="frame" x="-18" y="650" width="147" height="37"/>
+                                <rect key="frame" x="-33" y="298" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="IXH-tE-87U">
-                                <rect key="frame" x="-19" y="548" width="147" height="37"/>
+                                <rect key="frame" x="-33" y="223" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="tdr-h6-WME">
-                                <rect key="frame" x="-33" y="471" width="147" height="37"/>
+                                <rect key="frame" x="233" y="112" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="8Y4-Tb-LkR">
-                                <rect key="frame" x="277" y="609" width="147" height="37"/>
+                                <rect key="frame" x="233" y="223" width="147" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="Yyj-Jt-CJ5">
-                                <rect key="frame" x="156" y="270" width="147" height="37"/>
+                                <rect key="frame" x="58" y="67" width="147" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car3" translatesAutoresizingMaskIntoConstraints="NO" id="7JH-Ng-Qit">
+                                <rect key="frame" x="-33" y="363" width="147" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bZJ-wN-YF8"/>
                     </view>
+                    <connections>
+                        <outlet property="car1" destination="1UR-iu-5ba" id="V2w-09-ncM"/>
+                        <outlet property="car10" destination="Aao-Bk-YDD" id="eKL-Av-XgF"/>
+                        <outlet property="car11" destination="ZKW-v3-FJO" id="mhE-Y9-tW0"/>
+                        <outlet property="car12" destination="8QI-lT-sdq" id="Y4Q-hj-1eF"/>
+                        <outlet property="car13" destination="IXH-tE-87U" id="IKK-hr-XjY"/>
+                        <outlet property="car145" destination="rcM-dP-N7h" id="KqB-8c-Enw"/>
+                        <outlet property="car15" destination="8Y4-Tb-LkR" id="Asq-Yq-33K"/>
+                        <outlet property="car16" destination="FwY-7Y-hLL" id="NbT-Fz-OUF"/>
+                        <outlet property="car17" destination="FIs-K2-Qkc" id="MBL-OP-s6n"/>
+                        <outlet property="car18" destination="3xw-Og-wvs" id="5g9-Fe-nDE"/>
+                        <outlet property="car19" destination="eUX-0n-LNz" id="PRo-S2-LAp"/>
+                        <outlet property="car2" destination="Yyj-Jt-CJ5" id="E2n-Ra-1Jm"/>
+                        <outlet property="car20" destination="7JH-Ng-Qit" id="Z0G-Ph-CYf"/>
+                        <outlet property="car3" destination="bEo-Th-ggI" id="Oun-Fc-4Vx"/>
+                        <outlet property="car4" destination="EM2-bB-qb5" id="yxE-fC-szt"/>
+                        <outlet property="car5" destination="vRk-KN-YFF" id="JN5-vR-jF5"/>
+                        <outlet property="car6" destination="CtI-D3-F9O" id="NOM-MP-rGG"/>
+                        <outlet property="car7" destination="TD6-hT-Bxl" id="RQf-hX-A5u"/>
+                        <outlet property="car8" destination="tdr-h6-WME" id="8gt-cT-Vk5"/>
+                        <outlet property="car9" destination="3we-jJ-qDJ" id="yR0-6v-xb0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPw-5d-elf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
