@@ -46,7 +46,6 @@
                                        selector:@selector(timerFireMethod:)
                                        userInfo:nil
                                         repeats:NO];
-        [self.progressView setProgress:.5];
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
             if (error != nil) {
                 self.progressView.progress=0;

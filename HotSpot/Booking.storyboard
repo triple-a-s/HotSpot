@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q46-H8-MDg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dao-gK-gXZ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -353,8 +353,8 @@
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
                         <outlet property="timeRangeLabel" destination="wsY-zT-wpO" id="6eb-8x-QhW"/>
-                        <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="qgi-e5-3Cx"/>
                         <segue destination="o8G-pB-FRW" kind="show" identifier="carSegue" id="A3x-wQ-Rtt"/>
+                        <segue destination="q46-H8-MDg" kind="show" identifier="confirmationSegue" id="yRE-Sx-sWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -447,6 +447,7 @@
                     <connections>
                         <outlet property="bookingText" destination="DUO-g1-dvQ" id="6TQ-IU-tpF"/>
                         <outlet property="progressView" destination="6nN-cU-XrB" id="48C-b0-iYx"/>
+                        <segue destination="F0r-BK-Ye1" kind="show" id="ZYf-8D-Hfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPw-5d-elf" userLabel="First Responder" sceneMemberID="firstResponder"/>

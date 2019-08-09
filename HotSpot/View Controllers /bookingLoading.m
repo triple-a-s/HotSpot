@@ -5,6 +5,7 @@
 //  Created by aodemuyi on 8/8/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
+int countTime;
 
 #import "bookingLoading.h"
 
@@ -15,13 +16,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookingText;
 
 
-
 @end
 
 @implementation bookingLoading
 
 - (void)viewDidLoad {
+    countTime= 0;
     [super viewDidLoad];
+    [NSTimer scheduledTimerWithTimeInterval:1
+                                                      target:self
+                                                    selector:@selector(timerFireMethod:)
+                                                    userInfo:nil
+                                                     repeats:NO];
     
     [self.bookingText setAlpha:0.0f];
     [UIView animateWithDuration:1.5f delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat   animations:^{
@@ -33,13 +39,13 @@
     }];
     
     self.progressView.progress = 0;
-    for (int i =0; i<=50; i++){
+    for (int i =0; i<=100; i++){
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"car3"]];
         imageView.tintColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
                                                        green:0.3239448667
                                                         blue:0.2989487052
                                                        alpha:1.0];
-        imageView.frame = CGRectMake(i, i, 35,35);
+        imageView.frame = CGRectMake(0, 0, 35,35);
     [self.view addSubview:imageView];
     [self animateBounce];
     }
@@ -57,6 +63,15 @@
 */
 
 - (void) animateBounce{
+    [NSTimer scheduledTimerWithTimeInterval:2
+                                     target:self
+                        selector:@selector(timerFireMethod:)
+                                   userInfo:nil
+                                    repeats:YES];
+    CGRect frame = self.view.frame;
+    frame.size.height = 7/8 *frame.size.height;
+    self.view.frame = frame;
+    
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     for (int i =0; i<=self.view.subviews.count-1; i++){
         if ([self.view.subviews[i] isKindOfClass:[UIImageView class]])
@@ -72,14 +87,18 @@
         
         UIDynamicItemBehavior *elasticityBehavior =
         [[UIDynamicItemBehavior alloc] initWithItems:@[self.view.subviews[i]]];
-        elasticityBehavior.elasticity = .9;
+        elasticityBehavior.elasticity = 1;
         [self.animator addBehavior:elasticityBehavior];
     }
              }
 }
 
 - (void) timerFireMethod:(NSTimer*)timer{
-    self.progressView.progress+=.2;
+    countTime += 0.1;
+    [self.progressView setProgress: countTime / 3 animated: true];
+    if (countTime >= 3)  {
+        [timer invalidate];
+    }
 }
 
 @end
