@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BookingViewController : UIViewController
 
 @property (nonatomic, strong) Listing *listing;
+@property (nonatomic, strong) Booking *booking; 
 
 @end
 

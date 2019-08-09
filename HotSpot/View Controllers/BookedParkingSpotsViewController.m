@@ -55,7 +55,7 @@
     Booking *booking = self.bookings[indexPath.row];
     Listing *listing = booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-    [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+    [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error) {
             if(error){
                 NSLog(@"%@", error);
             }
@@ -68,10 +68,11 @@
             UIImage *imageToLoad = [UIImage imageWithData:imageData];
             bookedCell.searchTableImage.image = imageToLoad;
         }];
-        bookedCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
     }];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    bookedCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
+    bookedCell.searchTableMilesAway.text = [formatter stringFromDate: booking.createdAt];
+
     
     bookedCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     bookedCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
@@ -96,7 +97,8 @@
     if([segue.identifier isEqualToString:@"pastToBooking"]) {
         CurrentAndPastDetails *ourViewController = [segue destinationViewController];
         ourViewController.booking = sender;
-        ourViewController.bookAgainButton.hidden = NO; 
+        ourViewController.bookAgainButton.hidden = NO;
+        ourViewController.showCheckInCheckOut = NO;
     }
 }
 @end

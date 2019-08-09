@@ -19,6 +19,7 @@
 @dynamic price;
 @dynamic homeowner;
 @dynamic picture;
+@dynamic addressName;
 
 # pragma mark - Class Methods
 

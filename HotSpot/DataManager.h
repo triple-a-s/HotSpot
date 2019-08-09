@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
                  withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
 + (void)test;
 + (void)sampleListingForTestingWithCompletion:(void(^)(Listing *listing, NSError *error))completion;
-+ (void)getAddressNameFromPoint:(PFGeoPoint *)address withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion;
++ (void)getAddressNameFromListing:(Listing *)listing withCompletion:(void(^)(NSString *name, NSError * _Nullable error))completion;
++ (void)getNextBookingWithBlock:(PFObjectResultBlock)block;
 + (void)getAllListings:(PFGeoPoint *)point
         withCompletion:(void(^)(NSArray<Listing *> *listings, NSError *error))completion;
 + (void)getAllBookings:(PFUser*)user

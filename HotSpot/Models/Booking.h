@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) TimeInterval *timeInterval;
+@property (nonatomic, assign, readwrite) BOOL next;
 
 + (void)bookDriveway:(Listing * _Nullable)listing
        withStartTime:(NSDate * _Nullable)startTime
@@ -30,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)getPastBookingsWithBlock:(void(^)(NSArray<Booking *> *bookings, NSError *error))block;
 
 - (void)cancel;
+- (void)canAddDuration:(CGFloat)duration WithCompletion:(void(^)(BOOL can, NSError * _Nullable error))completion;
 
 @end
 

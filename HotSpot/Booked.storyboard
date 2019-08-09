@@ -41,12 +41,16 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="134" id="aVu-Qe-ayi" customClass="SearchCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="aVu-Qe-ayi" id="ey9-Ws-w8y">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" tableViewCell="aVu-Qe-ayi" id="ey9-Ws-w8y">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="133.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-1m-qZL">
-                                                    <rect key="frame" x="-43" y="-23" width="219" height="180"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="TZd-1m-qZL">
+                                                    <rect key="frame" x="-20" y="0.0" width="219" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="180" id="4IC-z5-cKR"/>
+                                                        <constraint firstAttribute="width" constant="219" id="573-cf-5KC"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-tW-DZs">
                                                     <rect key="frame" x="184" y="6" width="204" height="19"/>
@@ -54,41 +58,30 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="756" misplaced="YES" text="$10/hr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qto-cC-vim">
-                                                    <rect key="frame" x="240" y="33" width="101.5" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" misplaced="YES" text="Miles away from location " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-wg-o8h">
-                                                    <rect key="frame" x="191" y="75" width="199" height="48"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" ambiguous="YES" misplaced="YES" text="Miles away from location " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-wg-o8h">
+                                                    <rect key="frame" x="207" y="33" width="199" height="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TZd-1m-qZL" firstAttribute="top" secondItem="ey9-Ws-w8y" secondAttribute="top" id="58i-mp-l4F"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qto-cC-vim" secondAttribute="trailing" constant="38.5" id="7RH-2w-6DG"/>
                                                 <constraint firstAttribute="trailing" secondItem="QLn-wg-o8h" secondAttribute="trailing" constant="10" id="8xd-tb-QSn"/>
                                                 <constraint firstItem="2IE-tW-DZs" firstAttribute="leading" secondItem="TZd-1m-qZL" secondAttribute="trailing" constant="17" id="AQi-dE-C5Q"/>
                                                 <constraint firstItem="2IE-tW-DZs" firstAttribute="top" secondItem="ey9-Ws-w8y" secondAttribute="top" id="Esc-f4-U3V"/>
-                                                <constraint firstItem="qto-cC-vim" firstAttribute="leading" secondItem="TZd-1m-qZL" secondAttribute="trailing" constant="18" id="FhN-al-H4g"/>
                                                 <constraint firstItem="2IE-tW-DZs" firstAttribute="leading" secondItem="TZd-1m-qZL" secondAttribute="trailing" constant="17" id="Ftf-ZO-gtz"/>
                                                 <constraint firstAttribute="trailing" secondItem="2IE-tW-DZs" secondAttribute="trailing" constant="37.5" id="H6M-wD-AXC"/>
                                                 <constraint firstAttribute="bottom" secondItem="TZd-1m-qZL" secondAttribute="bottom" constant="-15.5" id="HDy-lU-2do"/>
-                                                <constraint firstItem="qto-cC-vim" firstAttribute="top" secondItem="2IE-tW-DZs" secondAttribute="bottom" constant="8" id="W12-nc-M9j"/>
                                                 <constraint firstItem="QLn-wg-o8h" firstAttribute="leading" secondItem="TZd-1m-qZL" secondAttribute="trailing" constant="18" id="gG3-EN-Cpj"/>
                                                 <constraint firstAttribute="bottom" secondItem="QLn-wg-o8h" secondAttribute="bottom" constant="20" id="nnJ-kf-0vQ"/>
                                                 <constraint firstItem="TZd-1m-qZL" firstAttribute="leading" secondItem="ey9-Ws-w8y" secondAttribute="leading" constant="-20" id="r4V-Ad-6bl"/>
-                                                <constraint firstItem="QLn-wg-o8h" firstAttribute="top" secondItem="qto-cC-vim" secondAttribute="bottom" constant="24" id="xF6-lY-5IR"/>
-                                                <constraint firstItem="qto-cC-vim" firstAttribute="top" secondItem="2IE-tW-DZs" secondAttribute="bottom" constant="8" id="zw2-3I-90h"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="searchTableAddress" destination="2IE-tW-DZs" id="spw-td-qnM"/>
                                             <outlet property="searchTableImage" destination="TZd-1m-qZL" id="qmX-x6-kB2"/>
                                             <outlet property="searchTableMilesAway" destination="QLn-wg-o8h" id="P7x-P0-BaS"/>
-                                            <outlet property="searchTablePrice" destination="qto-cC-vim" id="jIa-Fg-9LU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -143,7 +136,7 @@
         <scene sceneID="AhQ-y8-HAb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOL-Ko-9FE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Past Spots " id="ZKd-D3-sJM"/>
+                    <tabBarItem key="tabBarItem" title="Past Spots " image="past" id="ZKd-D3-sJM"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IIs-Ae-Vak">
@@ -162,5 +155,7 @@
     </scenes>
     <resources>
         <image name="houseimageexample" width="550" height="413"/>
+        <image name="past" width="36" height="30"/>
     </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

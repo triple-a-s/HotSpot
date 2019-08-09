@@ -241,7 +241,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNT-CU-tIB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNT-CU-tIB" customClass="FancyButton">
                                 <rect key="frame" x="113.5" y="442.5" width="187" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save Changes"/>
@@ -437,7 +437,7 @@
         <!--Cars-->
         <scene sceneID="f5A-yQ-kql">
             <objects>
-                <viewController id="0Pz-OS-IeX" customClass="CarsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cars" id="0Pz-OS-IeX" customClass="CarsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X0g-Db-mzt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -667,7 +667,7 @@
         <scene sceneID="tFg-ad-vdQ">
             <objects>
                 <navigationController storyboardIdentifier="Profile" automaticallyAdjustsScrollViewInsets="NO" id="6B0-PO-SJu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="kVo-Vo-80G"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="kVo-Vo-80G"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XUF-wR-yXX">
@@ -688,6 +688,8 @@
         <image name="670109-200" width="200" height="200"/>
         <image name="carImage" width="173" height="130"/>
         <image name="download-1" width="225" height="225"/>
+        <image name="profile" width="29" height="28"/>
         <image name="twitter-icon" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

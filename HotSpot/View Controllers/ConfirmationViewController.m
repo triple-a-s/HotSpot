@@ -18,4 +18,9 @@
     [super viewDidLoad];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UITabBarController *tabBar = segue.destinationViewController;
+    tabBar.selectedIndex = 2;
+}
+
 @end

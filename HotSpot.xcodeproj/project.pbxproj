@@ -60,6 +60,7 @@
 		D22F501122E7D974004BE9BF /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501022E7D974004BE9BF /* TimeCell.m */; };
 		D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F501322E920A7004BE9BF /* TimeSlot.m */; };
 		D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22F501522EA2098004BE9BF /* Tabs.storyboard */; };
+		D251627D22FB93B200ACFADD /* FancyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D251627C22FB93B200ACFADD /* FancyButton.m */; };
 		D264E26022F20C500054391A /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D264E25F22F20C500054391A /* Call.storyboard */; };
 		D264E26D22F214540054391A /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26A22F214540054391A /* incoming.wav */; };
 		D264E26E22F214540054391A /* outgoing.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26B22F214540054391A /* outgoing.wav */; };
@@ -67,12 +68,19 @@
 		D264E27222F352E30054391A /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E27122F352E30054391A /* CallManager.m */; };
 		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
+		D28F555B22F9023B00628316 /* CancelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28F555A22F9023B00628316 /* CancelViewController.m */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
 		D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772222DE8A7300EBC4EC /* Booking.m */; };
 		D2B2772822DFBD9D00EBC4EC /* Listing.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772722DFBD9D00EBC4EC /* Listing.m */; };
 		D2B2772B22DFBEF900EBC4EC /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */; };
 		D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BD364C22E111200001BD61 /* Booking.storyboard */; };
 		D2C50F7F22F11839003AB2E0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C50F7E22F11839003AB2E0 /* MessageUI.framework */; };
+		D2ECF6B522F8A9B900901E9D /* Checkin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */; };
+		D2ECF6B722F8D37F00901E9D /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */; };
+		D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6B922F8E2F800901E9D /* CarView.m */; };
+		D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */; };
+		D2ECF6C022F8E88F00901E9D /* MoreTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */; };
+		D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */; };
 		D2F3E48922EBA57A00E8AC55 /* ContainerViewSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +204,8 @@
 		D22F501222E920A7004BE9BF /* TimeSlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSlot.h; sourceTree = "<group>"; };
 		D22F501322E920A7004BE9BF /* TimeSlot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSlot.m; sourceTree = "<group>"; };
 		D22F501522EA2098004BE9BF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		D251627B22FB93B200ACFADD /* FancyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FancyButton.h; sourceTree = "<group>"; };
+		D251627C22FB93B200ACFADD /* FancyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FancyButton.m; sourceTree = "<group>"; };
 		D264E25E22F1FE360054391A /* HotSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotSpot.entitlements; sourceTree = "<group>"; };
 		D264E25F22F20C500054391A /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
 		D264E26A22F214540054391A /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
@@ -206,6 +216,8 @@
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D28F555922F9023B00628316 /* CancelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CancelViewController.h; sourceTree = "<group>"; };
+		D28F555A22F9023B00628316 /* CancelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CancelViewController.m; sourceTree = "<group>"; };
 		D2B2771D22DE868600EBC4EC /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		D2B2771E22DE868600EBC4EC /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		D2B2772122DE8A7300EBC4EC /* Booking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Booking.h; sourceTree = "<group>"; };
@@ -216,6 +228,16 @@
 		D2B2772A22DFBEF900EBC4EC /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		D2BD364C22E111200001BD61 /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		D2C50F7E22F11839003AB2E0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkin.storyboard; sourceTree = "<group>"; };
+		D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		D2ECF6B822F8E2F800901E9D /* CarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarView.h; sourceTree = "<group>"; };
+		D2ECF6B922F8E2F800901E9D /* CarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarView.m; sourceTree = "<group>"; };
+		D2ECF6BB22F8E85800901E9D /* CheckoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckoutViewController.h; sourceTree = "<group>"; };
+		D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckoutViewController.m; sourceTree = "<group>"; };
+		D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreTimeViewController.h; sourceTree = "<group>"; };
+		D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreTimeViewController.m; sourceTree = "<group>"; };
+		D2ECF6C122F8FBA200901E9D /* CheckinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
+		D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		D2F3E48822EBA57A00E8AC55 /* ContainerViewSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContainerViewSearch.storyboard; sourceTree = "<group>"; };
 		E7CEFCCA9C09EB258F75ABA6 /* Pods_HotSpotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotSpotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -333,6 +355,8 @@
 				612FE90822DE801A00112AF2 /* Search.storyboard */,
 				D264E27022F352E30054391A /* CallManager.h */,
 				D264E27122F352E30054391A /* CallManager.m */,
+				D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */,
+				D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */,
 			);
 			path = HotSpot;
 			sourceTree = "<group>";
@@ -383,6 +407,10 @@
 				D22F501022E7D974004BE9BF /* TimeCell.m */,
 				D26617C522EB689700255BC3 /* SearchCell.h */,
 				D26617C422EB689700255BC3 /* SearchCell.m */,
+				D2ECF6B822F8E2F800901E9D /* CarView.h */,
+				D2ECF6B922F8E2F800901E9D /* CarView.m */,
+				D251627B22FB93B200ACFADD /* FancyButton.h */,
+				D251627C22FB93B200ACFADD /* FancyButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -431,6 +459,16 @@
 				61547D6022EB9A0D00E57E34 /* MapViewController.m */,
 				61547D6222EB9A0D00E57E34 /* ParkingSearchViewController.h */,
 				61547D6722EB9A0E00E57E34 /* ParkingSearchViewController.m */,
+				D2ECF6BB22F8E85800901E9D /* CheckoutViewController.h */,
+				D2ECF6BC22F8E85800901E9D /* CheckoutViewController.m */,
+				D2ECF6BE22F8E88F00901E9D /* MoreTimeViewController.h */,
+				D2ECF6BF22F8E88F00901E9D /* MoreTimeViewController.m */,
+				D2ECF6C122F8FBA200901E9D /* CheckinViewController.h */,
+				D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */,
+				D28F555922F9023B00628316 /* CancelViewController.h */,
+				D28F555A22F9023B00628316 /* CancelViewController.m */,
+				61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */,
+				61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */,
 				ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */,
 				ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */,
 				AD08282F22F8D1570069A20D /* AddCarViewController.h */,
@@ -593,11 +631,13 @@
 				61AB0BBD22E0F966002B7EB6 /* Booked.storyboard in Resources */,
 				D264E26D22F214540054391A /* incoming.wav in Resources */,
 				ADCF9FEF22F233CF00EF9E66 /* Settings.storyboard in Resources */,
+				D2ECF6B522F8A9B900901E9D /* Checkin.storyboard in Resources */,
 				61AB0BB822DFEFAA002B7EB6 /* Current.storyboard in Resources */,
 				612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */,
 				D22F501622EA2098004BE9BF /* Tabs.storyboard in Resources */,
 				61E418BD22F89CE700AE5327 /* CurrentAndPastDetails.storyboard in Resources */,
 				D2BD364D22E111200001BD61 /* Booking.storyboard in Resources */,
+				D2ECF6B722F8D37F00901E9D /* Checkout.storyboard in Resources */,
 				D264E26E22F214540054391A /* outgoing.wav in Resources */,
 				AD08285A22FA2A8F0069A20D /* LoginSignUp.storyboard in Resources */,
 				61D1E3E322F50AB000070919 /* Payment .storyboard in Resources */,
@@ -742,11 +782,13 @@
 				AD08286022FA37680069A20D /* EmailHelper.m in Sources */,
 				AD08283D22F8D1580069A20D /* ProfileViewController.m in Sources */,
 				D2B2772322DE8A7300EBC4EC /* Booking.m in Sources */,
+				D2ECF6BA22F8E2F800901E9D /* CarView.m in Sources */,
 				D22F501422E920A7004BE9BF /* TimeSlot.m in Sources */,
 				AD08285922FA2A8F0069A20D /* TimeInterval.m in Sources */,
 				61547D6922EB9A0E00E57E34 /* BookingViewController.m in Sources */,
 				AD08286622FB7C5D0069A20D /* CustomerSupportViewController.m in Sources */,
 				61E418D422FB894C00AE5327 /* ReportDriverViewController.m in Sources */,
+				D2ECF6C022F8E88F00901E9D /* MoreTimeViewController.m in Sources */,
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				AD08285822FA2A8F0069A20D /* main.m in Sources */,
 				AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */,
@@ -754,6 +796,9 @@
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
 				D264E27222F352E30054391A /* CallManager.m in Sources */,
+				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
+				D251627D22FB93B200ACFADD /* FancyButton.m in Sources */,
+				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
@@ -771,6 +816,11 @@
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
+				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
+				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
+				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
+				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
+				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,

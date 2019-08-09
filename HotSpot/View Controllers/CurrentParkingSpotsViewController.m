@@ -52,7 +52,7 @@
         currentCell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error) {
+        [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error) {
                 currentCell.searchTableAddress.text= name;
         }];
         PFFileObject *img = object[@"picture"];
@@ -60,10 +60,10 @@
             UIImage *imageToLoad = [UIImage imageWithData:imageData];
             currentCell.searchTableImage.image = imageToLoad;
         }];
-        currentCell.searchTablePrice.text = [NSString stringWithFormat: @"$%@/hr", object[@"price"]];
     }];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    currentCell.searchTableMilesAway.text = [dateFormatter stringFromDate:booking.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
+    currentCell.searchTableMilesAway.text = [formatter stringFromDate: booking.startTime];
     
     currentCell.searchTablePrice.adjustsFontSizeToFitWidth = YES;
     currentCell.searchTableMilesAway.adjustsFontSizeToFitWidth = YES;
@@ -78,6 +78,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // perform segue
     Booking *booking = self.bookings[indexPath.row];
+    if (indexPath.row==0) {
+        booking.next = YES;
+    }
+    else {
+        booking.next = NO;
+    }
     [self performSegueWithIdentifier:@"currentToDetails"
                               sender:booking];
 }
@@ -88,6 +94,8 @@
         CurrentAndPastDetails *detailsViewController = [segue destinationViewController];
         detailsViewController.booking = sender;
         detailsViewController.bookAgainButton.hidden = YES;
+        Booking *booking = sender;
+        detailsViewController.showCheckInCheckOut = booking.next;
        // detailsViewController.bookingButton.hidden = YES; 
     }
 }

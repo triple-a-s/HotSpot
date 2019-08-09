@@ -24,17 +24,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeOwner;
 @property (weak, nonatomic) IBOutlet UILabel *timeParked;
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
+@property (weak, nonatomic) IBOutlet UIButton *checkinButton;
+@property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
+
 @property (strong, nonatomic) Listing *listing;
+
 @end
 
 @implementation CurrentAndPastDetails
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.checkinButton.hidden = !self.showCheckInCheckOut;
+    self.checkoutButton.hidden = !self.showCheckInCheckOut;
+    
     // image
     Listing *listing = self.booking.listing;
     [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        [DataManager getAddressNameFromPoint:object[@"address"] withCompletion:^(NSString *name, NSError * _Nullable error){
+        [DataManager getAddressNameFromListing:object withCompletion:^(NSString *name, NSError * _Nullable error){
             if(error) {
                 NSLog(@"%@", error);
             }
@@ -54,6 +62,11 @@
         [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
             self.homeOwner.text = object[@"name"];
         }];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
+        self.bookingProcessing.text = [formatter stringFromDate: self.booking.createdAt];
+        self.timeParked.text = [formatter stringFromDate:self.booking.startTime];
+        
         
     }];
     
@@ -91,21 +104,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
-        if ([segue.identifier isEqualToString:@"bookingSegue2"]) {
-            BookingViewController *bookingViewController = [segue destinationViewController];
-            bookingViewController.listing = listing;
-        } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
-            ReportHomeownerViewController *reportHomeownerViewController = [segue destinationViewController];
-            reportHomeownerViewController.houseImage.image = self.houseImage.image;
-            reportHomeownerViewController.addressLabel.text = self.houseAddress.text;
-            reportHomeownerViewController.nameLabel.text = self.homeOwner.text;
-        } else if ([segue.identifier isEqualToString:@"reportDamagesSegue"]) {
-            DamagesViewController *damagesViewController = [segue destinationViewController];
-            damagesViewController.reportedUser = self.homeOwner.text;
-        } else if ([segue.identifier isEqualToString:@"reportDriverSegue"]) {
-            ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
-            reportDriverViewController.listing = listing;
-        }
+    if ([segue.identifier isEqualToString:@"bookingSegue2"]) {
+        BookingViewController *bookingViewController = [segue destinationViewController];
+        bookingViewController.listing = listing;
+    } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
+        ReportHomeownerViewController *reportHomeownerViewController = [segue destinationViewController];
+        reportHomeownerViewController.houseImage.image = self.houseImage.image;
+        reportHomeownerViewController.addressLabel.text = self.houseAddress.text;
+        reportHomeownerViewController.nameLabel.text = self.homeOwner.text;
+    } else if ([segue.identifier isEqualToString:@"reportDamagesSegue"]) {
+        DamagesViewController *damagesViewController = [segue destinationViewController];
+        damagesViewController.reportedUser = self.homeOwner.text;
+    } else if ([segue.identifier isEqualToString:@"reportDriverSegue"]) {
+        ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
+        reportDriverViewController.listing = listing;
+    }
 }
 - (IBAction)bookAgain:(id)sender {
     Listing *listing = self.booking.listing;

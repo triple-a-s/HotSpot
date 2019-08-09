@@ -54,7 +54,7 @@
             CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(mapListing.address.latitude, mapListing.address.longitude);
             [spotPins setCoordinate: spotLocation];
             // using the datamanager to set the address of the annotaion pin callout views
-            [DataManager getAddressNameFromPoint:mapListing.address withCompletion:^(NSString *name, NSError * _Nullable error){
+            [DataManager getAddressNameFromListing:mapListing withCompletion:^(NSString *name, NSError * _Nullable error){
                 if(error) {
                     NSLog(@"%@", error);
                 }
@@ -89,7 +89,7 @@
     // setting the image for the pin of the location you just searched
     
     if((float) annotation.coordinate.latitude == (float) self.initialLocation.coordinate.latitude && (float) annotation.coordinate.longitude == (float)self.initialLocation.coordinate.longitude){
-        UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
+        UIImage *pinImage = [UIImage imageNamed:@"greenpin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(30, 30))];
         annotationView.image = pinImageResized;
         annotationView.canShowCallout = YES;
@@ -120,6 +120,7 @@
         }];
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.rightCalloutAccessoryView = rightButton;
+        UILabel *priceLabel = [[UILabel alloc]init]; 
         UIImage *pinImage = [UIImage imageNamed:@"searchPin"];
         UIImage *pinImageResized = [self imageWithImage:pinImage scaledToSize:(CGSizeMake(40, 40))];
         annotationView.image = pinImageResized;
