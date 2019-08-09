@@ -9,26 +9,8 @@
 #import "bookingLoading.h"
 
 @interface bookingLoading ()
-@property (weak, nonatomic) IBOutlet UIImageView *car1;
-@property (weak, nonatomic) IBOutlet UIImageView *car2;
-@property (weak, nonatomic) IBOutlet UIImageView *car3;
-@property (weak, nonatomic) IBOutlet UIImageView *car4;
-@property (weak, nonatomic) IBOutlet UIImageView *car5;
-@property (weak, nonatomic) IBOutlet UIImageView *car6;
-@property (weak, nonatomic) IBOutlet UIImageView *car7;
-@property (weak, nonatomic) IBOutlet UIImageView *car8;
-@property (weak, nonatomic) IBOutlet UIImageView *car9;
-@property (weak, nonatomic) IBOutlet UIImageView *car10;
-@property (weak, nonatomic) IBOutlet UIImageView *car11;
-@property (weak, nonatomic) IBOutlet UIImageView *car12;
-@property (weak, nonatomic) IBOutlet UIImageView *car13;
-@property (weak, nonatomic) IBOutlet UIImageView *car14;
-@property (weak, nonatomic) IBOutlet UIImageView *car15;
-@property (weak, nonatomic) IBOutlet UIImageView *car16;
-@property (weak, nonatomic) IBOutlet UIImageView *car17;
-@property (weak, nonatomic) IBOutlet UIImageView *car18;
-@property (weak, nonatomic) IBOutlet UIImageView *car19;
-@property (weak, nonatomic) IBOutlet UIImageView *car20;
+// I realize now that this would've been easier programatically
+
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 
 
@@ -39,6 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    for (int i =0; i<=50; i++){
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"car3"]];
+        imageView.tintColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
+                                                       green:0.3239448667
+                                                        blue:0.2989487052
+                                                       alpha:1.0];
+        imageView.frame = CGRectMake(i*14, i*20, 35,35);
+    [self.view addSubview:imageView];
+    [self animateBounce];
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -52,9 +44,11 @@
 }
 */
 
-- (void) animateBounce:(UIImageView*)car{
+- (void) animateBounce{
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    for (int i =0; i<=self.view.subviews.count; i++){
+    for (int i =0; i<=self.view.subviews.count-2; i++){
+        if ([self.view.subviews[i] isKindOfClass:[UIImageView class]])
+        {
         UIGravityBehavior* gravityBehavior =
         [[UIGravityBehavior alloc] initWithItems:@[self.view.subviews[i]]];
         [self.animator addBehavior:gravityBehavior];
@@ -66,9 +60,10 @@
         
         UIDynamicItemBehavior *elasticityBehavior =
         [[UIDynamicItemBehavior alloc] initWithItems:@[self.view.subviews[i]]];
-        elasticityBehavior.elasticity = 0.7f;
+        elasticityBehavior.elasticity = 1;
         [self.animator addBehavior:elasticityBehavior];
     }
+             }
 }
 
 @end
