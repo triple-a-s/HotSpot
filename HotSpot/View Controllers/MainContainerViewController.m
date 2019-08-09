@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *mainSearchButton;
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
+@property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 
@@ -43,9 +44,6 @@
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
-
-
-
 @end
 
 @implementation MainContainerViewController
@@ -54,6 +52,11 @@
     [super viewDidLoad];
     // setting things up (views)
     self.spotListView.hidden = YES;
+    
+    CGRect frame = self.filterView.frame;
+    frame.origin.x = -frame.size.width;
+    self.filterView.frame = frame;
+    
     self.searchResultTableView.hidden = YES;
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
@@ -88,6 +91,35 @@
     }
 }
 
+- (IBAction)filterPressed:(id)sender {
+    if(self.filterView.frame.origin.x <0){
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = 0;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+        
+    }
+    else{
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = -frame.size.width;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+    }
+}
+
+
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -95,20 +127,19 @@
     // setting the views to hidden or not
     self.searchResultTableView.hidden = NO;
     
-    // starting to try out a simple animation 
+    // starting to try out a simple animation
     if(self.searchResultTableView.frame.size.height == 0){
-    
-    [UIView animateWithDuration:1
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         CGRect frame = self.searchResultTableView.frame;
-                         frame.size.height = 300;
-                         self.searchResultTableView.frame = frame;
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
+        
+        [UIView animateWithDuration:1
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.searchResultTableView.frame;
+                             frame.size.height = 300;
+                             self.searchResultTableView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
     }
     
     else if (self.searchResultTableView.frame.size.height == 300){
@@ -121,7 +152,6 @@
                              self.searchResultTableView.frame = frame;
                          }
                          completion:^(BOOL finished){
-                             NSLog(@"Done!");
                          }];
         
     }
@@ -199,7 +229,7 @@
                     });
                 }
             }];
-            self.mapVC.initialLocation = location; 
+            self.mapVC.initialLocation = location;
             MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.05, 0.05));
             [self.mapVC.searchMap setRegion:setRegion animated:YES];
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -216,7 +246,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // the number of spots on the table should correspong to the number of spots available 
+    // the number of spots on the table should correspong to the number of spots available
     return self.spotsArray.count;
 }
 
@@ -244,4 +274,18 @@
     }];
 }
 
+-(void)moveFromLeftOrRight:(NSTimer *) timer {
+    BOOL isLeft = [timer.userInfo boolValue];
+    CGFloat bounceDistance = 10;
+    CGFloat bounceDuration = 0.2;
+    [UIView animateWithDuration:.2 delay:0.0 options:UIViewAnimationOptionAllowAnimatedContent
+                     animations:^{
+                         CGFloat direction = (isLeft ? 1 : -1);
+                         self.filterView.center = CGPointMake(self.filterView.frame.size.width/2 + direction*bounceDistance, self.filterView.center.y);}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:bounceDuration animations:^{
+                             self.filterView.center = CGPointMake(self.filterView.frame.size.width/2, self.filterView.center.y);
+                         }];
+                     }];
+}
 @end
