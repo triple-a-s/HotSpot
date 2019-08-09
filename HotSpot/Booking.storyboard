@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-UD-Ud6" customClass="FancyButton">
-                                                <rect key="frame" x="190.5" y="565" width="49" height="39"/>
+                                                <rect key="frame" x="190.5" y="574" width="49" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Book"/>
                                                 <connections>
@@ -37,7 +37,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-Al-bDx">
-                                                <rect key="frame" x="8" y="306.5" width="414" height="238.5"/>
+                                                <rect key="frame" x="8" y="306.5" width="414" height="247.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vp-89-8W9">
                                                         <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
@@ -45,41 +45,43 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETz-cQ-rkw">
+                                                        <rect key="frame" x="0.0" y="28.5" width="92" height="22"/>
+                                                        <state key="normal" title="Directions" image="directions"/>
+                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="756" text="$10/hr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPB-cK-8Dx">
-                                                        <rect key="frame" x="0.0" y="28.5" width="50" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="58.5" width="50" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alan Dookes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbr-aN-eec">
-                                                        <rect key="frame" x="0.0" y="57" width="95.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="87" width="95.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-bN-fAU">
-                                                        <rect key="frame" x="0.0" y="85.5" width="124" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="Message Owner"/>
+                                                        <rect key="frame" x="0.0" y="115.5" width="133" height="23"/>
+                                                        <state key="normal" title="Message Owner" image="message"/>
                                                         <connections>
                                                             <action selector="contactPressed:" destination="dao-gK-gXZ" eventType="touchUpInside" id="yL4-nl-Oed"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5E-Wg-NI4">
-                                                        <rect key="frame" x="0.0" y="126.5" width="84" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="Call Owner"/>
+                                                        <rect key="frame" x="0.0" y="146.5" width="97" height="22"/>
+                                                        <state key="normal" title="Call Owner" image="call"/>
                                                         <connections>
                                                             <segue destination="iut-YW-NOP" kind="presentation" identifier="callSegue" id="5NF-Ns-zjK"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldQ-K9-Omw">
-                                                        <rect key="frame" x="0.0" y="167.5" width="45.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="176.5" width="45.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please park on the left side of the driveway, thank you!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WB4-D2-akE">
-                                                        <rect key="frame" x="0.0" y="196" width="336" height="42.5"/>
+                                                        <rect key="frame" x="0.0" y="205" width="336" height="42.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -92,6 +94,8 @@
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vbr-aN-eec" secondAttribute="trailing" id="ZYs-9R-fbJ"/>
                                                     <constraint firstItem="WB4-D2-akE" firstAttribute="leading" secondItem="7aY-Al-bDx" secondAttribute="leading" id="gtN-0S-t5M"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WB4-D2-akE" secondAttribute="trailing" id="ppR-IL-Caw"/>
+                                                    <constraint firstItem="VXB-bN-fAU" firstAttribute="leading" secondItem="7aY-Al-bDx" secondAttribute="leading" id="ptB-5K-BAx"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VXB-bN-fAU" secondAttribute="trailing" id="vtb-lm-q8K"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -288,7 +292,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9x-nh-pbQ">
-                                                                            <rect key="frame" x="-18" y="28.5" width="36" height="21"/>
+                                                                            <rect key="frame" x="-18" y="16.5" width="36" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -496,8 +500,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="call" width="22" height="22"/>
         <image name="carImage" width="173" height="130"/>
+        <image name="directions" width="22" height="22"/>
         <image name="houseimageexample" width="550" height="413"/>
+        <image name="message" width="22" height="23"/>
     </resources>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
