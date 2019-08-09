@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "TimeCell.h"
 #import "TimeSlot.h"
+#import "ColorUtilities.h"
 
 @interface BookingViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -42,10 +43,6 @@
     
     viewDidLayoutSubviewsForTheFirstTime = YES;
     
-    themeRedColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
-                             green:0.3239448667
-                              blue:0.2989487052
-                             alpha:1.0];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.allowsMultipleSelection = YES;
@@ -163,14 +160,14 @@
         cell.timeLabel.textColor = [UIColor whiteColor];
     }
     else if (timeSlot.chosen) { // red, chosen
-        cell.backgroundColor = themeRedColor;
-        cell.layer.borderColor = themeRedColor.CGColor;
+        cell.backgroundColor = redThemeColor();
+        cell.layer.borderColor = redThemeColor().CGColor;
         cell.timeLabel.textColor = [UIColor whiteColor];
     }
     else { // white, available but unchosen
         cell.backgroundColor = [UIColor whiteColor];
-        cell.layer.borderColor = themeRedColor.CGColor;
-        cell.timeLabel.textColor = themeRedColor;
+        cell.layer.borderColor = redThemeColor().CGColor;
+        cell.timeLabel.textColor = redThemeColor();
     }
     cell.layer.borderWidth = 1;
     return cell;

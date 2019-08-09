@@ -67,6 +67,7 @@
 		D264E26F22F214540054391A /* disconnect.wav in Resources */ = {isa = PBXBuildFile; fileRef = D264E26C22F214540054391A /* disconnect.wav */; };
 		D264E27222F352E30054391A /* CallManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D264E27122F352E30054391A /* CallManager.m */; };
 		D26617C622EB689700255BC3 /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26617C422EB689700255BC3 /* SearchCell.m */; };
+		D273E90022FE17E900901684 /* ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D273E8FF22FE17E900901684 /* ColorUtilities.m */; };
 		D27B986B22E654170018EFE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B986A22E654170018EFE4 /* UIKit.framework */; };
 		D28F555B22F9023B00628316 /* CancelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28F555A22F9023B00628316 /* CancelViewController.m */; };
 		D2B2771F22DE868600EBC4EC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B2771E22DE868600EBC4EC /* DataManager.m */; };
@@ -215,6 +216,8 @@
 		D264E27122F352E30054391A /* CallManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallManager.m; sourceTree = "<group>"; };
 		D26617C422EB689700255BC3 /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		D26617C522EB689700255BC3 /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		D273E8FE22FE17E900901684 /* ColorUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorUtilities.h; sourceTree = "<group>"; };
+		D273E8FF22FE17E900901684 /* ColorUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorUtilities.m; sourceTree = "<group>"; };
 		D27B986A22E654170018EFE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D28F555922F9023B00628316 /* CancelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CancelViewController.h; sourceTree = "<group>"; };
 		D28F555A22F9023B00628316 /* CancelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CancelViewController.m; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				D264E27122F352E30054391A /* CallManager.m */,
 				D2ECF6B422F8A9B900901E9D /* Checkin.storyboard */,
 				D2ECF6B622F8D37F00901E9D /* Checkout.storyboard */,
+				D273E8FE22FE17E900901684 /* ColorUtilities.h */,
+				D273E8FF22FE17E900901684 /* ColorUtilities.m */,
 			);
 			path = HotSpot;
 			sourceTree = "<group>";
@@ -467,8 +472,6 @@
 				D2ECF6C222F8FBA200901E9D /* CheckinViewController.m */,
 				D28F555922F9023B00628316 /* CancelViewController.h */,
 				D28F555A22F9023B00628316 /* CancelViewController.m */,
-				61E418BE22F89E4400AE5327 /* CurrentAndPastDetails.h */,
-				61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */,
 				ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */,
 				ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */,
 				AD08282F22F8D1570069A20D /* AddCarViewController.h */,
@@ -796,9 +799,7 @@
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
 				D264E27222F352E30054391A /* CallManager.m in Sources */,
-				D21C7D6122E26817000BF3B1 /* TimeInterval.m in Sources */,
 				D251627D22FB93B200ACFADD /* FancyButton.m in Sources */,
-				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
@@ -813,14 +814,13 @@
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
 				AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */,
+				D273E90022FE17E900901684 /* ColorUtilities.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
 				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
-				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
 				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
-				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
 				ADCF9FED22EB745B00EF9E66 /* RegexHelper.m in Sources */,
