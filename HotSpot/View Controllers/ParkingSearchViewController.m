@@ -15,10 +15,12 @@
 #import "Listing.h"
 #import "DataManager.h"
 #import "DetailsViewController.h"
+#import "LocationManagerSingleton.h"
 
 @interface ParkingSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *numberArray;
+@property (strong, nonatomic) LocationManagerSingleton *locationManager;
 
 @end
 
@@ -31,9 +33,10 @@
     self.searchTableView.rowHeight = 134;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
+    self.locationManager = [LocationManagerSingleton sharedSingleton];
     
     // this is replaced by the user location once it is called in map 
-    self.initialLocation = [[CLLocation alloc] initWithLatitude:37.44 longitude:-122.344];
+    self.initialLocation = [[CLLocation alloc] initWithLatitude:self.locationManager.locationManager.location.coordinate.latitude longitude:self.locationManager.locationManager.location.coordinate.longitude];
     PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:self.initialLocation.coordinate.latitude longitude:self.initialLocation.coordinate.longitude]; // san francisco
     [DataManager getListingsNearLocation:geoPoint withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
         if(error) {
@@ -88,7 +91,7 @@
     CLLocationCoordinate2D spotLocation = CLLocationCoordinate2DMake(listing.address.latitude,
                                                                      listing.address.longitude);
     CGFloat distanceBetweenPoints = [DataManager getDistancebetweenAddressOne:spotLocation andAddressTwo:self.initialLocation.coordinate];
-    cell.searchTableMilesAway.text = [NSMutableString stringWithFormat:@"%.02f miles away",distanceBetweenPoints];
+    cell.searchTableMilesAway.text = [NSMutableString stringWithFormat:@"%.02f mi",distanceBetweenPoints];
     
     PFFileObject *img = listing.picture;
     [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){

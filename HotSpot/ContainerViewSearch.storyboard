@@ -38,7 +38,7 @@
                                     <segue destination="oGh-6t-rMf" kind="embed" identifier="mapViewController" id="1TX-UD-Ung"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-V2-Q4b">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-V2-Q4b">
                                 <rect key="frame" x="0.0" y="144" width="449" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -99,7 +99,6 @@
                             <constraint firstItem="eML-tz-l8n" firstAttribute="trailing" secondItem="ylp-ov-5C3" secondAttribute="trailing" id="Qmv-W9-Nt0"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="Svj-2e-8Vj"/>
                             <constraint firstItem="6sP-V2-Q4b" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="UAG-QK-amp"/>
-                            <constraint firstItem="6sP-V2-Q4b" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" id="V1P-de-NtN"/>
                             <constraint firstItem="SEi-fP-YzU" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" id="WWY-aC-ZjV"/>
                             <constraint firstItem="6sP-V2-Q4b" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" constant="3" id="YFA-QK-Ay6"/>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="top" secondItem="ylp-ov-5C3" secondAttribute="top" id="cQp-YA-yNa"/>
