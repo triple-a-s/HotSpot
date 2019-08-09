@@ -8,12 +8,15 @@
 int countTime;
 
 #import "bookingLoading.h"
+#import "FancyButton.h"
 
 @interface bookingLoading ()
 // I realize now that this would've been easier programatically
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (weak, nonatomic) IBOutlet UILabel *bookingText;
+@property (weak, nonatomic) IBOutlet UILabel *successfullyLoaded;
+@property (weak, nonatomic) IBOutlet FancyButton *ResultsButton;
 
 
 @end
@@ -21,24 +24,24 @@ int countTime;
 @implementation bookingLoading
 
 - (void)viewDidLoad {
-    countTime= 0;
     [super viewDidLoad];
-    [NSTimer scheduledTimerWithTimeInterval:1
-                                                      target:self
-                                                    selector:@selector(timerFireMethod:)
-                                                    userInfo:nil
-                                                     repeats:NO];
-    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:NO];
+    self.successfullyLoaded.hidden = YES;
+    self.ResultsButton.hidden = YES;
     [self.bookingText setAlpha:0.0f];
-    [UIView animateWithDuration:1.5f delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat   animations:^{
+    [UIView animateWithDuration:1.5f animations:^{
         [self.bookingText setAlpha:1.0f];
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.5f delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+        [UIView animateWithDuration:1.5f animations:^{
             [self.bookingText setAlpha:0.0f];
-        } completion:nil];
+        } completion:^(BOOL finished){
+            //self.bookingText.hidden = YES;
+            self.successfullyLoaded.hidden = NO;
+            self.ResultsButton.hidden = NO;
+        }];
     }];
-    
     self.progressView.progress = 0;
+    
     for (int i =0; i<=100; i++){
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"car3"]];
         imageView.tintColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
@@ -49,18 +52,8 @@ int countTime;
     [self.view addSubview:imageView];
     [self animateBounce];
     }
-    // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void) animateBounce{
     [NSTimer scheduledTimerWithTimeInterval:2
@@ -94,11 +87,15 @@ int countTime;
 }
 
 - (void) timerFireMethod:(NSTimer*)timer{
-    countTime += 0.1;
     [self.progressView setProgress: countTime / 3 animated: true];
     if (countTime >= 3)  {
         [timer invalidate];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UITabBarController *tabBar = segue.destinationViewController;
+    tabBar.selectedIndex = 2;
 }
 
 @end

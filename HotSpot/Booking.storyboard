@@ -354,7 +354,7 @@
                         <outlet property="listingPriceLabel" destination="3uC-xq-Wmp" id="N7m-Ur-vMM"/>
                         <outlet property="timeRangeLabel" destination="wsY-zT-wpO" id="6eb-8x-QhW"/>
                         <segue destination="o8G-pB-FRW" kind="show" identifier="carSegue" id="A3x-wQ-Rtt"/>
-                        <segue destination="q46-H8-MDg" kind="show" identifier="confirmationSegue" id="yRE-Sx-sWk"/>
+                        <segue destination="F0r-BK-Ye1" kind="showDetail" identifier="confirmationSegue" id="NK8-ma-3UN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,6 +377,7 @@
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="F0r-BK-Ye1" customClass="ConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0z5-xA-fyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -397,7 +398,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0s-Ni3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0s-Ni3" customClass="FancyButton">
                                         <rect key="frame" x="83" y="79.5" width="146" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Back to Results"/>
@@ -417,42 +418,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jyd-yA-fod"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-830" y="1092"/>
-        </scene>
-        <!--Booking Loading-->
-        <scene sceneID="eHS-cG-jav">
-            <objects>
-                <viewController id="q46-H8-MDg" customClass="bookingLoading" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YhC-V3-dyd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirming Your Spot " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUO-g1-dvQ">
-                                <rect key="frame" x="20" y="294" width="374" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <color key="textColor" red="0.89406615499999997" green="0.32073216069999999" blue="0.2954703722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6nN-cU-XrB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="bZJ-wN-YF8"/>
-                    </view>
-                    <connections>
-                        <outlet property="bookingText" destination="DUO-g1-dvQ" id="6TQ-IU-tpF"/>
-                        <outlet property="progressView" destination="6nN-cU-XrB" id="48C-b0-iYx"/>
-                        <segue destination="F0r-BK-Ye1" kind="show" id="ZYf-8D-Hfh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dPw-5d-elf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="790.84821428571422"/>
         </scene>
         <!--Tabs-->
         <scene sceneID="SyB-c6-EA4">
