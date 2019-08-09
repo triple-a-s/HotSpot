@@ -68,7 +68,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(nonnull NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:CGSizeMake(100, 100)];
+    UIImage *resizedImage = [ImagePickerHelper resizeImage:originalImage withSize:self.carImage.image.size];
     self.carImage.image = resizedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -78,7 +78,7 @@
 }
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
     if ([self.car[@"licensePlate"] isEqualToString:self.licensePlate.text]) {
         self.isSameCar = YES;
     }

@@ -72,7 +72,7 @@
         cell = [[SearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
     }
        
-    self.listings = [self sortListingArraybyAscending:self.listings];
+//    self.listings = [self sortListingArraybyAscending:self.listings];
     
     Listing *listing = self.listings[indexPath.row];
     [DataManager getAddressNameFromListing: listing withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -168,13 +168,13 @@
 }
 }
 
-- (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray{
++ (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray withLocation:(CLLocation*)location{
     NSArray *sortedArray;
     sortedArray = [unsortedArray sortedArrayUsingComparator:^NSComparisonResult(Listing* a,Listing* b) {
         CLLocationCoordinate2D addressOne = CLLocationCoordinate2DMake(a.address.latitude, a.address.longitude);
         CLLocationCoordinate2D addressTwo = CLLocationCoordinate2DMake(b.address.latitude, b.address.longitude);
-        NSNumber *distance1 = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:self.initialLocation.coordinate]];
-        NSNumber *distance2 = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressTwo andAddressTwo:self.initialLocation.coordinate]];
+        NSNumber *distance1 = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:location.coordinate]];
+        NSNumber *distance2 = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressTwo andAddressTwo:location.coordinate]];
         if ([distance1 doubleValue] == [distance2 doubleValue]){
             return NSOrderedSame;
         }

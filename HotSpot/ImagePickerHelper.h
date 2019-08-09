@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  withViewController:(UIViewController *)UIViewController;
 
 + (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -27,9 +27,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj0-Ho-Kt7">
-                                <rect key="frame" x="100" y="373" width="214" height="46"/>
+                                <rect key="frame" x="132" y="373" width="150" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Customer Service"/>
+                                <state key="normal" title="Report Issue"/>
+                                <connections>
+                                    <segue destination="eCc-Dh-1UC" kind="presentation" id="8rt-C8-ILE"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ua4-EU-SLX">
                                 <rect key="frame" x="119.5" y="434" width="175" height="29"/>
@@ -67,6 +70,145 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96c-ng-8Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="110.49107142857143"/>
+        </scene>
+        <!--Customer Support View Controller-->
+        <scene sceneID="2Vd-rb-dgJ">
+            <objects>
+                <viewController id="eCc-Dh-1UC" customClass="CustomerSupportViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LR3-nB-wUL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How Can We Help You?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-ZF-MQd">
+                                <rect key="frame" x="55" y="150" width="305" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgP-95-u6v">
+                                <rect key="frame" x="55" y="230" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bug in the app" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i1Z-CW-Ret">
+                                <rect key="frame" x="55" y="259" width="282" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What do you need help with?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHD-dq-4oV">
+                                <rect key="frame" x="55" y="321" width="222" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="IDK" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xOW-EU-lev">
+                                <rect key="frame" x="55" y="350" width="282" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSA-eS-P9z">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Customer Support" id="PHg-MM-Rk2">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="iPc-Sl-dFX">
+                                            <connections>
+                                                <action selector="didTapCancel:" destination="eCc-Dh-1UC" id="SVf-eH-mQN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC4-eH-HYs">
+                                <rect key="frame" x="145" y="496" width="125" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit Report"/>
+                                <connections>
+                                    <action selector="didTapSubmit:" destination="eCc-Dh-1UC" eventType="touchUpInside" id="eEs-7a-ecj"/>
+                                    <segue destination="SPn-Pe-SEU" kind="presentation" identifier="reportSegue" id="48z-FU-BOh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="I6X-RM-mpr"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EzS-hS-y7x" appends="YES" id="7uM-4R-rFZ"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="reportField" destination="xOW-EU-lev" id="Qha-Xq-al4"/>
+                        <outlet property="subjectField" destination="i1Z-CW-Ret" id="TEu-tX-CPf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhY-cq-YJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EzS-hS-y7x">
+                    <connections>
+                        <action selector="didTapView:" destination="eCc-Dh-1UC" id="TkP-ef-HbD"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1760.8695652173915" y="109.82142857142857"/>
+        </scene>
+        <!--Settings Report Transition View Controller-->
+        <scene sceneID="p9U-cK-UPC">
+            <objects>
+                <viewController id="SPn-Pe-SEU" customClass="SettingsReportTransitionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hsP-yO-ixa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We will use your feedback to help improve our app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWU-Jm-FRU">
+                                <rect key="frame" x="15" y="334" width="385" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moZ-zZ-HJj">
+                                <rect key="frame" x="107" y="382" width="204" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Return to Settings Page"/>
+                                <connections>
+                                    <action selector="didTapReturn:" destination="SPn-Pe-SEU" eventType="touchUpInside" id="lBV-vU-Fn5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for reporting your issue!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHq-vO-xI3">
+                                <rect key="frame" x="25" y="293" width="365" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LV2-Rh-Ufu"/>
+                    </view>
+                    <connections>
+                        <segue destination="ppZ-sw-QZl" kind="show" identifier="returnSegue" id="XqX-kq-AyH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZe-bw-1ev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="1048"/>
+        </scene>
+        <!--Tabs-->
+        <scene sceneID="tnI-8d-EGI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tabs" id="ppZ-sw-QZl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rnq-US-VhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1999" y="869"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Qf4-ZU-Tw5">

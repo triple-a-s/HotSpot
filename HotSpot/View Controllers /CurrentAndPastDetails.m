@@ -9,6 +9,12 @@
 #import "CurrentAndPastDetails.h"
 #import "DataManager.h"
 #import "BookingViewController.h"
+#import "ReportHomeownerViewController.h"
+#import "ReportDriverViewController.h"
+#import "DamagesViewController.h"
+#import <SendGrid.h>
+#import <SendGridEmail.h>
+#import "EmailHelper.h"
 
 @interface CurrentAndPastDetails ()
 
@@ -67,12 +73,58 @@
 
 }
 
+//tapping this button brings up an action sheet that allows users
+//to choose between predetermined reports to send automatically
+//or gives them the option to write their own report
+- (IBAction)reportHomeowner:(UIButton *)sender {
+    UIAlertController *reportAlert = [UIAlertController alertControllerWithTitle:@"Choose report type"
+                                                                        message:@"You can choose between these automated report options, or write your own." preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"There were damages to my car") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"reportDamagesSegue" sender:nil];
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"My listing was cancelled without 24 hour notice.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        sendEmail(@"My listing was cancelled without 24 hour notice", nil, self.homeOwner.text, @"Homeowner");
+        [self performSegueWithIdentifier:@"directReportSegue" sender:nil];
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"There wasn't enough space to park my car.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        sendEmail(@"There wasn't enough space to park my car", nil, self.homeOwner.text, @"Homeowner");
+        [self performSegueWithIdentifier:@"directReportSegue" sender:nil];
+    }]];
+    [reportAlert addAction:[UIAlertAction actionWithTitle:(@"Write Report") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"reportHomeownerSegue" sender:nil];
+    }]];
+    [self presentViewController:reportAlert animated:YES completion:nil];
+}
+- (IBAction)didTapReportDriver:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"reportDriverSegue" sender:nil];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Listing *listing = self.booking.listing;
-    if([segue.identifier isEqualToString:@"bookingSegue2"]) {
-        BookingViewController *bookingsViewController = [segue destinationViewController];
-        bookingsViewController.listing = listing;
+    if ([segue.identifier isEqualToString:@"bookingSegue2"]) {
+        BookingViewController *bookingViewController = [segue destinationViewController];
+        bookingViewController.listing = listing;
+    } else if ([segue.identifier isEqualToString:@"reportHomeownerSegue"]) {
+        ReportHomeownerViewController *reportHomeownerViewController = [segue destinationViewController];
+        reportHomeownerViewController.houseImage.image = self.houseImage.image;
+        reportHomeownerViewController.addressLabel.text = self.houseAddress.text;
+        reportHomeownerViewController.nameLabel.text = self.homeOwner.text;
+    } else if ([segue.identifier isEqualToString:@"reportDamagesSegue"]) {
+        DamagesViewController *damagesViewController = [segue destinationViewController];
+        damagesViewController.reportedUser = self.homeOwner.text;
+    } else if ([segue.identifier isEqualToString:@"reportDriverSegue"]) {
+        ReportDriverViewController *reportDriverViewController = [segue destinationViewController];
+        reportDriverViewController.listing = listing;
     }
+}
+- (IBAction)bookAgain:(id)sender {
+    Listing *listing = self.booking.listing;
+    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
+        [self performSegueWithIdentifier:@"bookingSegue2" sender:object];
+        }];
 }
 
 - (IBAction)bookingBackPressed:(id)sender {

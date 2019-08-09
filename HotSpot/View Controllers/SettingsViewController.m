@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "EmailHelper.h"
 
 @interface SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *fullName;
