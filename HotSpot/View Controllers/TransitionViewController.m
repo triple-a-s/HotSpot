@@ -19,17 +19,13 @@
 @implementation TransitionViewController
 
 - (void)viewDidLoad {
-    [UIView animateWithDuration: 2 delay:0.0f options:UIViewAnimationOptionRepeat
+    [UIView animateWithDuration: 2
                      animations:^{
-                         self.profileButton.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                         self.profileButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
                           }completion:^(BOOL finished) {
-                              [UIView animateWithDuration:2 delay:0.0f options:UIViewAnimationOptionRepeat
+                         [UIView animateWithDuration:2
                                           animations:^{
-                             self.profileButton.transform = CGAffineTransformIdentity;
-                                          }
-                                               completion:^(BOOL finished) {
-                                                   
-                                               }];
+                         }];
                      }];
     
     [super viewDidLoad];
