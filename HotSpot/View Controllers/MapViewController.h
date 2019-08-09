@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet MKMapView *searchMap;
 @property (nonatomic) CLLocation* initialLocation;
 @property (strong,nonatomic) PFFileObject *listingAnnotationImage;
-@property (strong,nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSString *annotationTitle;
 
 - (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map;

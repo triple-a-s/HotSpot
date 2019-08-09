@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dao-gK-gXZ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -422,8 +422,8 @@
                         <outlet property="listingOwnerLabel" destination="hHN-b5-zXS" id="zEj-ov-aHk"/>
                         <outlet property="listingPriceLabel" destination="Z53-0P-iz7" id="KTH-2U-Sug"/>
                         <outlet property="timeRangeLabel" destination="wsY-zT-wpO" id="6eb-8x-QhW"/>
-                        <segue destination="F0r-BK-Ye1" kind="presentation" identifier="confirmationSegue" id="qgi-e5-3Cx"/>
                         <segue destination="o8G-pB-FRW" kind="show" identifier="carSegue" id="A3x-wQ-Rtt"/>
+                        <segue destination="F0r-BK-Ye1" kind="showDetail" identifier="confirmationSegue" id="NK8-ma-3UN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBF-DH-Yp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,6 +446,7 @@
         <!--Confirmation View Controller-->
         <scene sceneID="fQH-mW-dDQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="F0r-BK-Ye1" customClass="ConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0z5-xA-fyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -466,9 +467,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0s-Ni3">
-                                        <rect key="frame" x="97" y="72.5" width="118" height="33"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0s-Ni3" customClass="FancyButton">
+                                        <rect key="frame" x="83" y="79.5" width="146" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Back to Results"/>
                                         <connections>
                                             <segue destination="Vdl-GD-ViC" kind="show" id="cHv-Sq-2er"/>
@@ -486,7 +487,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jyd-yA-fod"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g0h-VH-Kc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-830" y="1092"/>
         </scene>

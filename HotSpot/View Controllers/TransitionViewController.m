@@ -7,16 +7,27 @@
 //
 
 #import "TransitionViewController.h"
+#import "FancyButton.h"
 
 @interface TransitionViewController ()
+@property (weak, nonatomic) IBOutlet FancyButton *profileButton;
 
 @end
 
 @implementation TransitionViewController
 
 - (void)viewDidLoad {
+    [UIView animateWithDuration: 2
+                     animations:^{
+                         self.profileButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                     }completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2
+                                          animations:^{
+                                          }];
+                     }];
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];
 }
 
 - (IBAction)didTapProfilePage:(UIButton *)sender {
