@@ -165,7 +165,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1E-lv-paK" customClass="FancyButton">
-                                                <rect key="frame" x="168.5" y="559" width="77" height="39"/>
+                                                <rect key="frame" x="168.5" y="629" width="77" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Confirm"/>
                                                 <connections>
@@ -177,7 +177,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-aj-2SP">
-                                                <rect key="frame" x="8" y="208" width="398" height="331"/>
+                                                <rect key="frame" x="8" y="208" width="398" height="401"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzL-aR-caY" userLabel="CarView" customClass="CarView">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
@@ -251,9 +251,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-FO-7Wr">
-                                                        <rect key="frame" x="0.0" y="116.5" width="398" height="60"/>
+                                                        <rect key="frame" x="0.0" y="116.5" width="398" height="130"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="XqN-Bi-CeY"/>
+                                                            <constraint firstAttribute="height" constant="130" id="4B2-GI-dO8"/>
                                                         </constraints>
                                                         <date key="date" timeIntervalSinceReferenceDate="585183563.79798496">
                                                             <!--2019-07-18 22:59:23 +0000-->
@@ -263,13 +263,13 @@
                                                         </connections>
                                                     </datePicker>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose start time/Choose end time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czN-Af-MNg">
-                                                        <rect key="frame" x="0.0" y="184.5" width="276" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="254.5" width="276" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
-                                                        <rect key="frame" x="0.0" y="213" width="398" height="80"/>
+                                                        <rect key="frame" x="0.0" y="283" width="398" height="80"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="Upt-hS-qo1"/>
@@ -307,7 +307,7 @@
                                                         </cells>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="jV5-K4-QDk">
-                                                        <rect key="frame" x="0.0" y="301" width="390" height="30"/>
+                                                        <rect key="frame" x="0.0" y="371" width="390" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00AM to 12:15AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-zT-wpO">
                                                                 <rect key="frame" x="0.0" y="5" width="157.5" height="20.5"/>
