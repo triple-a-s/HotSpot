@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *mainSearchButton;
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
+@property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 
@@ -43,8 +44,11 @@
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
 
-
-
+// affiliated with voice search
+@property (strong, nonatomic) SFSpeechRecognizer *speechRecognizer;
+@property (strong, nonatomic) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
+@property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
+@property (strong, nonatomic) AVAudioEngine *audioEngine;
 
 @end
 
@@ -54,7 +58,11 @@
     [super viewDidLoad];
     // setting things up (views)
     self.spotListView.hidden = YES;
-    self.searchResultTableView.hidden = YES;
+    
+    CGRect frame = self.filterView.frame;
+    frame.origin.x = -frame.size.width;
+    self.filterView.frame = frame;
+    
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
     
@@ -70,7 +78,12 @@
     self.completer.filterType = MKSearchCompletionFilterTypeLocationsOnly;
     [self.searchResultTableView insertSubview:self.refreshControl atIndex:0];
     
-    self.tableVC.initialLocation = self.mapVC.locationManager.location;
+    // animations -- sets frame size to 0!
+    [self resetTableViewFrame];
+    
+    // I'm assuming that the people using HotSpot are Americans that speak english
+    self.speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    self.speechRecognizer.delegate = self;
 }
 
 # pragma mark - Action Items
@@ -86,49 +99,77 @@
         self.mapView.hidden = NO;
         self.spotListView.hidden = YES;
     }
+    // cute little animation that is unnecessary but necessary
+    // expands and then shrinks
+    [UIView animateWithDuration:.2
+                     animations:^{
+                         self.modeSwitchButton.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                     }completion:^(BOOL finished) {
+                         [UIView animateWithDuration:.35 animations:^{
+                             self.modeSwitchButton.transform = CGAffineTransformIdentity;
+                         }];
+                     }];
 }
+
+- (IBAction)microPhoneTapped:(id)sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.audioEngine.isRunning) {
+            [self stopRecording];
+            self.mainSearchBar.placeholder = @"Search for a parking area: (eg. Rosebowl Stadium)";
+        } else {
+            [self startListening];
+        }
+    });
+}
+
+- (IBAction)filterPressed:(id)sender {
+    if(self.filterView.frame.origin.x <0){
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = 0;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+        
+    }
+    else{
+        [UIView animateWithDuration:.2
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             CGRect frame = self.filterView.frame;
+                             frame.origin.x = -frame.size.width;
+                             self.filterView.frame = frame;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+    }
+}
+
 
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
-    // setting the views to hidden or not
-    self.searchResultTableView.hidden = NO;
     
-    // starting to try out a simple animation 
-    if(self.searchResultTableView.frame.size.height == 0){
-    
-    [UIView animateWithDuration:1
-                          delay:0.0
-                        options: UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         CGRect frame = self.searchResultTableView.frame;
-                         frame.size.height = 300;
-                         self.searchResultTableView.frame = frame;
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
-    }
-    
-    else if (self.searchResultTableView.frame.size.height == 300){
-        [UIView animateWithDuration:1
-                              delay:0.0
-                            options: UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             CGRect frame = self.searchResultTableView.frame;
-                             frame.size.height = 0;
-                             self.searchResultTableView.frame = frame;
-                         }
+
+    // this is the animation for a search results drop down
+    if(self.searchResultTableView.frame.size.height ==0)
+        [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
+            // set to size of the view controller
+            frame.size.height = self.view.frame.size.height;
+            self.searchResultTableView.frame =
+            frame;}
                          completion:^(BOOL finished){
-                             NSLog(@"Done!");
                          }];
-        
-    }
+    
     // the search bar will go away once you delete text
     if(searchText.length ==0){
         [self.mainSearchBar endEditing:YES];
-        self.searchResultTableView.hidden = YES;
     }
     
     // the actual implementation of the autocompleter!
@@ -145,6 +186,7 @@
 
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar {
+    [self resetTableViewFrame];
     // tells the keyboard what to do when we decide it ended editing --> actually dismisses keyboard
     [self.mainSearchBar resignFirstResponder];
 }
@@ -199,7 +241,7 @@
                     });
                 }
             }];
-            self.mapVC.initialLocation = location; 
+            self.mapVC.initialLocation = location;
             MKCoordinateRegion setRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(0.05, 0.05));
             [self.mapVC.searchMap setRegion:setRegion animated:YES];
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -209,14 +251,14 @@
         }
     }];
     // we don't want the search result to show after we already tapped on something
-    self.searchResultTableView.hidden =YES;
+    [self resetTableViewFrame];
     // we want the keyboard to go away after we tapped on something
     [self.mainSearchBar endEditing:YES];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // the number of spots on the table should correspong to the number of spots available 
+    // the number of spots on the table should correspong to the number of spots available
     return self.spotsArray.count;
 }
 
@@ -243,5 +285,92 @@
         completion(placemark.location, error);
     }];
 }
+
+-(void)moveFromLeftOrRight:(NSTimer *) timer {
+    BOOL isLeft = [timer.userInfo boolValue];
+    CGFloat bounceDistance = 10;
+    CGFloat bounceDuration = 0.2;
+    [UIView animateWithDuration:.2 delay:0.0 options:UIViewAnimationOptionAllowAnimatedContent
+                     animations:^{
+                         CGFloat direction = (isLeft ? 1 : -1);
+                         self.filterView.center = CGPointMake(self.filterView.frame.size.width/2 + direction*bounceDistance, self.filterView.center.y);}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:bounceDuration animations:^{
+                             self.filterView.center = CGPointMake(self.filterView.frame.size.width/2, self.filterView.center.y);
+                         }];
+                     }];
+}
+
+- (void) resetTableViewFrame{
+    CGRect frame =  self.searchResultTableView.frame;
+    frame.size.height = 0;
+    self.searchResultTableView.frame  = frame;
+}
+
+- (void)startListening {
+    
+    // initializing our audioEngine
+    /*
+     AVAudio Engine (from Apple Documentation: A group of connected audio node objects used to generate and process audio signals and perform audio input and output.
+     */
+    self.audioEngine = [[AVAudioEngine alloc] init];
+    
+    // if there is an ongoing task -- cancel that lol
+    if (self.recognitionTask) {
+        [self.recognitionTask cancel];
+        self.recognitionTask = nil;
+    }
+    
+    // setting up the session
+    NSError *error;
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryRecord error:&error];
+    [audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&error];
+    
+    
+    self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+    AVAudioInputNode *inputNode = self.audioEngine.inputNode;
+    // NECESSARY for voice search
+    self.recognitionRequest.shouldReportPartialResults = YES;
+    self.recognitionTask = [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            NSString *resultText = [NSString stringWithFormat: @"%@ ",result.bestTranscription.formattedString];
+            [self.mainSearchBar setText:resultText];
+        }
+        
+        if (error) {
+            [self.audioEngine stop];
+            [inputNode removeTapOnBus:0];
+            self.recognitionRequest = nil;
+            self.recognitionTask = nil;
+        }
+    }];
+    
+    AVAudioFormat *recordingFormat = [inputNode outputFormatForBus:0];
+    [inputNode installTapOnBus:0 bufferSize:1800 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+        [self.recognitionRequest appendAudioPCMBuffer:buffer];
+    }];
+    
+    // Starts the audio engine, i.e. it starts listening.
+    [self.audioEngine prepare];
+    [self.audioEngine startAndReturnError:&error];
+    self.mainSearchBar.placeholder = @"Recording has started";
+}
+
+-(void)stopRecording{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(self.audioEngine.isRunning){
+            [self.audioEngine.inputNode removeTapOnBus:0];
+            [self.audioEngine.inputNode reset];
+            [self.audioEngine stop];
+            [self.recognitionRequest endAudio];
+            [self.recognitionTask cancel];
+            self.recognitionTask = nil;
+            self.recognitionRequest = nil;
+        }
+    });
+}
+
 
 @end
