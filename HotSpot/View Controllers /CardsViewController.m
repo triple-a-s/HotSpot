@@ -28,7 +28,7 @@
     [[PFUser currentUser] fetchIfNeededInBackground];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = self.view.frame.size.height / 5;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];

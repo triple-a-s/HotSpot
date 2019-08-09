@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.cardType.text = self.card.type;
     self.bank.text = self.card.bank;
     self.expirationDate.text = self.card.expiration;

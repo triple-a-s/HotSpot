@@ -14,6 +14,7 @@
 
 @interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *carView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *phone;
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bank;
 @property (weak, nonatomic) IBOutlet UILabel *expirationDate;
 @property (weak, nonatomic) IBOutlet UILabel *cardNumber;
+@property (weak, nonatomic) IBOutlet UIView *paymentView;
 
 @end
 
@@ -38,6 +40,14 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
+    self.carView.layer.cornerRadius = 10.0f;
+    self.paymentView.layer.cornerRadius = 10.0f;
+    self.paymentView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.paymentView.layer.borderWidth = 1;
+    
+    self.carImage.layer.cornerRadius = 10.0f;
+    self.carView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.carView.layer.borderWidth = 1;
     self.currentUser = [PFUser currentUser];
     [self configureProfilePage];
 }
