@@ -35,7 +35,16 @@
 
 - (IBAction)didTapReturn:(UIButton *)sender {
     if (self.needNearestSpot) {
-        [self performSegueWithIdentifier:@"newSpotSegue" sender:nil];
+        [DataManager getListingsNearLocation:self.listing.address withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
+            if (error) {
+                NSLog(@"%@", error);
+            }
+            else {
+                CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
+                NSArray *transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
+                [self performSegueWithIdentifier:@"newSpotSegue" sender:transitionListings[0]];
+            }
+        }];
     } else {
         [self performSegueWithIdentifier:@"returnSegue" sender:nil];
     }
@@ -51,13 +60,8 @@
         tabBar.selectedIndex = 2;
     }
     else if([segue.identifier isEqualToString:@"newSpotSegue"]){
-             [DataManager getListingsNearLocation:self.listing.address
-                              withCompletion:^(NSArray<Listing *> * _Nonnull listings, NSError * _Nonnull error) {
-                                          DetailsViewController *reportTransitionVC = segue.destinationViewController;
-                                          CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
-                                          NSArray *transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
-                                          reportTransitionVC.listing = transitionListings[0];
-                              }];
+        DetailsViewController *reportTransitionVC = segue.destinationViewController;
+        reportTransitionVC.listing = sender;
      }
     }
 

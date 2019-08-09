@@ -48,6 +48,8 @@
         self.homeownerNumber = object[@"phone"];
     }];
     
+    NSLog(@"%@", self.listing);
+    
     
 }
 
