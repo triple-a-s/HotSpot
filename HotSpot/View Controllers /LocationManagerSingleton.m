@@ -20,6 +20,7 @@
     });
     return sharedLocationManager;
 }
+
 - (id)init {
     self = [super init];
     
@@ -47,8 +48,8 @@
                       return sharedSingleton;
                       }
                       
-                      - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
-                          [self.locationManager stopUpdatingLocation];
-                      }
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
+        [self.locationManager stopUpdatingLocation];
+}
 
 @end

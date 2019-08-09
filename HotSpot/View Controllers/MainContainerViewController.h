@@ -11,8 +11,7 @@
 #import <Speech/Speech.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, SFSpeechRecognizerDelegate, UISearchDisplayDelegate> {
-}
+@interface MainContainerViewController : UIViewController <UISearchBarDelegate, MKLocalSearchCompleterDelegate, SFSpeechRecognizerDelegate, UISearchDisplayDelegate>
 
 + (void) getCoordinateFromAddress:(NSString*) address withCompletion:(void(^)(CLLocation *location, NSError *_Nullable error))completion;
 
