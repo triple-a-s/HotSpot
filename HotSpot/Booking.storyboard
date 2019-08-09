@@ -226,7 +226,6 @@
                                                                 <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.024927754319999999" green="0.69879493780000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstItem="Ur6-KH-zG8" firstAttribute="top" secondItem="9Ai-XD-BRr" secondAttribute="top" constant="8" id="4Ja-kr-PQG"/>
