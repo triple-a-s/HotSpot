@@ -14,7 +14,6 @@
 #import "LocationManagerSingleton.h"
 
 @interface MapViewController ()
-@property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
 @property (strong, nonatomic) CLLocation *startLocation;
 @property (strong, nonatomic) NSMutableArray <PFFileObject*> *listingImageArray;
 @property (weak, nonatomic) IBOutlet UIButton *questionIcon;

@@ -101,9 +101,12 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0EP-FL-ghF">
-                                        <rect key="frame" x="34" y="187" width="213" height="31"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0EP-FL-ghF">
+                                        <rect key="frame" x="24" y="187" width="240" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="priceSlide:" destination="ACg-sL-kal" eventType="valueChanged" id="YvJ-mR-hYt"/>
+                                        </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3y-ea-cgg">
                                         <rect key="frame" x="75" y="327" width="157" height="32"/>
@@ -173,6 +176,13 @@
                                             <action selector="priceToHigh:" destination="ACg-sL-kal" eventType="touchUpInside" id="A0Y-54-Gvh"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qko-vF-RpO">
+                                        <rect key="frame" x="119" y="225" width="44" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMu-qD-T9w">
                                         <rect key="frame" x="75" y="586" width="157" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -263,6 +273,8 @@
                         <outlet property="mainSearchButton" destination="zGC-xf-0cN" id="qlb-hl-dEX"/>
                         <outlet property="mapView" destination="SEi-fP-YzU" id="7i4-jX-gKr"/>
                         <outlet property="modeSwitchButton" destination="61B-eg-jNy" id="Mvx-Cz-WOS"/>
+                        <outlet property="priceSlider" destination="0EP-FL-ghF" id="K2J-i5-lhz"/>
+                        <outlet property="priceSliderText" destination="qko-vF-RpO" id="sLR-R0-vJu"/>
                         <outlet property="searchResultTableView" destination="6sP-V2-Q4b" id="ZCa-Um-7Di"/>
                         <outlet property="spotListView" destination="eML-tz-l8n" id="Jyh-Ko-Aqd"/>
                     </connections>

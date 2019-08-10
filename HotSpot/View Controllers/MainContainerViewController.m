@@ -55,6 +55,9 @@
 @property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
 @property (strong, nonatomic) AVAudioEngine *audioEngine;
 
+@property (weak, nonatomic) IBOutlet UISlider *priceSlider;
+@property (weak, nonatomic) IBOutlet UILabel *priceSliderText;
+
 @end
 
 @implementation MainContainerViewController
@@ -67,6 +70,12 @@
     CGRect frame = self.filterView.frame;
     frame.origin.x = -frame.size.width;
     self.filterView.frame = frame;
+    
+    self.priceSlider.minimumValue=0;
+    self.priceSlider.maximumValue=100;
+    self.priceSlider.value = 0;
+    self.priceSlider.thumbTintColor = [UIColor colorWithRed:.2 green:.2 blue:.2 alpha:.9];
+    self.priceSliderText.text = [NSString localizedStringWithFormat:@"$ %'.2f",0.00];
     
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
@@ -175,6 +184,19 @@
     self.tableVC.listings = [ParkingSearchViewController sortListingArraybyPriceADescending:self.tableVC.listings];
     [self.tableVC.searchTableView reloadData];
 }
+
+- (IBAction)priceSlide:(id)sender {
+    self.priceSliderText.text = [NSString localizedStringWithFormat:@"$%f", self.priceSlider.value];
+    NSMutableArray *sliderListings = [[NSMutableArray alloc] init];
+    for(int i =0; i<=self.mapVC.ourMapListings.count-1; i++){
+        if (self.mapVC.ourMapListings[i] != nil && [self.mapVC.ourMapListings[i].price doubleValue] <= self.priceSlider.value){
+            [sliderListings addObject:self.mapVC.ourMapListings[i]];
+        }
+    }
+    NSArray *returnSliderListings = [[NSArray alloc] initWithArray:sliderListings];
+    self.mapVC.ourMapListings = returnSliderListings;
+}
+
 
 
 # pragma mark - Search Related
