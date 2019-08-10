@@ -16,10 +16,8 @@
 #import "ColorUtilities.h"
 
 @interface BookingViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
-@property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *listingAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeRangeLabel;
@@ -67,16 +65,7 @@
         }
     }];
     
-    PFFileObject *img = self.listing.picture;
-    [img getDataInBackgroundWithBlock:^(NSData *imageData,NSError *error){
-        UIImage *imageToLoad = [UIImage imageWithData:imageData];
-        self.listingImageView.image = imageToLoad;
-    }];
     self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
-    PFUser *homeowner = self.listing.homeowner;
-    [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        self.listingOwnerLabel.text = object[@"name"];
-    }];
     
     formatter=[[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"hh:mmaa"];
