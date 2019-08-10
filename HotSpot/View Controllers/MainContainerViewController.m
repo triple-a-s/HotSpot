@@ -160,7 +160,21 @@
     [self.tableVC.searchTableView reloadData];
 }
 
+- (IBAction)highToLow:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyDescending:self.tableVC.listings withLocation:self.tableVC.initialLocation];
+    [self.tableVC.searchTableView reloadData];
+}
 
+- (IBAction)priceToHigh:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyPriceAscending:self.tableVC.listings];
+    [self.tableVC.searchTableView reloadData];
+}
+
+
+- (IBAction)priceToLow:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyPriceADescending:self.tableVC.listings];
+    [self.tableVC.searchTableView reloadData];
+}
 
 
 # pragma mark - Search Related
