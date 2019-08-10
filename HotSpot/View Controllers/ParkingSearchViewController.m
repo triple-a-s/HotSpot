@@ -132,45 +132,6 @@
 
 #pragma mark - Helper Methods
 
-- (NSMutableArray*) sortListingArrayNumber:(NSArray<Listing*>*)unsortedArray{
-    NSMutableArray *numberArray = [[NSMutableArray alloc] init];
-    if (unsortedArray.count == 0){
-        return numberArray;
-    }
-    else{
-    for (int i = 0; i<= unsortedArray.count-1; i ++){
-    CLLocationCoordinate2D addressOne = CLLocationCoordinate2DMake(unsortedArray[i].address.latitude, unsortedArray[i].address.longitude);
-        NSNumber *distance = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:self.initialLocation.coordinate]];
-        [numberArray addObject: distance];
-        NSSortDescriptor *lowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
-        [numberArray sortUsingDescriptors:[NSArray arrayWithObject:lowestToHighest]];
-    }
-    return numberArray;
-    }
-}
-
-- (NSArray*) sortListingArray:(NSMutableArray*)numberArray andListing:(NSArray<Listing*>*)unsortedArray{
-    NSMutableArray<Listing*> *sortedArray  = [[NSMutableArray alloc] init];
-    if (numberArray.count == 0){
-        NSArray *returnArray = [[NSArray alloc]initWithArray:(sortedArray)];
-        return returnArray;
-    }
-    else{
-    for (int i =0; i<numberArray.count; i ++){
-        CLLocationCoordinate2D addressOne = CLLocationCoordinate2DMake(unsortedArray[i].address.latitude, unsortedArray[i].address.longitude);
-        NSNumber *distance = [NSNumber numberWithDouble:[DataManager getDistancebetweenAddressOne:addressOne andAddressTwo:self.initialLocation.coordinate]];
-    for (NSNumber* number in numberArray){
-        if ([distance doubleValue] == [number doubleValue]){
-            [sortedArray addObject:unsortedArray[i]];
-        }
-        }
-}
-
-    NSArray *returnArray = [[NSArray alloc]initWithArray:(sortedArray)];
-    return returnArray;
-}
-}
-
 + (NSArray*)sortListingArraybyAscending:(NSArray<Listing*>*)unsortedArray withLocation:(CLLocation*)location{
     NSArray *sortedArray;
     sortedArray = [unsortedArray sortedArrayUsingComparator:^NSComparisonResult(Listing* a,Listing* b) {

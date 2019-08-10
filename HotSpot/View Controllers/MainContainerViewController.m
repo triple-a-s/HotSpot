@@ -13,6 +13,7 @@
 #import "SearchCell.h"
 #import "Listing.h"
 #import "DataManager.h"
+#import "FilteringViewController.h"
 
 
 
@@ -27,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 
+
+
 // Properties associated with search (autocomplete and actual search)
 @property (strong,nonatomic) MKLocalSearchRequest *request;
 @property (strong, nonatomic) MKLocalSearch *search;
@@ -40,6 +43,8 @@
 //dealing with child view controllers -- to pass information to them
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
+@property (strong, nonatomic) FilteringViewController *filterVC;
+
 
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
@@ -149,6 +154,13 @@
                          }];
     }
 }
+
+- (IBAction)lowToHigh:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyAscending:self.tableVC.listings withLocation:self.tableVC.initialLocation];
+    [self.tableVC.searchTableView reloadData];
+}
+
+
 
 
 # pragma mark - Search Related
@@ -273,6 +285,9 @@
         self.tableVC = segue.destinationViewController;
         [self.tableVC.searchTableView reloadData];
         [self.tableVC viewWillAppear:YES];
+    }
+    else if ([segue.identifier isEqualToString:@"filterSegue"]){
+        self.filterVC = segue.destinationViewController;
     }
 }
 
