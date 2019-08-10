@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9n-UD-Ud6" customClass="FancyButton">
-                                                <rect key="frame" x="190.5" y="574" width="49" height="39"/>
+                                                <rect key="frame" x="182.5" y="574" width="49" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Book"/>
                                                 <connections>
@@ -37,12 +37,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-Al-bDx">
-                                                <rect key="frame" x="8" y="306.5" width="414" height="247.5"/>
+                                                <rect key="frame" x="8" y="306.5" width="398" height="247.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vp-89-8W9">
                                                         <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETz-cQ-rkw">
@@ -109,7 +109,7 @@
                                             <constraint firstItem="7aY-Al-bDx" firstAttribute="leading" secondItem="a9Y-Ph-bDz" secondAttribute="leading" constant="8" id="d3o-wZ-YJA"/>
                                             <constraint firstItem="a9Y-Ph-bDz" firstAttribute="top" secondItem="YCI-0a-nCB" secondAttribute="top" id="gLi-Gl-KzB"/>
                                             <constraint firstItem="a9Y-Ph-bDz" firstAttribute="leading" secondItem="YCI-0a-nCB" secondAttribute="leading" id="mAf-gm-vYg"/>
-                                            <constraint firstItem="7aY-Al-bDx" firstAttribute="trailing" secondItem="a9Y-Ph-bDz" secondAttribute="trailing" constant="8" id="tRM-zj-ory"/>
+                                            <constraint firstItem="7aY-Al-bDx" firstAttribute="trailing" secondItem="a9Y-Ph-bDz" secondAttribute="trailing" constant="-8" id="tRM-zj-ory"/>
                                         </constraints>
                                     </view>
                                 </subviews>
