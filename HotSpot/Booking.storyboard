@@ -379,6 +379,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ynh-1n-pDX" secondAttribute="trailing" id="knn-xN-OzL"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -389,6 +392,7 @@
                                             <constraint firstAttribute="trailing" secondItem="ndN-aj-2SP" secondAttribute="trailing" constant="8" id="PwP-2X-D5S"/>
                                             <constraint firstItem="jsM-A7-T6H" firstAttribute="height" secondItem="TYm-pT-J9X" secondAttribute="height" multiplier="1:5" id="VZH-kq-Pmc"/>
                                             <constraint firstItem="jsM-A7-T6H" firstAttribute="leading" secondItem="TYm-pT-J9X" secondAttribute="leading" constant="8" id="WJs-S1-yQY"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i15-Of-J2U" secondAttribute="trailing" constant="8" id="dlv-hZ-GUa"/>
                                             <constraint firstItem="i15-Of-J2U" firstAttribute="top" secondItem="jsM-A7-T6H" secondAttribute="top" id="f32-6u-Q9g"/>
                                             <constraint firstItem="ndN-aj-2SP" firstAttribute="top" secondItem="jsM-A7-T6H" secondAttribute="bottom" constant="21" id="iQR-p9-KQH"/>
                                             <constraint firstItem="i15-Of-J2U" firstAttribute="leading" secondItem="jsM-A7-T6H" secondAttribute="trailing" constant="8" id="jQF-7Y-yk9"/>
