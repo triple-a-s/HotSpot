@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="bXd-gg-Ks9">
-                                                    <rect key="frame" x="8" y="10" width="138.5" height="99.5"/>
+                                                    <rect key="frame" x="8" y="10" width="139.5" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bXd-gg-Ks9" secondAttribute="height" multiplier="46:33" id="T4x-HI-71o"/>
                                                     </constraints>
@@ -41,7 +41,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1rl-oL-WJ0">
-                                                    <rect key="frame" x="154.5" y="39.5" width="251.5" height="41"/>
+                                                    <rect key="frame" x="155.5" y="10" width="250.5" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-bs-1Sj">
                                                             <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
@@ -65,7 +65,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1rl-oL-WJ0" firstAttribute="centerY" secondItem="bXd-gg-Ks9" secondAttribute="centerY" id="3li-6v-EbI"/>
+                                                <constraint firstItem="1rl-oL-WJ0" firstAttribute="top" secondItem="bXd-gg-Ks9" secondAttribute="top" id="3li-6v-EbI"/>
                                                 <constraint firstItem="bXd-gg-Ks9" firstAttribute="top" secondItem="nGu-JX-hiE" secondAttribute="top" constant="10" id="Mbs-p2-TMO"/>
                                                 <constraint firstAttribute="trailing" secondItem="1rl-oL-WJ0" secondAttribute="trailing" constant="8" id="a5V-wJ-0Nl"/>
                                                 <constraint firstItem="bXd-gg-Ks9" firstAttribute="leading" secondItem="nGu-JX-hiE" secondAttribute="leading" constant="8" id="bgF-fj-L8i"/>
