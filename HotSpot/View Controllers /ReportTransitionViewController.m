@@ -42,7 +42,7 @@
             else {
                 CLLocation *locationEnter = [[CLLocation alloc] initWithLatitude:self.listing.address.latitude longitude:self.listing.address.longitude];
                 NSArray *transitionListings = [ParkingSearchViewController sortListingArraybyAscending:listings withLocation:locationEnter];
-                [self performSegueWithIdentifier:@"newSpotSegue" sender:transitionListings[0]];
+                [self performSegueWithIdentifier:@"newSpotSegue" sender:transitionListings[1]];
             }
         }];
     } else {

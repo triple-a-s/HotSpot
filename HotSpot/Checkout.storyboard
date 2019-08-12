@@ -37,7 +37,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58l-wF-out">
                                 <rect key="frame" x="141" y="497" width="132" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="I want more time!">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -45,26 +45,28 @@
                                     <segue destination="4au-cY-4a9" kind="show" identifier="moreTimeSegue" id="6Kd-DL-dol"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VB-YD-qzT">
-                                <rect key="frame" x="8" y="96" width="77" height="23"/>
-                                <state key="normal" title="Button" image="close-icon"/>
-                                <connections>
-                                    <action selector="closeClicked:" destination="GNz-bi-pVH" eventType="touchUpInside" id="PWS-eB-pJp"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="06d-Uk-Zo6" firstAttribute="centerX" secondItem="RPm-Z8-HEF" secondAttribute="centerX" id="45o-tx-dMk"/>
-                            <constraint firstItem="4VB-YD-qzT" firstAttribute="leading" secondItem="RPm-Z8-HEF" secondAttribute="leading" constant="8" id="C2u-OP-89h"/>
                             <constraint firstItem="06d-Uk-Zo6" firstAttribute="centerY" secondItem="RPm-Z8-HEF" secondAttribute="centerY" id="NT8-Qm-ngo"/>
                             <constraint firstItem="58l-wF-out" firstAttribute="top" secondItem="06d-Uk-Zo6" secondAttribute="bottom" constant="3.5" id="QZr-D9-f9x"/>
                             <constraint firstItem="58l-wF-out" firstAttribute="centerX" secondItem="06d-Uk-Zo6" secondAttribute="centerX" id="vGl-MD-N4F"/>
-                            <constraint firstItem="4VB-YD-qzT" firstAttribute="top" secondItem="RPm-Z8-HEF" secondAttribute="top" constant="8" id="vqI-KB-iZc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RPm-Z8-HEF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Afa-57-fmP"/>
+                    <navigationItem key="navigationItem" id="Afa-57-fmP">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="LJN-Ro-EEQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4VB-YD-qzT">
+                                <rect key="frame" x="20" y="10.5" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="close-icon"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="GNz-bi-pVH" eventType="touchUpInside" id="PWS-eB-pJp"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeA-lB-Sgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +99,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ3-bl-f5T">
                                 <rect key="frame" x="148" y="458.5" width="118" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Add 15 minutes">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -110,7 +112,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-u7-iEb">
                                 <rect key="frame" x="165.5" y="499.5" width="83" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Add 1 hour">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -120,7 +122,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-eA-mgZ">
                                 <rect key="frame" x="130" y="638.5" width="154" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Nevermind I'm good">
                                     <color key="titleColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -130,7 +132,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End Time: blah" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zex-0b-6Ri">
                                 <rect key="frame" x="8" y="101" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

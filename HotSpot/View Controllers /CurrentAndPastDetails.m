@@ -69,7 +69,7 @@
         }];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM/dd/yyyy' at 'hh:mm"];
-        self.bookingProcessing.text = [formatter stringFromDate: self.booking.startTime];
+        self.bookingProcessing.text = [formatter stringFromDate: self.booking.createdAt];
         self.timeParked.text = [formatter stringFromDate:self.booking.startTime];
         
         

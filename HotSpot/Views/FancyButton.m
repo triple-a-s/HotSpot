@@ -8,15 +8,14 @@
 
 #import "FancyButton.h"
 
+#import "ColorUtilities.h"
+
 @implementation FancyButton
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.layer.cornerRadius = 18;
-    self.backgroundColor = [UIColor colorWithDisplayP3Red:0.89406615499999997
-                                                    green:0.3239448667
-                                                     blue:0.2989487052
-                                                    alpha:1.0];
+    self.backgroundColor = redThemeColor();
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.titleLabel.font = [UIFont systemFontOfSize:17.0];
     self.contentEdgeInsets = UIEdgeInsetsMake(8, 30, 8, 30);

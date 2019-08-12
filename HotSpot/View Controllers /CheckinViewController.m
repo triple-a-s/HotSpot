@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @end
 
 @implementation CheckinViewController
@@ -43,7 +42,14 @@
                     }
                 }];
             }];
-            self.startTimeLabel.text = [NSString stringWithFormat:@"Start time: %@", booking.startTime];
+            NSDateFormatter *withDayFormatter = [[NSDateFormatter alloc] init];
+            [withDayFormatter setDateFormat:@"M/dd/yyyy hh:mmaa"];
+            NSDateFormatter *withoutDayFormatter = [[NSDateFormatter alloc] init];
+            [withoutDayFormatter setDateFormat:@"hh:mmaa"];
+            [booking.timeInterval fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                TimeInterval *timeInterval = object;
+                self.startTimeLabel.text = [NSString stringWithFormat:@"Parking time: %@ to %@", [withDayFormatter stringFromDate:booking.startTime], [withoutDayFormatter stringFromDate:timeInterval.endTime]];
+            }];
         }
     }];
 }
