@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
+
 @property (strong, nonatomic) LocationManagerSingleton *locationManager;
 
 @property (strong, nonatomic) NSString *homeownerNumber;
@@ -30,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // image
+   
     [DataManager getAddressNameFromListing:self.listing withCompletion:^(NSString *name, NSError * _Nullable error){
         if(error) {
             NSLog(@"%@", error);

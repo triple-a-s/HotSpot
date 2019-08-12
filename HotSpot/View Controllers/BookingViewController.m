@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeRangeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSMutableArray<TimeSlot *> *timeSlots;
 @end
 
@@ -38,6 +40,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.progressView.progress = 0;
     
     viewDidLayoutSubviewsForTheFirstTime = YES;
     
@@ -115,6 +118,11 @@
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                          // handle response here.
                                                      }];
+    [NSTimer scheduledTimerWithTimeInterval:.05
+                                     target:self
+                                   selector:@selector(timerFireMethod:)
+                                   userInfo:nil
+                                    repeats:NO];
     // add the OK action to the alert controller
     [alert addAction:okAction];
     
@@ -123,14 +131,15 @@
             withStartTime:startTime
         withDurationInSec:[[NSNumber alloc] initWithDouble:[endTime timeIntervalSinceDate:startTime]] withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded) {
+                self.progressView.progress =1;
                 [self performSegueWithIdentifier:@"confirmationSegue" sender:nil];
             }
             else if (error) {
+                self.progressView.progress=0;
                 NSLog(@"%@", error);
             }
             else {
                 alert.message = @"Time requested is not available";
-                
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             }
@@ -327,6 +336,10 @@
         self.timeSlots[i].chosen = NO;
     }
     [self.collectionView reloadData];
+}
+
+- (void) timerFireMethod:(NSTimer*)timer{
+    self.progressView.progress+=.3;
 }
 
 - (IBAction)resetClicked:(id)sender {
