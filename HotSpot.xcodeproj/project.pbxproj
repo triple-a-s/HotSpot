@@ -30,6 +30,7 @@
 		61E418BD22F89CE700AE5327 /* CurrentAndPastDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E418BC22F89CE700AE5327 /* CurrentAndPastDetails.storyboard */; };
 		61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418BF22F89E4400AE5327 /* CurrentAndPastDetails.m */; };
 		61E418D422FB894C00AE5327 /* ReportDriverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E418D322FB894C00AE5327 /* ReportDriverViewController.m */; };
+		61F0F7F3230225ED0074FC24 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F0F7F1230225ED0074FC24 /* CardCell.m */; };
 		6CB77EF92B958EC8F1305237 /* Pods_HotSpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18B4064C2CD2C5768C2E3F0 /* Pods_HotSpot.framework */; };
 		78658EA0895A7F93B24721DB /* Pods_HotSpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0141CF2128C1E9667762FD8A /* Pods_HotSpotTests.framework */; };
 		AD08283C22F8D1580069A20D /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08282A22F8D1570069A20D /* CallViewController.m */; };
@@ -42,11 +43,6 @@
 		AD08284322F8D1580069A20D /* CarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283722F8D1570069A20D /* CarsViewController.m */; };
 		AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08283822F8D1570069A20D /* EditInformationViewController.m */; };
 		AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08284622F8D1900069A20D /* ConfirmationViewController.m */; };
-		AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9522FB9D300019D9A1 /* Card.m */; };
-		AD9D7D9C22FBA2420019D9A1 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9B22FBA2410019D9A1 /* CardCell.m */; };
-		AD9D7D9F22FC82340019D9A1 /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */; };
-		AD9D7DA222FC86650019D9A1 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */; };
-		AD9D7DA522FC86780019D9A1 /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */; };
 		AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */; };
 		AD08285722FA2A8F0069A20D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8D522DE6A0B00112AF2 /* AppDelegate.m */; };
 		AD08285822FA2A8F0069A20D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8E322DE6A0D00112AF2 /* main.m */; };
@@ -57,6 +53,10 @@
 		AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286222FB77D20069A20D /* ReportTransitionViewController.m */; };
 		AD08286622FB7C5D0069A20D /* CustomerSupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286522FB7C5D0069A20D /* CustomerSupportViewController.m */; };
 		AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */; };
+		AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9522FB9D300019D9A1 /* Card.m */; };
+		AD9D7D9F22FC82340019D9A1 /* CardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */; };
+		AD9D7DA222FC86650019D9A1 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */; };
+		AD9D7DA522FC86780019D9A1 /* EditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */; };
 		ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */; };
 		ADBA5DCE22E638F80055BB17 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBA5DCD22E638F80055BB17 /* Car.m */; };
 		ADC06E9422E1195B00ED3F4D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC06E9322E1195B00ED3F4D /* Profile.storyboard */; };
@@ -159,6 +159,8 @@
 		61E418C322F9F26300AE5327 /* BookingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BookingViewController.h; path = "HotSpot/View Controllers/BookingViewController.h"; sourceTree = SOURCE_ROOT; };
 		61E418D222FB894B00AE5327 /* ReportDriverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDriverViewController.h; sourceTree = "<group>"; };
 		61E418D322FB894C00AE5327 /* ReportDriverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDriverViewController.m; sourceTree = "<group>"; };
+		61F0F7F1230225ED0074FC24 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
+		61F0F7F2230225ED0074FC24 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
 		68FBF08CBFB5BADA6F3988D1 /* Pods-HotSpotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.debug.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3814DBD9D1F117A6039B9B5 /* Pods-HotSpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpot.debug.xcconfig"; path = "Target Support Files/Pods-HotSpot/Pods-HotSpot.debug.xcconfig"; sourceTree = "<group>"; };
 		AD08282A22F8D1570069A20D /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CallViewController.m; path = "HotSpot/View Controllers/CallViewController.m"; sourceTree = SOURCE_ROOT; };
@@ -181,17 +183,6 @@
 		AD08283B22F8D1570069A20D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "HotSpot/View Controllers/SignUpViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284522F8D18F0069A20D /* ConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmationViewController.h; path = "HotSpot/View Controllers/ConfirmationViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08284622F8D1900069A20D /* ConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmationViewController.m; path = "HotSpot/View Controllers/ConfirmationViewController.m"; sourceTree = SOURCE_ROOT; };
-		AD9D7D9422FB9D300019D9A1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		AD9D7D9522FB9D300019D9A1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		AD9D7D9A22FBA2410019D9A1 /* CardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CardCell.h; path = /Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/CardCell.h; sourceTree = "<absolute>"; };
-		AD9D7D9B22FBA2410019D9A1 /* CardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CardCell.m; path = /Users/aaronm17/Desktop/CodePath/HotSpot/HotSpot/CardCell.m; sourceTree = "<absolute>"; };
-		AD9D7D9D22FC82340019D9A1 /* CardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
-		AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
-		AD9D7DA022FC86650019D9A1 /* AddCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddCardViewController.h; path = "HotSpot/View Controllers/AddCardViewController.h"; sourceTree = SOURCE_ROOT; };
-		AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = "HotSpot/View Controllers/AddCardViewController.m"; sourceTree = SOURCE_ROOT; };
-		AD9D7DA322FC86780019D9A1 /* EditCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditCardViewController.h; path = "HotSpot/View Controllers/EditCardViewController.h"; sourceTree = SOURCE_ROOT; };
-		AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditCardViewController.m; path = "HotSpot/View Controllers/EditCardViewController.m"; sourceTree = SOURCE_ROOT; };
-		AD9D7DA622FCE2540019D9A1 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = "HotSpot/View Controllers/DetailsViewController.h"; sourceTree = SOURCE_ROOT; };
 		AD08285122F9FB290069A20D /* ReportHomeownerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportHomeownerViewController.h; sourceTree = "<group>"; };
 		AD08285222F9FB290069A20D /* ReportHomeownerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportHomeownerViewController.m; sourceTree = "<group>"; };
 		AD08285B22FA30EC0069A20D /* DamagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DamagesViewController.h; sourceTree = "<group>"; };
@@ -205,6 +196,15 @@
 		AD08286722FB7FA70069A20D /* SettingsReportTransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsReportTransitionViewController.h; sourceTree = "<group>"; };
 		AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsReportTransitionViewController.m; sourceTree = "<group>"; };
 		AD08286A22FB86320069A20D /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = "HotSpot/View Controllers/DetailsViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD9D7D9422FB9D300019D9A1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		AD9D7D9522FB9D300019D9A1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		AD9D7D9D22FC82340019D9A1 /* CardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardsViewController.h; sourceTree = "<group>"; };
+		AD9D7D9E22FC82340019D9A1 /* CardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsViewController.m; sourceTree = "<group>"; };
+		AD9D7DA022FC86650019D9A1 /* AddCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddCardViewController.h; path = "HotSpot/View Controllers/AddCardViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA122FC86650019D9A1 /* AddCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = "HotSpot/View Controllers/AddCardViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA322FC86780019D9A1 /* EditCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EditCardViewController.h; path = "HotSpot/View Controllers/EditCardViewController.h"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA422FC86780019D9A1 /* EditCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EditCardViewController.m; path = "HotSpot/View Controllers/EditCardViewController.m"; sourceTree = SOURCE_ROOT; };
+		AD9D7DA622FCE2540019D9A1 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailsViewController.h; path = "HotSpot/View Controllers/DetailsViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1122F8CEFF002D62E3 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionViewController.h; path = "HotSpot/View Controllers/TransitionViewController.h"; sourceTree = SOURCE_ROOT; };
 		ADB5EC1222F8CEFF002D62E3 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionViewController.m; path = "HotSpot/View Controllers/TransitionViewController.m"; sourceTree = SOURCE_ROOT; };
 		ADBA5DCC22E638F80055BB17 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -360,12 +360,12 @@
 				ADCF9FEE22F233CF00EF9E66 /* Settings.storyboard */,
 				ADC06E9822E12F7D00ED3F4D /* CarCell.h */,
 				ADC06E9922E12F7D00ED3F4D /* CarCell.m */,
-				AD9D7D9A22FBA2410019D9A1 /* CardCell.h */,
-				AD9D7D9B22FBA2410019D9A1 /* CardCell.m */,
 				ADBA5DCC22E638F80055BB17 /* Car.h */,
 				ADBA5DCD22E638F80055BB17 /* Car.m */,
 				AD9D7D9422FB9D300019D9A1 /* Card.h */,
 				AD9D7D9522FB9D300019D9A1 /* Card.m */,
+				61F0F7F2230225ED0074FC24 /* CardCell.h */,
+				61F0F7F1230225ED0074FC24 /* CardCell.m */,
 				ADCF9FE822EA5D2E00EF9E66 /* ImagePickerHelper.h */,
 				ADCF9FE922EA5D2E00EF9E66 /* ImagePickerHelper.m */,
 				ADCF9FEB22EB745B00EF9E66 /* RegexHelper.h */,
@@ -841,14 +841,11 @@
 				AD08284722F8D1900069A20D /* ConfirmationViewController.m in Sources */,
 				61547D6822EB9A0E00E57E34 /* DetailsViewController.m in Sources */,
 				6186184022EA19F9007A2BD9 /* AnnotationPin.m in Sources */,
-				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				AD9D7DA522FC86780019D9A1 /* EditCardViewController.m in Sources */,
 				AD08285722FA2A8F0069A20D /* AppDelegate.m in Sources */,
 				61547D6A22EB9A0E00E57E34 /* BookedParkingSpotsViewController.m in Sources */,
 				61547D6B22EB9A0E00E57E34 /* MapViewController.m in Sources */,
 				61547D6E22EB9A0E00E57E34 /* ParkingSearchViewController.m in Sources */,
-				AD9D7D9C22FBA2420019D9A1 /* CardCell.m in Sources */,
-				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08284422F8D1580069A20D /* EditInformationViewController.m in Sources */,
 				AD08284022F8D1580069A20D /* AddCarViewController.m in Sources */,
 				61547D6C22EB9A0E00E57E34 /* CurrentParkingSpotsViewController.m in Sources */,
@@ -856,18 +853,17 @@
 				ADB5EC1322F8CF00002D62E3 /* TransitionViewController.m in Sources */,
 				AD9D7D9622FB9D300019D9A1 /* Card.m in Sources */,
 				AD08283E22F8D1580069A20D /* SignUpViewController.m in Sources */,
+				61F0F7F3230225ED0074FC24 /* CardCell.m in Sources */,
 				ADBA5DCE22E638F80055BB17 /* Car.m in Sources */,
 				AD08286922FB7FA70069A20D /* SettingsReportTransitionViewController.m in Sources */,
 				D273E90022FE17E900901684 /* ColorUtilities.m in Sources */,
 				AD08283C22F8D1580069A20D /* CallViewController.m in Sources */,
 				AD9D7DA222FC86650019D9A1 /* AddCardViewController.m in Sources */,
-				612FE8E422DE6A0D00112AF2 /* main.m in Sources */,
 				AD08285322F9FB290069A20D /* ReportHomeownerViewController.m in Sources */,
 				ADC06E9A22E12F7D00ED3F4D /* CarCell.m in Sources */,
 				D2ECF6C322F8FBA200901E9D /* CheckinViewController.m in Sources */,
 				D28F555B22F9023B00628316 /* CancelViewController.m in Sources */,
 				D2ECF6BD22F8E85800901E9D /* CheckoutViewController.m in Sources */,
-				612FE8D622DE6A0B00112AF2 /* AppDelegate.m in Sources */,
 				AD9D7D9F22FC82340019D9A1 /* CardsViewController.m in Sources */,
 				ADCF9FEA22EA5D2E00EF9E66 /* ImagePickerHelper.m in Sources */,
 				AD08284322F8D1580069A20D /* CarsViewController.m in Sources */,
