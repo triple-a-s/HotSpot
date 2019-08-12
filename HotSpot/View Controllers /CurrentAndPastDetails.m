@@ -15,8 +15,6 @@
 #import <SendGrid.h>
 #import <SendGridEmail.h>
 #import "EmailHelper.h"
-#import "MapKit/MapKit.h"
-#import "LocationManagerSingleton.h"
 
 @interface CurrentAndPastDetails ()
 
@@ -28,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookingProcessing;
 @property (weak, nonatomic) IBOutlet UIButton *checkinButton;
 @property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
-@property (strong, nonatomic) LocationManagerSingleton *locationManager;
 
 @property (strong, nonatomic) Listing *listing;
 
@@ -38,8 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.locationManager = [LocationManagerSingleton sharedSingleton];
     
     self.checkinButton.hidden = !self.showCheckInCheckOut;
     self.checkoutButton.hidden = !self.showCheckInCheckOut;
@@ -136,23 +131,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*- (IBAction)directionsPressed:(id)sender {
-    [self openMap];
-}
-*/
-
-- (void) openMap{
-    Listing *listing = self.booking.listing;
-    [listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error){
-        CLLocationDegrees longitude = listing.address.longitude;
-        CLLocationDegrees latitude= listing.address.latitude;
-        NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.locationManager.location.coordinate.latitude, self.locationManager.locationManager.location.coordinate.longitude,  latitude, longitude];
-        if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {}];
-        } else {
-        }
-    }];
-}
 
 
 

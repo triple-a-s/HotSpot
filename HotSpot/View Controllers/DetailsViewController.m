@@ -11,6 +11,9 @@
 #import "DataManager.h"
 #import <MessageUI/MessageUI.h>
 #import "CallViewController.h"
+#import "LocationManagerSingleton.h"
+#import "MapKit/MapKit.h"
+
 
 @interface DetailsViewController ()<MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -18,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *listingPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingOwnerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *listingNotesLabel;
+@property (strong, nonatomic) LocationManagerSingleton *locationManager;
+
 @property (strong, nonatomic) NSString *homeownerNumber;
 @end
 
@@ -40,6 +45,8 @@
         UIImage *imageToLoad = [UIImage imageWithData:imageData];
         self.listingImageView.image = imageToLoad;
     }];
+    
+     self.locationManager = [LocationManagerSingleton sharedSingleton];
     
     self.listingPriceLabel.text = [NSString stringWithFormat: @"$%@/hr", self.listing.price];
     PFUser *homeowner = self.listing.homeowner;
@@ -105,6 +112,22 @@
         // Present the view controller modally.
         [self presentViewController:composeVC animated:YES completion:nil];
     }
+}
+
+- (IBAction)directionsPressed:(id)sender {
+ [self openMap];
+ }
+ 
+
+- (void) openMap{
+    Listing *listing = self.listing;
+        CLLocationDegrees longitude = listing.address.longitude;
+        CLLocationDegrees latitude= listing.address.latitude;
+        NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", self.locationManager.locationManager.location.coordinate.latitude, self.locationManager.locationManager.location.coordinate.longitude,  latitude, longitude];
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving} completionHandler:^(BOOL success) {}];
+        } else {
+        }
 }
 
 
