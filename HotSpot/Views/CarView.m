@@ -24,7 +24,10 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     self.currentUser = [PFUser currentUser];
-
+    self.layer.cornerRadius = 10.0f;
+    self.carImage.layer.cornerRadius = 10.0f;
+    self.layer.borderColor = [UIColor grayColor].CGColor;
+    self.layer.borderWidth = 1;
     if (self.currentUser[@"defaultCar"]  == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
                                                                        message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];

@@ -25,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.reportMessage.layer.borderWidth = 1;
+    self.reportMessage.layer.borderColor = [UIColor blackColor].CGColor;
 }
 
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {

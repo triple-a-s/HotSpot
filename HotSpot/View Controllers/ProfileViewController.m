@@ -14,6 +14,7 @@
 
 @interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *carView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *phone;
@@ -23,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *carColor;
 @property (weak, nonatomic) IBOutlet UILabel *licensePlate;
 @property (strong, nonatomic) PFUser *currentUser;
+@property (weak, nonatomic) IBOutlet UILabel *cardType;
+@property (weak, nonatomic) IBOutlet UILabel *bank;
+@property (weak, nonatomic) IBOutlet UILabel *expirationDate;
+@property (weak, nonatomic) IBOutlet UILabel *cardNumber;
+@property (weak, nonatomic) IBOutlet UIView *paymentView;
 
 @end
 
@@ -34,6 +40,14 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
+    self.carView.layer.cornerRadius = 10.0f;
+    self.paymentView.layer.cornerRadius = 10.0f;
+    self.paymentView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.paymentView.layer.borderWidth = 1;
+    
+    self.carImage.layer.cornerRadius = 10.0f;
+    self.carView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.carView.layer.borderWidth = 1;
     self.currentUser = [PFUser currentUser];
     [self configureProfilePage];
 }
@@ -65,6 +79,22 @@
     self.email.text = self.currentUser.email;
     self.username.text = self.currentUser.username;
     
+    if (self.currentUser[@"defaultCard"] == nil) {
+        self.cardType.text = @"TBD";
+        self.bank.text = @"TBD";
+        self.expirationDate.text = @"TBD";
+        self.cardNumber.text = @"0000";
+    } else {
+        PFObject *defaultCar = self.currentUser[@"defaultCard"];
+        [defaultCar fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if(object) {
+                self.cardType.text = object[@"type"];
+                self.bank.text = object[@"bank"];
+                self.expirationDate.text = object[@"expiration"];
+                self.cardNumber.text = object[@"number"];
+            }
+        }];
+    }
     if (self.currentUser[@"defaultCar"]  == nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New User: Add a car"
                                                                        message:@"Please add a car before proceeding" preferredStyle:UIAlertControllerStyleAlert];
@@ -125,5 +155,10 @@
 - (IBAction)didTapCarCell:(UITapGestureRecognizer *)sender {
     [self performSegueWithIdentifier:(@"carSegue") sender:(nil)];
 }
+
+- (IBAction)didTapCardCell:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:@"cardSegue" sender:nil];
+}
+
 
 @end

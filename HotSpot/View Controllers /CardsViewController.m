@@ -1,97 +1,94 @@
 //
-//  CarsViewController.m
+//  CardsViewController.m
 //  HotSpot
 //
-//  Created by aaronm17 on 7/18/19.
+//  Created by aaronm17 on 8/8/19.
 //  Copyright © 2019 aodemuyi. All rights reserved.
 //
 
-#import "CarsViewController.h"
+#import "CardsViewController.h"
 #import "Parse/Parse.h"
-#import "CarCell.h"
-#import "AddCarViewController.h"
-#import "EditCarViewController.h"
+#import "CardCell.h"
+#import "AddCardViewController.h"
+#import "EditCardViewController.h"
 
-@interface CarsViewController () <UITableViewDelegate, UITableViewDataSource, AddCarViewControllerDelegate>
+
+@interface CardsViewController () <UITableViewDelegate, UITableViewDataSource, AddCardViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray <Car *> *numCars;
+@property (strong, nonatomic) NSMutableArray <Card *> *numCards;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
-@implementation CarsViewController
+@implementation CardsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [[PFUser currentUser] fetchIfNeededInBackground];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 75;
+    self.tableView.rowHeight = self.view.frame.size.height / 5;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(beginRefreshing) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    [self fetchCars];
-
-    
+    [self fetchCards];
 }
-
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"editSegue"]) {
-        CarCell *tappedCell = sender;
+        CardCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         tappedCell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        Car *currentCar = self.numCars[indexPath.row];
-        EditCarViewController *editCarViewController = [segue destinationViewController];
-        editCarViewController.car = currentCar;
+        Card *currentCard = self.numCards[indexPath.row];
+        EditCardViewController *editCarViewController = [segue destinationViewController];
+        editCarViewController.card = currentCard;
         tappedCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 }
 
 #pragma mark - Helper Methods
 
-//this queries the user for the user's cars, and stores them in an array to be displayed later
-- (void)fetchCars {
+//this queries the user for the user's cards, and stores them in an array to be displayed later
+- (void)fetchCards {
     
-    PFRelation *relation = [[PFUser currentUser] relationForKey:@"cars"];
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"cards"];
     PFQuery *query = relation.query;
     [query orderByDescending:@"createdAt"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *cars, NSError *error) {
-        if (cars != nil) {
-            self.numCars = [[NSMutableArray alloc] initWithArray:cars];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *cards, NSError *error) {
+        if (cards != nil) {
+            self.numCards = [[NSMutableArray alloc] initWithArray:cards];
             [self.tableView reloadData];
         }
     }];
 }
 
-//refreshes the cars when the refresh control is used
+//refreshes the cards when the refresh control is used
 - (void)beginRefreshing {
-    [self fetchCars];
+    [self fetchCards];
     [self.refreshControl endRefreshing];
 }
 
-//sets each cell to the corresponding car in the array of cars
+//sets each cell to the corresponding card in the array of cards
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    CarCell *carCell = [self.tableView dequeueReusableCellWithIdentifier:@"CarCell"];
-    Car *currentCar = self.numCars[indexPath.row];
-    [carCell configureCell:currentCar];
+    CardCell *cardCell = [self.tableView dequeueReusableCellWithIdentifier:@"CardCell"];
+    Card *currentCard = self.numCards[indexPath.row];
+    [cardCell configureCell:currentCard];
     
-    return carCell;
+    return cardCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.numCars.count;
+    return self.numCards.count;
 }
 
-- (void)didAddCar:(nonnull Car *)car {
-    [self.numCars insertObject:car atIndex:(self.numCars.count-1)];
+- (void)didAddCard:(nonnull Card *)card {
+    [self.numCards insertObject:card atIndex:(self.numCards.count-1)];
     [self.tableView reloadData];
 }
 
