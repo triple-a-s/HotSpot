@@ -123,7 +123,7 @@
                                     <action selector="didTapReportDriver:" destination="q1s-Ok-vte" eventType="touchUpInside" id="be3-Xk-isS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-BD-R6t" customClass="FancyButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amk-BD-R6t">
                                 <rect key="frame" x="113" y="470.5" width="149" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Report Homeowner"/>
@@ -633,7 +633,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ptz-12-ynj"/>
-        <segue reference="3S2-Kh-bFP"/>
+        <segue reference="jGl-C2-7Gn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
