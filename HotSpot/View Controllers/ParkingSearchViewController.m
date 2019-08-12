@@ -30,7 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // initializing our table
-    self.searchTableView.rowHeight = 134;
+    self.searchTableView.estimatedRowHeight = 85.0;
+    self.searchTableView.rowHeight = UITableViewAutomaticDimension;
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
     self.locationManager = [LocationManagerSingleton sharedSingleton];
