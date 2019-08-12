@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.reportField.layer.borderWidth = 1;
+    self.reportField.layer.borderColor = [UIColor blackColor].CGColor;
 }
 
 - (IBAction)didTapCancel:(UIBarButtonItem *)sender {

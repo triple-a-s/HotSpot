@@ -22,19 +22,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.carImage.layer.cornerRadius = 10.0f;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 //takes in a car and uses the information to configure the cell
 //if the car is the user's default car, it will display the checkmark
 - (void)configureCell: (Car *)car {
-    //self.carImage.image = car.carImage;
     BOOL isDefault = [car[@"isDefault"] boolValue];
     if (isDefault) {
         self.isDefault.hidden = NO;
