@@ -67,6 +67,7 @@
     // setting things up (views)
     self.spotListView.hidden = YES;
     
+    self.filterView.hidden = YES;
     CGRect frame = self.filterView.frame;
     frame.size.height = self.view.frame.size.height; 
     frame.origin.x = -frame.size.width;
@@ -138,6 +139,7 @@
 }
 
 - (IBAction)filterPressed:(id)sender {
+    self.filterView.hidden = NO; 
     if(self.filterView.frame.origin.x <0){
         [UIView animateWithDuration:.2
                               delay:0.0
