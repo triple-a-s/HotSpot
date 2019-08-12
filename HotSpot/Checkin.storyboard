@@ -105,29 +105,23 @@
                                     <segue destination="wKb-bH-DVm" kind="show" identifier="cancelSegue" id="Ggm-Gf-Hbt"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
-                                <rect key="frame" x="8" y="96" width="398" height="109.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e4s-gG-8lB">
+                                <rect key="frame" x="95.5" y="242.5" width="223" height="148"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-wa-XJ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRD-wa-XJ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="223" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqm-gS-MT0">
-                                        <rect key="frame" x="0.0" y="44.5" width="52.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqm-gS-MT0">
+                                        <rect key="frame" x="0.0" y="74" width="223" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time: 10am on 8/5/2019" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-2B-AMk">
-                                        <rect key="frame" x="0.0" y="89" width="223" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End time: 12am on 8/5/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAY-lH-7tC">
-                                        <rect key="frame" x="0.0" y="133.5" width="214.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-2B-AMk">
+                                        <rect key="frame" x="0.0" y="148" width="223" height="0.0"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -135,23 +129,19 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Hlf-2B-AMk" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="I3b-m9-Pvb"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lqm-gS-MT0" secondAttribute="trailing" constant="8" id="ORX-kv-RuX"/>
                                     <constraint firstItem="lqm-gS-MT0" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="TKQ-RY-qbH"/>
                                     <constraint firstItem="WRD-wa-XJ9" firstAttribute="leading" secondItem="e4s-gG-8lB" secondAttribute="leading" id="VXQ-mr-MbG"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hlf-2B-AMk" secondAttribute="trailing" constant="8" id="jcj-ww-iRP"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WRD-wa-XJ9" secondAttribute="trailing" constant="8" id="niS-gB-8yO"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="e4s-gG-8lB" firstAttribute="centerY" secondItem="qD3-B3-rUv" secondAttribute="centerY" multiplier="2:3" id="5aJ-ws-ag1"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="top" secondItem="oG9-m8-bzm" secondAttribute="bottom" constant="3.5" id="BkS-20-RW7"/>
-                            <constraint firstItem="e4s-gG-8lB" firstAttribute="leading" secondItem="qD3-B3-rUv" secondAttribute="leading" constant="8" id="EMx-NZ-mWB"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerX" secondItem="qD3-B3-rUv" secondAttribute="centerX" id="RIL-8X-JaO"/>
+                            <constraint firstItem="e4s-gG-8lB" firstAttribute="centerX" secondItem="qD3-B3-rUv" secondAttribute="centerX" id="V7X-jt-UcV"/>
                             <constraint firstItem="c6v-bi-HJt" firstAttribute="centerX" secondItem="oG9-m8-bzm" secondAttribute="centerX" id="hLs-0h-ibe"/>
                             <constraint firstItem="oG9-m8-bzm" firstAttribute="centerY" secondItem="qD3-B3-rUv" secondAttribute="centerY" id="m5s-nf-Vl0"/>
-                            <constraint firstItem="e4s-gG-8lB" firstAttribute="top" secondItem="qD3-B3-rUv" secondAttribute="top" constant="8" id="nKd-r7-j06"/>
-                            <constraint firstItem="qD3-B3-rUv" firstAttribute="trailing" secondItem="e4s-gG-8lB" secondAttribute="trailing" constant="8" id="rgw-XV-37A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qD3-B3-rUv"/>
                     </view>

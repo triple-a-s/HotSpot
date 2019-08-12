@@ -20,7 +20,10 @@
 @end
 
 @implementation CheckinViewController
-
+{
+    NSNumber *pricePerHour;
+    CGFloat duration;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -33,6 +36,9 @@
             self.booking = booking;
             [booking.listing fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 Listing *listing = object;
+                pricePerHour = listing.price;
+                CGFloat totalPrice = [pricePerHour floatValue] * duration / 60 / 60;
+                self.totalPriceLabel.text = [NSString stringWithFormat:@"$%0.2f", totalPrice];
                 [DataManager getAddressNameFromListing:listing withCompletion:^(NSString *name, NSError * _Nullable error){
                     if(error) {
                         NSLog(@"%@", error);
@@ -43,13 +49,17 @@
                 }];
             }];
             NSDateFormatter *withDayFormatter = [[NSDateFormatter alloc] init];
-            [withDayFormatter setDateFormat:@"M/dd/yyyy hh:mmaa"];
+            [withDayFormatter setDateFormat:@"M/dd/yyyy, h:mmaa"];
             NSDateFormatter *withoutDayFormatter = [[NSDateFormatter alloc] init];
-            [withoutDayFormatter setDateFormat:@"hh:mmaa"];
+            [withoutDayFormatter setDateFormat:@"h:mmaa"];
             [booking.timeInterval fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 TimeInterval *timeInterval = object;
-                self.startTimeLabel.text = [NSString stringWithFormat:@"Parking time: %@ to %@", [withDayFormatter stringFromDate:booking.startTime], [withoutDayFormatter stringFromDate:timeInterval.endTime]];
+                duration = [timeInterval.endTime timeIntervalSinceDate:timeInterval.startTime];
+                self.startTimeLabel.text = [NSString stringWithFormat:@"%@ to %@", [withDayFormatter stringFromDate:booking.startTime], [withoutDayFormatter stringFromDate:timeInterval.endTime]];
+                CGFloat totalPrice = [pricePerHour floatValue] * duration / 60 / 60;
+                self.totalPriceLabel.text = [NSString stringWithFormat:@"$%0.2f", totalPrice];
             }];
+            
         }
     }];
 }

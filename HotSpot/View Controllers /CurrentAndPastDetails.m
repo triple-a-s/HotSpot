@@ -61,7 +61,7 @@
             self.houseImage.image = imageToLoad;
         }];
         int priceSet = [object[@"price"] intValue];
-        CGFloat duration = [self.booking.duration doubleValue] / 60.0f;
+        CGFloat duration = [self.booking.duration doubleValue] / 60.0f / 60.0f;
         self.moneySpent.text = [NSString stringWithFormat: @"$%.2f", priceSet * duration];
         PFUser *homeowner = object[@"homeowner"];
         [homeowner fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
