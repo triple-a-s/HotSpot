@@ -18,16 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW" customClass="FancyButton">
-                                <rect key="frame" x="158.5" y="340" width="97" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didTapLogout:" destination="HAw-Qw-2OJ" eventType="touchUpInside" id="WI0-al-Qjh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj0-Ho-Kt7">
-                                <rect key="frame" x="158.5" y="386" width="97" height="33"/>
+                                <rect key="frame" x="158.5" y="334" width="97" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Report Issue"/>
                                 <connections>
@@ -35,29 +27,39 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ua4-EU-SLX">
-                                <rect key="frame" x="119.5" y="434" width="175" height="29"/>
+                                <rect key="frame" x="119.5" y="382" width="175" height="29"/>
                                 <segments>
                                     <segment title="Driver"/>
                                     <segment title="Homeowner"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaron Meheret" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFk-C3-Oi2">
-                                <rect key="frame" x="112" y="296" width="190" height="36"/>
+                                <rect key="frame" x="112" y="283" width="190" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Ux-1iW" customClass="FancyButton">
+                                <rect key="frame" x="158.5" y="425" width="97" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="HAw-Qw-2OJ" eventType="touchUpInside" id="WI0-al-Qjh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="5rd-Ux-1iW" secondAttribute="bottom" id="GRt-RP-tik"/>
-                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerY" secondItem="6YN-pE-PAa" secondAttribute="centerY" id="LAN-0V-hRx"/>
-                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="8" id="Ta1-nU-07c"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="top" secondItem="Ua4-EU-SLX" secondAttribute="bottom" constant="15" id="8xH-Uz-DbC"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="top" secondItem="MFk-C3-Oi2" secondAttribute="bottom" constant="15" id="EpU-0N-XVO"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="HW8-GN-mBg"/>
                             <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="UYJ-qX-mtF"/>
                             <constraint firstItem="Ua4-EU-SLX" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="dQw-py-ATH"/>
+                            <constraint firstItem="5rd-Ux-1iW" firstAttribute="centerY" secondItem="6YN-pE-PAa" secondAttribute="centerY" id="h4o-M6-HJ6"/>
+                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="top" secondItem="vj0-Ho-Kt7" secondAttribute="bottom" constant="15" id="lDo-Ik-Ghe"/>
                             <constraint firstItem="vj0-Ho-Kt7" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="oc5-ga-med"/>
+                            <constraint firstItem="vj0-Ho-Kt7" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="s0p-KE-Qnb"/>
                             <constraint firstItem="MFk-C3-Oi2" firstAttribute="centerX" secondItem="6YN-pE-PAa" secondAttribute="centerX" id="wgN-Wl-oRO"/>
-                            <constraint firstItem="Ua4-EU-SLX" firstAttribute="top" secondItem="vj0-Ho-Kt7" secondAttribute="bottom" constant="15" id="x6r-d1-irx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XEw-Rg-QV6"/>
                     </view>
