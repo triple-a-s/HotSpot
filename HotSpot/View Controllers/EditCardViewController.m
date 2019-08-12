@@ -70,7 +70,7 @@
 }
 
 - (IBAction)didTapDone:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
     if ([self.card[@"number"] isEqualToString:self.cardNumber.text]) {
         self.isSameCard = YES;
     }

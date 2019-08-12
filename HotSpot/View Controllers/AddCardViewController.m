@@ -54,7 +54,7 @@
 }
 
 - (IBAction)didTapConfirm:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"" withMessage:@""];
     
     if (isValidCard(self.cardType.text, self.bank.text, self.expirationDate.text, self.cardNumber.text, alert, NO)) {
         [self addCard];
