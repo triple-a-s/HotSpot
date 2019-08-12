@@ -12,14 +12,14 @@
 
 @synthesize locationManager;
 
-+ (id)sharedLocationManager {
+/*+ (id)sharedLocationManager {
     static LocationManagerSingleton *sharedLocationManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedLocationManager = [[self alloc] init];
     });
     return sharedLocationManager;
-}
+}*/
 
 - (id)init {
     self = [super init];

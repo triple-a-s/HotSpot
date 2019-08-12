@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D45A85A34BBAF518BD162E3 /* Pods_HotSpotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CEFCCA9C09EB258F75ABA6 /* Pods_HotSpotUITests.framework */; };
 		6108E83C22FE263300E7F782 /* LocationManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108E83B22FE263300E7F782 /* LocationManagerSingleton.m */; };
+		6108E83F22FE381300E7F782 /* FilteringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108E83E22FE381300E7F782 /* FilteringViewController.m */; };
 		612FE8DE22DE6A0D00112AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612FE8DD22DE6A0D00112AF2 /* Assets.xcassets */; };
 		612FE8E122DE6A0D00112AF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612FE8DF22DE6A0D00112AF2 /* LaunchScreen.storyboard */; };
 		612FE8EE22DE6A0D00112AF2 /* HotSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 612FE8ED22DE6A0D00112AF2 /* HotSpotTests.m */; };
@@ -111,6 +112,8 @@
 		58012022B25C9B94EB7A5007 /* Pods-HotSpotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotSpotUITests.release.xcconfig"; path = "Target Support Files/Pods-HotSpotUITests/Pods-HotSpotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6108E83A22FE263300E7F782 /* LocationManagerSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManagerSingleton.h; sourceTree = "<group>"; };
 		6108E83B22FE263300E7F782 /* LocationManagerSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManagerSingleton.m; sourceTree = "<group>"; };
+		6108E83D22FE381300E7F782 /* FilteringViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteringViewController.h; sourceTree = "<group>"; };
+		6108E83E22FE381300E7F782 /* FilteringViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilteringViewController.m; sourceTree = "<group>"; };
 		612FE8D122DE6A0B00112AF2 /* HotSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		612FE8D422DE6A0B00112AF2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		612FE8D522DE6A0B00112AF2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				AD08286822FB7FA70069A20D /* SettingsReportTransitionViewController.m */,
 				61E418D222FB894B00AE5327 /* ReportDriverViewController.h */,
 				61E418D322FB894C00AE5327 /* ReportDriverViewController.m */,
+				6108E83D22FE381300E7F782 /* FilteringViewController.h */,
+				6108E83E22FE381300E7F782 /* FilteringViewController.m */,
 			);
 			path = "View Controllers ";
 			sourceTree = "<group>";
@@ -800,6 +805,7 @@
 				61547D6D22EB9A0E00E57E34 /* MainContainerViewController.m in Sources */,
 				AD08285822FA2A8F0069A20D /* main.m in Sources */,
 				AD08286322FB77D20069A20D /* ReportTransitionViewController.m in Sources */,
+				6108E83F22FE381300E7F782 /* FilteringViewController.m in Sources */,
 				61E418C022F89E4400AE5327 /* CurrentAndPastDetails.m in Sources */,
 				D26617C622EB689700255BC3 /* SearchCell.m in Sources */,
 				D22F501122E7D974004BE9BF /* TimeCell.m in Sources */,
