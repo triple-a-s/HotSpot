@@ -13,6 +13,7 @@
 #import "SearchCell.h"
 #import "Listing.h"
 #import "DataManager.h"
+#import "FilteringViewController.h"
 
 
 
@@ -27,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSwitchButton;
 
+
+
 // Properties associated with search (autocomplete and actual search)
 @property (strong,nonatomic) MKLocalSearchRequest *request;
 @property (strong, nonatomic) MKLocalSearch *search;
@@ -40,6 +43,8 @@
 //dealing with child view controllers -- to pass information to them
 @property (strong, nonatomic) MapViewController *mapVC;
 @property (strong, nonatomic) ParkingSearchViewController *tableVC;
+@property (strong, nonatomic) FilteringViewController *filterVC;
+
 
 // annotation setting
 @property (strong, nonatomic) NSMutableArray<MKPointAnnotation*> *spotList;
@@ -50,6 +55,9 @@
 @property (strong, nonatomic) SFSpeechRecognitionTask *recognitionTask;
 @property (strong, nonatomic) AVAudioEngine *audioEngine;
 
+@property (weak, nonatomic) IBOutlet UISlider *priceSlider;
+@property (weak, nonatomic) IBOutlet UILabel *priceSliderText;
+
 @end
 
 @implementation MainContainerViewController
@@ -59,9 +67,17 @@
     // setting things up (views)
     self.spotListView.hidden = YES;
     
+    self.filterView.hidden = YES;
     CGRect frame = self.filterView.frame;
+    frame.size.height = self.view.frame.size.height; 
     frame.origin.x = -frame.size.width;
     self.filterView.frame = frame;
+    
+    self.priceSlider.minimumValue=0;
+    self.priceSlider.maximumValue=100;
+    self.priceSlider.value = 0;
+    self.priceSlider.thumbTintColor = [UIColor colorWithRed:.2 green:.2 blue:.2 alpha:.9];
+    self.priceSliderText.text = [NSString localizedStringWithFormat:@"$ %'.2f",0.00];
     
     [self.mapView setUserInteractionEnabled:YES];
     [self.spotListView setUserInteractionEnabled:YES];
@@ -123,6 +139,7 @@
 }
 
 - (IBAction)filterPressed:(id)sender {
+    self.filterView.hidden = NO; 
     if(self.filterView.frame.origin.x <0){
         [UIView animateWithDuration:.2
                               delay:0.0
@@ -150,13 +167,42 @@
     }
 }
 
+- (IBAction)lowToHigh:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyAscending:self.tableVC.listings withLocation:self.tableVC.initialLocation];
+    [self.tableVC.searchTableView reloadData];
+}
+
+- (IBAction)highToLow:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyDescending:self.tableVC.listings withLocation:self.tableVC.initialLocation];
+    [self.tableVC.searchTableView reloadData];
+}
+
+- (IBAction)priceToHigh:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyPriceAscending:self.tableVC.listings];
+    [self.tableVC.searchTableView reloadData];
+}
+
+
+- (IBAction)priceToLow:(id)sender {
+    self.tableVC.listings = [ParkingSearchViewController sortListingArraybyPriceADescending:self.tableVC.listings];
+    [self.tableVC.searchTableView reloadData];
+}
+
+- (IBAction)priceSlide:(id)sender {
+    self.priceSliderText.text = [NSString localizedStringWithFormat:@"$%f", self.priceSlider.value];
+    NSMutableArray *sliderListings = [[NSMutableArray alloc] init];
+    for(int i =0; i<=self.mapVC.ourMapListings.count-1; i++){
+        if (self.mapVC.ourMapListings[i] != nil && [self.mapVC.ourMapListings[i].price doubleValue] <= self.priceSlider.value){
+            [sliderListings addObject:self.mapVC.ourMapListings[i]];
+        }
+    }
+}
+
+
 
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
-    
-
     // this is the animation for a search results drop down
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
@@ -273,6 +319,9 @@
         self.tableVC = segue.destinationViewController;
         [self.tableVC.searchTableView reloadData];
         [self.tableVC viewWillAppear:YES];
+    }
+    else if ([segue.identifier isEqualToString:@"filterSegue"]){
+        self.filterVC = segue.destinationViewController;
     }
 }
 

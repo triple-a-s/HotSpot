@@ -28,7 +28,8 @@
     [super viewDidLoad];
     self.currentTableView.dataSource = self;
     self.currentTableView.delegate = self;
-    self.currentTableView.rowHeight = 134;
+    self.currentTableView.estimatedRowHeight = 85.0;
+    self.currentTableView.rowHeight = UITableViewAutomaticDimension;
     [self.currentTableView reloadData];
     [Booking getCurrentBookingsWithBlock:^(NSArray<Booking *> * _Nonnull bookings, NSError * _Nonnull error) {
         if(error){
