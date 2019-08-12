@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -22,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.progressView.progress = 0;
 }
 
 //logs in a user, throws up an alert with an "empty" error message if one of the fields is empty.
@@ -30,26 +33,34 @@
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
-    UIAlertController *alert = [RegexHelper createAlertController];
+    UIAlertController *alert = [RegexHelper createAlertController:@"Login error" withMessage:@"Your username or password is empty"];
     
     if ([RegexHelper isEmpty:self.username.text] || [RegexHelper isEmpty:self.password.text]) {
-        alert.message = @"Your username or password is empty";
-        alert.title = @"Login Error";
         [self presentViewController:alert animated:YES completion:^{
         }];
     } else {
+        [NSTimer scheduledTimerWithTimeInterval:1
+                                         target:self
+                                       selector:@selector(timerFireMethod:)
+                                       userInfo:nil
+                                        repeats:NO];
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
             if (error != nil) {
+                self.progressView.progress=0;
                 alert.message = [NSString stringWithFormat:@"%@", error.localizedDescription];
                 [self presentViewController:alert animated:YES completion:^{
                 }];
             } else {
+                self.progressView.progress =1;
                 [self performSegueWithIdentifier:@"LoginSegue" sender:nil];
             }
         }];
     }
 }
 
+- (void) timerFireMethod:(NSTimer*)timer{
+    self.progressView.progress+=.1;
+}
 //when the user taps the view, to dismiss the keyboard
 - (IBAction)onViewTap:(UITapGestureRecognizer *)sender {
     [self.view endEditing:(YES)];
@@ -71,3 +82,4 @@
 }
 
 @end
+

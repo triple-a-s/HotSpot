@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TimeCell : UICollectionViewCell
 @property (nonatomic, assign, readwrite) BOOL chosen;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 - (void)setTime:(TimeSlot *)timeSlot;
 @end
 

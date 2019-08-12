@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "TimeCell.h"
 #import "TimeSlot.h"
+#import "ColorUtilities.h"
 
 @interface BookingViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *listingImageView;
@@ -34,12 +35,27 @@
     BOOL pickingStartTime;
     NSIndexPath *startIndexPath;
     NSDateFormatter *formatter;
+    UIColor *themeRedColor;
+    BOOL viewDidLayoutSubviewsForTheFirstTime;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    viewDidLayoutSubviewsForTheFirstTime = YES;
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.allowsMultipleSelection = YES;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 4;
+    
+    layout.itemSize = CGSizeMake(85, 50);
+    
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0]; // today
+    self.datePicker.maximumDate = [NSDate dateWithTimeIntervalSinceNow:3 * 30 * 24 * 60 * 60]; // around three months from now
 
     // image
     [DataManager getAddressNameFromListing:self.listing withCompletion:^(NSString *name, NSError * _Nullable error){
@@ -66,6 +82,30 @@
     [formatter setDateFormat:@"hh:mmaa"];
     
     [self updateCells];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if(viewDidLayoutSubviewsForTheFirstTime) {
+        viewDidLayoutSubviewsForTheFirstTime = NO;
+        
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [gregorian setTimeZone:[NSTimeZone localTimeZone]];
+        
+        NSDate *currentTime = [NSDate date];
+        
+        NSDate *beginningOfToday = [gregorian startOfDayForDate:currentTime];
+        
+        CGFloat minutesSinceBeginningOfToday = [currentTime timeIntervalSinceDate:beginningOfToday] / 60;
+        
+        NSIndexPath *currentTimeIndexPath = [NSIndexPath indexPathForItem:minutesSinceBeginningOfToday / 15 inSection:0];
+        
+        [self.collectionView scrollToItemAtIndexPath:currentTimeIndexPath
+                                    atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                            animated:NO];
+    }
+    
 }
 
 - (IBAction)closeClicked:(id)sender {
@@ -114,15 +154,22 @@
                                                                forIndexPath:indexPath];
     TimeSlot *timeSlot = self.timeSlots[indexPath.item];
     [cell setTime:timeSlot];
-    if (!timeSlot.available) {
-        cell.backgroundColor = [UIColor colorWithRed:1.0 green:.2 blue:.4 alpha:1.0];
+    if (!timeSlot.available) { // grayed out, unavailable
+        cell.backgroundColor = [UIColor grayColor];
+        cell.layer.borderColor = [UIColor grayColor].CGColor;
+        cell.timeLabel.textColor = [UIColor whiteColor];
     }
-    else if (timeSlot.chosen) {
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.4 blue:1.0 alpha:1.0];
+    else if (timeSlot.chosen) { // red, chosen
+        cell.backgroundColor = redThemeColor();
+        cell.layer.borderColor = redThemeColor().CGColor;
+        cell.timeLabel.textColor = [UIColor whiteColor];
     }
-    else {
-        cell.backgroundColor = [UIColor colorWithRed:0 green:.8 blue:.2 alpha:.6];
+    else { // white, available but unchosen
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.layer.borderColor = redThemeColor().CGColor;
+        cell.timeLabel.textColor = redThemeColor();
     }
+    cell.layer.borderWidth = 1;
     return cell;
 }
 
@@ -204,6 +251,8 @@
                     withDate:beginningOfDay];
         [self.timeSlots addObject:newTimeSlot];
     }
+    
+    [self makeTimeSlotsUnavailableGivenStartDate:beginningOfDay andEndDate:[NSDate dateWithTimeIntervalSinceNow:-15 * 60] andBeginningOfDay:beginningOfDay]; // cannot select a time earlier in the day
     
     // fetch the relevant time intervals
     [query findObjectsInBackgroundWithBlock:^(NSArray<TimeInterval *> *timeIntervals, NSError * _Nullable error) {
@@ -290,7 +339,6 @@
     }
     [self.collectionView reloadData];
 }
-
 
 - (IBAction)resetClicked:(id)sender {
     [self reset];

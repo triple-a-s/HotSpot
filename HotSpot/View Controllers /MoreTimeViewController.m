@@ -60,7 +60,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)updateViews {
-    self.endTimeLabel.text = [NSString stringWithFormat:@"End time: %@", [self.timeInterval.endTime dateByAddingTimeInterval:self.addedDuration]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mmaa"];
+    self.endTimeLabel.text = [NSString stringWithFormat:@"End time: %@", [formatter stringFromDate:[self.timeInterval.endTime dateByAddingTimeInterval:self.addedDuration]]];
     [self.booking canAddDuration:self.addedDuration + 15 * 60 WithCompletion:^(BOOL can, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);

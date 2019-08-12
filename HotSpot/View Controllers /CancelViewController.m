@@ -20,11 +20,16 @@
 }
 - (IBAction)cancelConfirmClicked:(id)sender {
     [self.booking cancel];
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
+    [self performSegueWithIdentifier:@"cancelSegue" sender:nil];
 }
 - (IBAction)goBackClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"cancelSegue"]) {
+        UITabBarController *tabBar = segue.destinationViewController;
+        tabBar.selectedIndex = 2;
+    }
 }
 
 @end
