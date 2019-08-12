@@ -230,28 +230,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Example: there was a car in the driveway, driver before me damaged property, etc." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ygw-Le-bgu">
-                                <rect key="frame" x="30" y="154" width="354" height="185"/>
+                                <rect key="frame" x="30" y="154" width="354" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please provide a picture of the car:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ig-0l-3Lc">
-                                <rect key="frame" x="74" y="392" width="266" height="21"/>
+                                <rect key="frame" x="74" y="367" width="266" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please provide the license plate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySl-Eo-08h">
-                                <rect key="frame" x="87" y="582" width="242" height="21"/>
+                                <rect key="frame" x="87" y="276" width="242" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-QS-XVW">
-                                <rect key="frame" x="87" y="623" width="240" height="30"/>
+                                <rect key="frame" x="87" y="305" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -268,7 +268,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carImage" translatesAutoresizingMaskIntoConstraints="NO" id="OLG-J3-0VD">
-                                <rect key="frame" x="123" y="421" width="169" height="127"/>
+                                <rect key="frame" x="123" y="396" width="169" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -320,23 +320,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'll look into that as soon as possible for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-9A-YhY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll look into that as soon as possible for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-9A-YhY">
                                 <rect key="frame" x="31" y="383" width="352" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for sending a report!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Jh-SE3">
-                                <rect key="frame" x="28" y="339" width="359" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for sending a report!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Jh-SE3">
+                                <rect key="frame" x="27.5" y="339" width="359" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-2K-pA0">
-                                <rect key="frame" x="123" y="434" width="172" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-2K-pA0">
+                                <rect key="frame" x="121" y="431.5" width="172" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Return to Search Page"/>
                                 <connections>
@@ -346,6 +343,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mBx-9A-YhY" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="8HX-ca-DLF"/>
+                            <constraint firstItem="aC1-2K-pA0" firstAttribute="centerY" secondItem="Oyz-vG-MoS" secondAttribute="centerY" id="O2P-Qv-43H"/>
+                            <constraint firstItem="aC1-2K-pA0" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="aRU-a9-9ti"/>
+                            <constraint firstItem="oCZ-Jh-SE3" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="jXa-Ln-bSl"/>
+                            <constraint firstItem="mBx-9A-YhY" firstAttribute="top" secondItem="oCZ-Jh-SE3" secondAttribute="bottom" constant="8" id="p9R-Nl-c5H"/>
+                            <constraint firstItem="oCZ-Jh-SE3" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="xXV-3s-uzB"/>
+                            <constraint firstItem="aC1-2K-pA0" firstAttribute="top" secondItem="mBx-9A-YhY" secondAttribute="bottom" constant="27.5" id="xZi-J8-fCo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pQY-Bu-gKM"/>
                     </view>
                     <connections>
@@ -375,9 +381,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9RW-2O-E6T">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RW-2O-E6T">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Damages" id="oc8-QA-Btn">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Oad-Yc-dDr">
@@ -388,25 +393,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please provide a picture of the damages below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zme-ub-QUj">
-                                <rect key="frame" x="26" y="136" width="362" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide a picture of the damages below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zme-ub-QUj">
+                                <rect key="frame" x="26" y="138" width="362" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carImage" translatesAutoresizingMaskIntoConstraints="NO" id="9pe-zV-9Uj">
-                                <rect key="frame" x="26" y="176" width="362" height="227"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carImage" translatesAutoresizingMaskIntoConstraints="NO" id="9pe-zV-9Uj">
+                                <rect key="frame" x="31" y="179" width="352" height="188"/>
                                 <color key="backgroundColor" red="1" green="0.20245817120000001" blue="0.15824015750000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rHj-qH-3mb" appends="YES" id="kWP-ky-SqQ"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7c-PP-8bj">
-                                <rect key="frame" x="159" y="432" width="96" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7c-PP-8bj">
+                                <rect key="frame" x="159" y="407" width="96" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Send Report"/>
                                 <connections>
@@ -416,6 +418,21 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9pe-zV-9Uj" firstAttribute="height" secondItem="4YW-U3-P4C" secondAttribute="height" multiplier="21:100" id="6db-Le-WtB"/>
+                            <constraint firstItem="9RW-2O-E6T" firstAttribute="top" secondItem="DU6-Tu-hbY" secondAttribute="top" id="7Rm-Z9-u2O"/>
+                            <constraint firstItem="Y7c-PP-8bj" firstAttribute="top" secondItem="9pe-zV-9Uj" secondAttribute="bottom" constant="40" id="APf-WW-1Cb"/>
+                            <constraint firstItem="DU6-Tu-hbY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zme-ub-QUj" secondAttribute="trailing" constant="10" id="FYQ-2m-EN9"/>
+                            <constraint firstItem="zme-ub-QUj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DU6-Tu-hbY" secondAttribute="leading" constant="10" id="GTE-wI-Vwu"/>
+                            <constraint firstItem="9pe-zV-9Uj" firstAttribute="centerX" secondItem="4YW-U3-P4C" secondAttribute="centerX" id="TaB-vd-Qls"/>
+                            <constraint firstItem="9RW-2O-E6T" firstAttribute="leading" secondItem="DU6-Tu-hbY" secondAttribute="leading" id="VHL-p8-NRb"/>
+                            <constraint firstItem="Y7c-PP-8bj" firstAttribute="centerX" secondItem="4YW-U3-P4C" secondAttribute="centerX" id="Z52-ZV-eml"/>
+                            <constraint firstItem="zme-ub-QUj" firstAttribute="top" secondItem="9RW-2O-E6T" secondAttribute="bottom" constant="50" id="bGE-hv-5cg"/>
+                            <constraint firstItem="9pe-zV-9Uj" firstAttribute="top" secondItem="zme-ub-QUj" secondAttribute="bottom" constant="20" id="n4j-6D-4ig"/>
+                            <constraint firstItem="9pe-zV-9Uj" firstAttribute="width" secondItem="4YW-U3-P4C" secondAttribute="width" multiplier="85:100" id="pGV-Qf-pzS"/>
+                            <constraint firstItem="9RW-2O-E6T" firstAttribute="trailing" secondItem="DU6-Tu-hbY" secondAttribute="trailing" id="xE4-f8-kzk"/>
+                            <constraint firstItem="zme-ub-QUj" firstAttribute="centerX" secondItem="4YW-U3-P4C" secondAttribute="centerX" id="zZN-y7-de6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DU6-Tu-hbY"/>
                     </view>
                     <connections>
@@ -479,7 +496,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write report message here:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2ZG-Gd-5TV">
-                                <rect key="frame" x="20" y="356" width="354" height="185"/>
+                                <rect key="frame" x="20" y="356" width="374" height="185"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -575,7 +592,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ptz-12-ynj"/>
-        <segue reference="jGl-C2-7Gn"/>
+        <segue reference="OMy-vK-lr8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
