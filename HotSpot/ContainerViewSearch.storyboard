@@ -82,13 +82,11 @@
                                     <segue destination="xQa-W4-cj7" kind="embed" identifier="toSpotTable" id="pqo-Jv-6hS"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-bR-bhc">
-                                <rect key="frame" x="0.0" y="144" width="279" height="669"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-bR-bhc">
+                                <rect key="frame" x="0.0" y="144" width="265" height="784"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3W-rT-ejj">
-                                        <rect key="frame" x="36" y="45" width="209" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3W-rT-ejj">
+                                        <rect key="frame" x="36" y="45" width="229" height="188"/>
                                         <color key="backgroundColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="8" maxX="30" maxY="8"/>
@@ -203,6 +201,16 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="l3W-rT-ejj" firstAttribute="width" secondItem="uN8-bR-bhc" secondAttribute="width" multiplier="209:265" id="5jp-s6-q8m"/>
+                                    <constraint firstItem="2I1-yE-36b" firstAttribute="trailing" secondItem="l3W-rT-ejj" secondAttribute="trailing" constant="6" id="8j2-e6-8dJ"/>
+                                    <constraint firstItem="l3W-rT-ejj" firstAttribute="height" secondItem="uN8-bR-bhc" secondAttribute="height" multiplier="48:144" id="KvT-EM-Otu"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="265" id="Xdg-lj-FAB">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="265"/>
+                                    </constraint>
+                                    <constraint firstItem="l3W-rT-ejj" firstAttribute="leading" secondItem="2I1-yE-36b" secondAttribute="leading" constant="36" id="eNQ-sG-QtS"/>
+                                    <constraint firstAttribute="height" constant="669" id="xGJ-LM-8az"/>
+                                </constraints>
                                 <viewLayoutGuide key="safeArea" id="2I1-yE-36b"/>
                             </view>
                         </subviews>
@@ -210,8 +218,11 @@
                         <constraints>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="trailing" secondItem="ylp-ov-5C3" secondAttribute="trailing" id="4Zx-Kq-LAk"/>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="6Z7-ez-hTF"/>
+                            <constraint firstItem="l3W-rT-ejj" firstAttribute="top" secondItem="ylp-ov-5C3" secondAttribute="top" constant="101" id="ASv-gu-vnC"/>
                             <constraint firstItem="6sP-V2-Q4b" firstAttribute="trailing" secondItem="ylp-ov-5C3" secondAttribute="trailing" id="DTf-iV-RXJ"/>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="top" secondItem="ylp-ov-5C3" secondAttribute="top" id="E8y-jq-2WB"/>
+                            <constraint firstItem="uN8-bR-bhc" firstAttribute="width" secondItem="i8h-mV-JlX" secondAttribute="width" multiplier="2:3" id="FIK-ZO-6gP"/>
+                            <constraint firstItem="uN8-bR-bhc" firstAttribute="height" secondItem="i8h-mV-JlX" secondAttribute="height" multiplier="7:8" id="GYF-40-b5g"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="trailing" secondItem="ylp-ov-5C3" secondAttribute="trailing" id="Qmv-W9-Nt0"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="Svj-2e-8Vj"/>
                             <constraint firstItem="6sP-V2-Q4b" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="UAG-QK-amp"/>
@@ -221,9 +232,12 @@
                             <constraint firstItem="SEi-fP-YzU" firstAttribute="trailing" secondItem="ylp-ov-5C3" secondAttribute="trailing" id="f0h-X3-mez"/>
                             <constraint firstItem="zGC-xf-0cN" firstAttribute="leading" secondItem="tKO-fL-Foy" secondAttribute="trailing" id="gtL-hO-1Kw"/>
                             <constraint firstItem="tKO-fL-Foy" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="jki-RW-VG0"/>
+                            <constraint firstItem="ylp-ov-5C3" firstAttribute="bottom" secondItem="l3W-rT-ejj" secondAttribute="bottom" constant="576" id="oiI-HY-xfy"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" id="tNp-mj-Lrx"/>
+                            <constraint firstItem="uN8-bR-bhc" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" id="v27-Uy-YFn"/>
                             <constraint firstItem="eML-tz-l8n" firstAttribute="top" secondItem="tKO-fL-Foy" secondAttribute="bottom" id="vAz-fN-AQh"/>
                             <constraint firstItem="SEi-fP-YzU" firstAttribute="leading" secondItem="ylp-ov-5C3" secondAttribute="leading" id="wgW-XL-UDN"/>
+                            <constraint firstItem="uN8-bR-bhc" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" constant="115" id="x82-dE-R5S"/>
                             <constraint firstItem="SEi-fP-YzU" firstAttribute="bottom" secondItem="ylp-ov-5C3" secondAttribute="bottom" id="xDh-RS-2oD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ylp-ov-5C3"/>
@@ -240,7 +254,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="61B-eg-jNy">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="61B-eg-jNy">
                             <rect key="frame" x="156.5" y="7.5" width="101" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -602,7 +616,7 @@
         <image name="search" width="29" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A4E-fw-Y4j"/>
+        <segue reference="B5L-9V-gpc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

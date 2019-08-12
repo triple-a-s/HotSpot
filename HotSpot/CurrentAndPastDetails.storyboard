@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="7C3-mN-U85">
-                                <rect key="frame" x="8" y="52" width="138" height="112"/>
+                                <rect key="frame" x="8" y="96" width="138" height="112"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="4"/>
@@ -27,7 +27,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-VP-Re1">
-                                <rect key="frame" x="8" y="172" width="104" height="30"/>
+                                <rect key="frame" x="8" y="216" width="104" height="30"/>
                                 <state key="normal" title="Contact Owner"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Parked / Time you will park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRV-aY-bkW">
@@ -104,8 +104,6 @@
                                 <connections>
                                     <segue destination="g95-fA-UMh" kind="presentation" id="dX3-4l-tBw"/>
                                 </connections>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3B-4n-QtQ">
                                 <rect key="frame" x="150" y="477" width="115" height="36"/>
@@ -126,7 +124,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WIS-dh-DE6">
-                                <rect key="frame" x="154" y="52" width="232" height="84"/>
+                                <rect key="frame" x="154" y="96" width="232" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    200 West Lake" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYa-dC-vih">
                                         <rect key="frame" x="54.5" y="0.0" width="123.5" height="19"/>
@@ -323,7 +321,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-2K-pA0">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC1-2K-pA0" customClass="FancyButton">
                                 <rect key="frame" x="112" y="432" width="193" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -563,6 +561,7 @@
         <image name="houseimageexample" width="550" height="413"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ptz-12-ynj"/>
         <segue reference="jGl-C2-7Gn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

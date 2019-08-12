@@ -68,6 +68,7 @@
     self.spotListView.hidden = YES;
     
     CGRect frame = self.filterView.frame;
+    frame.size.height = self.view.frame.size.height; 
     frame.origin.x = -frame.size.width;
     self.filterView.frame = frame;
     
@@ -193,8 +194,6 @@
             [sliderListings addObject:self.mapVC.ourMapListings[i]];
         }
     }
-    NSArray *returnSliderListings = [[NSArray alloc] initWithArray:sliderListings];
-    self.mapVC.ourMapListings = returnSliderListings;
 }
 
 
@@ -202,9 +201,6 @@
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
-    
-
     // this is the animation for a search results drop down
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;

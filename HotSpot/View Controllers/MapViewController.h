@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) PFFileObject *listingAnnotationImage;
 @property (strong, nonatomic) NSString *annotationTitle;
 @property (strong, nonatomic) NSArray<Listing *> *ourMapListings;
-
 - (void)setLocation:(CLLocation*)ourLocation onMap:(MKMapView*)map;
 - (void) makeAnnotation:(MKPointAnnotation*)ourAnnotation atLocation:(CLLocationCoordinate2D)ourLocation withTitle:(NSString*)title;
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;

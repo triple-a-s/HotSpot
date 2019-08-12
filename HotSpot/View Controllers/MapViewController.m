@@ -154,13 +154,7 @@
             if (finished) {
                 [UIView animateWithDuration:0.05 delay:0.05*[views indexOfObject:annotationView] options:UIViewAnimationOptionCurveLinear animations:^{
                     annotationView.transform = CGAffineTransformMakeScale(1.0, 0.7);
-                    
                 }completion:^(BOOL finished){
-                    /*if (finished) {
-                        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y + 10, annotationView.frame.size.width, annotationView.frame.size.height);
-                        [UIView animateWithDuration:0.3 delay:0.5*[views indexOfObject:annotationView] options: UIViewAnimationOptionCurveLinear animations:^{
-                            annotationView.frame = endFrame;
-                        } completion:^(BOOL finished){ */
                             if (finished) {
                                 [UIView animateWithDuration:0.2 animations:^{
                                     annotationView.transform = CGAffineTransformIdentity;
