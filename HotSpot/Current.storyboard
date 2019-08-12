@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-rx-1iL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-rx-1iL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -26,11 +26,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="yRs-Bh-6S5" id="nGu-JX-hiE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="houseimageexample" translatesAutoresizingMaskIntoConstraints="NO" id="bXd-gg-Ks9">
-                                                    <rect key="frame" x="8" y="10" width="139.5" height="100"/>
+                                                    <rect key="frame" x="8" y="10" width="138" height="99"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bXd-gg-Ks9" secondAttribute="height" multiplier="46:33" id="T4x-HI-71o"/>
                                                     </constraints>
@@ -41,7 +41,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1rl-oL-WJ0">
-                                                    <rect key="frame" x="155.5" y="10" width="250.5" height="41"/>
+                                                    <rect key="frame" x="154" y="10" width="252" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-bs-1Sj">
                                                             <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
@@ -71,7 +71,7 @@
                                                 <constraint firstItem="bXd-gg-Ks9" firstAttribute="leading" secondItem="nGu-JX-hiE" secondAttribute="leading" constant="8" id="bgF-fj-L8i"/>
                                                 <constraint firstItem="1rl-oL-WJ0" firstAttribute="leading" secondItem="bXd-gg-Ks9" secondAttribute="trailing" constant="8" id="elR-2O-eMI"/>
                                                 <constraint firstItem="bXd-gg-Ks9" firstAttribute="width" secondItem="nGu-JX-hiE" secondAttribute="width" multiplier="1:3" id="khN-aN-Nnd"/>
-                                                <constraint firstAttribute="bottom" secondItem="bXd-gg-Ks9" secondAttribute="bottom" constant="10" id="t41-9C-fJn"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bXd-gg-Ks9" secondAttribute="bottom" constant="10" id="t41-9C-fJn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
