@@ -166,16 +166,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i15-Of-J2U">
-                                <rect key="frame" x="8" y="28" width="359" height="49"/>
+                                <rect key="frame" x="8" y="28" width="359" height="59"/>
                                 <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jyf-xG-kbB">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="359" id="kzS-Wg-kbc"/>
+                                        </constraints>
+                                    </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 West Lake" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-1n-pDX">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="10" width="118.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z53-0P-iz7">
-                                        <rect key="frame" x="0.0" y="28.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="38.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -183,7 +189,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YrE-Cb-wov">
-                                <rect key="frame" x="8" y="298" width="359" height="70"/>
+                                <rect key="frame" x="8" y="308" width="359" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Upt-hS-qo1"/>
@@ -226,7 +232,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="jV5-K4-QDk" userLabel="Under Stack View">
-                                <rect key="frame" x="8" y="376" width="359" height="33"/>
+                                <rect key="frame" x="8" y="386" width="359" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00AM to 12:15AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-zT-wpO">
                                         <rect key="frame" x="0.0" y="6.5" width="157.5" height="20.5"/>
@@ -245,7 +251,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-aj-2SP" userLabel="Over Stack View">
-                                <rect key="frame" x="8" y="85" width="359" height="205"/>
+                                <rect key="frame" x="8" y="95" width="359" height="205"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzL-aR-caY" userLabel="CarView" customClass="CarView">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="80"/>
@@ -396,6 +402,7 @@
                         <outlet property="instructionsLabel" destination="czN-Af-MNg" id="K7N-0V-tpx"/>
                         <outlet property="listingAddressLabel" destination="ynh-1n-pDX" id="WKe-eq-ijh"/>
                         <outlet property="listingPriceLabel" destination="Z53-0P-iz7" id="KTH-2U-Sug"/>
+                        <outlet property="progressView" destination="Jyf-xG-kbB" id="pVK-Yi-7Ab"/>
                         <outlet property="timeRangeLabel" destination="wsY-zT-wpO" id="6eb-8x-QhW"/>
                         <segue destination="o8G-pB-FRW" kind="show" identifier="carSegue" id="A3x-wQ-Rtt"/>
                         <segue destination="F0r-BK-Ye1" kind="showDetail" identifier="confirmationSegue" id="NK8-ma-3UN"/>
