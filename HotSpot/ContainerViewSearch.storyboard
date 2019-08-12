@@ -235,39 +235,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBG-Rf-FaU">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="669"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gc-Ts-Npl">
-                                <rect key="frame" x="292" y="398" width="96" height="73"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="9i1-pO-PmV"/>
-                                    <constraint firstAttribute="height" constant="73" id="Npj-b2-0b3"/>
-                                </constraints>
-                                <state key="normal" image="question"/>
-                                <connections>
-                                    <action selector="questionIcon:" destination="Ufy-2x-Htd" eventType="touchUpInside" id="bXb-4B-avD"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DBG-Rf-FaU" firstAttribute="leading" secondItem="SIM-iD-KW6" secondAttribute="leading" id="8Im-HJ-ip1"/>
-                            <constraint firstItem="SIM-iD-KW6" firstAttribute="trailing" secondItem="5Gc-Ts-Npl" secondAttribute="trailing" constant="26" id="Akj-5u-Ku1"/>
                             <constraint firstItem="DBG-Rf-FaU" firstAttribute="top" secondItem="GeV-oG-J9z" secondAttribute="top" id="Iq5-JH-f4Q"/>
-                            <constraint firstItem="5Gc-Ts-Npl" firstAttribute="leading" secondItem="SIM-iD-KW6" secondAttribute="leading" constant="292" id="JeW-BE-KC7"/>
-                            <constraint firstItem="SIM-iD-KW6" firstAttribute="bottom" secondItem="5Gc-Ts-Npl" secondAttribute="bottom" constant="164" id="Mkg-hb-Qmd"/>
                             <constraint firstAttribute="bottom" secondItem="DBG-Rf-FaU" secondAttribute="bottom" id="Omh-EW-K2m"/>
                             <constraint firstItem="DBG-Rf-FaU" firstAttribute="trailing" secondItem="SIM-iD-KW6" secondAttribute="trailing" id="T8K-jF-MKo"/>
-                            <constraint firstItem="5Gc-Ts-Npl" firstAttribute="top" secondItem="SIM-iD-KW6" secondAttribute="top" constant="354" id="v3l-ug-Qtg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SIM-iD-KW6"/>
                     </view>
                     <connections>
-                        <outlet property="questionIcon" destination="5Gc-Ts-Npl" id="CUc-H1-VLy"/>
                         <outlet property="searchMap" destination="DBG-Rf-FaU" id="Dpj-cL-pXc"/>
                         <segue destination="9K2-sz-qct" kind="show" identifier="maptodetails" id="A4E-fw-Y4j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcy-HF-lP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Ufy-2x-Htd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3057.971014492754" y="-162.38839285714286"/>
         </scene>
@@ -406,11 +389,10 @@
         <image name="houseimageexample" width="550" height="413"/>
         <image name="location" width="43" height="38"/>
         <image name="microphone" width="23" height="36"/>
-        <image name="question" width="36" height="33"/>
         <image name="search" width="29" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5L-9V-gpc"/>
+        <segue reference="A4E-fw-Y4j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89406615499999997" green="0.3239448667" blue="0.2989487052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
