@@ -22,7 +22,6 @@
 // IB Outlets - Including the searchbar and searchresultTableView
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
-@property (weak, nonatomic) IBOutlet UIButton *mainSearchButton;
 @property (weak, nonatomic) IBOutlet UIView *spotListView;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
