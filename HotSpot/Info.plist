@@ -17,6 +17,8 @@
 	<string>2475252602537767</string>
 	<key>AccountKitClientToken</key>
 	<string>34f1ee4175f1a33d00af0238dfe6a178</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) would like to use speech recognition</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) would like to access your microphone</string>
 	<key>NSCameraUsageDescription</key>
