@@ -196,7 +196,6 @@
 # pragma mark - Search Related
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    self.spotListView.hidden = YES;
     // this is the animation for a search results drop down
     if(self.searchResultTableView.frame.size.height ==0)
         [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{CGRect frame = self.searchResultTableView.frame;
@@ -253,12 +252,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.mapView.hidden){
-    self.spotListView.hidden = NO;
-    }
-    else if (!self.mapView.hidden){
-        self.spotListView.hidden = YES;
-    }
     // finding the completion to set the address
     MKLocalSearchCompletion *completionForMap = self.spotsArray[indexPath.row];
     NSString *mapAddressForConversion = completionForMap.subtitle;

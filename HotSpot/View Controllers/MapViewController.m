@@ -75,9 +75,6 @@
     [self setLocation:self.initialLocation onMap:self.searchMap];
 }
 
-- (void) viewDidAppear:(BOOL)animated{
-    [self animateBounce];
-}
 # pragma mark - Map Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
@@ -217,21 +214,4 @@
     return newImage;
 }
 
-- (void) animateBounce {
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    
-    UIGravityBehavior* gravityBehavior =
-    [[UIGravityBehavior alloc] initWithItems:@[self.questionIcon]];
-    [self.animator addBehavior:gravityBehavior];
-    
-    UICollisionBehavior* collisionBehavior =
-    [[UICollisionBehavior alloc] initWithItems:@[self.questionIcon]];
-    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
-    [self.animator addBehavior:collisionBehavior];
-    
-    UIDynamicItemBehavior *elasticityBehavior =
-    [[UIDynamicItemBehavior alloc] initWithItems:@[self.questionIcon]];
-    elasticityBehavior.elasticity = 0.7f;
-    [self.animator addBehavior:elasticityBehavior];
-}
 @end
