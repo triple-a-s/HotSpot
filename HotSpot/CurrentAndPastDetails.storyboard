@@ -341,14 +341,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll look into that as soon as possible for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-9A-YhY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll look into that as soon as possible for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-9A-YhY">
                                 <rect key="frame" x="11.5" y="268.5" width="352" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for sending a report!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Jh-SE3">
-                                <rect key="frame" x="8" y="224.5" width="359" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for sending a report!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oCZ-Jh-SE3">
+                                <rect key="frame" x="10" y="224.5" width="355" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -366,10 +366,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mBx-9A-YhY" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="8HX-ca-DLF"/>
+                            <constraint firstItem="pQY-Bu-gKM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oCZ-Jh-SE3" secondAttribute="trailing" constant="10" id="KoL-6f-bdn"/>
                             <constraint firstItem="aC1-2K-pA0" firstAttribute="centerY" secondItem="Oyz-vG-MoS" secondAttribute="centerY" id="O2P-Qv-43H"/>
+                            <constraint firstItem="pQY-Bu-gKM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mBx-9A-YhY" secondAttribute="trailing" constant="10" id="WXZ-e4-kTY"/>
                             <constraint firstItem="aC1-2K-pA0" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="aRU-a9-9ti"/>
-                            <constraint firstItem="oCZ-Jh-SE3" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="jXa-Ln-bSl"/>
                             <constraint firstItem="mBx-9A-YhY" firstAttribute="top" secondItem="oCZ-Jh-SE3" secondAttribute="bottom" constant="8" id="p9R-Nl-c5H"/>
+                            <constraint firstItem="mBx-9A-YhY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pQY-Bu-gKM" secondAttribute="leading" constant="10" id="qz1-yL-Mi4"/>
+                            <constraint firstItem="oCZ-Jh-SE3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pQY-Bu-gKM" secondAttribute="leading" constant="10" id="vRs-4W-w3C"/>
                             <constraint firstItem="oCZ-Jh-SE3" firstAttribute="centerX" secondItem="Oyz-vG-MoS" secondAttribute="centerX" id="xXV-3s-uzB"/>
                             <constraint firstItem="aC1-2K-pA0" firstAttribute="top" secondItem="mBx-9A-YhY" secondAttribute="bottom" constant="27.5" id="xZi-J8-fCo"/>
                         </constraints>
